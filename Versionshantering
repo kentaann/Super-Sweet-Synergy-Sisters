@@ -1,0 +1,17 @@
+Hej
+
+Här är tips för hur en ska sätta dit versionsnummer för varje commit.
+
+Versionshantering:
+
+1. Vi börjar med 0.0.1 där X:et på 0.0.X står för småsaker, 
+   t.ex. insättning av bilder, ändra lite kod, mindre buggfixar osv.
+
+2. Sedan ändrar vi till 0.1.1 där X:et på 0.X.1 står för omfattande kod, 
+   t.ex. insättning av halv lr hel kod för en klass, rörelser för karaktärer osv
+
+3. När vi väl har ett någorlunda fungerande spel ändrar vi till 1.1.1 där X:et på X.1.1 står, 
+   t.ex insättning för meny, nytt interface, ny design på banan osv
+
+Med detta sagt så är det inte så petigt med hur versionshantering går till. 
+Bara ni har något att förhålla er till. Ni får ändra versionsnummer hur ni vill.
