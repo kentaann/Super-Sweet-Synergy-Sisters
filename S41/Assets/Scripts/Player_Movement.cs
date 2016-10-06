@@ -161,7 +161,7 @@ public class Player_Movement : MonoBehaviour
         m_moveAxisName = "Vertical" + m_PlayerNumber;
         m_turnAxisName = "Horizontal" + m_PlayerNumber;
 
-        m_OriginalPitch = m_playerAudio.pitch;          // Assigns the initial pitch of the audio
+        //m_OriginalPitch = m_playerAudio.pitch;          // Assigns the initial pitch of the audio
     }
 
     #endregion
