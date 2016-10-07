@@ -9,11 +9,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject quitButton;
     public Text pauseTextinMenu;
     public GameObject controlsButton;
-    public GameObject resumeGameButton;  // does not need maybe just pause and resume with the escap button
-    // for pause game see : Time.timeScale or Time.fixedDeltaTime
-
-
+    public GameObject resumeGameButton;  
+    
     bool menuOpened = false;
+    bool menuIsActive = false;
 
     void Awake()
     {
@@ -27,6 +26,7 @@ public class PauseMenu : MonoBehaviour
         controlsButton.SetActive(false);
         pauseTextinMenu.enabled = false;
         menuOpened = false;
+        menuIsActive = false;
     }
 
     void Update()
@@ -48,6 +48,7 @@ public class PauseMenu : MonoBehaviour
                 controlsButton.SetActive(true);
                 menuOpened = false;
                 Debug.Log("pressedOpenPause");
+                
             }
             else
             {
@@ -60,5 +61,10 @@ public class PauseMenu : MonoBehaviour
                 menuOpened = true;
             }
         }
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1.0f;
     }
 }
