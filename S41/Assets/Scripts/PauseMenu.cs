@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject resumeGameButton;  
     
     bool menuOpened = false;
-    bool menuIsActive = false;
+
 
     void Awake()
     {
@@ -26,7 +26,7 @@ public class PauseMenu : MonoBehaviour
         controlsButton.SetActive(false);
         pauseTextinMenu.enabled = false;
         menuOpened = false;
-        menuIsActive = false;
+        
     }
 
     void Update()
