@@ -17,7 +17,7 @@ public class Weapon_Trigger : MonoBehaviour {
     /// </summary>
     void Start ()
     {
-        Physics.IgnoreCollision(GetComponent<Collider>(), m_player.GetComponent<Collider>());
+        //Physics.IgnoreCollision(GetComponent<Collider>(), m_player.GetComponent<Collider>());
         //button = "Fire" + m_playerNumber;
 	}
 
