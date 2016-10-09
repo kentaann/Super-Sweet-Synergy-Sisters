@@ -15,6 +15,9 @@ public class PlayerHealth : MonoBehaviour
     public Scrollbar eliseScrollBar;
     public Scrollbar solveigScrollBar;
 
+    // Bara för att testa interaktion:
+    float timer = 0;
+
     void Start()
     {
         philippaHealth = philly_Health.m_currentHealth;
@@ -23,7 +26,14 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        //The timer is not supposed to be in use. It is merely to test out cross-script communication
+        timer += Time.deltaTime;
+
+        if(timer >= 5)
+        {
+            TakeDamagePhilippa(10);
+            timer = 0;
+        }
     }
 
     public void TakeDamagePhilippa(int amount)
