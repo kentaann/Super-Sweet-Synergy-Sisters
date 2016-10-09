@@ -5,7 +5,8 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour
 {
 
-    public int philippaHealth;       
+    public int philippaHealth;
+    public Phillippa_Health philly_Health;     
     public int simoneHealth;
     public int eliseHealth;
     public int solveigHealth;
@@ -16,6 +17,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        philippaHealth = philly_Health.m_currentHealth;
     }
 
     // Update is called once per frame

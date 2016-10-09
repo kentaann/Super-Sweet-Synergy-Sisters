@@ -5,13 +5,13 @@ using System;
 public class Attakoi : MonoBehaviour {
 
     public GameObject m_target;
-    public Rigidbody m_bullet;
-    public Transform m_fireTransform;
+    //public Rigidbody m_bullet;
+    //public Transform m_fireTransform;
 
     private Vector3 m_rushTarget;
     private bool m_fired;
     private float m_chargeSpeed;
-    private float m_launchForce;
+    //private float m_launchForce;
     private float m_rushSpeed;
 
 
@@ -21,7 +21,7 @@ public class Attakoi : MonoBehaviour {
 
     private  void OnEnable()
     {
-        m_launchForce = 30;
+        //m_launchForce = 30;
     }
 
 	// Use this for initialization
@@ -44,21 +44,21 @@ public class Attakoi : MonoBehaviour {
             Rush();
         }
 
-        if(Input.GetKeyUp(KeyCode.B) && !m_fired)
-        {
-            Shoot();
-        }
+        //if(Input.GetKeyUp(KeyCode.B) && !m_fired)
+        //{
+        //    Shoot();
+        //}
 	
 	}
 
-    private void Shoot()
-    {
-        m_fired = true;
+    //private void Shoot()
+    //{
+    //    m_fired = true;
 
-        Rigidbody bulletInstance = Instantiate(m_bullet, m_fireTransform.position, m_fireTransform.rotation) as Rigidbody;
+    //    Rigidbody bulletInstance = Instantiate(m_bullet, m_fireTransform.position, m_fireTransform.rotation) as Rigidbody;
 
-        bulletInstance.velocity = m_launchForce * m_fireTransform.forward;
-    }
+    //    bulletInstance.velocity = m_launchForce * m_fireTransform.forward;
+    //}
 
     /// <summary>
     /// This teleports the character forward. As in does not traverse the space between the points.
