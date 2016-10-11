@@ -38,7 +38,7 @@ public class Simone_Attack : MonoBehaviour
         coolDown = 2;
         m_Simone = GetComponent<Rigidbody>();
         m_playerMove = GetComponent<Player_Movement>();
-        m_bulletMaterial = new Material("EnergyDrink_Material");
+        //m_bulletMaterial = new Material("EnergyDrink_Material");
         m_energyDrinkActive = false;
         m_autoAttackActive = true;
     }
