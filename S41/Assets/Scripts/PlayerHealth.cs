@@ -6,7 +6,6 @@ public class PlayerHealth : MonoBehaviour
 {
 
     public int philippaHealth;
-    public Phillippa_Health philly_Health;     
     public int simoneHealth;
     public int eliseHealth;
     public int solveigHealth;
@@ -20,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        philippaHealth = philly_Health.m_currentHealth;
+
     }
 
     // Update is called once per frame
@@ -29,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
         //The timer is not supposed to be in use. It is merely to test out cross-script communication
         timer += Time.deltaTime;
 
-        if(timer >= 5)
+        if(timer >= 1)
         {
             TakeDamagePhilippa(10);
             timer = 0;

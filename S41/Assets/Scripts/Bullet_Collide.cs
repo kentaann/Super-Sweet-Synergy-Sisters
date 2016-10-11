@@ -18,11 +18,13 @@ public class Bullet_Collide : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("On TRIEGER");
         Collider[] colliders = Physics.OverlapSphere(transform.position, m_explosionRadius, m_EnemyMask);
 
         for(int i = 0; i < colliders.Length; i++)
         {
             Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody>();
+            Debug.Log("MANNEN");
 
             if (!targetRigidbody)
                 continue;
@@ -36,6 +38,7 @@ public class Bullet_Collide : MonoBehaviour
 
             float damage = CalculateDamage(targetRigidbody.position);
 
+            enemyHealth.SendMessage("TakeDamage", damage);
             enemyHealth.TakeDamage(damage);
         }
 
