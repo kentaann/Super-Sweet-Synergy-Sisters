@@ -65,12 +65,21 @@ public class UserInterface : MonoBehaviour {
     public void QuitGame()
     {
         // need to build to be able to run it
-        Application.Quit();        
+        if (Input.GetKeyDown("joystick button 6"))
+        {
+            Application.Quit();
+            Debug.Log("QuitPressed");
+        }
     }
 
     public void StartGame()
     {
         // need to build to be able to run it
-        //Application.LoadLevel(1);
+        if (Input.GetKeyDown("joystick button 2"))
+        {
+            //Application.LoadLevel(1);
+            Debug.Log("StartPressed");
+        }
+       
     }
 }

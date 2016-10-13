@@ -36,7 +36,8 @@ public class PauseMenu : MonoBehaviour
 
     public void OpenMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        //antingen escap eller back button on xbox back
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 6"))
         {
             if (menuOpened && Time.timeScale == 1.0f)
             {
@@ -50,7 +51,7 @@ public class PauseMenu : MonoBehaviour
                 Debug.Log("pressedOpenPause");
                 
             }
-            else
+            else 
             {
                 Time.timeScale = 1.0f;
                 pausePanel.enabled = false;
