@@ -10,13 +10,12 @@ public class UserInterface : MonoBehaviour {
     public Image optionsMenuBg;    
     public Text controlsWhatItDoesText;
     public Text controlButtonsText;    
-    public Text controlsText;
-    public bool control = false;
+    public Text controlsText;    
     bool optionMenuOpened = false;   
     
 
     // Use this for initialization
-    void Start ()
+    void Awake ()
     {                
         optionsButton = GameObject.Find("OptionButton");
         startGameButton = GameObject.Find("StartButton");
@@ -25,36 +24,42 @@ public class UserInterface : MonoBehaviour {
         controlsWhatItDoesText.enabled = false;
         controlButtonsText.enabled = false;        
         controlsText.enabled = false;
-        control = false;
-        
+        optionMenuOpened = false; 
         
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        
+        OpenOptions();
+        QuitGame();
+        StartGame();
     }
 
     public void OpenOptions()
     {
-        if (Input.GetKeyDown("X360_Start") && optionMenuOpened == false)
+        if (Input.GetKeyDown("joystick button 7"))
         {
-            optionsMenuBg.enabled = true;
-            controlsWhatItDoesText.enabled = true;
-            controlButtonsText.enabled = true;            
-            controlsText.enabled = true;            
-            optionMenuOpened = true;
-            Debug.Log("pressedStart");
+            if (optionMenuOpened)
+            {
+                optionsMenuBg.enabled = true;
+                controlsWhatItDoesText.enabled = true;
+                controlButtonsText.enabled = true;
+                controlsText.enabled = true;
+                optionMenuOpened = false;
+                Debug.Log("pressedStart");
+            }
+            else
+            {
+                optionsMenuBg.enabled = false;
+                controlsWhatItDoesText.enabled = false;
+                controlButtonsText.enabled = false;
+                controlsText.enabled = false;
+                optionMenuOpened = true;
+            } 
+            
         }
-        else
-        {
-            optionsMenuBg.enabled = false;
-            controlsWhatItDoesText.enabled = false;
-            controlButtonsText.enabled = false;            
-            controlsText.enabled = false;              
-            optionMenuOpened = false;
-        }        
+              
     }      
 
     public void QuitGame()
