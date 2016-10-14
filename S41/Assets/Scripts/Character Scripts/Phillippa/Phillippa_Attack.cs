@@ -14,7 +14,6 @@ public class Phillippa_Attack : MonoBehaviour
     public List<Transform> m_targetList = new List<Transform>();
     public SphereCollider m_Spherecollider;
 
-    AiMovement m_aiMovemet;
     Stopwatch m_timer = new Stopwatch();
 
     private const float m_FLUFFCOOLDOWN = 6;
@@ -49,6 +48,16 @@ public class Phillippa_Attack : MonoBehaviour
 
     #endregion
 
+    void RemoveNullTarget()
+    {
+        foreach(var target in m_targetList)
+        {
+            if(target == null)
+            {
+                m_targetList.Remove(target);
+            }
+        }
+    }
     #region Fluffpound
 
     /// <summary>
@@ -64,7 +73,7 @@ public class Phillippa_Attack : MonoBehaviour
 
             if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 100))
             {
-                if (targetConnected.transform == target)
+                if (targetConnected.transform == target && targetConnected.transform != null)
                 {
 
                     //while(timer.Elapsed.TotalSeconds > m_FLUFFCOOLDOWN)
@@ -87,10 +96,6 @@ public class Phillippa_Attack : MonoBehaviour
 
     #endregion
 
-    private void SetEnemyMoveSpeed(int movespeed)
-    {
-        m_aiMovemet.MoveSpeed = movespeed;
-    }
 
     // Use this for initialization
     void Start()
@@ -101,10 +106,14 @@ public class Phillippa_Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(m_targetList.Count > 0)
+        {
+            RemoveNullTarget();
+        }
+
         if (Input.GetKeyUp(KeyCode.I))
         {
             Fluffpound();
-            UnityEngine.Debug.Log("Fluffpound");
         }
     }
 }

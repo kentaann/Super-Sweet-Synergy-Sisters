@@ -39,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
     {
         philippaHealth -= amount;
         philippaScrollBar.size = philippaHealth / 200f;
-        Debug.Log(philippaScrollBar.size);
+
 
 
         if (philippaHealth <= 0)
