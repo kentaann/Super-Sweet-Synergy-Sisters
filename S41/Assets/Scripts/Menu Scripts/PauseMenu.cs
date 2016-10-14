@@ -79,6 +79,11 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown("joystick button 3"))
         {
             Time.timeScale = 1.0f;
+            pausePanel.enabled = false;
+            pauseTextinMenu.enabled = false;
+            quitButton.SetActive(false);
+            controlsButton.SetActive(false);
+            resumeGameButton.SetActive(false);
         }
     }
 }
