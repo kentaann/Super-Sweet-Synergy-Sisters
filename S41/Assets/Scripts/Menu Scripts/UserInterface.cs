@@ -37,7 +37,7 @@ public class UserInterface : MonoBehaviour {
 
     public void OpenOptions()
     {
-        if (Input.GetKeyDown("joystick button 7"))
+        if (Input.GetKeyDown("joystick button 7") || Input.GetKeyDown(KeyCode.F2))
         {
             if (optionMenuOpened)
             {
