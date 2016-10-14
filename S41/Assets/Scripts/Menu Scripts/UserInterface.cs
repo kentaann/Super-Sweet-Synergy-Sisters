@@ -62,7 +62,7 @@ public class UserInterface : MonoBehaviour {
     public void QuitGame()
     {
         // need to build to be able to run it
-        if (Input.GetKeyDown("joystick button 6"))
+        if (Input.GetKeyDown("joystick button 6") || Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
             Debug.Log("QuitPressed");
@@ -72,7 +72,7 @@ public class UserInterface : MonoBehaviour {
     public void StartGame()
     {
         // need to build to be able to run it
-        if (Input.GetKeyDown("joystick button 2"))
+        if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.F1))
         {
             SceneManager.LoadScene("DemoLevel");
             Debug.Log("StartPressed");

@@ -9,8 +9,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject quitButton;
     public Text pauseTextinMenu;
     public GameObject controlsButton;
-    public GameObject resumeGameButton;  
-    
+    public GameObject resumeGameButton;
+
     bool menuOpened = false;
 
 
@@ -26,12 +26,14 @@ public class PauseMenu : MonoBehaviour
         controlsButton.SetActive(false);
         pauseTextinMenu.enabled = false;
         menuOpened = false;
-        
+
     }
 
     void Update()
     {
         OpenMenu();
+        QuitGameInGameMenu();
+        ResumeGame();
     }
 
     public void OpenMenu()
@@ -49,9 +51,9 @@ public class PauseMenu : MonoBehaviour
                 controlsButton.SetActive(true);
                 menuOpened = false;
                 Debug.Log("pressedOpenPause");
-                
+
             }
-            else 
+            else
             {
                 Time.timeScale = 1.0f;
                 pausePanel.enabled = false;
@@ -64,8 +66,19 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    public void QuitGameInGameMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown("joystick button 2"))
+        {
+            Application.Quit();
+        }
+    }
+
     public void ResumeGame()
     {
-        Time.timeScale = 1.0f;
+        if (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown("joystick button 3"))
+        {
+            Time.timeScale = 1.0f;
+        }
     }
 }
