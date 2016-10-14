@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public Scrollbar eliseScrollBar;
     public Scrollbar solveigScrollBar;
     public string yo;
+    public string test;
     // Bara för att testa interaktion:
     float timer = 0;
 
