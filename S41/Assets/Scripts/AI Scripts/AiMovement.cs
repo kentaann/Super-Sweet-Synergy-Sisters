@@ -40,6 +40,10 @@ public class AiMovement : MonoBehaviour {
         //TankPlayer = GameObject.FindGameObjectWithTag("Här ska tankens tag vara").transform;
     }
 	
+    public void SetMoveSpeed(float moveSpeed)
+    {
+        MoveSpeed = moveSpeed;
+    }
 	
 
     public void AddPlayersToList()
