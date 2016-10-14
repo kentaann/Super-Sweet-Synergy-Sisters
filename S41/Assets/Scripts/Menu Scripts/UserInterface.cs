@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class UserInterface : MonoBehaviour {
         
     public GameObject optionsButton;
@@ -24,8 +24,7 @@ public class UserInterface : MonoBehaviour {
         controlsWhatItDoesText.enabled = false;
         controlButtonsText.enabled = false;        
         controlsText.enabled = false;
-        optionMenuOpened = false; 
-        
+        optionMenuOpened = false;         
     }
 	
 	// Update is called once per frame
@@ -56,10 +55,8 @@ public class UserInterface : MonoBehaviour {
                 controlButtonsText.enabled = false;
                 controlsText.enabled = false;
                 optionMenuOpened = true;
-            } 
-            
-        }
-              
+            }             
+        }              
     }      
 
     public void QuitGame()
@@ -77,9 +74,8 @@ public class UserInterface : MonoBehaviour {
         // need to build to be able to run it
         if (Input.GetKeyDown("joystick button 2"))
         {
-            //Application.LoadLevel(1);
+            SceneManager.LoadScene("DemoLevel");
             Debug.Log("StartPressed");
-        }
-       
+        }       
     }
 }
