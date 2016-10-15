@@ -48,6 +48,8 @@ public class Phillippa_Attack : MonoBehaviour
 
     #endregion
 
+    #region Remove Null Target
+
     void RemoveNullTarget()
     {
         foreach(var target in m_targetList)
@@ -58,6 +60,9 @@ public class Phillippa_Attack : MonoBehaviour
             }
         }
     }
+
+    #endregion
+
     #region Fluffpound
 
     /// <summary>
