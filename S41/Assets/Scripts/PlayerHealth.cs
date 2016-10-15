@@ -5,6 +5,7 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour
 {
 
+    public Image gamoverImage;
     public int philippaHealth;
     public int simoneHealth;
     public int eliseHealth;
@@ -13,27 +14,42 @@ public class PlayerHealth : MonoBehaviour
     public Scrollbar simoneScrollBar;
     public Scrollbar eliseScrollBar;
     public Scrollbar solveigScrollBar;
-    public string yo;
-    public string test;
+    //public string yo;
+    //public string test;
     // Bara för att testa interaktion:
     float timer = 0;
+    public bool deadPh = false;
+    public bool deadEl = false;
+    public bool deadSi = false;
+    public bool deadSol = false;
 
     void Start()
     {
-
+        gamoverImage = gamoverImage.GetComponent<Image>();
+        deadPh = false;
+        deadEl = false;
+        deadSi = false;
+        deadSol = false;
+        gamoverImage.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         //The timer is not supposed to be in use. It is merely to test out cross-script communication
         timer += Time.deltaTime;
 
-        if(timer >= 1)
+        if (timer >= 1)
         {
-            TakeDamagePhilippa(10);
+            TakeDamagePhilippa(30);
+            TakeDamageElise(20);
+            TakeDamageSimone(20);
+            TakeDamageSolveig(20);
             timer = 0;
         }
+
+        GameOverMenu();
     }
 
     public void TakeDamagePhilippa(int amount)
@@ -46,6 +62,7 @@ public class PlayerHealth : MonoBehaviour
         if (philippaHealth <= 0)
         {
             PhilippaIsDead();
+            deadPh = true;
         }
     }
 
@@ -53,11 +70,12 @@ public class PlayerHealth : MonoBehaviour
     {
         simoneHealth -= amount;
         simoneScrollBar.size = simoneHealth / 100f;
-       
 
-        if(simoneHealth <= 0)
+
+        if (simoneHealth <= 0)
         {
             SimoneIsDead();
+            deadSi = true;
         }
     }
 
@@ -70,6 +88,7 @@ public class PlayerHealth : MonoBehaviour
         if (eliseHealth <= 0)
         {
             EliseIsDead();
+            deadEl = true;
         }
     }
 
@@ -82,6 +101,15 @@ public class PlayerHealth : MonoBehaviour
         if (eliseHealth <= 0)
         {
             SolveigIsDead();
+            deadSol = true;
+        }
+    }
+
+    public void GameOverMenu()
+    {
+        if (deadSol == true && deadSi == true && deadPh == true && deadEl == true)
+        {
+            gamoverImage.enabled = true;
         }
     }
 
