@@ -4,7 +4,11 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-
+    public Text gotScoreText;
+    public Text ScoreText;
+    public Text highScoreText;
+    public Text gameOverText;
+    public Image scorePanelParent;
     public Image gamoverImage;
     public int philippaHealth;
     public int simoneHealth;
@@ -31,6 +35,10 @@ public class PlayerHealth : MonoBehaviour
         deadSi = false;
         deadSol = false;
         gamoverImage.enabled = false;
+        gameOverText.enabled = false;
+        gotScoreText.enabled = false;
+        ScoreText.enabled = false;
+        highScoreText.enabled = false;
     }
 
     // Update is called once per frame
@@ -110,6 +118,10 @@ public class PlayerHealth : MonoBehaviour
         if (deadSol == true && deadSi == true && deadPh == true && deadEl == true)
         {
             gamoverImage.enabled = true;
+            gameOverText.enabled = true;
+            gotScoreText.enabled = true;
+            ScoreText.enabled = true;
+            highScoreText.enabled = true;
         }
     }
 
