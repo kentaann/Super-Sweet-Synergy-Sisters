@@ -1,0 +1,131 @@
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 10.1]
+    Renderer: Intel(R) HD Graphics 3000 (ID=0x126)
+    Vendor:   Intel
+    VRAM:     880 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Qyseth\Documents\Super-Sweet-Synergy-Sisters\S41\Assets\Scenes\SecondGameBuild_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Qyseth\Documents\Super-Sweet-Synergy-Sisters\S41\Assets\Scenes\SecondGameBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Qyseth\Documents\Super-Sweet-Synergy-Sisters\S41\Assets\Scenes\SecondGameBuild_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Qyseth\Documents\Super-Sweet-Synergy-Sisters\S41\Assets\Scenes\SecondGameBuild_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Qyseth\Documents\Super-Sweet-Synergy-Sisters\S41\Assets\Scenes\SecondGameBuild_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Qyseth\Documents\Super-Sweet-Synergy-Sisters\S41\Assets\Scenes\SecondGameBuild_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Qyseth\Documents\Super-Sweet-Synergy-Sisters\S41\Assets\Scenes\SecondGameBuild_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Qyseth\Documents\Super-Sweet-Synergy-Sisters\S41\Assets\Scenes\SecondGameBuild_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Qyseth\Documents\Super-Sweet-Synergy-Sisters\S41\Assets\Scenes\SecondGameBuild_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Qyseth\Documents\Super-Sweet-Synergy-Sisters\S41\Assets\Scenes\SecondGameBuild_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.066 seconds
+Platform assembly: C:\Users\Qyseth\Documents\Super-Sweet-Synergy-Sisters\S41\Assets\Scenes\SecondGameBuild_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Qyseth\Documents\Super-Sweet-Synergy-Sisters\S41\Assets\Scenes\SecondGameBuild_Data\Managed\System.dll (this message is harmless)
+desktop: 1600x900 60Hz; virtual: 3520x1080 at -1920,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.833404 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2028 -> priority: 1 
+  Thread -> id: 2624 -> priority: 1 
+Joystick connected ("XBOX 360 For Windows (Controller)").
+ 
+(Filename:  Line: 1353)
+
+StartPressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'Phillippa') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.344918 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3793.
+Total: 0.824415 ms (FindLiveObjects: 0.222155 ms CreateObjectMapping: 0.078760 ms MarkObjects: 0.506805 ms  DeleteObjects: 0.015837 ms)
+
+The class WaveSpawner started
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+UnityException: Tag: EastWall is not defined.
+  at (wrapper managed-to-native) UnityEngine.GameObject:CompareTag (string)
+  at PlayerController.OnCollisionEnter (UnityEngine.Collision collision) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Spawning Wave: Wave spawn 1.0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Spawning EnemyEnemy2.0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Spawning EnemyEnemy2.0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Spawning EnemyEnemy2.0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.958391 ms
+
+Unloading 58 unused Assets to reduce memory usage. Loaded Objects now: 255.
+Total: 0.370259 ms (FindLiveObjects: 0.020974 ms CreateObjectMapping: 0.014981 ms MarkObjects: 0.183203 ms  DeleteObjects: 0.150671 ms)
+

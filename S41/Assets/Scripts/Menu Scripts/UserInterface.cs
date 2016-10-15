@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class UserInterface : MonoBehaviour {
         
+    // Main Menu
     public GameObject optionsButton;
     public GameObject quitGameButton;    
     public GameObject startGameButton;
