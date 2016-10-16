@@ -41,10 +41,10 @@ public class Health_Player : MonoBehaviour
 
         m_currentHealth -= amount;
 
-        if(m_currentHealth <= 0 && !isDead)
-        {
-            Death();
-        }
+        //if(m_currentHealth <= 0 && !isDead)
+        //{
+        //    Death();
+        //}
     }
 
     void Death()

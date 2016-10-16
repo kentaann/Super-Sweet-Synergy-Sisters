@@ -50,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
             timer = 0;
         }
 
-        GameOverMenu();
+        //GameOverMenu();
     }
 
     public void TakeDamagePhilippa(int amount)
