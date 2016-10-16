@@ -21,7 +21,12 @@ namespace UnityStandardAssets.Utility
 		private float heightDamping;
 
 		// Use this for initialization
-		void Start() { }
+		void Start() 
+        {
+            transform.position = new Vector3(-12, 18, 17);
+            transform.rotation = Quaternion.Euler(68, 343, 347);
+            transform.localScale = new Vector3(1, 1, 1);
+        }
 
 		// Update is called once per frame
 		void LateUpdate()

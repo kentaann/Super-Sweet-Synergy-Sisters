@@ -16,10 +16,22 @@ public class Bullet_Collide : MonoBehaviour
         Destroy(gameObject, m_lifeSpan);
 	}
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //råkar kallas så fort skottet instansieras
     {
         Debug.Log("On TRIEGER");
         Collider[] colliders = Physics.OverlapSphere(transform.position, m_explosionRadius, m_EnemyMask);
+
+        if (other.gameObject.tag == "Enemy")
+        {
+            other.gameObject.GetComponent<EnemyHealth>().Hit(10);
+            Debug.Log("Hit enemy");
+            //Destroy(gameObject);
+        }
+
+        if (other.gameObject.tag == "Environment")
+        {
+            Destroy(gameObject);
+        }
 
         for(int i = 0; i < colliders.Length; i++)
         {

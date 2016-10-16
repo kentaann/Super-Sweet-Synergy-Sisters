@@ -45,6 +45,9 @@ public class PlayerController : MonoBehaviour {
         Quaternion rotation = Quaternion.Euler(new Vector3(0, rStickX, 0) * turnSpeed * Time.deltaTime);
         transform.Rotate(new Vector3(0, rStickX, 0), turnSpeed * Time.deltaTime);
 
+        //var direction = new Vector3(Input.GetAxis("X360_RStickY"), 0, Input.GetAxis(xbox_name_RstickX));
+        //transform.forward = direction;
+
         float dPadX = Input.GetAxis("X360_DPadX");
 
         float dPadY = Input.GetAxis("X360_DPadY");

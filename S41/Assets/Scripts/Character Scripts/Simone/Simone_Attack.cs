@@ -27,6 +27,7 @@ public class Simone_Attack : MonoBehaviour
     public double m_damage;                                         // Base damage per projectile
     private float timeStamp;
     private float coolDown;
+    private float rateShoot;
 
     #endregion
 
@@ -40,7 +41,7 @@ public class Simone_Attack : MonoBehaviour
         m_bulletLaunchForce = 30f;
         m_damage = 10;
         timeStamp = Time.time + coolDown;
-        coolDown = 2;
+        coolDown = 0.5f;
         m_Simone = GetComponent<Rigidbody>();
         m_playerMove = GetComponent<Player_Movement>();
         //m_bulletMaterial = new Material("EnergyDrink_Material");
@@ -95,15 +96,24 @@ public class Simone_Attack : MonoBehaviour
             RemoveNullTarget();
         }
 
+        rateShoot += Time.deltaTime;
 
-        if (Input.GetKeyUp(KeyCode.P) && m_autoAttackActive)
-        {
-            S_autoAttack();
-        }
+        if (rateShoot >= coolDown)
+	    {
+		    if (Input.GetKey(KeyCode.P) || Input.GetButton("X360_A") && m_autoAttackActive)
+            {
+                S_autoAttack();
+                rateShoot = 0;
+            } 
+	    }
 
-        if (Input.GetKey(KeyCode.P) && m_energyDrinkActive && !m_autoAttackActive)
+        if (rateShoot >= coolDown)
         {
-            S_EnergyDrinkAttack();
+            if (Input.GetKey(KeyCode.P) && m_energyDrinkActive && !m_autoAttackActive)
+            {
+                S_EnergyDrinkAttack();
+                rateShoot = 0;
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.L))
@@ -111,6 +121,7 @@ public class Simone_Attack : MonoBehaviour
             m_energyDrinkActive = true;
             m_autoAttackActive = false;
             m_playerMove.m_moveSpeed = 0;
+            coolDown = 0.15f;
         }
 
         if (Input.GetKeyUp(KeyCode.K))
@@ -118,6 +129,7 @@ public class Simone_Attack : MonoBehaviour
             m_energyDrinkActive = false;
             m_autoAttackActive = true;
             m_playerMove.m_moveSpeed = 12;
+            coolDown = 0.5f;
         }
     }
 
