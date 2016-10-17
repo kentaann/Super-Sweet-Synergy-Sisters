@@ -14,7 +14,7 @@ public class Phillippa_Attack : MonoBehaviour
     public List<Transform> m_targetList = new List<Transform>();
     public SphereCollider m_Spherecollider;
 
-    Stopwatch m_timer = new Stopwatch();
+    //Stopwatch m_timer = new Stopwatch();
 
     private const float m_FLUFFCOOLDOWN = 6;
     private const float m_FLUFFSTUNDURATION = 2;
@@ -71,7 +71,7 @@ public class Phillippa_Attack : MonoBehaviour
     /// </summary>
     public void Fluffpound()
     {
-        m_timer.Start();
+       // m_timer.Start();
         foreach (var target in m_targetList)
         {
             RaycastHit targetConnected;
@@ -85,14 +85,14 @@ public class Phillippa_Attack : MonoBehaviour
                     //{
                     target.SendMessage("Hit", 50);
                     target.SendMessage("SetMoveSpeed", 0f);
-                    m_timer.Reset();
-                    m_timer.Start();
+                  //  m_timer.Reset();
+                  //  m_timer.Start();
 
-                    if(m_timer.Elapsed.TotalSeconds > m_FLUFFSTUNDURATION)
-                    {
+                    //if(m_timer.Elapsed.TotalSeconds > m_FLUFFSTUNDURATION)
+                   // {
                         target.SendMessage("SetMoveSpeed", 2f);                        
-                    }
-                    m_timer.Reset();
+                   // }
+                   // m_timer.Reset();
                     //}                    
                 }
             }
