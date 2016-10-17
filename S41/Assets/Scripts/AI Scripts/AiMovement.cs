@@ -8,7 +8,7 @@ public class AiMovement : MonoBehaviour {
     //public Transform Player;//används ej
     //public Transform TankPlayer;
     public float MoveSpeed = 1.5f;
-    float MinDist = 0;
+    float MinDist = 0.5f;
     float InRangeAggresive = 15;
     float InRangeAttackTank = 40;
 

@@ -27,7 +27,7 @@ public class Bullet_Collide : MonoBehaviour
             //Destroy(gameObject);
         }
 
-        if (other.gameObject.tag == "Environment")
+        if (other.gameObject.tag == "Environment" || other.gameObject.tag == "Player")
         {
             Destroy(gameObject);
         }
