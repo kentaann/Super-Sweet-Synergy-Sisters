@@ -111,7 +111,8 @@ public class PlayerController : MonoBehaviour {
 
     void OnCollisionEnter(Collision collision)
     {
-        if (gameObject.CompareTag("EastWall")) // or if(gameObject.CompareTag("YourWallTag"))
+        //Environment was initially EastWall in case you want/need to change it back
+        if (gameObject.CompareTag("Environment")) // or if(gameObject.CompareTag("YourWallTag"))
         {
             rb.velocity = Vector3.zero;
         }

@@ -18,13 +18,12 @@ public class Bullet_Collide : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) //råkar kallas så fort skottet instansieras
     {
-        Debug.Log("On TRIEGER");
+
         Collider[] colliders = Physics.OverlapSphere(transform.position, m_explosionRadius, m_EnemyMask);
 
         if (other.gameObject.tag == "Enemy")
         {
-            other.gameObject.GetComponent<EnemyHealth>().Hit(10);
-            Debug.Log("Hit enemy");
+            other.gameObject.GetComponent<EnemyHealth>().Hit(10);       //Hit(10) has to be changed to Hit(dmg variable in simone script)
             //Destroy(gameObject);
         }
 
@@ -36,22 +35,17 @@ public class Bullet_Collide : MonoBehaviour
         for(int i = 0; i < colliders.Length; i++)
         {
             Rigidbody targetRigidbody = colliders[i].GetComponent<Rigidbody>();
-            Debug.Log("MANNEN");
 
             if (!targetRigidbody)
                 continue;
 
             targetRigidbody.AddExplosionForce(m_explosionForce, transform.position, m_explosionRadius);
 
-            Enemy_Health enemyHealth = targetRigidbody.GetComponent<Enemy_Health>();
 
-            if (!enemyHealth)
                 continue;
 
             float damage = CalculateDamage(targetRigidbody.position);
 
-            enemyHealth.SendMessage("TakeDamage", damage);
-            enemyHealth.TakeDamage(damage);
         }
 
         Destroy(gameObject);
