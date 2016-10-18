@@ -132,6 +132,7 @@ public class Simone_Attack : MonoBehaviour
             m_autoAttackActive = false;
             m_whippedCreamActive = false;
             m_playerMove.m_moveSpeed = 0;
+            m_damage = m_damage * 0.8;
             m_coolDown = 0.15f;
         }
 
@@ -149,6 +150,7 @@ public class Simone_Attack : MonoBehaviour
             m_whippedCreamActive = true;
             m_autoAttackActive = false;
             m_energyDrinkActive = false;
+            m_damage = m_damage * 1.2;
             m_playerMove.m_moveSpeed = m_playerMove.m_moveSpeed * m_whippedCreamMoveSpeedMod;
             m_coolDown = 0.5f;
             Debug.Log(m_damage);
@@ -176,7 +178,6 @@ public class Simone_Attack : MonoBehaviour
     /// </summary>
     private void S_EnergyDrinkAttack()
     {
-        m_damage = m_damage * 0.8;
         Rigidbody bulletInstance = Instantiate(m_bullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
         bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
 
@@ -184,7 +185,6 @@ public class Simone_Attack : MonoBehaviour
     
     private void S_WhippedCreamAttack()
     {
-        m_damage = m_damage * 1.2;
         Rigidbody bulletInstance = Instantiate(m_bullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
         bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
     }

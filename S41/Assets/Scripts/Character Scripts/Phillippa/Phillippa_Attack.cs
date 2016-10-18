@@ -76,7 +76,7 @@ public class Phillippa_Attack : MonoBehaviour
         foreach (var target in m_targetList)
         {
             RaycastHit targetConnected;
-
+            
             if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 100))
             {
                 if (targetConnected.transform == target && targetConnected.transform != null)
