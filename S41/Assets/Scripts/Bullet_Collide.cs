@@ -5,10 +5,11 @@ public class Bullet_Collide : MonoBehaviour
 {
     public LayerMask m_EnemyMask;
     //private Simone_Attack m_Simone;
-
+    
     public float m_lifeSpan = 5f;
     public float m_explosionRadius = 1f;
 
+    private GameObject m_spawnOrigin;
 	// Use this for initialization
 	void Start () 
     {
