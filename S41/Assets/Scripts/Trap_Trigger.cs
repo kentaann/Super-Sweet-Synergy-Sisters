@@ -11,23 +11,18 @@ public class Trap_Trigger : MonoBehaviour
 	
 	}
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        elapsedTime = Time.deltaTime;
-
-        while (other.gameObject.tag == "Enemy" && elapsedTime < 1)
+        if (other.gameObject.tag == "Enemy" && elapsedTime < 1)
         {
             other.gameObject.SendMessage("SetMoveSpeed", 0f);
+
+            elapsedTime += Time.deltaTime;
 
             if (elapsedTime > 1)
             {
                 other.gameObject.SendMessage("SetMoveSpeed", 10f);
             }
-            //if (elapsedTime > 1)
-            //{
-            //    other.gameObject.SendMessage("SetMoveSpeed", 10f);
-            //}
-            break;
         }
 
     }
