@@ -4,7 +4,7 @@ using System.Collections;
 public class Bullet_Collide : MonoBehaviour 
 {
     public LayerMask m_EnemyMask;
-    private Simone_Attack m_Simone;
+    //private Simone_Attack m_Simone;
 
     public float m_maxDamage = 100f;
     public float m_explosionForce = 1000f;
@@ -14,7 +14,7 @@ public class Bullet_Collide : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-        m_Simone = GetComponent<Simone_Attack>();
+        //m_Simone = GetComponent<Simone_Attack>();
         Destroy(gameObject, m_lifeSpan);
 	}
 
