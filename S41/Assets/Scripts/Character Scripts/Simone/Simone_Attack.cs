@@ -13,21 +13,21 @@ public class Simone_Attack : MonoBehaviour
     public Transform m_transformOrigin;                             // Where the attack will spawn on the character
     public List<Transform> m_targetList = new List<Transform>();    // List of all potential targets
     public Rigidbody m_bullet;                                      // The rigidbody of the projectile
-    public Rigidbody m_Simone;
     public Material m_bulletMaterial;
 
     Player_Movement m_playerMove;                                   // Used to manipulate movement from this class
-    Bullet_Collide m_bulletCollision;
 
     private float m_bulletLaunchForce;                              // Speed of the projectile
+    private float m_coolDown;
+    private float m_attackRate;
+    private int m_Score;
+    private float m_whippedCreamMoveSpeedMod;
 
     private bool m_energyDrinkActive;                               // Flag for the Energy Drink element
     private bool m_autoAttackActive;                                // Flag for the Regular attack
+    private bool m_whippedCreamActive;
 
     public double m_damage;                                         // Base damage per projectile
-    private float timeStamp;
-    private float coolDown;
-    private float rateShoot;
 
     #endregion
 
@@ -40,12 +40,13 @@ public class Simone_Attack : MonoBehaviour
     {
         m_bulletLaunchForce = 30f;
         m_damage = 10;
-        timeStamp = Time.time + coolDown;
-        coolDown = 0.5f;
-        m_Simone = GetComponent<Rigidbody>();
+        m_coolDown = 0.5f;
+        m_Score = 0;
+        m_whippedCreamMoveSpeedMod = 0.75f;
         m_playerMove = GetComponent<Player_Movement>();
         //m_bulletMaterial = new Material("EnergyDrink_Material");
         m_energyDrinkActive = false;
+        m_whippedCreamActive = false;
         m_autoAttackActive = true;
     }
 
@@ -96,23 +97,32 @@ public class Simone_Attack : MonoBehaviour
             RemoveNullTarget();
         }
 
-        rateShoot += Time.deltaTime;
+        m_attackRate += Time.deltaTime;
 
-        if (rateShoot >= coolDown)
+        if (m_attackRate >= m_coolDown)
 	    {
 		    if (Input.GetKey(KeyCode.P) || Input.GetButton("X360_A") && m_autoAttackActive)
             {
                 S_autoAttack();
-                rateShoot = 0;
+                m_attackRate = 0;
             } 
 	    }
 
-        if (rateShoot >= coolDown)
+        if (m_attackRate >= m_coolDown)
         {
             if (Input.GetKey(KeyCode.P) && m_energyDrinkActive && !m_autoAttackActive)
             {
                 S_EnergyDrinkAttack();
-                rateShoot = 0;
+                m_attackRate = 0;
+            }
+        }
+
+        if(m_attackRate >= m_coolDown)
+        {
+            if(Input.GetKey(KeyCode.P) && m_whippedCreamActive && !m_autoAttackActive && !m_energyDrinkActive)
+            {
+                S_WhippedCreamAttack();
+                m_attackRate = 0;
             }
         }
 
@@ -120,16 +130,29 @@ public class Simone_Attack : MonoBehaviour
         {
             m_energyDrinkActive = true;
             m_autoAttackActive = false;
+            m_whippedCreamActive = false;
             m_playerMove.m_moveSpeed = 0;
-            coolDown = 0.15f;
+            m_coolDown = 0.15f;
         }
 
         if (Input.GetKeyUp(KeyCode.K))
         {
             m_energyDrinkActive = false;
             m_autoAttackActive = true;
+            m_whippedCreamActive = false;
             m_playerMove.m_moveSpeed = 12;
-            coolDown = 0.5f;
+            m_coolDown = 0.5f;
+        }
+
+        if(Input.GetKeyUp(KeyCode.Z))
+        {
+            m_whippedCreamActive = true;
+            m_autoAttackActive = false;
+            m_energyDrinkActive = false;
+            m_playerMove.m_moveSpeed = m_playerMove.m_moveSpeed * m_whippedCreamMoveSpeedMod;
+            m_coolDown = 0.5f;
+            Debug.Log(m_damage);
+
         }
     }
 
@@ -158,6 +181,13 @@ public class Simone_Attack : MonoBehaviour
         bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
 
     }
+    
+    private void S_WhippedCreamAttack()
+    {
+        m_damage = m_damage * 1.2;
+        Rigidbody bulletInstance = Instantiate(m_bullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
+        bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
+    }
 
     #endregion
 
@@ -183,4 +213,10 @@ public class Simone_Attack : MonoBehaviour
     }
 
     #endregion
+
+    public void SetScore(int score)
+    {
+        m_Score += score;
+        Debug.Log(m_Score);
+    }
 }

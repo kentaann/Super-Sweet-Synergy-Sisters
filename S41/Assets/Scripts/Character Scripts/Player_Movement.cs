@@ -8,94 +8,6 @@ using UnityEngine.UI;
 
 public class Player_Movement : MonoBehaviour
 {
-    #region xbox
-    /*
-    public float speed = 18;
-    public float turnSpeed = 60;
-    //public Text countText;
-    private Rigidbody rb;
-    //private int count;
-    //public Text winText;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-        //count = 0;
-        //SetCountText();
-        //winText.text = "";
-
-    }
-    void FixedUpdate()
-    {
-        //Jonathan Pisch
-        //Kontroller för XBOX_360 
-        float moveHorizontal = Input.GetAxis("HorizontalJoyStick");
-        float moveVertical = Input.GetAxis("VerticalJoyStick");
-        float rStickX = Input.GetAxis("X360_RStickX");
-        Vector3 movement = transform.TransformDirection(new Vector3(moveHorizontal, 0, moveVertical) * speed * Time.deltaTime);
-        rb.MovePosition(transform.position + movement);
-        Quaternion rotation = Quaternion.Euler(new Vector3(0, rStickX, 0) * turnSpeed * Time.deltaTime);
-        transform.Rotate(new Vector3(0, rStickX, 0), turnSpeed * Time.deltaTime);
-        float dPadX = Input.GetAxis("X360_DPadX");
-        float dPadY = Input.GetAxis("X360_DPadY");
-        float triggerAxis = Input.GetAxis("X360_Triggers");
-        if (dPadX != 0)
-        {
-            print("DPad Horizontal Value: " + dPadX);
-        }
-        if (dPadY != 0)
-        {
-            print("DPad Vertical Value: " + dPadY);
-        }
-        if (triggerAxis != 0)
-        {
-            print("Trigger Value: " + triggerAxis);
-        }
-        if (Input.GetButtonDown("X360_LBumper"))
-        {
-            print("Left Bumper");
-        }
-        if (Input.GetButtonDown("X360_RBumper"))
-        {
-            print("Right Bumper");
-        }
-        if (Input.GetButtonDown("X360_A"))
-        {
-            print("A Button");
-        }
-        if (Input.GetButtonDown("X360_B"))
-        {
-            print("B Button");
-        }
-        if (Input.GetButtonDown("X360_X"))
-        {
-            print("X Button");
-        }
-        if (Input.GetButtonDown("X360_Y"))
-        {
-            print("Y Button");
-        }
-        if (Input.GetButtonDown("X360_Back"))
-        {
-            print("Back Button");
-        }
-        if (Input.GetButtonDown("X360_Start"))
-        {
-            print("Start Button");
-        }
-        if (Input.GetButtonDown("X360_LStickClick"))
-        {
-            print("Clicked Left Stick");
-        }
-        if (Input.GetButtonDown("X360_RStickClick"))
-        {
-            print("Clicked Right Stick");
-        }
-    }
-    */
-
-    #endregion
-
     #region Variables
 
     public int m_PlayerNumber = 1;          // Player number. Used for assigning controls etc
@@ -315,5 +227,9 @@ public class Player_Movement : MonoBehaviour
         m_Rigidbody.MoveRotation(m_Rigidbody.rotation * turnRotation);
     }
 
+    public void SetMoveSpeed(float moveSpeed)
+    {
+        m_moveSpeed = moveSpeed;
+    }
     #endregion
 }

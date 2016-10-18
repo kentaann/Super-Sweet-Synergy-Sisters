@@ -4,6 +4,7 @@ using System.Collections;
 public class Bullet_Collide : MonoBehaviour 
 {
     public LayerMask m_EnemyMask;
+    private Simone_Attack m_Simone;
 
     public float m_maxDamage = 100f;
     public float m_explosionForce = 1000f;
@@ -13,6 +14,7 @@ public class Bullet_Collide : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        m_Simone = GetComponent<Simone_Attack>();
         Destroy(gameObject, m_lifeSpan);
 	}
 
@@ -24,6 +26,9 @@ public class Bullet_Collide : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyHealth>().Hit(10);       //Hit(10) has to be changed to Hit(dmg variable in simone script)
+       
+                //m_Simone.GetComponent<Simone_Attack>().SetScore(10);
+
             //Destroy(gameObject);
         }
 
