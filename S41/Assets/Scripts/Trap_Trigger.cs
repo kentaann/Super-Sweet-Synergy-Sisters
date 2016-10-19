@@ -4,7 +4,7 @@ using System.Collections;
 public class Trap_Trigger : MonoBehaviour 
 {
     float elapsedTime = 0;
-    float fireDamage = 0;
+    float fireDamage = 0.5f;
     bool fireActivated = false;
 
 	// Use this for initialization
@@ -21,10 +21,8 @@ public class Trap_Trigger : MonoBehaviour
 
             elapsedTime += Time.deltaTime;
 
-            //other.gameObject.GetComponent<EnemyHealth>().Hit(fireDamage);
             if (fireActivated == true)
             {
-                fireDamage += (elapsedTime / 2);
                 other.gameObject.GetComponent<EnemyHealth>().Hit(fireDamage);
             }
 
@@ -40,7 +38,6 @@ public class Trap_Trigger : MonoBehaviour
     {
         if (fireHit == true)
         {
-            //fireDamage += (elapsedTime * 100);
             fireActivated = true;
         }
     }
