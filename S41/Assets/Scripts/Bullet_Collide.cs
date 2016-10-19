@@ -35,6 +35,11 @@ public class Bullet_Collide : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (other.gameObject.tag == "Trap")
+        {
+            other.gameObject.GetComponent<Trap_Trigger>().FiredUp(true);
+        }
+
 
         Destroy(gameObject);
     }

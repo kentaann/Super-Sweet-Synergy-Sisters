@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour {
 
-    public int health, maxHealth;
+    public float health, maxHealth;
     public GameObject enemyToDestroy;
 
     private Image healthBar;
 
-    public int Health
+    public float Health
     {
         get
         {
@@ -43,7 +43,7 @@ public class EnemyHealth : MonoBehaviour {
         }
     }
 
-    public void Hit(int damage)
+    public void Hit(float damage)
     {
         health -= damage;
         healthBar.fillAmount = (float)health / (float)maxHealth;
