@@ -24,9 +24,29 @@ public class PlayerHealth : MonoBehaviour
     public bool deadSi = false;
     public bool deadSol = false;
 
+    public GameObject simone;
+    public GameObject solveig;
+    public GameObject philippa;
+    public GameObject elise;
+
+    FixedPlayerHealth fixedPlayerHealth_Simone;
+    FixedPlayerHealth fixedPlayerHealth_Solveig;
+    FixedPlayerHealth fixedPlayerHealth_Philippa;
+    FixedPlayerHealth fixedPlayerHealth_Elise;
+
     void Start()
     {
-        
+        fixedPlayerHealth_Simone = simone.GetComponent<FixedPlayerHealth>();
+        fixedPlayerHealth_Solveig = solveig.GetComponent<FixedPlayerHealth>();
+        fixedPlayerHealth_Philippa = philippa.GetComponent<FixedPlayerHealth>();
+        fixedPlayerHealth_Elise = elise.GetComponent<FixedPlayerHealth>();
+
+
+        simoneHealth = fixedPlayerHealth_Simone.GetHealth();
+        solveigHealth = fixedPlayerHealth_Solveig.GetHealth();
+        philippaHealth = fixedPlayerHealth_Philippa.GetHealth();
+        eliseHealth = fixedPlayerHealth_Elise.GetHealth();
+
         deadPh = false;
         deadEl = false;
         deadSi = false;
@@ -49,6 +69,18 @@ public class PlayerHealth : MonoBehaviour
             TakeDamageSolveig(20);
             timer = 0;
         }
+
+        simoneHealth = fixedPlayerHealth_Simone.GetHealth();
+        simoneScrollBar.size = simoneHealth / 100f;
+
+        solveigHealth = fixedPlayerHealth_Solveig.GetHealth();
+        solveigScrollBar.size = solveigHealth / 100f;
+
+        philippaHealth = fixedPlayerHealth_Philippa.GetHealth();
+        philippaScrollBar.size = philippaHealth / 100f;
+
+        eliseHealth = fixedPlayerHealth_Elise.GetHealth();
+        eliseScrollBar.size = eliseHealth / 100f;
 
         //GameOverMenu();
     }
