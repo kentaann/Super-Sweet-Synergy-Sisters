@@ -82,7 +82,7 @@ public class PlayerHealth : MonoBehaviour
         eliseHealth = fixedPlayerHealth_Elise.GetHealth();
         eliseScrollBar.size = eliseHealth / 100f;
 
-        //GameOverMenu();
+        GameOverMenu();
     }
 
     public void TakeDamagePhilippa(int amount)
