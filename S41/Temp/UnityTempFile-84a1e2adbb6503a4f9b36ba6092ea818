@@ -84,6 +84,7 @@
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_WIN
 -define:UNITY_TEAM_LICENSE
+-define:ENABLE_VSTU
 Assets/EnemyHealth.cs
 "Assets/Scripts/AI Scripts/AiMovement.cs"
 "Assets/Scripts/AI Scripts/AiSpawningScript.cs"
@@ -93,7 +94,6 @@ Assets/Scripts/Bullet_Collide.cs
 Assets/Scripts/CDnewTry.cs
 Assets/Scripts/CameraFacingBillboard.cs
 Assets/Scripts/Camera_Control.cs
-Assets/Scripts/Camera_test.cs
 "Assets/Scripts/Character Scripts/Elise/Elise_Attack.cs"
 "Assets/Scripts/Character Scripts/Phillippa/Phillippa_Attack.cs"
 "Assets/Scripts/Character Scripts/Player_Attack.cs"
