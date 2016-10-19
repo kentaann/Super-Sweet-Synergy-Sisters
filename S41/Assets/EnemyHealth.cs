@@ -50,12 +50,12 @@ public class EnemyHealth : MonoBehaviour {
     }
 
     //Kan användas i andra klasser för kollision
-    //void OnCollisionEnter(Collision other)
-    //{
-    //    if (other.gameObject.tag == "Enemy")
-    //    {
-    //        other.gameObject.GetComponent<EnemyHealth>().Hit(10);
-    //        Debug.Log("Hit enemy");
-    //    }
-    //}
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            other.gameObject.GetComponent<EnemyHealth>().Hit(10);
+            Debug.Log("Hit enemy");
+        }
+    }
 }
