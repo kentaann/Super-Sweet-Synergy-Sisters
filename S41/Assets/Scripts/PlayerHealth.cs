@@ -138,6 +138,15 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    //void OnCollisionEnter(Collision other)
+    //{
+    //    if (other.gameObject.tag == "Enemy")
+    //    {
+    //        TakeDamagePhilippa(20);
+    //        Debug.Log("Hit player");
+    //    }
+    //}
+
     public void GameOverMenu()
     {
         if (deadSol == true && deadSi == true && deadPh == true && deadEl == true)

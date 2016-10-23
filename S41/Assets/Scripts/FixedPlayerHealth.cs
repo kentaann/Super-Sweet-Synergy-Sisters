@@ -36,4 +36,13 @@ public class FixedPlayerHealth : MonoBehaviour {
     {
         return health;
     }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            TakeDamage(20);
+            Debug.Log("Hit enemy");
+        }
+    }
 }
