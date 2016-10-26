@@ -13,6 +13,9 @@ public class Simone_Attack : MonoBehaviour
     public Transform m_transformOrigin;                             // Where the attack will spawn on the character
     public List<Transform> m_targetList = new List<Transform>();    // List of all potential targets
     public Rigidbody m_bullet;                                      // The rigidbody of the projectile
+    public Rigidbody m_spicyBullet;                                 // The rigidbody of the spicy chocolate projectile
+    public Rigidbody m_whippedBullet;                               // The rigidbody of the whipped cream projectile
+    public Rigidbody m_energyBullet;                                // The rigidbody of the energy drink projectile
     public Material m_bulletMaterial;
 
     Player_Movement m_playerMove;                                   // Used to manipulate movement from this class
@@ -214,7 +217,7 @@ public class Simone_Attack : MonoBehaviour
 
     private void S_SpicyChocolateAttack()
     {
-        Rigidbody bulletInstance = Instantiate(m_bullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
+        Rigidbody bulletInstance = Instantiate(m_spicyBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
         bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
     }
 
