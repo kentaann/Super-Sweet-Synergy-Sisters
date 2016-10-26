@@ -30,12 +30,6 @@ public class Spicy_Chocolate : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        if (other.gameObject.tag == "Trap")
-        {
-            other.gameObject.GetComponent<Trap_Trigger>().FiredUp(true);
-        }
-
-
         Destroy(gameObject);
     }
 
