@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour {
     public string xbox_name_Horizontal;
     public string xbox_name_Vertical;
     public string xbox_name_RstickX;
+    public string xbox_name_RstickY;
+
     void Awake()
     {
         rb.freezeRotation = true;
@@ -37,13 +39,21 @@ public class PlayerController : MonoBehaviour {
         float moveHorizontal = Input.GetAxis(xbox_name_Horizontal);
         float moveVertical = Input.GetAxis(xbox_name_Vertical);
         float rStickX = Input.GetAxis(xbox_name_RstickX);
+        float rStickY = Input.GetAxis(xbox_name_RstickY);
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
 
 
-        Quaternion rotation = Quaternion.Euler(new Vector3(0, rStickX, 0) * turnSpeed * Time.deltaTime);
-        transform.Rotate(new Vector3(0, rStickX, 0), turnSpeed * Time.deltaTime);
+        var direction = new Vector3(Input.GetAxis(xbox_name_RstickX), 0, -(Input.GetAxis(xbox_name_RstickY)));
+        if (direction.magnitude > 0.1f)
+        {
+            var rotation = Quaternion.LookRotation(direction, Vector3.up);
+            transform.rotation = rotation;
+        }
+
+        //Quaternion rotation = Quaternion.Euler(new Vector3(0, rStickX, 0) * turnSpeed * Time.deltaTime);
+        //transform.Rotate(new Vector3(0, rStickX, 0), turnSpeed * Time.deltaTime);
 
         //var direction = new Vector3(Input.GetAxis("X360_RStickY"), 0, Input.GetAxis(xbox_name_RstickX));
         //transform.forward = direction;
