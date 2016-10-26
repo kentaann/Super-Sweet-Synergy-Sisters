@@ -39,9 +39,12 @@ public class FixedPlayerHealth : MonoBehaviour {
 
     void OnCollisionEnter(Collision other)
     {
+        Rigidbody enemyBody = other.gameObject.GetComponent<Rigidbody>();
+
         if (other.gameObject.tag == "Enemy")
         {
             TakeDamage(20);
+            enemyBody.AddExplosionForce(1000f, transform.position, 5f);
             Debug.Log("Hit enemy");
         }
     }
