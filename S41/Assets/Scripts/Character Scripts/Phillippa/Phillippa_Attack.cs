@@ -17,6 +17,7 @@ public class Phillippa_Attack : MonoBehaviour
 
     private const float m_FLUFFCOOLDOWN = 6;
     private const float m_FLUFFSTUNDURATION = 2;
+    private float m_fluffDamage = 50;
     
     private float m_timer;
 
@@ -64,7 +65,7 @@ public class Phillippa_Attack : MonoBehaviour
 
     #endregion
 
-    #region Fluffpound
+    #region Phillippa attacks
 
     /// <summary>
     /// Area Of Effect attack that does damage and stuns the enemy.
@@ -81,11 +82,16 @@ public class Phillippa_Attack : MonoBehaviour
             {
                 if (targetConnected.transform == target && targetConnected.transform != null)
                 {
-                    target.SendMessage("Hit", 50);
+                    target.SendMessage("Hit", m_fluffDamage);
                     target.SendMessage("SetMoveSpeed", 0f);          
                 }
             }
         }
+    }
+
+    public void RushAttack()
+    {
+
     }
 
     #endregion

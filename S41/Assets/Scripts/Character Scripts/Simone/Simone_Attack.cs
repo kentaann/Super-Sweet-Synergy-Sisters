@@ -17,15 +17,17 @@ public class Simone_Attack : MonoBehaviour
 
     Player_Movement m_playerMove;                                   // Used to manipulate movement from this class
 
+
     private float m_bulletLaunchForce;                              // Speed of the projectile
-    private float m_coolDown;
-    private float m_attackRate;
-    private int m_Score;
-    private float m_whippedCreamMoveSpeedMod;
+    private float m_coolDown;                                       // Cooldown of attacks                     
+    private float m_attackRate;                                     // Attackrate
+    private float m_whippedCreamMoveSpeedMod;                       // Modifier for the players movespeed while using whipped cream
+    private int m_Score;                                            // Player score
 
     private bool m_energyDrinkActive;                               // Flag for the Energy Drink element
     private bool m_autoAttackActive;                                // Flag for the Regular attack
-    private bool m_whippedCreamActive;
+    private bool m_whippedCreamActive;                              // Flag for the Whipped Cream element
+    private bool m_spicyChocolateActive;                            // Flag for the Spicy Chocolate element
 
     public double m_damage;                                         // Base damage per projectile
 
@@ -48,6 +50,7 @@ public class Simone_Attack : MonoBehaviour
         m_energyDrinkActive = false;
         m_whippedCreamActive = false;
         m_autoAttackActive = true;
+        m_spicyChocolateActive = false;
     }
 
     #endregion
@@ -101,7 +104,7 @@ public class Simone_Attack : MonoBehaviour
 
         if (m_attackRate >= m_coolDown)
 	    {
-		    if (Input.GetKey(KeyCode.P) || Input.GetButton("X360_A") && m_autoAttackActive)
+		    if (Input.GetKey(KeyCode.P) || Input.GetButton("X360_A") && m_autoAttackActive && !m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
             {
                 S_autoAttack();
                 m_attackRate = 0;
@@ -110,7 +113,7 @@ public class Simone_Attack : MonoBehaviour
 
         if (m_attackRate >= m_coolDown)
         {
-            if (Input.GetKey(KeyCode.P) && m_energyDrinkActive && !m_autoAttackActive)
+            if (Input.GetKey(KeyCode.P) && m_energyDrinkActive && !m_autoAttackActive && !m_spicyChocolateActive && !m_whippedCreamActive)
             {
                 S_EnergyDrinkAttack();
                 m_attackRate = 0;
@@ -119,9 +122,18 @@ public class Simone_Attack : MonoBehaviour
 
         if(m_attackRate >= m_coolDown)
         {
-            if(Input.GetKey(KeyCode.P) && m_whippedCreamActive && !m_autoAttackActive && !m_energyDrinkActive)
+            if(Input.GetKey(KeyCode.P) && m_whippedCreamActive && !m_autoAttackActive && !m_energyDrinkActive && !m_spicyChocolateActive)
             {
                 S_WhippedCreamAttack();
+                m_attackRate = 0;
+            }
+        }
+
+        if(m_attackRate > m_coolDown)
+        {
+            if(Input.GetKeyUp(KeyCode.P) && m_spicyChocolateActive && !m_autoAttackActive && !m_energyDrinkActive && !m_whippedCreamActive)
+            {
+                S_SpicyChocolateAttack();
                 m_attackRate = 0;
             }
         }
@@ -143,6 +155,7 @@ public class Simone_Attack : MonoBehaviour
             m_whippedCreamActive = false;
             m_playerMove.m_moveSpeed = 12;
             m_coolDown = 0.5f;
+            m_damage = 10f;
         }
 
         if(Input.GetKeyUp(KeyCode.Z))
@@ -154,7 +167,17 @@ public class Simone_Attack : MonoBehaviour
             m_playerMove.m_moveSpeed = m_playerMove.m_moveSpeed * m_whippedCreamMoveSpeedMod;
             m_coolDown = 0.5f;
             Debug.Log(m_damage);
+        }
 
+        if(Input.GetKeyUp(KeyCode.M))
+        {
+            m_spicyChocolateActive = true;
+            m_energyDrinkActive = false;
+            m_autoAttackActive = false;
+            m_whippedCreamActive = false;
+            m_coolDown = 0.5f;
+            m_damage = 10f;
+            Debug.Log("SPICY CHOCOLATE ACTIVE");
         }
     }
 
@@ -184,6 +207,12 @@ public class Simone_Attack : MonoBehaviour
     }
     
     private void S_WhippedCreamAttack()
+    {
+        Rigidbody bulletInstance = Instantiate(m_bullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
+        bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
+    }
+
+    private void S_SpicyChocolateAttack()
     {
         Rigidbody bulletInstance = Instantiate(m_bullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
         bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
