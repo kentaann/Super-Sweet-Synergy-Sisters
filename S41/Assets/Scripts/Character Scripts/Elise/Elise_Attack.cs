@@ -4,7 +4,10 @@ using System.Collections;
 public class Elise_Attack : MonoBehaviour 
 {
 
-    public Transform m_transformOrigin;
+    public Transform m_transformTrapOrigin;
+    public Transform m_transformFireOrigin;
+    public Transform m_transformFireOriginLeft;
+    public Transform m_transformFireOriginRight;
     public Collider m_trap;
     public Rigidbody m_multiBullet;
 
@@ -23,20 +26,32 @@ public class Elise_Attack : MonoBehaviour
         {
             E_LayTrap();
         } 
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            E_MultiShot();
+        }
 	}
 
     private void E_LayTrap()
     {
-        Collider m_trapInstance = Instantiate(m_trap, m_transformOrigin.position, m_transformOrigin.rotation) as Collider;
+        Collider m_trapInstance = Instantiate(m_trap, m_transformTrapOrigin.position, m_transformTrapOrigin.rotation) as Collider;
     }
 
     private void E_MultiShot()
     {
-        Rigidbody multiBulletInstance1 = Instantiate(m_multiBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
-        Rigidbody multiBulletInstance2 = Instantiate(m_multiBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
-        Rigidbody multiBulletInstance3 = Instantiate(m_multiBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
-        multiBulletInstance1.velocity = m_multiLaunchForce * m_transformOrigin.forward;
-        multiBulletInstance2.velocity = m_multiLaunchForce * m_transformOrigin.forward;
-        multiBulletInstance3.velocity = m_multiLaunchForce * m_transformOrigin.forward;
+        Rigidbody multiBulletInstance1 = Instantiate(m_multiBullet, m_transformFireOrigin.position, m_transformFireOrigin.rotation) as Rigidbody;
+        Rigidbody multiBulletInstance2 = Instantiate(m_multiBullet, m_transformFireOriginLeft.position, m_transformFireOriginLeft.rotation) as Rigidbody;
+        //m_transformFireOrigin.position.x = m_transformFireOrigin.position.x + 3;
+        //multiBulletInstance2.rotation = Quaternion.Euler(30, 0, 0);
+        Rigidbody multiBulletInstance3 = Instantiate(m_multiBullet, m_transformFireOriginRight.position, m_transformFireOriginRight.rotation) as Rigidbody;
+        //multiBulletInstance3.rotation = Quaternion.Euler(-30, 0, 0);
+
+        multiBulletInstance1.velocity = m_multiLaunchForce * m_transformFireOrigin.forward;
+        multiBulletInstance2.velocity = m_multiLaunchForce * m_transformFireOriginLeft.forward;
+        //multiBulletInstance2.velocity = m_multiLaunchForce * m_transformFireOrigin.right;
+
+        multiBulletInstance3.velocity = m_multiLaunchForce * m_transformFireOriginRight.forward;
+        //multiBulletInstance3.velocity = m_multiLaunchForce * m_transformFireOrigin.up;
     }
 }
