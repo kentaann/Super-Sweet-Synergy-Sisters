@@ -30,6 +30,11 @@ public class Bullet_Collide : MonoBehaviour
             //Destroy(gameObject);
         }
 
+        if(other.gameObject.tag == "Enemy" && !other.gameObject.GetComponent<EnemyHealth>().m_isOnFire)
+        {
+            other.gameObject.GetComponent<EnemyHealth>().m_isOnFire = true;
+        }
+
         if (other.gameObject.tag == "Environment" || other.gameObject.tag == "Player")
         {
             Destroy(gameObject);

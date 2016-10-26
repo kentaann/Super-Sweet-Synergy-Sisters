@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour {
     {
         health = 100;
         maxHealth = 100;
-        m_spicyChocolateDmg = 20;
+        m_spicyChocolateDmg = 1f;
         m_isOnFire = false;
 
         healthBar = transform.FindChild("EnemyCanvas").FindChild("HealthBackGround").FindChild("Health").GetComponent<Image>();
