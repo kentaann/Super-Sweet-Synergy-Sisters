@@ -7,6 +7,10 @@ public class EnemyHealth : MonoBehaviour {
     public float health, maxHealth;
     public GameObject enemyToDestroy;
 
+    private float m_spicyChocolateDmg;
+    private float m_spicyChocolateTimer = 0;
+
+    public bool m_isOnFire;
     private Image healthBar;
 
     public float Health
@@ -25,6 +29,8 @@ public class EnemyHealth : MonoBehaviour {
     {
         health = 100;
         maxHealth = 100;
+        m_spicyChocolateDmg = 1f;
+        m_isOnFire = false;
 
         healthBar = transform.FindChild("EnemyCanvas").FindChild("HealthBackGround").FindChild("Health").GetComponent<Image>();
     }
@@ -40,6 +46,19 @@ public class EnemyHealth : MonoBehaviour {
         if (health <= 10)
         {
             Destroy(enemyToDestroy);
+        }
+
+        if(m_isOnFire)
+        {
+            m_spicyChocolateTimer += Time.deltaTime;
+            if(m_spicyChocolateTimer < 5)
+            {
+                health -= m_spicyChocolateDmg;
+                if(m_spicyChocolateTimer > 5)
+                {
+                    m_isOnFire = false;
+                }
+            }
         }
     }
 
