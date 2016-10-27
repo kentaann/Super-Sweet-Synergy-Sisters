@@ -12,6 +12,8 @@ public class InputForLevelEditor : MonoBehaviour
 
     private bool moved;
 
+    LE_parts objectList;
+
     // Use this for initialization
     void Start()
     {
@@ -19,6 +21,7 @@ public class InputForLevelEditor : MonoBehaviour
         mousePos = new Vector3(0.0f, 1.0f, 0.0f);
         placingPos = new Vector3(0.0f, 0.0f, 0.0f);
         moved = false;
+        objectList = GetComponent<LE_parts>();
 
     }
 
@@ -75,6 +78,10 @@ public class InputForLevelEditor : MonoBehaviour
         if (Input.GetAxis("MovingX") == 0 && Input.GetAxis("MovingY") == 0 && Input.GetAxis("MovingZ") == 0)
         {
             moved = false;
+        }
+        if (Input.GetKeyDown("joystick button 2"))
+        {
+            objectList.SelectNextObject();
         }
     }
 }
