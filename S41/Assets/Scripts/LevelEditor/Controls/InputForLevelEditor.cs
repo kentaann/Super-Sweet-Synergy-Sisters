@@ -14,6 +14,8 @@ public class InputForLevelEditor : MonoBehaviour
 
     LE_parts objectList;
 
+    private LevelManager levelManager;
+
     // Use this for initialization
     void Start()
     {
@@ -22,6 +24,7 @@ public class InputForLevelEditor : MonoBehaviour
         placingPos = new Vector3(0.0f, 0.0f, 0.0f);
         moved = false;
         objectList = GetComponent<LE_parts>();
+        levelManager = GetComponent<LevelManager>();
 
     }
 
@@ -31,6 +34,15 @@ public class InputForLevelEditor : MonoBehaviour
 
         InputCheck();
 
+        if (Input.GetKeyDown("joystick button 1")) //B
+        {
+            levelManager.AddObject(objectList.selected, placingPos, false);
+        }
+
+        if (Input.GetKeyDown("joystick button 0"))
+        {
+            levelManager.RemoveObj(placingPos);
+        }
     }
 
     public void InputCheck()

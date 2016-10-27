@@ -8,6 +8,7 @@ public class LE_parts : MonoBehaviour
     public List<GameObject> PartList = new List<GameObject>();
     public GameObject selected;
     int selectedNumber;
+    
 
 	// Use this for initialization
 	void Start () {
