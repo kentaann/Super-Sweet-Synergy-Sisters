@@ -34,33 +34,45 @@ public class InputForLevelEditor : MonoBehaviour
     {
         if (!moved)
         {
-            if (Input.GetAxis("MovingHorizontal") > 0)
+            if (Input.GetAxis("MovingX") > 0)
             {
                 mousePos = new Vector3(mousePos.x + 1.0f, 1.0f, mousePos.z);
                 placingPos = new Vector3(placingPos.x + 1.0f, 0.0f, placingPos.z);
                 moved = true;
             }
-            else if (Input.GetAxis("MovingHorizontal") < 0)
+            else if (Input.GetAxis("MovingX") < 0)
             {
                 mousePos = new Vector3(mousePos.x - 1.0f, 1.0f, mousePos.z);
                 placingPos = new Vector3(placingPos.x - 1.0f, 0.0f, placingPos.z);
                 moved = true;
             }
-            else if (Input.GetAxis("MovingVertical") > 0)
+            else if (Input.GetAxis("MovingY") > 0)
             {
-                mousePos = new Vector3(mousePos.x, 1.0f, mousePos.z + 1.0f);
-                placingPos = new Vector3(placingPos.x, 0.0f, placingPos.z + 1.0f);
+                mousePos = new Vector3(mousePos.x, mousePos.y + 1.0f, mousePos.z);
+                placingPos = new Vector3(placingPos.x, placingPos.y + 1.0f, placingPos.z);
                 moved = true;
             }
-            else if (Input.GetAxis("MovingVertical") < 0)
+            else if (Input.GetAxis("MovingY") < 0)
             {
-                mousePos = new Vector3(mousePos.x, 1.0f, mousePos.z - 1.0f);
-                placingPos = new Vector3(placingPos.x, 0.0f, placingPos.z - 1.0f);
+                mousePos = new Vector3(mousePos.x, mousePos.y - 1.0f, mousePos.z);
+                placingPos = new Vector3(placingPos.x, placingPos.y - 1.0f, placingPos.z);
+                moved = true;
+            }
+            else if (Input.GetAxis("MovingZ") > 0)
+            {
+                mousePos = new Vector3(mousePos.x, mousePos.y, mousePos.z + 1.0f);
+                placingPos = new Vector3(placingPos.x, placingPos.y, placingPos.z + 1.0f);
+                moved = true;
+            }
+            else if (Input.GetAxis("MovingZ") < 0)
+            {
+                mousePos = new Vector3(mousePos.x, mousePos.y, mousePos.z - 1.0f);
+                placingPos = new Vector3(mousePos.x, mousePos.y, mousePos.z - 1.0f);
                 moved = true;
             }
             mouse.transform.position = mousePos;
         }
-        if (Input.GetAxis("MovingHorizontal") == 0 && Input.GetAxis("MovingVertical") == 0)
+        if (Input.GetAxis("MovingX") == 0 && Input.GetAxis("MovingY") == 0 && Input.GetAxis("MovingZ") == 0)
         {
             moved = false;
         }
