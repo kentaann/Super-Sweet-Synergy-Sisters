@@ -17,7 +17,7 @@ public class Phillippa_Attack : MonoBehaviour
 
     private const float m_FLUFFCOOLDOWN = 6;
     private const float m_FLUFFSTUNDURATION = 2;
-    private float m_fluffDamage = 50;
+    private float m_fluffDamage = 10;
     
     private float m_timer;
 
@@ -77,13 +77,22 @@ public class Phillippa_Attack : MonoBehaviour
         foreach (var target in m_targetList)
         {
             RaycastHit targetConnected;
+            float elapsedTime = 0;
             
             if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 100))
             {
-                if (targetConnected.transform == target && targetConnected.transform != null)
+                if (targetConnected.transform == target && targetConnected.transform != null && elapsedTime < 3)
                 {
                     target.SendMessage("Hit", m_fluffDamage);
-                    target.SendMessage("SetMoveSpeed", 0f);          
+                    target.SendMessage("SetMoveSpeed", 0f);
+
+                    elapsedTime += Time.deltaTime;
+
+                    if (elapsedTime >= 3)
+                    {
+                        target.SendMessage("SetMoveSpeed", 2f);
+                        //elapsedTime = 0;
+                    }
                 }
             }
         }
@@ -111,7 +120,7 @@ public class Phillippa_Attack : MonoBehaviour
             RemoveNullTarget();
         }
 
-        if (Input.GetKeyUp(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             Fluffpound();
         }

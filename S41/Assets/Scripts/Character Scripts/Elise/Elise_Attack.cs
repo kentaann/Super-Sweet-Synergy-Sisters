@@ -11,7 +11,7 @@ public class Elise_Attack : MonoBehaviour
     public Collider m_trap;
     public Rigidbody m_multiBullet;
 
-    private float m_multiLaunchForce;
+    public float m_multiLaunchForce;
 
 	// Use this for initialization
 	void Start () 
@@ -42,16 +42,12 @@ public class Elise_Attack : MonoBehaviour
     {
         Rigidbody multiBulletInstance1 = Instantiate(m_multiBullet, m_transformFireOrigin.position, m_transformFireOrigin.rotation) as Rigidbody;
         Rigidbody multiBulletInstance2 = Instantiate(m_multiBullet, m_transformFireOriginLeft.position, m_transformFireOriginLeft.rotation) as Rigidbody;
-        //m_transformFireOrigin.position.x = m_transformFireOrigin.position.x + 3;
         //multiBulletInstance2.rotation = Quaternion.Euler(30, 0, 0);
         Rigidbody multiBulletInstance3 = Instantiate(m_multiBullet, m_transformFireOriginRight.position, m_transformFireOriginRight.rotation) as Rigidbody;
         //multiBulletInstance3.rotation = Quaternion.Euler(-30, 0, 0);
 
         multiBulletInstance1.velocity = m_multiLaunchForce * m_transformFireOrigin.forward;
         multiBulletInstance2.velocity = m_multiLaunchForce * m_transformFireOriginLeft.forward;
-        //multiBulletInstance2.velocity = m_multiLaunchForce * m_transformFireOrigin.right;
-
         multiBulletInstance3.velocity = m_multiLaunchForce * m_transformFireOriginRight.forward;
-        //multiBulletInstance3.velocity = m_multiLaunchForce * m_transformFireOrigin.up;
     }
 }

@@ -26,7 +26,7 @@ public class Trap_Trigger : MonoBehaviour
                 other.gameObject.GetComponent<EnemyHealth>().Hit(fireDamage);
             }
 
-            if (elapsedTime > 3)
+            if (elapsedTime >= 3)
             {
                 other.gameObject.SendMessage("SetMoveSpeed", 2f);
                 Destroy(gameObject);
