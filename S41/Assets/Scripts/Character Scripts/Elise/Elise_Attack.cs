@@ -22,7 +22,7 @@ public class Elise_Attack : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        if (Input.GetKeyDown(KeyCode.O) || Input.GetButton("X360_B"))
+        if (Input.GetKeyDown(KeyCode.O) || Input.GetButtonDown("X360_B"))
         {
             E_LayTrap();
         } 

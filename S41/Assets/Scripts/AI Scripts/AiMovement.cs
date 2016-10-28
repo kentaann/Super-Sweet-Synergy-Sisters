@@ -8,12 +8,15 @@ public class AiMovement : MonoBehaviour {
     //public Transform Player;//används ej
     //public Transform TankPlayer;
     public float MoveSpeed = 1.5f;
-    float MinDist = 0.5f;
+    float MinDist = 0f;
     float InRangeAggresive = 15;
     float InRangeAttackTank = 40;
 
     public List<Transform> Players;
     public Transform SelectedTarget;
+
+    private float m_stunTimer = 0;
+    public bool m_isStunned;
 
     enum GameState
     {
@@ -79,6 +82,14 @@ public class AiMovement : MonoBehaviour {
 
     }
 
+    public void Stun(bool fluffHit)
+    {
+        if (fluffHit == true)
+        {
+            m_isStunned = true;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -91,6 +102,21 @@ public class AiMovement : MonoBehaviour {
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
         }
 
+        if(m_isStunned)
+        {
+            if (m_stunTimer < 3)
+            {
+                m_stunTimer += Time.deltaTime;
+                MoveSpeed = 0f;
+
+                if (m_stunTimer >= 3)
+                {
+                    MoveSpeed = 2f;
+                    m_isStunned = false;
+                    m_stunTimer = 0;
+                }
+            }
+        }
         //SwitchGameState();//Inte klar än
     }
 

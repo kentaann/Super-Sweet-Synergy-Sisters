@@ -54,7 +54,7 @@ public class EnemyHealth : MonoBehaviour {
             if(m_spicyChocolateTimer < 5)
             {
                 health -= m_spicyChocolateDmg;
-                if(m_spicyChocolateTimer > 5)
+                if(m_spicyChocolateTimer >= 5)
                 {
                     m_isOnFire = false;
                 }

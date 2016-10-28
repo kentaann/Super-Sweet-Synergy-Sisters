@@ -61,14 +61,14 @@ public class PlayerHealth : MonoBehaviour
         //The timer is not supposed to be in use. It is merely to test out cross-script communication
         timer += Time.deltaTime;
 
-        if (timer >= 1)
-        {
-            TakeDamagePhilippa(30);
-            TakeDamageElise(20);
-            TakeDamageSimone(20);
-            TakeDamageSolveig(20);
-            timer = 0;
-        }
+        //if (timer >= 1)
+        //{
+        //    TakeDamagePhilippa(30);
+        //    TakeDamageElise(20);
+        //    TakeDamageSimone(20);
+        //    TakeDamageSolveig(20);
+        //    timer = 0;
+        //}
 
         simoneHealth = fixedPlayerHealth_Simone.GetHealth();
         simoneScrollBar.size = simoneHealth / 100f;

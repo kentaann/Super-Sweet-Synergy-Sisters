@@ -77,22 +77,14 @@ public class Phillippa_Attack : MonoBehaviour
         foreach (var target in m_targetList)
         {
             RaycastHit targetConnected;
-            float elapsedTime = 0;
             
             if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 100))
             {
-                if (targetConnected.transform == target && targetConnected.transform != null && elapsedTime < 3)
+                if (targetConnected.transform == target && targetConnected.transform != null)
                 {
                     target.SendMessage("Hit", m_fluffDamage);
                     target.SendMessage("SetMoveSpeed", 0f);
-
-                    elapsedTime += Time.deltaTime;
-
-                    if (elapsedTime >= 3)
-                    {
-                        target.SendMessage("SetMoveSpeed", 2f);
-                        //elapsedTime = 0;
-                    }
+                    target.SendMessage("Stun", true);
                 }
             }
         }
@@ -105,11 +97,9 @@ public class Phillippa_Attack : MonoBehaviour
 
     #endregion
 
-
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame

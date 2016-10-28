@@ -10,12 +10,11 @@ public class Trap_Trigger : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-	
 	}
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Enemy" && elapsedTime < 3)
+        if (other.gameObject.tag == "Enemy" && elapsedTime < 5)
         {
             other.gameObject.SendMessage("SetMoveSpeed", 0f);
 
@@ -26,7 +25,7 @@ public class Trap_Trigger : MonoBehaviour
                 other.gameObject.GetComponent<EnemyHealth>().Hit(fireDamage);
             }
 
-            if (elapsedTime >= 3)
+            if (elapsedTime >= 5)
             {
                 other.gameObject.SendMessage("SetMoveSpeed", 2f);
                 Destroy(gameObject);
@@ -45,6 +44,16 @@ public class Trap_Trigger : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-	
+        if (fireActivated)
+        {
+            GetComponent<Renderer>().material.color = Color.red;
+
+            elapsedTime += Time.deltaTime;
+
+            if (elapsedTime >= 10)
+            {
+                Destroy(gameObject);
+            }
+        }
 	}
 }
