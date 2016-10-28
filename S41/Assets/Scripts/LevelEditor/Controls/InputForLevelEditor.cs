@@ -91,9 +91,25 @@ public class InputForLevelEditor : MonoBehaviour
         {
             moved = false;
         }
+
         if (Input.GetKeyDown("joystick button 2"))
         {
             objectList.SelectNextObject();
         }
+
+        if (Input.GetKeyDown("joystick button 4"))
+        {
+            var newTransform = levelManager.RotateLeft(objectList.selected.transform);
+            objectList.selected.transform.rotation = newTransform.rotation;
+            Debug.Log("leftRotationPressed");
+
+        }
+
+        if (Input.GetKeyDown("joystick button 5"))
+        {
+            var newTransform = levelManager.RotateRight(objectList.selected.transform);
+            objectList.selected.transform.rotation = newTransform.rotation;
+            Debug.Log("rightRotationPressed");            
+        }       
     }
 }

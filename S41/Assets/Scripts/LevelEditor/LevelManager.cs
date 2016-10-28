@@ -58,4 +58,17 @@ public class LevelManager : MonoBehaviour {
     {
         return System.Guid.NewGuid().ToString();
     }
+
+    public Transform RotateLeft(Transform rotateObj)
+    {
+        rotateObj.Rotate(-90.0f, 0.0f, 0.0f);
+        return rotateObj;
+    }
+
+    public Transform RotateRight(Transform rotateObj)
+    {
+        rotateObj.Rotate(90.0f, 0.0f, 0.0f);
+        return rotateObj;
+    }
+
 }
