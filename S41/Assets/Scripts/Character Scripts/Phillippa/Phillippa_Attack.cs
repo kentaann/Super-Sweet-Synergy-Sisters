@@ -30,7 +30,7 @@ public class Phillippa_Attack : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Trap")
         {
             m_targetList.Add(other.gameObject.transform);
         }
@@ -77,14 +77,24 @@ public class Phillippa_Attack : MonoBehaviour
         foreach (var target in m_targetList)
         {
             RaycastHit targetConnected;
+            Rigidbody targetBody = target.GetComponent<Rigidbody>();
             
             if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 100))
             {
                 if (targetConnected.transform == target && targetConnected.transform != null)
                 {
-                    target.SendMessage("Hit", m_fluffDamage);
-                    target.SendMessage("SetMoveSpeed", 0f);
-                    target.SendMessage("Stun", true);
+                    if (target.gameObject.tag == "Enemy")
+                    {
+                        target.SendMessage("Hit", m_fluffDamage);
+                        target.SendMessage("SetMoveSpeed", 0f);
+                        target.SendMessage("Stun", true); 
+                    }
+
+                    if (target.gameObject.tag == "Trap")
+                    {
+                        targetBody.AddExplosionForce(2000f, transform.position, 5f);
+                        target.SendMessage("FlyAway", true);
+                    }
                 }
             }
         }

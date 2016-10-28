@@ -3,9 +3,12 @@ using System.Collections;
 
 public class Trap_Trigger : MonoBehaviour 
 {
-    float elapsedTime = 0;
+    float trapTimer = 0;
+    float fireTimer = 0;
+    float fluffTimer = 0;
     float fireDamage = 0.5f;
     bool fireActivated = false;
+    bool fluffActivated = false;
 
 	// Use this for initialization
 	void Start () 
@@ -14,18 +17,18 @@ public class Trap_Trigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Enemy" && elapsedTime < 5)
+        if (other.gameObject.tag == "Enemy" && trapTimer < 5)
         {
             other.gameObject.SendMessage("SetMoveSpeed", 0f);
 
-            elapsedTime += Time.deltaTime;
+            trapTimer += Time.deltaTime;
 
             if (fireActivated == true)
             {
                 other.gameObject.GetComponent<EnemyHealth>().Hit(fireDamage);
             }
 
-            if (elapsedTime >= 5)
+            if (trapTimer >= 5)
             {
                 other.gameObject.SendMessage("SetMoveSpeed", 2f);
                 Destroy(gameObject);
@@ -40,6 +43,14 @@ public class Trap_Trigger : MonoBehaviour
             fireActivated = true;
         }
     }
+
+    public void FlyAway(bool fluffHit)
+    {
+        if (fluffHit == true)
+        {
+            fluffActivated = true;
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -48,11 +59,23 @@ public class Trap_Trigger : MonoBehaviour
         {
             GetComponent<Renderer>().material.color = Color.red;
 
-            elapsedTime += Time.deltaTime;
+            fireTimer += Time.deltaTime;
 
-            if (elapsedTime >= 10)
+            if (fireTimer >= 10)
             {
                 Destroy(gameObject);
+            }
+        }
+
+        if (fluffActivated)
+        {
+            fluffTimer += Time.deltaTime;
+
+            if (fluffTimer >= 0.5f)
+            {
+                GetComponent<Rigidbody>().velocity = Vector3.zero;
+                fluffTimer = 0;
+                fluffActivated = false;
             }
         }
 	}
