@@ -9,16 +9,21 @@ public class LevelManager : MonoBehaviour {
 
     public List<ScenObjects> objectsList;
 
+    public Level currentLevel;
+
 	// Use this for initialization
 	void Start () {
         objectsList = new List<ScenObjects>();
+        currentLevel = new Level("Random Name", "LevelEditor");
+
 	}
 	
 	public void AddObject(GameObject obj, Vector3 pos, bool isSpawned)
     {
         RemoveObj(pos);
         var newObj = PlaceObj(obj, pos);
-        objectsList.Add(newObj);
+        //objectsList.Add(newObj);
+        currentLevel.AddObject(newObj);
     }
 
     public void RemoveObj(Vector3 pos)
@@ -38,7 +43,8 @@ public class LevelManager : MonoBehaviour {
 
         if(objToRemove != null)
         {
-            objectsList.Remove(objToRemove);
+            currentLevel.RemoveObject(objToRemove);
+            //objectsList.Remove(objToRemove);
         }
     }
 
