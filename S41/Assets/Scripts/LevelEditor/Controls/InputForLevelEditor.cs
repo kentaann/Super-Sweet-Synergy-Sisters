@@ -19,7 +19,7 @@ public class InputForLevelEditor : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        
         mousePos = new Vector3(0.0f, 1.0f, 0.0f);
         placingPos = new Vector3(0.0f, 0.0f, 0.0f);
         moved = false;
@@ -31,18 +31,35 @@ public class InputForLevelEditor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         InputCheck();
+        
 
         if (Input.GetKeyDown("joystick button 1")) //B
         {
-            levelManager.AddObject(objectList.selected, placingPos, false);
+            levelManager.AddObject(objectList.selectedObject, placingPos, false);
         }
 
-        if (Input.GetKeyDown("joystick button 0"))
+        if (Input.GetKeyDown("joystick button 0")) //A
         {
             levelManager.RemoveObj(placingPos);
         }
+
+        if (Input.GetKeyDown("joystick button 4"))
+        {
+            var newTransform = levelManager.RotateLeft(objectList.selectedObject.transform);
+            objectList.selectedObject.transform.rotation = newTransform.rotation;
+            Debug.Log("leftRotationPressed");
+
+        }
+
+        if (Input.GetKeyDown("joystick button 5"))
+        {
+            var newTransform = levelManager.RotateRight(objectList.selectedObject.transform);
+            objectList.selectedObject.transform.rotation = newTransform.rotation;
+            Debug.Log("rightRotationPressed");
+        }
+
+      
     }
 
     public void InputCheck()
@@ -97,19 +114,6 @@ public class InputForLevelEditor : MonoBehaviour
             objectList.SelectNextObject();
         }
 
-        if (Input.GetKeyDown("joystick button 4"))
-        {
-            var newTransform = levelManager.RotateLeft(objectList.selected.transform);
-            objectList.selected.transform.rotation = newTransform.rotation;
-            Debug.Log("leftRotationPressed");
-
-        }
-
-        if (Input.GetKeyDown("joystick button 5"))
-        {
-            var newTransform = levelManager.RotateRight(objectList.selected.transform);
-            objectList.selected.transform.rotation = newTransform.rotation;
-            Debug.Log("rightRotationPressed");            
-        }       
+       
     }
 }
