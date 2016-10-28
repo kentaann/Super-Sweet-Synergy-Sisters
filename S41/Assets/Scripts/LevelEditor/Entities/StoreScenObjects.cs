@@ -5,6 +5,8 @@ namespace Entities
 {
    public class ScenObjects
    {
+       // Storing the objects
+
        GameObject objToPut;
        public GameObject ScenObj { get { return objToPut; } }
 

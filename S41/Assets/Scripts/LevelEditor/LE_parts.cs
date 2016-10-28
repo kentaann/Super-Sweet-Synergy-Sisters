@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class LE_parts : MonoBehaviour
 {
+    // making list for the scen objects
+    // select next object 
 
     public List<GameObject> PartList = new List<GameObject>();
     public GameObject selectedObject;

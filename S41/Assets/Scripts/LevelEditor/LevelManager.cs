@@ -5,6 +5,8 @@ using Entities;
 
 public class LevelManager : MonoBehaviour {
 
+    // Adding, Removing, Rotating Methods
+
     public List<ScenObjects> objectsList;
 
 	// Use this for initialization

@@ -4,7 +4,7 @@ using System.Collections;
 
 public class InputForLevelEditor : MonoBehaviour
 {
-
+    // Leveleditor input
     private Vector3 mousePos;
     private Vector3 placingPos;
 
@@ -44,7 +44,7 @@ public class InputForLevelEditor : MonoBehaviour
             levelManager.RemoveObj(placingPos);
         }
 
-        if (Input.GetKeyDown("joystick button 4"))
+        if (Input.GetKeyDown("joystick button 4"))  // left bumper
         {
             var newTransform = levelManager.RotateLeft(objectList.selectedObject.transform);
             objectList.selectedObject.transform.rotation = newTransform.rotation;
@@ -52,7 +52,7 @@ public class InputForLevelEditor : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown("joystick button 5"))
+        if (Input.GetKeyDown("joystick button 5"))  // right bumper
         {
             var newTransform = levelManager.RotateRight(objectList.selectedObject.transform);
             objectList.selectedObject.transform.rotation = newTransform.rotation;
@@ -62,6 +62,7 @@ public class InputForLevelEditor : MonoBehaviour
       
     }
 
+    // move the  "mouse" on x, y , z to location where I wanna place the object
     public void InputCheck()
     {
         if (!moved)
@@ -104,11 +105,13 @@ public class InputForLevelEditor : MonoBehaviour
             }
             mouse.transform.position = mousePos;
         }
+
         if (Input.GetAxis("MovingX") == 0 && Input.GetAxis("MovingY") == 0 && Input.GetAxis("MovingZ") == 0)
         {
             moved = false;
         }
 
+        // select the object  -> button X
         if (Input.GetKeyDown("joystick button 2"))
         {
             objectList.SelectNextObject();
