@@ -204,7 +204,7 @@ public class Simone_Attack : MonoBehaviour
     /// </summary>
     private void S_EnergyDrinkAttack()
     {
-        Rigidbody bulletInstance = Instantiate(m_bullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
+        Rigidbody bulletInstance = Instantiate(m_bullet, m_transformOrigin.position, Quaternion.identity) as Rigidbody;
         bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
 
     }
