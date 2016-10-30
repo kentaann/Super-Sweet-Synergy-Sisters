@@ -208,7 +208,7 @@ public class Player_Movement : MonoBehaviour
     /// <summary>
     /// Take the input from the player and moves the character.
     /// </summary>
-    private void Move()
+    public void Move()
     {
         Vector3 movement = transform.forward * m_movementInputValue * m_moveSpeed * Time.deltaTime;
         m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
