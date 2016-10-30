@@ -14,11 +14,10 @@ public class Phillippa_Attack : MonoBehaviour
     public List<Transform> m_targetList = new List<Transform>();
     public SphereCollider m_Spherecollider;
 
-
     private const float m_FLUFFCOOLDOWN = 6;
     private const float m_FLUFFSTUNDURATION = 2;
-    private float m_fluffDamage = 10;
-    
+
+    private float m_fluffDamage = 10;    
     private float m_timer;
 
     #endregion
@@ -69,7 +68,8 @@ public class Phillippa_Attack : MonoBehaviour
 
     /// <summary>
     /// Area Of Effect attack that does damage and stuns the enemy.
-    /// As of right now it damages AND permastuns.
+    /// As of right now it damages but not always every enemy in the AOE.
+    /// SYNERGY: If a trap is present it is propelled away Phillippa.
     /// </summary>
     public void Fluffpound()
     {
@@ -100,19 +100,19 @@ public class Phillippa_Attack : MonoBehaviour
         }
     }
 
-    public void RushAttack()
+    #endregion
+
+    #region Start
+
+    void Start()
     {
 
     }
 
     #endregion
 
-    // Use this for initialization
-    void Start()
-    {
-    }
+    #region Update
 
-    // Update is called once per frame
     void Update()
     {
         if(m_targetList.Count > 0)
@@ -125,4 +125,6 @@ public class Phillippa_Attack : MonoBehaviour
             Fluffpound();
         }
     }
+
+    #endregion
 }

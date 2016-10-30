@@ -16,7 +16,7 @@ public class Simone_Attack : MonoBehaviour
     public Rigidbody m_spicyBullet;                                 // The rigidbody of the spicy chocolate projectile
     public Rigidbody m_whippedBullet;                               // The rigidbody of the whipped cream projectile
     public Rigidbody m_energyBullet;                                // The rigidbody of the energy drink projectile
-    public Material m_bulletMaterial;
+    //public Material m_bulletMaterial;
 
     Player_Movement m_playerMove;                                   // Used to manipulate movement from this class
 
@@ -105,6 +105,13 @@ public class Simone_Attack : MonoBehaviour
 
         m_attackRate += Time.deltaTime;
 
+        /*
+         * Key P is used for shooting. Depending on which element is active a different function is being called using the same button. 
+         *  Because of this we are checking each flag in the conditional. 
+         */
+
+        #region Key Bindings
+
         if (m_attackRate >= m_coolDown)
 	    {
 		    if (Input.GetKey(KeyCode.P) || Input.GetButton("X360_A") && m_autoAttackActive && !m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
@@ -141,6 +148,8 @@ public class Simone_Attack : MonoBehaviour
             }
         }
 
+        #region Activate Energy Drink
+
         if (Input.GetKeyUp(KeyCode.L))
         {
             m_energyDrinkActive = true;
@@ -151,6 +160,7 @@ public class Simone_Attack : MonoBehaviour
             m_coolDown = 0.15f;
         }
 
+        //This returns the player from energy drink to auto attack. This will later be removed
         if (Input.GetKeyUp(KeyCode.K))
         {
             m_energyDrinkActive = false;
@@ -161,7 +171,12 @@ public class Simone_Attack : MonoBehaviour
             m_damage = 10f;
         }
 
-        if(Input.GetKeyUp(KeyCode.Z))
+        #endregion
+
+
+        #region Activate Whipped Cream
+
+        if (Input.GetKeyUp(KeyCode.Z))
         {
             m_whippedCreamActive = true;
             m_autoAttackActive = false;
@@ -172,7 +187,11 @@ public class Simone_Attack : MonoBehaviour
             Debug.Log(m_damage);
         }
 
-        if(Input.GetKeyUp(KeyCode.M))
+        #endregion
+
+        #region Activate Spicy Chocolate
+
+        if (Input.GetKeyUp(KeyCode.M))
         {
             m_spicyChocolateActive = true;
             m_energyDrinkActive = false;
@@ -180,13 +199,17 @@ public class Simone_Attack : MonoBehaviour
             m_whippedCreamActive = false;
             m_coolDown = 0.5f;
             m_damage = 10f;
-            Debug.Log("SPICY CHOCOLATE ACTIVE");
         }
+
+        #endregion
+
+        #endregion
     }
 
     #endregion
 
     #region Simone Attacks
+
     /// <summary>
     /// Simones auto attack.
     /// Creates a bullet and shoots in the direction that Simone is facing.
@@ -209,12 +232,19 @@ public class Simone_Attack : MonoBehaviour
 
     }
     
+    /// <summary>
+    /// Whipped Cream Element
+    /// </summary>
     private void S_WhippedCreamAttack()
     {
         Rigidbody bulletInstance = Instantiate(m_bullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
         bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
     }
 
+    /// <summary>
+    /// Spicy Chocolate Element
+    /// Players attacks ignite the enemies.
+    /// </summary>
     private void S_SpicyChocolateAttack()
     {
         Rigidbody bulletInstance = Instantiate(m_spicyBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
@@ -246,9 +276,13 @@ public class Simone_Attack : MonoBehaviour
 
     #endregion
 
+    #region Score Handling (Not in use as of right now)
+
     public void SetScore(int score)
     {
         m_Score += score;
         Debug.Log(m_Score);
     }
+
+    #endregion
 }

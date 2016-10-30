@@ -1,19 +1,36 @@
-﻿using UnityEngine;
+﻿#region Using Statements
+
+using UnityEngine;
 using System.Collections;
 
-public class Spicy_Chocolate : MonoBehaviour {
+#endregion
 
-    public LayerMask m_EnemyMask;
-    
+public class Spicy_Chocolate : MonoBehaviour
+{
+    #region Variables
+
+    public LayerMask m_EnemyMask;    
 
     public float m_lifeSpan = 5f;
     public float m_explosionRadius = 1f;
+
+    #endregion
+
+    #region Start
 
     void Start()
     {
         Destroy(gameObject, m_lifeSpan);
     }
 
+    #endregion
+
+    #region On Trigger Enter
+
+    /// <summary>
+    /// Check collision between the spicy chocolate projectile and another object.
+    /// </summary>
+    /// <param name="other">Collider of another GameObject</param>
     private void OnTriggerEnter(Collider other) 
     {
 
@@ -33,10 +50,14 @@ public class Spicy_Chocolate : MonoBehaviour {
         Destroy(gameObject);
     }
 
+    #endregion
 
-    // Update is called once per frame
+    #region Update
+
     void Update()
     {
 
     }
+
+    #endregion
 }

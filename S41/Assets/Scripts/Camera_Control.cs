@@ -45,6 +45,9 @@ public class Camera_Control : MonoBehaviour {
 
     #region Functions
 
+    /// <summary>
+    /// Moves the camera.
+    /// </summary>
     private void Move()
     {
         FindAveragePosition();
@@ -52,7 +55,9 @@ public class Camera_Control : MonoBehaviour {
         transform.position = Vector3.SmoothDamp(transform.position, m_DesiredPosition, ref m_MoveVelocity, m_DampTime);
     }
 
-
+    /// <summary>
+    /// Finds the average position of the players added to the list inside Unity.
+    /// </summary>
     private void FindAveragePosition()
     {
         Vector3 averagePos = new Vector3();
@@ -76,13 +81,19 @@ public class Camera_Control : MonoBehaviour {
     }
 
 
+    /// <summary>
+    /// Zooms in and out depending on the Required size.
+    /// </summary>
     private void Zoom()
     {
         float requiredSize = FindRequiredSize();
         m_Camera.orthographicSize = Mathf.SmoothDamp(m_Camera.orthographicSize, requiredSize, ref m_ZoomSpeed, m_DampTime);
     }
 
-
+    /// <summary>
+    /// Calculates the required size of the window to fit all players.
+    /// </summary>
+    /// <returns></returns>
     private float FindRequiredSize()
     {
         Vector3 desiredLocalPos = transform.InverseTransformPoint(m_DesiredPosition);
@@ -111,6 +122,9 @@ public class Camera_Control : MonoBehaviour {
     }
 
 
+    /// <summary>
+    /// Sets the starting position and size of the camera.
+    /// </summary>
     public void SetStartPositionAndSize()
     {
         FindAveragePosition();
@@ -122,6 +136,8 @@ public class Camera_Control : MonoBehaviour {
 }
 
     #endregion
+
+    #region Test Camera (Not in use)
 
 /* The following code is if you want to use a camera that follows the object.
  * Perhaps for testing purposes
@@ -141,4 +157,5 @@ public class Camera_Control : MonoBehaviour {
  *          transform.position = player.transform.position + offset;
  *      }
  * }
- */ 
+ */
+#endregion
