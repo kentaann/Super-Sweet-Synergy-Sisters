@@ -9,7 +9,7 @@ public class LE_parts : MonoBehaviour
 
     public List<GameObject> PartList = new List<GameObject>();
     public GameObject selectedObject;
-    int selectedNumber;
+    public int selectedNumber;
    
 
 	// Use this for initialization

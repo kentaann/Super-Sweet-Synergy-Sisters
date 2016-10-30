@@ -1,42 +1,70 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using System.Collections.Generic;
 
 public class InputForLevelEditor : MonoBehaviour
 {
     // Leveleditor input
-    private Vector3 mousePos;
+    public Vector3 mousePos;
     private Vector3 placingPos;
+    public Vector3 realMousePos;
 
     public GameObject mouse;
 
     private bool moved;
 
-    LE_parts objectList;
+    LE_parts objects;
 
     private LevelManager levelManager;
+
+    List<GameObject> list = new List<GameObject>();
 
     // Use this for initialization
     void Start()
     {
-        
         mousePos = new Vector3(0.0f, 1.0f, 0.0f);
         placingPos = new Vector3(0.0f, 0.0f, 0.0f);
         moved = false;
-        objectList = GetComponent<LE_parts>();
+        objects = GetComponent<LE_parts>();
         levelManager = GetComponent<LevelManager>();
 
+        foreach (GameObject go in objects.PartList)
+        {
+            GameObject copy = Instantiate(go);
+            list.Add(copy);
+        }
+        onSelected(0);
+    }
+
+    private void onSelected(int index)
+    {
+        Debug.Log("OnSelcted " + index);
+        for (int i = 0; i < list.Count; i++)
+        {
+            GameObject obj = list[i];
+            if (i == index)
+            {
+                mouse = obj;
+                mouse.transform.position = mousePos;
+                obj.gameObject.SetActive(true);
+            }
+            else
+            {
+                obj.gameObject.SetActive(false);
+            }
+
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        mouse.transform.position = mousePos;
         InputCheck();
-        
 
         if (Input.GetKeyDown("joystick button 1")) //B
         {
-            levelManager.AddObject(objectList.selectedObject, placingPos, false);
+            levelManager.AddObject(objects.selectedObject, placingPos, false);
         }
 
         if (Input.GetKeyDown("joystick button 0")) //A
@@ -46,20 +74,20 @@ public class InputForLevelEditor : MonoBehaviour
 
         if (Input.GetKeyDown("joystick button 4"))  // left bumper
         {
-            var newTransform = levelManager.RotateLeft(objectList.selectedObject.transform);
-            objectList.selectedObject.transform.rotation = newTransform.rotation;
+            var newTransform = levelManager.RotateLeft(objects.selectedObject.transform);
+            objects.selectedObject.transform.rotation = newTransform.rotation;
             Debug.Log("leftRotationPressed");
 
         }
 
         if (Input.GetKeyDown("joystick button 5"))  // right bumper
         {
-            var newTransform = levelManager.RotateRight(objectList.selectedObject.transform);
-            objectList.selectedObject.transform.rotation = newTransform.rotation;
+            var newTransform = levelManager.RotateRight(objects.selectedObject.transform);
+            objects.selectedObject.transform.rotation = newTransform.rotation;
             Debug.Log("rightRotationPressed");
         }
 
-      
+
     }
 
     // move the  "mouse" on x, y , z to location where I wanna place the object
@@ -103,7 +131,7 @@ public class InputForLevelEditor : MonoBehaviour
                 placingPos = new Vector3(mousePos.x, mousePos.y, mousePos.z - 1.0f);
                 moved = true;
             }
-            mouse.transform.position = mousePos;
+            objects.selectedObject.transform.position = mousePos;
         }
 
         if (Input.GetAxis("MovingX") == 0 && Input.GetAxis("MovingY") == 0 && Input.GetAxis("MovingZ") == 0)
@@ -114,9 +142,10 @@ public class InputForLevelEditor : MonoBehaviour
         // select the object  -> button X
         if (Input.GetKeyDown("joystick button 2"))
         {
-            objectList.SelectNextObject();
+            objects.SelectNextObject();
+            onSelected(objects.selectedNumber);
         }
 
-       
+
     }
 }
