@@ -14,12 +14,14 @@ public class Phillippa_Attack : MonoBehaviour
     public List<Transform> m_targetList = new List<Transform>();
     public SphereCollider m_Spherecollider;
 
-
     private const float m_FLUFFCOOLDOWN = 6;
     private const float m_FLUFFSTUNDURATION = 2;
     private float m_fluffDamage = 10;
     
     private float m_timer;
+    private float m_rushTimer = 0;
+
+    private bool m_rushActive = false;
 
     #endregion
 
@@ -102,7 +104,11 @@ public class Phillippa_Attack : MonoBehaviour
 
     public void RushAttack()
     {
-
+        //transform.position += transform.forward * Time.deltaTime * 1000;
+        gameObject.SendMessage("SetMoveSpeed", 60f);
+        //gameObject.transform.position = transform.forward * Time.deltaTime * 100;
+        gameObject.SendMessage("IsRushing", true);
+        m_rushActive = true;
     }
 
     #endregion
@@ -123,6 +129,25 @@ public class Phillippa_Attack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             Fluffpound();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            RushAttack();
+        }
+
+        if (m_rushActive == true)
+        {
+            m_rushTimer += Time.deltaTime;
+        }
+
+        if (m_rushTimer >= 0.2f)
+        {
+            gameObject.SendMessage("SetMoveSpeed", 12f);
+            //gameObject.transform.position = gameObject.GetComponent<Player_Movement>().Move(movement);
+            gameObject.SendMessage("IsRushing", false);
+            m_rushTimer = 0;
+            m_rushActive = false;
         }
     }
 }
