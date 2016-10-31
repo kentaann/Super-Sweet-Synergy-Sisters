@@ -23,6 +23,7 @@ public class Player_Movement : MonoBehaviour
     private string m_turnAxisName;          // Same as above
 
     private Rigidbody m_Rigidbody;
+    //public Rigidbody m_Rigidbody;           //Might need to be public to access for skills in other classes
 
     private float m_movementInputValue;
     private float m_turnInputValue;

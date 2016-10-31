@@ -118,6 +118,15 @@ public class Phillippa_Attack : MonoBehaviour
 
     #endregion
 
+    public void RushAttack()
+    {
+        gameObject.SendMessage("SetMoveSpeed", 60f);
+        //gameObject.GetComponents<Player_Movement>(Move
+
+        gameObject.SendMessage("IsRushing", true);
+        m_rushActive = true;
+    }
+
     #region Update
 
     void Update()
