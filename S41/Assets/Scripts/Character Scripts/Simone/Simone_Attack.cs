@@ -234,7 +234,7 @@ public class Simone_Attack : MonoBehaviour
     /// </summary>
     private void S_WhippedCreamAttack()
     {
-        Rigidbody whippedBulletInstance = Instantiate(m_bullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
+        Rigidbody whippedBulletInstance = Instantiate(m_whippedBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
         whippedBulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
     }
 

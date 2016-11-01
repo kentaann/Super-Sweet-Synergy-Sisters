@@ -1,11 +1,7 @@
-﻿#region Using Statements
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
-#endregion
-
-public class Channeling_script : MonoBehaviour
+public class Whipped_Cream : MonoBehaviour
 {
     #region Variables
 
@@ -15,15 +11,17 @@ public class Channeling_script : MonoBehaviour
     private const float m_POSITIONALOFFSET = 2;         // The offset for making the ability appear to remain in its original position
     private const float m_GROWTHRATE = 1;               // The modifier for the Y-axis scaler
     private const float m_RADIUS = 0.5f;                // Radius of the beam
+    private const float m_DAMAGE = 12.5f;               // Damage of the beam
+    private const float m_MOVESPEEDMODIFIER = 0.15f;    // Modifier for enemies movespeed
 
     #endregion
 
     #region Start
 
-    void Start () 
+    void Start()
     {
         StartCoroutine(Expand());
-	}
+    }
 
     #endregion
 
@@ -51,9 +49,29 @@ public class Channeling_script : MonoBehaviour
 
     #endregion
 
+    #region On Trigger Enter
+
+    void OnTriggerEnter(Collider other)
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, m_RADIUS);
+
+        if (other.gameObject.tag == "Enemy" && !other.gameObject.GetComponent<EnemyHealth>().m_isOnFire)
+        {
+            other.gameObject.GetComponent<EnemyHealth>().Hit(m_DAMAGE);
+            other.gameObject.GetComponent<AiMovement>().SetMoveSpeed(m_MOVESPEEDMODIFIER);
+        }
+
+        if (other.gameObject.tag == "Environment" /*|| other.gameObject.tag == "Player"*/)
+        {
+            StopCoroutine(Expand());
+        }
+    }
+
+    #endregion
+
     #region Update
 
-	void Update () 
+    void Update()
     {
 
     }
