@@ -118,35 +118,27 @@ public class Simone_Attack : MonoBehaviour
             {
                 S_autoAttack();
                 m_attackRate = 0;
-            } 
-	    }
+            }
 
-        if (m_attackRate >= m_coolDown)
-        {
             if (Input.GetKey(KeyCode.P) && m_energyDrinkActive && !m_autoAttackActive && !m_spicyChocolateActive && !m_whippedCreamActive)
             {
                 S_EnergyDrinkAttack();
                 m_attackRate = 0;
             }
-        }
 
-        if(m_attackRate >= m_coolDown)
-        {
-            if(Input.GetKey(KeyCode.P) && m_whippedCreamActive && !m_autoAttackActive && !m_energyDrinkActive && !m_spicyChocolateActive)
+            if (Input.GetKey(KeyCode.P) && m_whippedCreamActive && !m_autoAttackActive && !m_energyDrinkActive && !m_spicyChocolateActive)
             {
                 S_WhippedCreamAttack();
                 m_attackRate = 0;
             }
-        }
 
-        if(m_attackRate > m_coolDown)
-        {
-            if(Input.GetKeyUp(KeyCode.P) && m_spicyChocolateActive && !m_autoAttackActive && !m_energyDrinkActive && !m_whippedCreamActive)
+            if (Input.GetKeyUp(KeyCode.P) && m_spicyChocolateActive && !m_autoAttackActive && !m_energyDrinkActive && !m_whippedCreamActive)
             {
                 S_SpicyChocolateAttack();
+                Debug.Log("SPICY CHOC SHOT");
                 m_attackRate = 0;
             }
-        }
+	    }
 
         #region Activate Energy Drink
 
@@ -154,6 +146,7 @@ public class Simone_Attack : MonoBehaviour
         {
             m_energyDrinkActive = true;
             m_autoAttackActive = false;
+            m_spicyChocolateActive = false;
             m_whippedCreamActive = false;
             m_playerMove.m_moveSpeed = 0;
             m_damage = m_damage * 0.8;
@@ -166,6 +159,7 @@ public class Simone_Attack : MonoBehaviour
             m_energyDrinkActive = false;
             m_autoAttackActive = true;
             m_whippedCreamActive = false;
+            m_spicyChocolateActive = false;
             m_playerMove.m_moveSpeed = 12;
             m_coolDown = 0.5f;
             m_damage = 10f;
@@ -173,13 +167,13 @@ public class Simone_Attack : MonoBehaviour
 
         #endregion
 
-
         #region Activate Whipped Cream
 
         if (Input.GetKeyUp(KeyCode.Z))
         {
             m_whippedCreamActive = true;
             m_autoAttackActive = false;
+            m_spicyChocolateActive = false;
             m_energyDrinkActive = false;
             m_damage = m_damage * 1.2;
             m_playerMove.m_moveSpeed = m_playerMove.m_moveSpeed * m_whippedCreamMoveSpeedMod;
@@ -227,8 +221,8 @@ public class Simone_Attack : MonoBehaviour
     /// </summary>
     private void S_EnergyDrinkAttack()
     {
-        Rigidbody bulletInstance = Instantiate(m_bullet, m_transformOrigin.position, Quaternion.identity) as Rigidbody;
-        bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
+        Rigidbody energyBulletInstance = Instantiate(m_bullet, m_transformOrigin.position, Quaternion.identity) as Rigidbody;
+        energyBulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
 
     }
     
@@ -237,8 +231,8 @@ public class Simone_Attack : MonoBehaviour
     /// </summary>
     private void S_WhippedCreamAttack()
     {
-        Rigidbody bulletInstance = Instantiate(m_bullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
-        bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
+        Rigidbody whippedBulletInstance = Instantiate(m_bullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
+        whippedBulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
     }
 
     /// <summary>
@@ -247,8 +241,8 @@ public class Simone_Attack : MonoBehaviour
     /// </summary>
     private void S_SpicyChocolateAttack()
     {
-        Rigidbody bulletInstance = Instantiate(m_spicyBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
-        bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
+        Rigidbody spicyBulletInstance = Instantiate(m_spicyBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
+        spicyBulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
     }
 
     #endregion

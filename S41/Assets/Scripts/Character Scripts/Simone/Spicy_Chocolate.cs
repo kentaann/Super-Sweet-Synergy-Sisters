@@ -47,6 +47,12 @@ public class Spicy_Chocolate : MonoBehaviour
             Destroy(gameObject);
         }
 
+        // If the collided object is a Trap (Cookie Jar skill) sets it on fire. This is a placeholder solution until unique scripts for each element exist
+        if (other.gameObject.tag == "Trap")
+        {
+            other.gameObject.GetComponent<Trap_Trigger>().FiredUp(true);
+        }
+
         Destroy(gameObject);
     }
 
