@@ -29,7 +29,7 @@ public class EnemyHealth : MonoBehaviour {
     {
         health = 100;
         maxHealth = 100;
-        m_spicyChocolateDmg = 1f;
+        m_spicyChocolateDmg = 0.2f;
         m_isOnFire = false;
 
         healthBar = transform.FindChild("EnemyCanvas").FindChild("HealthBackGround").FindChild("Health").GetComponent<Image>();
@@ -51,15 +51,17 @@ public class EnemyHealth : MonoBehaviour {
         if(m_isOnFire)
         {
             m_spicyChocolateTimer += Time.deltaTime;
-            if(m_spicyChocolateTimer < 5)
+            if(m_spicyChocolateTimer < 3)
             {
                 health -= m_spicyChocolateDmg;
-                if(m_spicyChocolateTimer >= 5)
+                if(m_spicyChocolateTimer >= 3)
                 {
                     m_isOnFire = false;
                 }
             }
         }
+
+        healthBar.fillAmount = (float)health / (float)maxHealth;
     }
 
     public void Hit(float damage)
