@@ -6,14 +6,10 @@ public class FixedPlayerHealth : MonoBehaviour {
     public int health;
     public int lookForDamage;
 
-
-
     // Use this for initialization
     void Start()
     {
         //health = 100;
-
-
     }
 
     // Update is called once per frame

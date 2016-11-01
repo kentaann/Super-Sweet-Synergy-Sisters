@@ -114,29 +114,32 @@ public class Simone_Attack : MonoBehaviour
 
         if (m_attackRate >= m_coolDown)
 	    {
-		    if (Input.GetKey(KeyCode.P) || Input.GetButton("X360_A") && m_autoAttackActive && !m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
+            if (Input.GetKey(KeyCode.P) || Input.GetButton("X360_A"))
             {
-                S_autoAttack();
-                m_attackRate = 0;
-            }
 
-            if (Input.GetKey(KeyCode.P) && m_energyDrinkActive && !m_autoAttackActive && !m_spicyChocolateActive && !m_whippedCreamActive)
-            {
-                S_EnergyDrinkAttack();
-                m_attackRate = 0;
-            }
+                if (m_autoAttackActive && !m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
+                {
+                    S_autoAttack();
+                    m_attackRate = 0;
+                }
 
-            if (Input.GetKey(KeyCode.P) && m_whippedCreamActive && !m_autoAttackActive && !m_energyDrinkActive && !m_spicyChocolateActive)
-            {
-                S_WhippedCreamAttack();
-                m_attackRate = 0;
-            }
+                if (m_energyDrinkActive && !m_autoAttackActive && !m_spicyChocolateActive && !m_whippedCreamActive)
+                {
+                    S_EnergyDrinkAttack();
+                    m_attackRate = 0;
+                }
 
-            if (Input.GetKeyUp(KeyCode.P) && m_spicyChocolateActive && !m_autoAttackActive && !m_energyDrinkActive && !m_whippedCreamActive)
-            {
-                S_SpicyChocolateAttack();
-                Debug.Log("SPICY CHOC SHOT");
-                m_attackRate = 0;
+                if (m_whippedCreamActive && !m_autoAttackActive && !m_energyDrinkActive && !m_spicyChocolateActive)
+                {
+                    S_WhippedCreamAttack();
+                    m_attackRate = 0;
+                }
+
+                if (m_spicyChocolateActive && !m_autoAttackActive && !m_energyDrinkActive && !m_whippedCreamActive)
+                {
+                    S_SpicyChocolateAttack();
+                    m_attackRate = 0;
+                }
             }
 	    }
 
@@ -169,7 +172,7 @@ public class Simone_Attack : MonoBehaviour
 
         #region Activate Whipped Cream
 
-        if (Input.GetKeyUp(KeyCode.Z))
+        if (Input.GetKeyUp(KeyCode.J))
         {
             m_whippedCreamActive = true;
             m_autoAttackActive = false;
