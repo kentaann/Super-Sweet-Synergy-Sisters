@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Entities;
 
-public class LevelManager : MonoBehaviour {
+public class LevelManager : MonoBehaviour
+{
 
     // Adding, Removing, Rotating Methods
 
@@ -11,14 +12,15 @@ public class LevelManager : MonoBehaviour {
 
     public Level currentLevel;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         objectsList = new List<ScenObjects>();
         currentLevel = new Level("Random Name", "LevelEditor");
 
-	}
-	
-	public void AddObject(GameObject obj, Vector3 pos, bool isSpawned)
+    }
+
+    public void AddObject(GameObject obj, Vector3 pos, bool isSpawned)
     {
         RemoveObj(pos);
         var newObj = PlaceObj(obj, pos);
@@ -32,7 +34,7 @@ public class LevelManager : MonoBehaviour {
         ScenObjects objToRemove = null;
         foreach (var obj in objectsList)
         {
-            if(obj.ScenObjPos == pos)
+            if (obj.ScenObjPos == pos)
             {
                 RemoveObjectByTag(obj.ScenObjTag);
                 objToRemove = obj;
@@ -41,7 +43,7 @@ public class LevelManager : MonoBehaviour {
             count++;
         }
 
-        if(objToRemove != null)
+        if (objToRemove != null)
         {
             currentLevel.RemoveObject(objToRemove);
             //objectsList.Remove(objToRemove);
@@ -69,13 +71,13 @@ public class LevelManager : MonoBehaviour {
 
     public Transform RotateLeft(Transform rotateObj)
     {
-        rotateObj.Rotate(0.0f, -90.0f, 0.0f);
+        rotateObj.Rotate(0.0f, 0.0f, -90.0f);
         return rotateObj;
     }
 
     public Transform RotateRight(Transform rotateObj)
     {
-        rotateObj.Rotate(0.0f, 90.0f, 0.0f);
+        rotateObj.Rotate(0.0f, 0.0f, 90.0f);
         return rotateObj;
     }
 
