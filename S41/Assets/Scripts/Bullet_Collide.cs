@@ -44,7 +44,7 @@ public class Bullet_Collide : MonoBehaviour
         }
 
         // If the collided object is a Player or environment the bullet is removed
-        if (other.gameObject.tag == "Environment" || other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Environment" /*|| other.gameObject.tag == "Player"*/)
         {
             Destroy(gameObject);
         }
@@ -56,7 +56,7 @@ public class Bullet_Collide : MonoBehaviour
         }
 
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     #endregion

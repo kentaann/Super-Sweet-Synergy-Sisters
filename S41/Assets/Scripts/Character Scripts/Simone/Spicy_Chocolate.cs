@@ -42,7 +42,7 @@ public class Spicy_Chocolate : MonoBehaviour
             other.gameObject.GetComponent<EnemyHealth>().m_isOnFire = true;
         }
 
-        if (other.gameObject.tag == "Environment" || other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Environment" /*|| other.gameObject.tag == "Player"*/)
         {
             Destroy(gameObject);
         }
@@ -53,7 +53,7 @@ public class Spicy_Chocolate : MonoBehaviour
             other.gameObject.GetComponent<Trap_Trigger>().FiredUp(true);
         }
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
     #endregion
