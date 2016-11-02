@@ -11,7 +11,7 @@ public class Bullet_Collide : MonoBehaviour
 
     public LayerMask m_EnemyMask;
     public GameObject[] players;
-
+    bool bouncinessDisabled = true;
     public float m_lifeSpan = 5f;
     public float m_explosionRadius = 1f;
 
@@ -21,6 +21,7 @@ public class Bullet_Collide : MonoBehaviour
 
     void Start () 
     {
+        gameObject.GetComponent<Collider>().isTrigger = true;
         players = GameObject.FindGameObjectsWithTag("Player");
 
         foreach (GameObject player in players)
@@ -57,7 +58,7 @@ public class Bullet_Collide : MonoBehaviour
         }
 
         // If the collided object is Environment the bullet is removed
-        if (other.gameObject.tag == "Environment" /*|| other.gameObject.tag == "Player"*/)
+        if (other.gameObject.tag == "Environment" && bouncinessDisabled/*|| other.gameObject.tag == "Player"*/)
         {
             Destroy(gameObject);
         }
@@ -80,6 +81,16 @@ public class Bullet_Collide : MonoBehaviour
 
 
         //Destroy(gameObject);
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "wcBeam")
+        {
+            gameObject.GetComponent<Collider>().isTrigger = false;
+            bouncinessDisabled = false;
+        }
+        // Destroy everything that leaves the trigger
+        //Destroy(other.gameObject);
     }
 
     #endregion
