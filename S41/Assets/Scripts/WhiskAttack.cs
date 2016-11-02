@@ -9,7 +9,7 @@ public class WhiskAttack : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-	
+        m_rushActive = false;
 	}
 
     private void OnTriggerStay(Collider other)
@@ -38,6 +38,7 @@ public class WhiskAttack : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-	
+        IsRushing(m_rushActive);
+
 	}
 }

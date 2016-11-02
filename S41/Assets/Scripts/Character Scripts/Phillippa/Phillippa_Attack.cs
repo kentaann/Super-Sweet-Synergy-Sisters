@@ -130,7 +130,7 @@ public class Phillippa_Attack : MonoBehaviour
         gameObject.SendMessage("SetMoveSpeed", 60f);
         //gameObject.transform.position = transform.forward * Time.deltaTime * 100;
         gameObject.SendMessage("IsRushing", true);
-        m_rushActive = true;
+        m_rushActive = true;                    //needs to start as true in order to not be activated at start, for some reason
     }
 
     #endregion
