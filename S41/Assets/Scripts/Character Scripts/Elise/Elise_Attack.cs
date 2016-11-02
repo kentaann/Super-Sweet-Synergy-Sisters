@@ -33,10 +33,18 @@ public class Elise_Attack : MonoBehaviour
         }
 	}
 
+    /// <summary>
+    /// Elise lays a stationary trap at her current position
+    /// </summary>
+
     private void E_LayTrap()
     {
         Collider m_trapInstance = Instantiate(m_trap, m_transformTrapOrigin.position, m_transformTrapOrigin.rotation) as Collider;
     }
+
+    /// <summary>
+    /// Elise shoots out three separate bullets in directions corresponding to their transformOrigins
+    /// </summary>
 
     private void E_MultiShot()
     {

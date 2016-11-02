@@ -17,7 +17,7 @@ public class WhiskAttack : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy")
         {
-            if (Input.GetKeyDown(KeyCode.J))
+            if (Input.GetKeyDown(KeyCode.J))            //The normal melee attack
             {
                 other.gameObject.GetComponent<EnemyHealth>().Hit(10);       //Hit(10) has to be changed to Hit(dmg variable in simone script)
                 //Destroy(gameObject);

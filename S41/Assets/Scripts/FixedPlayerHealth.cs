@@ -39,8 +39,8 @@ public class FixedPlayerHealth : MonoBehaviour {
 
         if (other.gameObject.tag == "Enemy")
         {
-            TakeDamage(20);
-            enemyBody.AddExplosionForce(1000f, transform.position, 5f);
+            TakeDamage(20);         //here is where damage is taken
+            enemyBody.AddExplosionForce(1000f, transform.position, 5f);         //players are supposed to be pushed away when damaged
             Debug.Log("Hit enemy");
         }
     }

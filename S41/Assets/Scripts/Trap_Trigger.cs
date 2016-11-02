@@ -18,7 +18,10 @@ public class Trap_Trigger : MonoBehaviour
 	}
 
 
-
+    /// <summary>
+    /// Activates when the trap is hit by Fire
+    /// </summary>
+    /// <param name="fireHit"></param>
     public void FiredUp(bool fireHit)
     {
         if (fireHit == true)
@@ -27,6 +30,10 @@ public class Trap_Trigger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Activates when the trap is hit by the FLuffpound skill
+    /// </summary>
+    /// <param name="fluffHit"></param>
     public void FlyAway(bool fluffHit)
     {
         if (fluffHit == true)
@@ -44,7 +51,7 @@ public class Trap_Trigger : MonoBehaviour
 
             fireTimer += Time.deltaTime;
 
-            if (fireTimer >= 10)
+            if (fireTimer >= 10)            //As soon as the trap is on fire, it will be destroyed after 10 seconds
             {
                 Destroy(gameObject);
                 trapDestroyed = true;
@@ -66,6 +73,8 @@ public class Trap_Trigger : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        //Bug: Only the first enemy that entered the trap can move again after the trap is destroyed. The others stay stationary on the location of the trap
+
         if (other.gameObject.tag == "Enemy" && trapTimer < 10)
         {
             GetComponent<Rigidbody>().velocity = Vector3.zero;

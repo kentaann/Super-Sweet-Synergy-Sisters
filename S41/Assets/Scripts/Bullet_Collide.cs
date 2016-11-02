@@ -24,9 +24,10 @@ public class Bullet_Collide : MonoBehaviour
         gameObject.GetComponent<Collider>().isTrigger = true;
         players = GameObject.FindGameObjectsWithTag("Player");
 
+        //makes bullets pass through players instead of pushing them
         foreach (GameObject player in players)
         {
-                        Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
+            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
         }
 
         Destroy(gameObject, m_lifeSpan);

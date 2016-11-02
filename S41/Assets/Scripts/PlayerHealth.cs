@@ -36,6 +36,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        //all visual feedback about the players' health in this class gets connected to what is actually happening to the objects in the FixedPlayerHealth class
+
         fixedPlayerHealth_Simone = simone.GetComponent<FixedPlayerHealth>();
         fixedPlayerHealth_Solveig = solveig.GetComponent<FixedPlayerHealth>();
         fixedPlayerHealth_Philippa = philippa.GetComponent<FixedPlayerHealth>();

@@ -48,6 +48,7 @@ public class Spicy_Chocolate : MonoBehaviour
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, m_explosionRadius, m_EnemyMask);
 
+        //Puts the target enemy on fire and also does initial damage
         if (other.gameObject.tag == "Enemy" && !other.gameObject.GetComponent<EnemyHealth>().m_isOnFire)
         {
             other.gameObject.GetComponent<EnemyHealth>().Hit(10);

@@ -101,7 +101,7 @@ public class Phillippa_Attack : MonoBehaviour
 
     /// <summary>
     /// Area Of Effect attack that does damage and stuns the enemy.
-    /// As of right now it damages but not always every enemy in the AOE.
+    /// As of right now it damages but not always hit every enemy in the AOE.
     /// SYNERGY: If a trap is present it is propelled away Phillippa.
     /// </summary>
     public void Fluffpound()
@@ -181,7 +181,7 @@ public class Phillippa_Attack : MonoBehaviour
             m_rushTimer += Time.deltaTime;
         }
 
-        if (m_rushTimer >= 0.2f)
+        if (m_rushTimer >= 0.2f)            //makes there Rush attack stop after 0.2 seconds
         {
             gameObject.SendMessage("SetMoveSpeed", 12f);
             //gameObject.transform.position = gameObject.GetComponent<Player_Movement>().Move(movement);
