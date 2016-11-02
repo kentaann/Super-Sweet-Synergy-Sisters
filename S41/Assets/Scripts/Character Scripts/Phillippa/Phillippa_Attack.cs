@@ -23,6 +23,10 @@ public class Phillippa_Attack : MonoBehaviour
     private float m_angerIssuesDamage = 25.0f;
 
     private bool m_rushActive = false;
+    private bool m_energyRushActive = false;
+    private bool m_spicyRushActive = false;
+    private bool m_whippedCreamActive = false;
+
 
     #endregion
 
@@ -40,17 +44,26 @@ public class Phillippa_Attack : MonoBehaviour
 
         if(other.gameObject.tag == "wcBeam" && m_rushActive)
         {
+            m_whippedCreamActive = true;
+            m_spicyRushActive = false;
+            m_energyRushActive = false;
             m_angerIssuesDamage = 40.0f;
             UnityEngine.Debug.Log("WHIPPED RUSH ACTIVE FUCKER");
         }
 
         if(other.gameObject.tag == "edBeam" && m_rushActive)
         {
+            m_energyRushActive = true;
+            m_whippedCreamActive = false;
+            m_spicyRushActive = false;
             UnityEngine.Debug.Log("ENERGY RUSH ACTIVE");
         }
 
         if(other.gameObject.tag == "scBeam" && m_rushActive)
         {
+            m_spicyRushActive = true;
+            m_whippedCreamActive = false;
+            m_energyRushActive = false;
             UnityEngine.Debug.Log("SPICY RUSH ACTIVE");
         }
     }
