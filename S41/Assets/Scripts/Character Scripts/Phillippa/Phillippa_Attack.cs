@@ -20,6 +20,7 @@ public class Phillippa_Attack : MonoBehaviour
     private float m_fluffDamage = 10;    
     private float m_timer;
     private float m_rushTimer = 0;
+    private float m_angerIssuesDamage = 25.0f;
 
     private bool m_rushActive = false;
 
@@ -35,6 +36,12 @@ public class Phillippa_Attack : MonoBehaviour
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Trap")
         {
             m_targetList.Add(other.gameObject.transform);
+        }
+
+        if(other.gameObject.tag == "wcBeam" && m_rushActive)
+        {
+            m_angerIssuesDamage = 40.0f;
+            UnityEngine.Debug.Log("WHIPPED RUSH ACTIVE FUCKER");
         }
     }
     #endregion

@@ -68,6 +68,16 @@ public class Bullet_Collide : MonoBehaviour
             other.gameObject.GetComponent<Trap_Trigger>().FiredUp(true);
         }
 
+        if(other.gameObject.tag == "wcBeam")
+        {
+            // Ändra material till bounce?
+        }
+
+        if(other.gameObject.tag == "scBeam")
+        {
+            // Lägg till spicy synergy
+        }
+
 
         //Destroy(gameObject);
     }
