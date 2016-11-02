@@ -43,6 +43,16 @@ public class Phillippa_Attack : MonoBehaviour
             m_angerIssuesDamage = 40.0f;
             UnityEngine.Debug.Log("WHIPPED RUSH ACTIVE FUCKER");
         }
+
+        if(other.gameObject.tag == "edBeam" && m_rushActive)
+        {
+            UnityEngine.Debug.Log("ENERGY RUSH ACTIVE");
+        }
+
+        if(other.gameObject.tag == "scBeam" && m_rushActive)
+        {
+            UnityEngine.Debug.Log("SPICY RUSH ACTIVE");
+        }
     }
     #endregion
 
