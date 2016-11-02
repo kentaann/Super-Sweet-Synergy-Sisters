@@ -16,8 +16,8 @@ public class Energy_Drink : MonoBehaviour
     private const float m_POSITIONALOFFSET = 2;         // The offset for making the ability appear to remain in its original position
     private const float m_GROWTHRATE = 1;               // The modifier for the Y-axis scaler
     private const float m_RADIUS = 0.5f;                // Radius of the beam
-    private const float m_DAMAGE = 8.0f;               // Damage of the beam
-    private const float m_MOVESPEEDMODIFIER = 0.0f;    // Modifier for enemies movespeed (Ergo the stun)
+    private const float m_DAMAGE = 8.0f;                // Damage of the beam
+    private const float m_MOVESPEEDMODIFIER = 0.0f;     // Modifier for enemies movespeed (Ergo the stun)
 
     #endregion
 
