@@ -5,6 +5,10 @@ using System.Collections;
 
 #endregion
 
+/// <summary>
+/// Spicy Chocolate element
+/// Tag to utilize in editor: scBeam
+/// </summary>
 public class Spicy_Chocolate : MonoBehaviour
 {
     #region Variables
