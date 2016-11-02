@@ -68,6 +68,8 @@ public class Trap_Trigger : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy" && trapTimer < 10)
         {
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+
             other.gameObject.SendMessage("SetMoveSpeed", 0f);
 
             trapTimer += Time.deltaTime;
