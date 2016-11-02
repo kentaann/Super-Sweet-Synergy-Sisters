@@ -10,6 +10,7 @@ public class Bullet_Collide : MonoBehaviour
     #region Variables
 
     public LayerMask m_EnemyMask;
+    public GameObject[] players;
 
     public float m_lifeSpan = 5f;
     public float m_explosionRadius = 1f;
@@ -20,6 +21,13 @@ public class Bullet_Collide : MonoBehaviour
 
     void Start () 
     {
+        players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject player in players)
+        {
+                        Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
+        }
+
         Destroy(gameObject, m_lifeSpan);
 	}
 
@@ -35,6 +43,11 @@ public class Bullet_Collide : MonoBehaviour
 
         Collider[] colliders = Physics.OverlapSphere(transform.position, m_explosionRadius, m_EnemyMask);
 
+        //if (other.gameObject.tag == "Player")
+        //{
+        //    Physics.IgnoreCollision(other.GetComponent<Collider>(), GetComponent<Collider>());
+        //}
+
         // If the collided object is an enemy
         if (other.gameObject.tag == "Enemy")
         {
@@ -43,7 +56,7 @@ public class Bullet_Collide : MonoBehaviour
                 //m_Simone.GetComponent<Simone_Attack>().SetScore(10); This is for the future scoring system and is to be moved to appropriate location when finalized
         }
 
-        // If the collided object is a Player or environment the bullet is removed
+        // If the collided object is Environment the bullet is removed
         if (other.gameObject.tag == "Environment" /*|| other.gameObject.tag == "Player"*/)
         {
             Destroy(gameObject);
