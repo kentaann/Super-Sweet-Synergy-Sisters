@@ -10,6 +10,8 @@ public class Energy_Drink : MonoBehaviour
 
     #region Variables
 
+    public GameObject[] players;
+
     public float m_maxRange;                            // The max range of the ability
 
     private const float m_GROWTHFACTOR = 2;             // The factor at which the beam grows    
@@ -25,6 +27,13 @@ public class Energy_Drink : MonoBehaviour
 
     void Start()
     {
+        players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject player in players)
+        {
+            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
+        }
+
         StartCoroutine(Expand());
     }
 

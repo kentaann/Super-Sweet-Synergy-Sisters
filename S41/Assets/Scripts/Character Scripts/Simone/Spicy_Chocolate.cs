@@ -13,7 +13,8 @@ public class Spicy_Chocolate : MonoBehaviour
 {
     #region Variables
 
-    public LayerMask m_EnemyMask;    
+    public LayerMask m_EnemyMask;
+    public GameObject[] players;
 
     public float m_lifeSpan = 5f;
     public float m_explosionRadius = 1f;
@@ -24,6 +25,13 @@ public class Spicy_Chocolate : MonoBehaviour
 
     void Start()
     {
+        players = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject player in players)
+        {
+            Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
+        }
+
         Destroy(gameObject, m_lifeSpan);
     }
 
