@@ -13,21 +13,15 @@ public class Player_Movement : MonoBehaviour
     public int m_PlayerNumber = 1;          // Player number. Used for assigning controls etc
     public float m_moveSpeed = 12f;         // Movespeed
     public float m_turnSpeed = 180f;        // Turnspeed
-    public float m_PitchRange = 0.2f;       // Range for the pitch in audio clip. 
 
-    public AudioSource m_playerAudio;       //Source for outputting audioclips
-    //public AudioClip m_playerClip1;       These are merely placeholders for when we put audio in the game
-    //public AudioClip m_playerClip2;
 
     private string m_moveAxisName;          // This is used in the editor to assign the correct controls
     private string m_turnAxisName;          // Same as above
 
     private Rigidbody m_Rigidbody;
-    //public Rigidbody m_Rigidbody;           //Might need to be public to access for skills in other classes
 
     private float m_movementInputValue;
     private float m_turnInputValue;
-    private float m_OriginalPitch;
 
     #endregion
 
@@ -89,7 +83,6 @@ public class Player_Movement : MonoBehaviour
         m_movementInputValue = Input.GetAxis(m_moveAxisName);
         m_turnInputValue = Input.GetAxis(m_turnAxisName);
 
-        //PlayerAudio();
     }
 
     #endregion

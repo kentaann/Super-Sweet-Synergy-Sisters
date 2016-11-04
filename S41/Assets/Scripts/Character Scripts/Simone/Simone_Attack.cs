@@ -19,8 +19,7 @@ public class Simone_Attack : MonoBehaviour
     //public Material m_bulletMaterial;
 
     Player_Movement m_playerMove;                                   // Used to manipulate movement from this class
-
-
+    
     private float m_bulletLaunchForce;                              // Speed of the projectile
     private float m_coolDown;                                       // Cooldown of attacks                     
     private float m_attackRate;                                     // Attackrate
@@ -32,7 +31,7 @@ public class Simone_Attack : MonoBehaviour
     private bool m_whippedCreamActive;                              // Flag for the Whipped Cream element
     private bool m_spicyChocolateActive;                            // Flag for the Spicy Chocolate element
 
-    public double m_damage;                                         // Base damage per projectile
+    //public float m_damage;                                         // Base damage per projectile
 
     #endregion
 
@@ -44,7 +43,7 @@ public class Simone_Attack : MonoBehaviour
     private void OnEnable()
     {
         m_bulletLaunchForce = 30f;
-        m_damage = 10;
+        //m_damage = 10;
         m_coolDown = 0.5f;
         m_Score = 0;
         m_whippedCreamMoveSpeedMod = 0.75f;
@@ -152,7 +151,7 @@ public class Simone_Attack : MonoBehaviour
             m_spicyChocolateActive = false;
             m_whippedCreamActive = false;
             m_playerMove.m_moveSpeed = 0;
-            m_damage = m_damage * 0.8;
+           // m_damage = m_damage * 0.8;
             m_coolDown = 0.15f;
         }
 
@@ -165,7 +164,7 @@ public class Simone_Attack : MonoBehaviour
             m_spicyChocolateActive = false;
             m_playerMove.m_moveSpeed = 12;
             m_coolDown = 0.5f;
-            m_damage = 10f;
+            //m_damage = 10f;
         }
 
         #endregion
@@ -178,10 +177,10 @@ public class Simone_Attack : MonoBehaviour
             m_autoAttackActive = false;
             m_spicyChocolateActive = false;
             m_energyDrinkActive = false;
-            m_damage = m_damage * 1.2;
+            //m_damage = m_damage * 1.2;
             m_playerMove.m_moveSpeed = m_playerMove.m_moveSpeed * m_whippedCreamMoveSpeedMod;
             m_coolDown = 0.5f;
-            Debug.Log(m_damage);
+            //Debug.Log(m_damage);
         }
 
         #endregion
@@ -195,7 +194,7 @@ public class Simone_Attack : MonoBehaviour
             m_autoAttackActive = false;
             m_whippedCreamActive = false;
             m_coolDown = 0.5f;
-            m_damage = 10f;
+           // m_damage = 10f;
         }
 
         #endregion

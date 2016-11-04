@@ -28,6 +28,11 @@ public class FixedPlayerHealth : MonoBehaviour {
         health -= damage;
     }
 
+    public void GetHeal(float heal)
+    {
+        health += (int)heal;
+    }
+
     public int GetHealth()
     {
         return health;
