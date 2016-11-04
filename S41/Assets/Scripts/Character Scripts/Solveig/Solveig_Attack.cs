@@ -1,23 +1,25 @@
-﻿using UnityEngine;
+﻿#region Using Statements
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
+#endregion
 
 public class Solveig_Attack : MonoBehaviour
 {
     #region Variables
 
-    public Transform m_transformOrigin;
-    public List<Transform> m_targetList = new List<Transform>();
-    public List<Transform> m_allyList = new List<Transform>();
-    public Rigidbody m_Projectile;
+    public Transform m_transformOrigin;                                 // Where the projectile is instantiated
+    public List<Transform> m_targetList = new List<Transform>();        // List of enemies
+    public List<Transform> m_allyList = new List<Transform>();          // List of friendlies
+    public Rigidbody m_Projectile;                                      // The projectile
 
-    Player_Movement m_playerMove;
+    Player_Movement m_playerMove;                                       // Reference to the movement component of the character for manipulating
 
-    private float m_launchForce;
-    private float m_coolDown;
-    private float m_attackRate;
-
-    public float m_damage;
+    private float m_launchForce;                                        // Force the projectile is launched with
+    private float m_coolDown;                                           // Cooldown of the shot
+    private float m_attackRate;                                         // Rate of attack
 
     #endregion
 

@@ -1,5 +1,9 @@
-﻿using UnityEngine;
+﻿#region Using Statements
+
+using UnityEngine;
 using System.Collections;
+
+#endregion
 
 /// <summary>
 /// Energy Drink element. 
@@ -7,7 +11,6 @@ using System.Collections;
 /// </summary>
 public class Energy_Drink : MonoBehaviour 
 {
-
     #region Variables
 
     public GameObject[] players;

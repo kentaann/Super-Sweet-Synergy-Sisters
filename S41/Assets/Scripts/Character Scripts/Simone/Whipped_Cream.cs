@@ -1,5 +1,9 @@
-﻿using UnityEngine;
+﻿#region Using Statements
+
+using UnityEngine;
 using System.Collections;
+
+#endregion
 
 /// <summary>
 /// Whipped Cream element
