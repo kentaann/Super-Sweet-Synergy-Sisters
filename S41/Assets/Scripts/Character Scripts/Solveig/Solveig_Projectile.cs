@@ -1,43 +1,61 @@
-﻿using UnityEngine;
+﻿#region Using Systems
+
+using UnityEngine;
 using System.Collections;
 
-public class Solveig_Projectile : MonoBehaviour 
+#endregion
+
+public class Solveig_Projectile : MonoBehaviour
 {
+
+    #region Variables
+
     private const float m_DAMAGE = 9.0f;
     private const float m_HEAL = 10.0f;
     private const float m_RADIUS = 0.5f;
 
+    #endregion
 
-	// Use this for initialization
-	void Start () 
-    {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
+    #region Start
+
+    void Start () 
     {
 	
 	}
 
+    #endregion
+
+    #region Update
+
+    void Update () 
+    {
+	
+	}
+
+    #endregion
+
+    #region On Trigger Enter
     private void OnTriggerEnter(Collider other)
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, m_RADIUS);
 
+        // Damages the enemy
         if(other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyHealth>().Hit(m_DAMAGE);
         }
 
+        //Heal friendly
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<FixedPlayerHealth>().GetHeal(-m_HEAL);
+            other.gameObject.GetComponent<FixedPlayerHealth>().GetHeal(m_HEAL);
         }
 
         if(other.gameObject.tag == "Environment")
         {
             Destroy(gameObject);
         }
-
     }
+
+    #endregion
 }
