@@ -7,17 +7,15 @@ public class InputForLevelEditor : MonoBehaviour
     // Leveleditor input
     public Vector3 mousePos;
     public Vector3 placingPos;
-    
-
     public GameObject mouse;
-
     private bool moved;
-
     LE_parts objects;
-
     private LevelManager levelManager;
-
     List<GameObject> list = new List<GameObject>();
+
+    //Camera
+    float smoothing = 5f;
+    Vector3 offset;
 
     // Use this for initialization
     void Start()
@@ -28,12 +26,18 @@ public class InputForLevelEditor : MonoBehaviour
         objects = GetComponent<LE_parts>();
         levelManager = GetComponent<LevelManager>();
 
+        offset = transform.position - mousePos;
+
         foreach (GameObject go in objects.PartList)
         {
             GameObject copy = Instantiate(go);
             list.Add(copy);
         }
         onSelected(0);
+    }
+
+    void FixedUpdate()
+    {
     }
 
     private void onSelected(int index)
@@ -86,6 +90,8 @@ public class InputForLevelEditor : MonoBehaviour
             objects.selectedObject.transform.rotation = newTransform.rotation;
             Debug.Log("rightRotationPressed");
         }
+        Vector3 targetCamPos = mousePos + offset;
+        transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
 
 
     }
