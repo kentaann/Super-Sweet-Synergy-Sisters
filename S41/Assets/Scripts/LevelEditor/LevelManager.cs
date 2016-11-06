@@ -24,7 +24,7 @@ public class LevelManager : MonoBehaviour
     {
         RemoveObj(pos);
         var newObj = PlaceObj(obj, pos);
-        //objectsList.Add(newObj);
+        objectsList.Add(newObj);
         currentLevel.AddObject(newObj);
     }
 
@@ -46,7 +46,7 @@ public class LevelManager : MonoBehaviour
         if (objToRemove != null)
         {
             currentLevel.RemoveObject(objToRemove);
-            //objectsList.Remove(objToRemove);
+            objectsList.Remove(objToRemove);
         }
     }
 

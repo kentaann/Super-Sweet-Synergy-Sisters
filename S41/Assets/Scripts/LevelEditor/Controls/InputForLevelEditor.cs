@@ -6,8 +6,8 @@ public class InputForLevelEditor : MonoBehaviour
 {
     // Leveleditor input
     public Vector3 mousePos;
-    private Vector3 placingPos;
-    public Vector3 realMousePos;
+    public Vector3 placingPos;
+    
 
     public GameObject mouse;
 
@@ -22,7 +22,7 @@ public class InputForLevelEditor : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        mousePos = new Vector3(0.0f, 1.0f, 0.0f);
+        mousePos = new Vector3(0.0f, 0.0f, 0.0f);
         placingPos = new Vector3(0.0f, 0.0f, 0.0f);
         moved = false;
         objects = GetComponent<LE_parts>();
@@ -97,26 +97,26 @@ public class InputForLevelEditor : MonoBehaviour
         {
             if (Input.GetAxis("MovingX") > 0)
             {
-                mousePos = new Vector3(mousePos.x + 1.0f, 1.0f, mousePos.z);
-                placingPos = new Vector3(placingPos.x + 1.0f, 0.0f, placingPos.z);
+                mousePos = new Vector3(mousePos.x + 1.0f,mousePos.y, mousePos.z);
+                placingPos = new Vector3(placingPos.x + 1.0f, mousePos.y, placingPos.z);
                 moved = true;
             }
             else if (Input.GetAxis("MovingX") < 0)
             {
-                mousePos = new Vector3(mousePos.x - 1.0f, 1.0f, mousePos.z);
-                placingPos = new Vector3(placingPos.x - 1.0f, 0.0f, placingPos.z);
+                mousePos = new Vector3(mousePos.x - 1.0f,mousePos.y, mousePos.z);
+                placingPos = new Vector3(placingPos.x - 1.0f, mousePos.y, placingPos.z);
                 moved = true;
             }
             else if (Input.GetAxis("MovingY") > 0)
             {
                 mousePos = new Vector3(mousePos.x, mousePos.y + 1.0f, mousePos.z);
-                placingPos = new Vector3(placingPos.x, placingPos.y + 1.0f, placingPos.z);
+                placingPos = new Vector3(placingPos.x, placingPos.y +1.0f , placingPos.z);
                 moved = true;
             }
             else if (Input.GetAxis("MovingY") < 0)
             {
                 mousePos = new Vector3(mousePos.x, mousePos.y - 1.0f, mousePos.z);
-                placingPos = new Vector3(placingPos.x, placingPos.y - 1.0f, placingPos.z);
+                placingPos = new Vector3(placingPos.x, placingPos.y -1.0f , placingPos.z);
                 moved = true;
             }
             else if (Input.GetAxis("MovingZ") > 0)
