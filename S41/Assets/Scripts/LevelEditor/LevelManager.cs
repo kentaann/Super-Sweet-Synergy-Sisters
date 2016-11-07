@@ -71,13 +71,13 @@ public class LevelManager : MonoBehaviour
 
     public Transform RotateLeft(Transform rotateObj)
     {
-        rotateObj.Rotate(0.0f, 0.0f, -90.0f);
+        rotateObj.Rotate(0.0f,-90.0f, 0.0f );
         return rotateObj;
     }
 
     public Transform RotateRight(Transform rotateObj)
     {
-        rotateObj.Rotate(0.0f, 0.0f, 90.0f);
+        rotateObj.Rotate(0.0f,90.0f, 0.0f);
         return rotateObj;
     }
 
