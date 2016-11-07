@@ -17,9 +17,14 @@ public class Solveig_Attack : MonoBehaviour
 
     Player_Movement m_playerMove;                                       // Reference to the movement component of the character for manipulating
 
+    private const float m_SPICYCREAMDAMAGE = 47.3f;                     // Damage modifier for Flower Power while under the Spicy Chocolate effect
+
     private float m_launchForce;                                        // Force the projectile is launched with
     private float m_coolDown;                                           // Cooldown of the shot
     private float m_attackRate;                                         // Rate of attack
+
+    private bool m_spicyCreamActive = false;
+    private bool m_lovelyCreamActive = false;
 
     #endregion
 
@@ -109,6 +114,45 @@ public class Solveig_Attack : MonoBehaviour
     {
         Rigidbody projectileInstance = Instantiate(m_Projectile, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
         projectileInstance.velocity = m_launchForce * m_transformOrigin.forward;
+    }
+
+    private void SongOfLove()
+    {
+        foreach(var target in m_targetList)
+        {
+            RaycastHit targetConnected;
+            Rigidbody targetBody = target.GetComponent<Rigidbody>();
+
+            if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 100))
+            {
+                if(targetConnected.transform == target && target.transform != null)
+                {
+                    if(target.gameObject.tag == "Enemy" && m_spicyCreamActive)
+                    {
+                        target.SendMessage("Hit", m_SPICYCREAMDAMAGE);
+                    }
+                }
+            }            
+        }
+
+        foreach(var ally in m_allyList)
+        {
+            RaycastHit allyConnected;
+            Rigidbody allyBody = ally.GetComponent<Rigidbody>();
+
+            if (Physics.Raycast(transform.position, (ally.position - transform.position), out allyConnected, 100))
+            {
+                if(allyConnected.transform == ally && allyConnected.transform != null)
+                {
+                    if(ally.gameObject.tag == "Player")
+                    {
+                        ally.SendMessage("GetHeal", 25);
+                    }
+                }
+            }
+            
+              
+        }
     }
 
     #endregion
