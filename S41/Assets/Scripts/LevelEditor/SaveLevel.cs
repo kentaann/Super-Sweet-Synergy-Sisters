@@ -12,4 +12,9 @@ public class SaveLevel : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void SaveLevel()
+    {
+
+    }
 }

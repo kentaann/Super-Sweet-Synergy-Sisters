@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.IO;
+using System.Text;
+using System.Linq;
 
 public class InputForLevelEditor : MonoBehaviour
 {
@@ -153,5 +157,19 @@ public class InputForLevelEditor : MonoBehaviour
         }
 
 
+    }
+
+    // I guess it will be a button function for save button
+    public void SaveLevelToFile()
+    {
+        StreamWriter sw;
+        //sw = new StreamWriter(objects.PartList);
+
+        foreach (GameObject go in objects.PartList)
+        {
+            //sw.Write()
+        }
+
+        //sw.Close();
     }
 }
