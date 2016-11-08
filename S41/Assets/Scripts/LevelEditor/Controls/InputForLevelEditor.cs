@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Text;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class InputForLevelEditor : MonoBehaviour
 {
@@ -55,6 +56,14 @@ public class InputForLevelEditor : MonoBehaviour
                 mouse = obj;
                 mouse.transform.position = mousePos;
                 obj.gameObject.SetActive(true);
+                if (Input.GetKeyDown("joystick button 4")) // left bumper        
+                {
+                    obj.transform.Rotate(0.0f, -90.0f, 0.0f);
+                }
+                if (Input.GetKeyDown("joystick button 5"))
+                {
+                    obj.transform.Rotate(0.0f, -90.0f, 0.0f);
+                }
             }
             else
             {
@@ -162,14 +171,7 @@ public class InputForLevelEditor : MonoBehaviour
     // I guess it will be a button function for save button
     public void SaveLevelToFile()
     {
-        StreamWriter sw;
-        //sw = new StreamWriter(objects.PartList);
-
-        foreach (GameObject go in objects.PartList)
-        {
-            //sw.Write()
-        }
-
-        //sw.Close();
+        BinaryFormatter bf;
+        //FileStream
     }
 }
