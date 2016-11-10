@@ -140,11 +140,14 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    //void OnCollisionEnter(Collision other)
+    //void OnCollisionEnter(Collision other)            //spelar ingen roll, för den ligger inte i själva karaktärernas prefab
     //{
     //    if (other.gameObject.tag == "Enemy")
     //    {
     //        TakeDamagePhilippa(20);
+    //        TakeDamageElise(20);
+    //        TakeDamageSimone(20);
+    //        TakeDamageSolveig(20);
     //        Debug.Log("Hit player");
     //    }
     //}

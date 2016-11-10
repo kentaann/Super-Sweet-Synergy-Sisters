@@ -9,7 +9,7 @@ public class FixedPlayerHealth : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        //health = 100;
+        health = 100;
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class FixedPlayerHealth : MonoBehaviour {
 
         if (health <= 0)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
     }
 
