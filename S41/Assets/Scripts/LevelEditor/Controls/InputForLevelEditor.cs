@@ -17,6 +17,7 @@ public class InputForLevelEditor : MonoBehaviour
     LE_parts objects;
     private LevelManager levelManager;
     List<GameObject> list = new List<GameObject>();
+    float health;
 
     //Camera
     float smoothing = 5f;
@@ -168,10 +169,49 @@ public class InputForLevelEditor : MonoBehaviour
 
     }
 
-    // I guess it will be a button function for save button
+    // I guess it will be a button function for save and load button (is right)
     public void SaveLevelToFile()
     {
-        BinaryFormatter bf;
-        //FileStream
+        // gameobject.find -> not good to use and its very slow
+        // dictionary to file? what is dictionary?
+        // object references
+        // 2 ways for serialization: 1. c# data serialization or 2. unity serialization: allow build assets ~25:00 , ( language serialization 28:00)
+        // object cannot be saved in text file and its a monobehaviour class. we need a clean class that contains the data forming
+        // other way playerpreferences
+        // not necessary .dat file
+        // hard to serialize list -> check it out how ( he did not tested serialize a list) 
+        // 
+        BinaryFormatter bf = new BinaryFormatter(); // unreadable for the player
+        FileStream file = File.Create(Application.persistentDataPath + "/LevelInfo.dat");      // where to save it LevelInfo is the filename and Application.persis... where its going (not good vause its an android application path.)
+        
+        // 
+        InfoData data = new InfoData();
+        data.health = health;
+
+        // save data in file
+        bf.Serialize(file, data);
+        file.Close();
     }
+
+    public void LoadLevelFromFile()
+    {
+        if (File.Exists(Application.persistentDataPath + "/LevelInfo.dat"))
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open(Application.persistentDataPath + "/LevelInfo.dat", FileMode.Open); // i videon står bara path och ingen Filemode. för mig krävs men inte för honom 43:13 // load file
+            //PLayerData data = bf.Deserialize(file);  need a container to pull the data out  (creating an object but we dont know what)
+            file.Close();
+
+            //health = data.health;
+        }
+    }
+}
+
+[Serializable]
+class InfoData // datacontainer ( allows me to write the data into a file
+{
+    //serialized
+    //how the system organize the data so it fits in a text file
+    public float health;
+    public float experience;
 }
