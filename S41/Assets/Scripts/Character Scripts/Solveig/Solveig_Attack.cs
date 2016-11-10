@@ -14,6 +14,7 @@ public class Solveig_Attack : MonoBehaviour
     public List<Transform> m_targetList = new List<Transform>();        // List of enemies
     public List<Transform> m_allyList = new List<Transform>();          // List of friendlies
     public Rigidbody m_Projectile;                                      // The projectile
+    public Rigidbody m_FlowerPower;
 
     Player_Movement m_playerMove;                                       // Reference to the movement component of the character for manipulating
 
@@ -98,13 +99,20 @@ public class Solveig_Attack : MonoBehaviour
 
         if(m_attackRate >= m_coolDown)
         {
-            if(Input.GetKey(KeyCode.Keypad0))
+            if(Input.GetKey(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.U))
             {
                 Sol_Attack();
             }
         }
+        if (m_attackRate >= m_coolDown)
+        {
+            if (Input.GetKeyDown(KeyCode.N))
+            {
+                FlowerPower();
+            }
+        }
 
-	}
+    }
 
     #endregion
 
@@ -113,6 +121,11 @@ public class Solveig_Attack : MonoBehaviour
     private void Sol_Attack()
     {
         Rigidbody projectileInstance = Instantiate(m_Projectile, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
+        projectileInstance.velocity = m_launchForce * m_transformOrigin.forward;
+    }
+    private void FlowerPower()
+    {
+        Rigidbody projectileInstance = Instantiate(m_FlowerPower, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
         projectileInstance.velocity = m_launchForce * m_transformOrigin.forward;
     }
 

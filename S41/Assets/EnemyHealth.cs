@@ -70,6 +70,22 @@ public class EnemyHealth : MonoBehaviour {
         healthBar.fillAmount = (float)health / (float)maxHealth;
     }
 
+    public void Heal(float heal)
+    {
+        if ((health + heal) > maxHealth)
+        {
+            health = maxHealth;
+            healthBar.fillAmount = (float)health / (float)maxHealth;
+        }
+        else if ((health + heal) < maxHealth)
+        {
+            health += (int)heal;
+            healthBar.fillAmount = (float)health / (float)maxHealth;
+        }
+
+
+    }
+
     //Kan användas i andra klasser för kollision
     void OnCollisionEnter(Collision other)
     {
