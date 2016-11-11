@@ -1,16 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WhiskAttack : MonoBehaviour 
+public class WhiskAttack : MonoBehaviour
 {
-
     public bool m_rushActive = false;
 
-	// Use this for initialization
-	void Start () 
+    public Vector3 from;
+    public Vector3 to;
+    public float speed;
+
+    private Quaternion startingRotation;
+
+    // Use this for initialization
+    void Start()
     {
         m_rushActive = false;
-	}
+
+        from = new Vector3(-60.41f, 0, 0);
+        to = new Vector3(0, 0, 0);
+
+        speed = 2;
+
+        startingRotation = transform.localRotation;
+    }
 
     private void OnTriggerStay(Collider other)
     {
@@ -34,11 +46,20 @@ public class WhiskAttack : MonoBehaviour
     {
         m_rushActive = rushing;
     }
-	
-	// Update is called once per frame
-	void Update () 
+
+    // Update is called once per frame
+    void Update()
     {
         IsRushing(m_rushActive);
 
-	}
+        if (Input.GetKey(KeyCode.B))
+        {
+            float t = Mathf.PingPong(Time.time * speed * 2.0f, 1.0f);
+            transform.localEulerAngles = Vector3.Lerp(from, to, t);
+        }
+        else
+        {
+            transform.localRotation = startingRotation;
+        }
+    }
 }
