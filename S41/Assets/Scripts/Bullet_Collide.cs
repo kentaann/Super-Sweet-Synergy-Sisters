@@ -12,8 +12,9 @@ public class Bullet_Collide : MonoBehaviour
     public LayerMask m_EnemyMask;
     public GameObject[] players;
     bool bouncinessDisabled = true;
-    public float m_lifeSpan = 5f;
     public float m_explosionRadius = 1f;
+
+    private const float m_LIFESPAN = 3.0f;
 
     #endregion
 
@@ -30,7 +31,7 @@ public class Bullet_Collide : MonoBehaviour
             Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
         }
 
-        Destroy(gameObject, m_lifeSpan);
+        Destroy(gameObject, m_LIFESPAN);
 	}
 
     #endregion
@@ -70,18 +71,6 @@ public class Bullet_Collide : MonoBehaviour
             other.gameObject.GetComponent<Trap_Trigger>().FiredUp(true);
         }
 
-        if(other.gameObject.tag == "wcBeam")
-        {
-            // Ändra material till bounce?
-        }
-
-        if(other.gameObject.tag == "scBeam")
-        {
-            // Lägg till spicy synergy
-        }
-
-
-        //Destroy(gameObject);
     }
     void OnTriggerExit(Collider other)
     {

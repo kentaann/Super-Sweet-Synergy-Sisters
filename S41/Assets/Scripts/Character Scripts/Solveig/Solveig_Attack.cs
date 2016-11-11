@@ -99,7 +99,7 @@ public class Solveig_Attack : MonoBehaviour
 
         if(m_attackRate >= m_coolDown)
         {
-            if(Input.GetKey(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.U))
+            if(Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.U))
             {
                 Sol_Attack();
             }
