@@ -6,6 +6,9 @@ public class FixedPlayerHealth : MonoBehaviour {
     public int health;
     public int lookForDamage;
 
+    private float m_timer;
+    private const float m_GODTIMER = 5.0f;
+
     // Use this for initialization
     void Start()
     {
@@ -36,6 +39,16 @@ public class FixedPlayerHealth : MonoBehaviour {
     public int GetHealth()
     {
         return health;
+    }
+
+    public void MakeInvulnerable()
+    {
+        m_timer += Time.deltaTime;
+
+        if(m_timer >= m_GODTIMER)
+        {
+            // NOT DONE
+        }
     }
 
     void OnCollisionEnter(Collision other)

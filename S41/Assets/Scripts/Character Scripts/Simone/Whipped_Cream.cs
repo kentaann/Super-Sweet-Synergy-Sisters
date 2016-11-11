@@ -21,8 +21,12 @@ public class Whipped_Cream : MonoBehaviour
     private const float m_POSITIONALOFFSET = 2;         // The offset for making the ability appear to remain in its original position
     private const float m_GROWTHRATE = 1;               // The modifier for the Y-axis scaler
     private const float m_RADIUS = 0.5f;                // Radius of the beam
-    private const float m_DAMAGE = 12.5f;               // Damage of the beam
     private const float m_MOVESPEEDMODIFIER = 0.15f;    // Modifier for enemies movespeed
+
+    private float m_damage = 12.5f;                     // Damage of the beam
+    private float m_creamPowerDamage = 18.0f;           // Damage while affected by Flower Power
+
+
 
     #endregion
 
@@ -36,6 +40,9 @@ public class Whipped_Cream : MonoBehaviour
         {
             Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
         }
+
+        gameObject.GetComponent<Collider>().isTrigger = true;
+
 
         StartCoroutine(Expand());
     }
@@ -74,7 +81,7 @@ public class Whipped_Cream : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy" && !other.gameObject.GetComponent<EnemyHealth>().m_isOnFire)
         {
-            other.gameObject.GetComponent<EnemyHealth>().Hit(m_DAMAGE);
+            other.gameObject.GetComponent<EnemyHealth>().Hit(m_damage);
             other.gameObject.GetComponent<AiMovement>().SetMoveSpeed(m_MOVESPEEDMODIFIER);
         }
 
@@ -82,6 +89,12 @@ public class Whipped_Cream : MonoBehaviour
         {
             StopCoroutine(Expand());
         }
+
+        if(other.gameObject.tag == "fpProj")
+        {
+            m_damage = m_creamPowerDamage;
+        }
+
     }
 
     #endregion

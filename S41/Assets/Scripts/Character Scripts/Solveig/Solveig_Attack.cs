@@ -63,6 +63,11 @@ public class Solveig_Attack : MonoBehaviour
         {
             m_allyList.Add(other.gameObject.transform);
         }
+
+        if(other.gameObject.tag == "wcBeam")
+        {
+            m_lovelyCreamActive = true;
+        }
     }
 
     #endregion
@@ -155,6 +160,8 @@ public class Solveig_Attack : MonoBehaviour
                     {
                         target.SendMessage("Hit", m_SPICYCREAMDAMAGE);
                     }
+
+
                 }
             }            
         }
@@ -171,6 +178,12 @@ public class Solveig_Attack : MonoBehaviour
                     if(ally.gameObject.tag == "Player")
                     {
                         ally.SendMessage("GetHeal", 25);
+                    }
+
+                    if(ally.gameObject.tag == "Player" && m_lovelyCreamActive)
+                    {
+                        ally.SendMessage("GetHeal", 15);
+                        ally.SendMessage("MakeInvulnerable");
                     }
                 }
             }
@@ -206,4 +219,5 @@ public class Solveig_Attack : MonoBehaviour
     }
 
     #endregion
+
 }
