@@ -9,16 +9,20 @@ using System.Xml;
 using System.Xml.Serialization;
 
 
+
 using Entities;
 
-[XmlRoot("AllObjects")]
+
+
 public class LevelManager : MonoBehaviour
 {
 
     // Adding, Removing, Rotating Methods
 
-    [XmlArray("objectsList")]
-    [XmlArrayItem("ScenObjects")]
+    //[XmlArray("objectsList")]
+    //[XmlArrayItem("ScenObjects")]
+    //[XmlAttribute("test")]
+    //int test;
     public List<ScenObjects> objectsList = new List<ScenObjects>();
 
     public Level currentLevel;
@@ -26,7 +30,7 @@ public class LevelManager : MonoBehaviour
    
 
     // Use this for initialization
-    void Start()
+    public void Start()
     {
         
         currentLevel = new Level("Random Name", "LevelEditor");
@@ -39,6 +43,7 @@ public class LevelManager : MonoBehaviour
         var newObj = PlaceObj(obj, pos);
         objectsList.Add(newObj);
         currentLevel.AddObject(newObj);
+        
     }
 
     public void RemoveObj(Vector3 pos)

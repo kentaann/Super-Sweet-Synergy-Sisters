@@ -9,6 +9,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Xml;
 using System.Xml.Serialization;
 
+
 public class InputForLevelEditor : MonoBehaviour
 {
     // Leveleditor input
@@ -110,9 +111,15 @@ public class InputForLevelEditor : MonoBehaviour
             objects.selectedObject.transform.rotation = newTransform.rotation;
             Debug.Log("rightRotationPressed");
         }
+
+        if (Input.GetKeyDown("joystick button 3"))
+        {
+            SaveToXML();
+            Debug.Log("button");
+        }
         //camera stuff but does not work
-        Vector3 targetCamPos = mousePos + offset;
-        transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
+        //Vector3 targetCamPos = mousePos + offset;
+        //transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
 
 
     }
@@ -174,13 +181,17 @@ public class InputForLevelEditor : MonoBehaviour
         }
 
     }
-
+    
     //saving the objects in an XML File
-    public void SaveToXML(List<GameObject> objList, string filename)
+    public void SaveToXML()
     {
 
-        var serializer = new XmlSerializer(typeof(LevelManager));
-        //var stream = new FileStream(C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41, FileMode.Create));
+        var serializer = new XmlSerializer(typeof(hhhh));
+        var stream = new FileStream(Path.Combine(Application.persistentDataPath, "savedFile.xml"), FileMode.Create);
+        serializer.Serialize(stream, this);
+        stream.Close();
+        
+        Debug.Log(Application.persistentDataPath);
 
         //LevelManager levelM = new LevelManager();
        
@@ -192,12 +203,9 @@ public class InputForLevelEditor : MonoBehaviour
     }
 
     //Loading the saved objects from XML file to another scen
-    public void LoadToXML(List<GameObject> objList, string fileName)
+    public void LoadToXML()
     {
-        XmlSerializer serializer = new XmlSerializer(typeof(LevelManager));
-        TextReader reader = new StreamReader(fileName);
-        LevelManager levelM = serializer.Deserialize(reader) as LevelManager;
-        //levelM.Instantiate(objList);
+        
     }
 
     // I guess it will be a button function for save and load button (is right)  and binaryformatter is not the best maybe to save list in
