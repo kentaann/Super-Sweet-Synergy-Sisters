@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
+- path: Assets/Scenes/SynergyTester.unity
+=======
 - path: Assets/Scenes/LevelEditor.unity
+>>>>>>> beb9ca09f9bb8a4ec8cd2a2f4795a86066463dab
   isLoaded: 1
   isActive: 1

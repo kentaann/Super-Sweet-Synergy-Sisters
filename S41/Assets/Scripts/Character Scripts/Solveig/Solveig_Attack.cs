@@ -18,6 +18,11 @@ public class Solveig_Attack : MonoBehaviour
 
     Player_Movement m_playerMove;                                       // Reference to the movement component of the character for manipulating
 
+    public string xbox_name_X360_A;
+    public string xbox_name_X360_B;
+    public string xbox_name_X360_X;
+    public string xbox_name_X360_Y;
+
     private const float m_SPICYCREAMDAMAGE = 47.3f;                     // Damage modifier for Flower Power while under the Spicy Chocolate effect
 
     private float m_launchForce;                                        // Force the projectile is launched with
@@ -107,14 +112,14 @@ public class Solveig_Attack : MonoBehaviour
 
         if(m_attackRate >= m_coolDown)
         {
-            if(Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.U))
+            if(Input.GetButtonDown(xbox_name_X360_A))
             {
                 Sol_Attack();
             }
         }
         if (m_attackRate >= m_FLOWERCOOLDOWN)
         {
-            if (Input.GetKeyDown(KeyCode.N))
+            if (Input.GetButtonDown(xbox_name_X360_B))
             {
                 FlowerPower();
             }
@@ -122,7 +127,7 @@ public class Solveig_Attack : MonoBehaviour
 
         if(m_attackRate >= m_LOVECOOLDOWN)
         {
-            if(Input.GetKeyDown(KeyCode.Keypad9))
+            if(Input.GetKeyDown(KeyCode.Keypad9) || Input.GetButtonDown(xbox_name_X360_X))
             {
                 SongOfLove();
             }

@@ -19,7 +19,12 @@ public class Simone_Attack : MonoBehaviour
     //public Material m_bulletMaterial;
 
     Player_Movement m_playerMove;                                   // Used to manipulate movement from this class
-    
+
+    public string xbox_name_X360_A;
+    public string xbox_name_X360_B;
+    public string xbox_name_X360_X;
+    public string xbox_name_X360_Y;
+
     private float m_bulletLaunchForce;                              // Speed of the projectile
     private float m_coolDown;                                       // Cooldown of attacks                     
     private float m_attackRate;                                     // Attackrate
@@ -113,7 +118,7 @@ public class Simone_Attack : MonoBehaviour
 
         if (m_attackRate >= m_coolDown)
 	    {
-            if (Input.GetKey(KeyCode.P) || Input.GetButton("X360_A"))
+            if (Input.GetKey(KeyCode.P) || Input.GetButton(xbox_name_X360_A))
             {
 
                 if (m_autoAttackActive && !m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
@@ -142,9 +147,15 @@ public class Simone_Attack : MonoBehaviour
             }
 	    }
 
+        //if (m_energyDrinkActive && !m_autoAttackActive && !m_spicyChocolateActive && !m_whippedCreamActive)
+        //{
+        //    S_EnergyDrinkAttack();
+        //    m_attackRate = 0;
+        //}
+
         #region Activate Energy Drink
 
-        if (Input.GetKeyUp(KeyCode.L))
+        if (Input.GetKeyUp(KeyCode.L) || Input.GetButton(xbox_name_X360_B))
         {
             m_energyDrinkActive = true;
             m_autoAttackActive = false;
@@ -171,7 +182,7 @@ public class Simone_Attack : MonoBehaviour
 
         #region Activate Whipped Cream
 
-        if (Input.GetKeyUp(KeyCode.J))
+        if (Input.GetKeyUp(KeyCode.J) || Input.GetButton(xbox_name_X360_X))
         {
             m_whippedCreamActive = true;
             m_autoAttackActive = false;
@@ -187,7 +198,7 @@ public class Simone_Attack : MonoBehaviour
 
         #region Activate Spicy Chocolate
 
-        if (Input.GetKeyUp(KeyCode.M))
+        if (Input.GetKeyUp(KeyCode.M) || Input.GetButton(xbox_name_X360_Y))
         {
             m_spicyChocolateActive = true;
             m_energyDrinkActive = false;

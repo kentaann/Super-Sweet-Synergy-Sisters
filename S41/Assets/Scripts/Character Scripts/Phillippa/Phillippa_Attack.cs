@@ -27,6 +27,11 @@ public class Phillippa_Attack : MonoBehaviour
     private bool m_spicyRushActive = false;
     private bool m_whippedCreamActive = false;
 
+    public string xbox_name_X360_A;
+    public string xbox_name_X360_B;
+    public string xbox_name_X360_X;
+    public string xbox_name_X360_Y;
+
 
     #endregion
 
@@ -166,12 +171,12 @@ public class Phillippa_Attack : MonoBehaviour
             RemoveNullTarget();
         }
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown(xbox_name_X360_A))
         {
             Fluffpound();
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown(xbox_name_X360_B))
         {
             RushAttack();
         }

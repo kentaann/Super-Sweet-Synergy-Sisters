@@ -12,9 +12,12 @@ public class Elise_Attack : MonoBehaviour
     public Rigidbody m_multiBullet;
 
     public float m_multiLaunchForce;
-
-	// Use this for initialization
-	void Start () 
+    public string xbox_name_X360_A;
+    public string xbox_name_X360_B;
+    public string xbox_name_X360_X;
+    public string xbox_name_X360_Y;
+    // Use this for initialization
+    void Start () 
     {
 	
 	}
@@ -22,12 +25,12 @@ public class Elise_Attack : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-        if (Input.GetKeyDown(KeyCode.O) || Input.GetButtonDown("X360_B"))
+        if (Input.GetButtonDown(xbox_name_X360_X))
         {
             E_LayTrap();
         } 
 
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown(xbox_name_X360_B))
         {
             E_MultiShot();
         }
