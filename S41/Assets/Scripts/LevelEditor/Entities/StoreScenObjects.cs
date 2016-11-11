@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Xml.Serialization;
 
 namespace Entities
 {
    public class ScenObjects
    {
        // Storing the objects
-
+       [XmlAttribute("objToPut")]  
+       //The XmlSerializer automatically knows about each public variable or read/write property in any type you can throw at it. 
+       //Primitive types like string, int, float and enums can be automatically serialized.
+       //The XmlSerializer automatically knows about each public variable or read/write property in any type you can throw at it. 
        GameObject objToPut;
        public GameObject ScenObj { get { return objToPut; } }
 

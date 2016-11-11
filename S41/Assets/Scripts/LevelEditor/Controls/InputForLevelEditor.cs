@@ -176,23 +176,28 @@ public class InputForLevelEditor : MonoBehaviour
     }
 
     //saving the objects in an XML File
-    public void SaveToXML(GameObject obj, string fileName)
+    public void SaveToXML(List<GameObject> objList, string filename)
     {
-        LevelManager levelM = new LevelManager(obj);
-        XmlSerializer serializer = new XmlSerializer(typeof(LevelManager));
-        TextWriter writer = new StreamWriter(fileName);
-        serializer.Serialize(writer, levelM);
-        writer.Close();
+
+        var serializer = new XmlSerializer(typeof(LevelManager));
+        //var stream = new FileStream(C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41, FileMode.Create));
+
+        //LevelManager levelM = new LevelManager();
+       
+        //XmlSerializer serializer = new XmlSerializer(typeof(LevelManager));
+        //TextWriter writer = new StreamWriter(filename);
+        //serializer.Serialize(writer, levelM);
+        //writer.Close();
         
     }
 
     //Loading the saved objects from XML file to another scen
-    public void LoadToXML(GameObject obj, string fileName)
+    public void LoadToXML(List<GameObject> objList, string fileName)
     {
         XmlSerializer serializer = new XmlSerializer(typeof(LevelManager));
         TextReader reader = new StreamReader(fileName);
         LevelManager levelM = serializer.Deserialize(reader) as LevelManager;
-        //levelM.Instantiate(obj, obj.transform.position);
+        //levelM.Instantiate(objList);
     }
 
     // I guess it will be a button function for save and load button (is right)  and binaryformatter is not the best maybe to save list in

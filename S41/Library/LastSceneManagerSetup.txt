@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/Scenes/LevelEditor.unity
-=======
-- path: Assets/Scenes/DemoLevel.unity
->>>>>>> origin/master
   isLoaded: 1
   isActive: 1

@@ -11,25 +11,24 @@ using System.Xml.Serialization;
 
 using Entities;
 
-[Serializable]
+[XmlRoot("AllObjects")]
 public class LevelManager : MonoBehaviour
 {
 
     // Adding, Removing, Rotating Methods
 
-    public List<ScenObjects> objectsList;
+    [XmlArray("objectsList")]
+    [XmlArrayItem("ScenObjects")]
+    public List<ScenObjects> objectsList = new List<ScenObjects>();
 
     public Level currentLevel;
 
-    public LevelManager(GameObject obj)
-    {
-
-    }
+   
 
     // Use this for initialization
     void Start()
     {
-        objectsList = new List<ScenObjects>();
+        
         currentLevel = new Level("Random Name", "LevelEditor");
 
     }
