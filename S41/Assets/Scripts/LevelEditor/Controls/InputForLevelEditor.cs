@@ -6,6 +6,8 @@ using System.IO;
 using System.Text;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml;
+using System.Xml.Serialization;
 
 public class InputForLevelEditor : MonoBehaviour
 {
@@ -80,16 +82,19 @@ public class InputForLevelEditor : MonoBehaviour
         mouse.transform.position = mousePos;
         InputCheck();
 
+        // Add object
         if (Input.GetKeyDown("joystick button 1")) //B
         {
             levelManager.AddObject(objects.selectedObject, placingPos, false);
         }
 
+        //Removeobject
         if (Input.GetKeyDown("joystick button 0")) //A
         {
             levelManager.RemoveObj(placingPos);
         }
 
+        // rotate left
         if (Input.GetKeyDown("joystick button 4"))  // left bumper
         {
             var newTransform = levelManager.RotateLeft(objects.selectedObject.transform);
@@ -98,12 +103,14 @@ public class InputForLevelEditor : MonoBehaviour
 
         }
 
+        //rotate right
         if (Input.GetKeyDown("joystick button 5"))  // right bumper
         {
             var newTransform = levelManager.RotateRight(objects.selectedObject.transform);
             objects.selectedObject.transform.rotation = newTransform.rotation;
             Debug.Log("rightRotationPressed");
         }
+        //camera stuff but does not work
         Vector3 targetCamPos = mousePos + offset;
         transform.position = Vector3.Lerp(transform.position, targetCamPos, smoothing * Time.deltaTime);
 
@@ -166,10 +173,29 @@ public class InputForLevelEditor : MonoBehaviour
             onSelected(objects.selectedNumber);
         }
 
-
     }
 
-    // I guess it will be a button function for save and load button (is right)
+    //saving the objects in an XML File
+    public void SaveToXML(GameObject obj, string fileName)
+    {
+        LevelManager levelM = new LevelManager(obj);
+        XmlSerializer serializer = new XmlSerializer(typeof(LevelManager));
+        TextWriter writer = new StreamWriter(fileName);
+        serializer.Serialize(writer, levelM);
+        writer.Close();
+        
+    }
+
+    //Loading the saved objects from XML file to another scen
+    public void LoadToXML(GameObject obj, string fileName)
+    {
+        XmlSerializer serializer = new XmlSerializer(typeof(LevelManager));
+        TextReader reader = new StreamReader(fileName);
+        LevelManager levelM = serializer.Deserialize(reader) as LevelManager;
+        //levelM.Instantiate(obj, obj.transform.position);
+    }
+
+    // I guess it will be a button function for save and load button (is right)  and binaryformatter is not the best maybe to save list in
     public void SaveLevelToFile()
     {
         // gameobject.find -> not good to use and its very slow

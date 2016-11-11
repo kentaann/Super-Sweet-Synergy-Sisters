@@ -1,8 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.IO;
+using System.Text;
+using System.Linq;
+using System.Xml;
+using System.Xml.Serialization;
+
+
 using Entities;
 
+[Serializable]
 public class LevelManager : MonoBehaviour
 {
 
@@ -11,6 +20,11 @@ public class LevelManager : MonoBehaviour
     public List<ScenObjects> objectsList;
 
     public Level currentLevel;
+
+    public LevelManager(GameObject obj)
+    {
+
+    }
 
     // Use this for initialization
     void Start()
