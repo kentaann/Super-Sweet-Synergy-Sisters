@@ -17,7 +17,7 @@ public class Simone_Attack : MonoBehaviour
     public Rigidbody m_whippedBullet;                               // The rigidbody of the whipped cream projectile
     public Rigidbody m_energyBullet;                                // The rigidbody of the energy drink projectile
     //public Material m_bulletMaterial;
-
+    public GameObject obj;                                          // Object of whipped cream
     Player_Movement m_playerMove;                                   // Used to manipulate movement from this class
 
     public string xbox_name_X360_A;
@@ -37,6 +37,7 @@ public class Simone_Attack : MonoBehaviour
     private bool m_spicyChocolateActive;                            // Flag for the Spicy Chocolate element
 
     //public float m_damage;                                         // Base damage per projectile
+
 
     #endregion
 
@@ -121,10 +122,13 @@ public class Simone_Attack : MonoBehaviour
             if (Input.GetKey(KeyCode.P) || Input.GetButton(xbox_name_X360_A))
             {
 
-                if (m_autoAttackActive && !m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
+                if (GameObject.FindGameObjectsWithTag("wcBeam").Length == 0)
                 {
-                    S_autoAttack();
-                    m_attackRate = 0;
+                    if (m_autoAttackActive && !m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
+                    {
+                        S_autoAttack();
+                        m_attackRate = 0;
+                    } 
                 }
 
                 if (m_energyDrinkActive && !m_autoAttackActive && !m_spicyChocolateActive && !m_whippedCreamActive)
@@ -223,8 +227,14 @@ public class Simone_Attack : MonoBehaviour
     /// </summary>
     private void S_autoAttack()
     {
-        Rigidbody bulletInstance = Instantiate(m_bullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
-        bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
+        Vector3 playerPos = transform.position;
+        Vector3 playerDirection = transform.forward;
+        Quaternion playerRotation = transform.rotation;
+        float spawnDistance = 1.8f;
+
+        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
+        Instantiate(obj, spawnPos, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
+        //bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
     }
 
     /// <summary>
