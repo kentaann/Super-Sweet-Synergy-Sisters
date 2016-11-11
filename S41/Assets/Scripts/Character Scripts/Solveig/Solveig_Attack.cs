@@ -24,6 +24,9 @@ public class Solveig_Attack : MonoBehaviour
     private float m_coolDown;                                           // Cooldown of the shot
     private float m_attackRate;                                         // Rate of attack
 
+    private const float m_LOVECOOLDOWN = 6.0f;
+    private const float m_FLOWERCOOLDOWN = 5.0f;
+
     private bool m_spicyCreamActive = false;
     private bool m_lovelyCreamActive = false;
 
@@ -104,11 +107,19 @@ public class Solveig_Attack : MonoBehaviour
                 Sol_Attack();
             }
         }
-        if (m_attackRate >= m_coolDown)
+        if (m_attackRate >= m_FLOWERCOOLDOWN)
         {
             if (Input.GetKeyDown(KeyCode.N))
             {
                 FlowerPower();
+            }
+        }
+
+        if(m_attackRate >= m_LOVECOOLDOWN)
+        {
+            if(Input.GetKeyDown(KeyCode.Keypad9))
+            {
+                SongOfLove();
             }
         }
 
