@@ -21,6 +21,7 @@ public class InputForLevelEditor : MonoBehaviour
     private LevelManager levelManager;
     List<GameObject> list = new List<GameObject>();
     float health;
+    List<Entities.ScenObjects> scenList = new List<Entities.ScenObjects>();
 
     //Camera
     float smoothing = 5f;
@@ -114,7 +115,7 @@ public class InputForLevelEditor : MonoBehaviour
 
         if (Input.GetKeyDown("joystick button 3"))
         {
-            SaveToXML();
+            SaveLevelToFile();
             Debug.Log("button");
         }
         //camera stuff but does not work
@@ -220,16 +221,22 @@ public class InputForLevelEditor : MonoBehaviour
         // not necessary .dat file
         // hard to serialize list -> check it out how ( he did not tested serialize a list) 
         // 
+
+//You cannot serialize MonoBehaviours with .NET serialization, they are serialized by Unity when it creates scenes, 
+//prefabs and Asset Bundles. This is because MonoBehaviour does not have a constructor anything can access - they have to be attached to a GameObject.
+
+//You could use Unity Serializer's SerializeForDeserializeInto and DeserializeInto which will allow you to save the variables of the class and then restore them to another instance of that class in future.
+//Or you could make your class a normal one and just have a reference to it in your MonoBehaviour.
+
         BinaryFormatter bf = new BinaryFormatter(); // unreadable for the player
         FileStream file = File.Create(Application.persistentDataPath + "/LevelInfo.dat");      // where to save it LevelInfo is the filename and Application.persis... where its going (not good vause its an android application path.)
-        
-        // 
-        InfoData data = new InfoData();
-        data.health = health;
 
+        levelManager.objectsList = scenList;       
+       
         // save data in file
-        bf.Serialize(file, data);
+        bf.Serialize(file, levelManager);
         file.Close();
+
     }
 
     public void LoadLevelFromFile()
