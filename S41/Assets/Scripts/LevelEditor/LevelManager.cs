@@ -13,7 +13,7 @@ using System.Xml.Serialization;
 using Entities;
 
 
-
+[Serializable]
 public class LevelManager : MonoBehaviour
 {
 
