@@ -6,6 +6,7 @@ public class EnemyHealth : MonoBehaviour {
 
     public float health, maxHealth;
     public GameObject enemyToDestroy;
+   // public Scoring m_ScoreRef;                    // For Scoring but later
 
     private float m_spicyChocolateDmg;
     private float m_spicyChocolateTimer = 0;
@@ -23,6 +24,11 @@ public class EnemyHealth : MonoBehaviour {
         {
             health = value;
         }
+    }
+
+    private void OnEnable()
+    {
+        //m_ScoreRef = GetComponent<Scoring>();
     }
 
     void Start()

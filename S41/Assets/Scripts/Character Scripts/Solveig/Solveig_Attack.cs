@@ -165,8 +165,6 @@ public class Solveig_Attack : MonoBehaviour
                     {
                         target.SendMessage("Hit", m_SPICYCREAMDAMAGE);
                     }
-
-
                 }
             }            
         }
@@ -191,9 +189,7 @@ public class Solveig_Attack : MonoBehaviour
                         ally.SendMessage("MakeInvulnerable");
                     }
                 }
-            }
-            
-              
+            }                       
         }
     }
 
