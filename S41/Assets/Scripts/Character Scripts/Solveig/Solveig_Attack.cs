@@ -112,14 +112,14 @@ public class Solveig_Attack : MonoBehaviour
 
         if(m_attackRate >= m_coolDown)
         {
-            if(Input.GetButtonDown(xbox_name_X360_A))
+            if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetButtonDown(xbox_name_X360_A))
             {
                 Sol_Attack();
             }
         }
         if (m_attackRate >= m_FLOWERCOOLDOWN)
         {
-            if (Input.GetButtonDown(xbox_name_X360_B))
+            if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetButtonDown(xbox_name_X360_B))
             {
                 FlowerPower();
             }

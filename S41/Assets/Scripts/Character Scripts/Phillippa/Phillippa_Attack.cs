@@ -14,6 +14,9 @@ public class Phillippa_Attack : MonoBehaviour
     public List<Transform> m_targetList = new List<Transform>();
     public SphereCollider m_Spherecollider;
 
+    public delegate void EventHandler();
+    public static event EventHandler RushEvent;
+
     private const float m_FLUFFCOOLDOWN = 6;
     private const float m_FLUFFSTUNDURATION = 2;
 
@@ -160,6 +163,11 @@ public class Phillippa_Attack : MonoBehaviour
 
         gameObject.SendMessage("IsRushing", true);
         m_rushActive = true;
+
+        if (RushEvent != null)
+        {
+            RushEvent();
+        }
     }
 
     #region Update

@@ -24,7 +24,17 @@ public class WhiskAttack : MonoBehaviour
         startingRotation = transform.localRotation;
     }
 
-    private void OnTriggerStay(Collider other)
+    void OnEnable()
+    {
+        Phillippa_Attack.RushEvent += AttackInRush;
+    }
+
+    void OnDisable()
+    {
+        Phillippa_Attack.RushEvent -= AttackInRush;
+    }
+
+    public void OnTriggerStay(Collider other)
     {
 
         if (other.gameObject.tag == "Enemy")
@@ -34,7 +44,13 @@ public class WhiskAttack : MonoBehaviour
                 other.gameObject.GetComponent<EnemyHealth>().Hit(10);       //Hit(10) has to be changed to Hit(dmg variable in simone script)
                 //Destroy(gameObject);
             }
+        }
+    }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
             if (m_rushActive == true)
             {
                 other.gameObject.GetComponent<EnemyHealth>().Hit(10);
@@ -42,15 +58,20 @@ public class WhiskAttack : MonoBehaviour
         }
     }
 
-    public void IsRushing(bool rushing)
+    //public void IsRushing(bool rushing)
+    //{
+    //    m_rushActive = rushing;
+    //}
+
+    public void AttackInRush()
     {
-        m_rushActive = rushing;
+        m_rushActive = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        IsRushing(m_rushActive);
+        //IsRushing(m_rushActive);
 
         if (Input.GetKey(KeyCode.B))
         {
