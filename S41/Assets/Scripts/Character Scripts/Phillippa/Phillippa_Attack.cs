@@ -194,13 +194,13 @@ public class Phillippa_Attack : MonoBehaviour
             m_rushTimer += Time.deltaTime;
         }
 
-        if (m_rushTimer >= 0.2f)            //makes there Rush attack stop after 0.2 seconds
+        if (m_rushTimer >= 0.3f)            //makes there Rush attack stop after 0.3 seconds
         {
             gameObject.SendMessage("SetMoveSpeed", 12f);
             //gameObject.transform.position = gameObject.GetComponent<Player_Movement>().Move(movement);
             gameObject.SendMessage("IsRushing", false);
-            m_rushTimer = 0;
             m_rushActive = false;
+            m_rushTimer = 0;
         }
     }
 
