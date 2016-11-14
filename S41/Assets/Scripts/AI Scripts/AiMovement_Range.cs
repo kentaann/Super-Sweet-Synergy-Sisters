@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic; //Always a good idea
 
 
-public class AiMovement : MonoBehaviour {
+public class AiMovement_Range: MonoBehaviour {
 
     //public Transform Player;//används ej
     //public Transform TankPlayer;
@@ -17,6 +17,7 @@ public class AiMovement : MonoBehaviour {
 
     private float m_stunTimer = 0;
     public bool m_isStunned;
+    private float range = 20f;
 
     enum GameState
     {
@@ -93,6 +94,7 @@ public class AiMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
         if (Players.Count != GameObject.FindGameObjectsWithTag("Player").Length)
         {
             Players.Clear();
@@ -103,7 +105,7 @@ public class AiMovement : MonoBehaviour {
 
         transform.LookAt(SelectedTarget);
 
-        if (Vector3.Distance(transform.position, SelectedTarget.position) >= MinDist)
+        if (Vector3.Distance(transform.position, SelectedTarget.position) >= range)
         {
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
         }
