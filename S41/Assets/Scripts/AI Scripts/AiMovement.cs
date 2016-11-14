@@ -93,6 +93,17 @@ public class AiMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (Players.Count != GameObject.FindGameObjectsWithTag("Player").Length)
+        {
+            Players.Clear();
+            AddPlayersToList();
+        }
+
+        if (Players.Count == 0)
+        {
+            Destroy(gameObject);
+        }
+
         TargetedPlayer();
 
         transform.LookAt(SelectedTarget);
