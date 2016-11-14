@@ -14,11 +14,13 @@ public class Scoring : MonoBehaviour
 
     private float m_scoreToSave;            // The current score at the end of the round
 
+    private string m_scoreFileName = @"score.txt";
+
     #endregion
 
     public Scoring()
     {
-
+        m_currentScore = 0;
     }
 
     void Start () 
@@ -31,13 +33,19 @@ public class Scoring : MonoBehaviour
 	
 	}
 
+
     public void UpdateScore(float point)
     {
         m_currentScore += point;
     }
 
-    public void SaveScore()
+    public void SaveScore(float score)
     {
-        m_scoreToSave = m_currentScore;
+        if(score > m_topScore)
+        {
+            m_scoreToSave = m_currentScore;
+        }
+
+
     }
 }
