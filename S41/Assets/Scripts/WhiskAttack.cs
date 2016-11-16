@@ -58,6 +58,17 @@ public class WhiskAttack : MonoBehaviour
         }
     }
 
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Enemy")
+        {
+            if (m_rushActive == true)
+            {
+                m_rushActive = false;
+            }
+        }
+    }
+
     //public void IsRushing(bool rushing)
     //{
     //    m_rushActive = rushing;

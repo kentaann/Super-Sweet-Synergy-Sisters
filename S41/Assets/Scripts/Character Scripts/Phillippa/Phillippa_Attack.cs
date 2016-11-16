@@ -16,6 +16,7 @@ public class Phillippa_Attack : MonoBehaviour
 
     public delegate void EventHandler();
     public static event EventHandler RushEvent;
+    public static event EventHandler BeamCollider;
 
     private const float m_FLUFFCOOLDOWN = 6;
     private const float m_FLUFFSTUNDURATION = 2;
@@ -57,6 +58,11 @@ public class Phillippa_Attack : MonoBehaviour
             m_energyRushActive = false;
             m_angerIssuesDamage = 40.0f;
             UnityEngine.Debug.Log("WHIPPED RUSH ACTIVE FUCKER");
+
+            if (BeamCollider != null)
+            {
+                BeamCollider();            //creates an event that activates when Philippa collides with Simone's beam
+            }
         }
 
         if(other.gameObject.tag == "edBeam" && m_rushActive)
@@ -65,6 +71,11 @@ public class Phillippa_Attack : MonoBehaviour
             m_whippedCreamActive = false;
             m_spicyRushActive = false;
             UnityEngine.Debug.Log("ENERGY RUSH ACTIVE");
+
+            if (BeamCollider != null)
+            {
+                BeamCollider();            //creates an event that activates when Philippa collides with Simone's beam
+            }
         }
 
         if(other.gameObject.tag == "scBeam" && m_rushActive)
@@ -73,6 +84,11 @@ public class Phillippa_Attack : MonoBehaviour
             m_whippedCreamActive = false;
             m_energyRushActive = false;
             UnityEngine.Debug.Log("SPICY RUSH ACTIVE");
+
+            if (BeamCollider != null)
+            {
+                BeamCollider();            //creates an event that activates when Philippa collides with Simone's beam
+            }
         }
     }
     #endregion
@@ -148,10 +164,10 @@ public class Phillippa_Attack : MonoBehaviour
     void Start()
     {
         //transform.position += transform.forward * Time.deltaTime * 1000;
-        gameObject.SendMessage("SetMoveSpeed", 60f);
+        gameObject.SendMessage("SetMoveSpeed", 12f);
         //gameObject.transform.position = transform.forward * Time.deltaTime * 100;
-        gameObject.SendMessage("IsRushing", true);
-        m_rushActive = true;                    //needs to start as true in order to not be activated at start, for some reason
+        //gameObject.SendMessage("IsRushing", true);
+        m_rushActive = false;                    //needs to start as true in order to not be activated at start, for some reason
     }
 
     #endregion
@@ -166,7 +182,7 @@ public class Phillippa_Attack : MonoBehaviour
 
         if (RushEvent != null)
         {
-            RushEvent();
+            RushEvent();            //creates an event when rush activates that the WhiskAttack class can use
         }
     }
 
@@ -198,9 +214,13 @@ public class Phillippa_Attack : MonoBehaviour
         {
             gameObject.SendMessage("SetMoveSpeed", 12f);
             //gameObject.transform.position = gameObject.GetComponent<Player_Movement>().Move(movement);
-            gameObject.SendMessage("IsRushing", false);
+            //gameObject.SendMessage("IsRushing", false);
             m_rushActive = false;
             m_rushTimer = 0;
+            m_angerIssuesDamage = 25.0f;
+            m_whippedCreamActive = false;
+            m_spicyRushActive = false;
+            m_energyRushActive = false;
         }
     }
 

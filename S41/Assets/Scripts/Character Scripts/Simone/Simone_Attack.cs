@@ -26,7 +26,8 @@ public class Simone_Attack : MonoBehaviour
     public string xbox_name_X360_Y;
 
     private float m_bulletLaunchForce;                              // Speed of the projectile
-    private float m_coolDown;                                       // Cooldown of attacks                     
+    private float m_coolDown;                                       // Cooldown of attacks
+    private float m_stunTimer;                 
     private float m_attackRate;                                     // Attackrate
     private float m_whippedCreamMoveSpeedMod;                       // Modifier for the players movespeed while using whipped cream
     private int m_Score;                                            // Player score
@@ -35,6 +36,7 @@ public class Simone_Attack : MonoBehaviour
     private bool m_autoAttackActive;                                // Flag for the Regular attack
     private bool m_whippedCreamActive;                              // Flag for the Whipped Cream element
     private bool m_spicyChocolateActive;                            // Flag for the Spicy Chocolate element
+    private bool m_rushStunned;
 
     //public float m_damage;                                         // Base damage per projectile
 
@@ -59,9 +61,16 @@ public class Simone_Attack : MonoBehaviour
         m_whippedCreamActive = false;
         m_autoAttackActive = true;
         m_spicyChocolateActive = false;
+
+        Phillippa_Attack.BeamCollider += RushCollide;
     }
 
     #endregion
+
+    private void OnDisable()
+    {
+        Phillippa_Attack.BeamCollider -= RushCollide;
+    }
 
     #region Start
 
@@ -109,6 +118,20 @@ public class Simone_Attack : MonoBehaviour
         }
 
         m_attackRate += Time.deltaTime;
+
+        if (m_rushStunned && m_stunTimer < 3.0f)
+        {
+            m_stunTimer += Time.deltaTime;
+
+            gameObject.SendMessage("SetMoveSpeed", 0f);
+
+            if (m_stunTimer >= 3.0f)
+            {
+                gameObject.SendMessage("SetMoveSpeed", 12f);
+                m_stunTimer = 0f;
+                m_rushStunned = false;
+            }
+        }
 
         /*
          * Key P is used for shooting. Depending on which element is active a different function is being called using the same button. 
@@ -292,6 +315,11 @@ public class Simone_Attack : MonoBehaviour
     }
 
     #endregion
+
+    public void RushCollide()
+    {
+        m_rushStunned = true;
+    }
 
     #region Score Handling (Not in use as of right now)
 
