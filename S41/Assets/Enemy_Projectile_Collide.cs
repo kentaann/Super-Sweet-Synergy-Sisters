@@ -4,7 +4,7 @@ using System.Collections;
 public class Enemy_Projectile_Collide : MonoBehaviour
 {
 
-    private const float m_LIFESPAN = 3.0f;
+    private const float m_LIFESPAN = 10.0f;
     public GameObject[] enemies;
     private const float m_RADIUS = 0f;
     public LayerMask m_PlayerMask;
@@ -30,7 +30,7 @@ public class Enemy_Projectile_Collide : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position,m_RADIUS);
+        Collider[] colliders = Physics.OverlapSphere(transform.position,m_RADIUS,m_PlayerMask);
 
 
         if (other.gameObject.tag == "Player")

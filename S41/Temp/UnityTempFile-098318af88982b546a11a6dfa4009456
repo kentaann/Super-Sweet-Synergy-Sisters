@@ -86,9 +86,12 @@
 -define:UNITY_TEAM_LICENSE
 -define:ENABLE_VSTU
 Assets/EnemyHealth.cs
+Assets/Enemy_Projectile_Collide.cs
 "Assets/Scripts/AI Scripts/AiMovement.cs"
+"Assets/Scripts/AI Scripts/AiMovement_Range.cs"
 "Assets/Scripts/AI Scripts/AiSpawningScript.cs"
 "Assets/Scripts/AI Scripts/EnemyAI.cs"
+"Assets/Scripts/AI Scripts/EnemyProjectile.cs"
 "Assets/Scripts/AI Scripts/WaveSpawner.cs"
 Assets/Scripts/Bullet_Collide.cs
 Assets/Scripts/CDnewTry.cs

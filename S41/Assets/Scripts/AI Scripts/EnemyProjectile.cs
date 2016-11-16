@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class EnemyProjectile : MonoBehaviour {
+public class EnemyProjectile : MonoBehaviour
+{
 
 
     public Transform m_transformOrigin;
@@ -10,28 +12,38 @@ public class EnemyProjectile : MonoBehaviour {
     private float shootInterval = 1.0f;
     private float nextShot = 0;
     public Transform[] m_Targets;
+    
     public float distance;
     // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        //om karaktären är inom range så ska fienden börja skjuta och sen 1 sekund mellan varje skott
-        //GetClosestPlayers(m_Targets);
-        distance = Vector3.Distance(gameObject.transform.position, GetClosestPlayers(m_Targets).position);
-        if (Time.time > nextShot)
+    void Start()
+    {
+        
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+       
+        if(m_Targets.Length != GameObject.FindGameObjectsWithTag("Player").Length)
         {
-            if (distance <= 20)
+            GroupResize(GameObject.FindGameObjectsWithTag("Player").Length, ref m_Targets);
+        }
+        
+
+        distance = Vector3.Distance(gameObject.transform.position, GetClosestPlayers(m_Targets).position);
+
+        if (distance <= 20)
+        {
+            if (Time.time > nextShot)
             {
                 EnemyShooting();
+                nextShot = Time.time + shootInterval;
 
             }
-            nextShot = Time.time + shootInterval;
         }
-     
-	}
+
+    }
 
     private void OnEnable()
     {
@@ -61,5 +73,15 @@ public class EnemyProjectile : MonoBehaviour {
         }
 
         return bestTarget;
+    }
+    public void GroupResize(int Size, ref Transform[] Group)
+    {
+
+        Transform[] temp = new Transform[Size];
+        for (int c = 0; c < Mathf.Min(Size, Group.Length); c++)
+        {
+            temp[c] = Group[c];
+        }
+        Group = temp;
     }
 }
