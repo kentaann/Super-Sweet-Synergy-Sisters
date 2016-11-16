@@ -79,15 +79,18 @@ public class Bullet_Collide : MonoBehaviour
             other.gameObject.GetComponent<Trap_Trigger>().FiredUp(true);
         }
 
-        if (other.gameObject.tag == "whisk")
+        if (Input.GetKey(KeyCode.B))
         {
-            float angleBullet_x = transform.localEulerAngles.x;
-            float angleWhisk_z = -whiskObj.transform.rotation.eulerAngles.y;
-            rB.transform.localEulerAngles = new Vector3(angleBullet_x, 0, angleWhisk_z);
+            if (other.gameObject.tag == "whisk")
+            {
+                float angleBullet_x = transform.localEulerAngles.x;
+                float angleWhisk_z = -whiskObj.transform.rotation.eulerAngles.y;
+                rB.transform.localEulerAngles = new Vector3(angleBullet_x, 0, angleWhisk_z);
 
-            float forceBullet = rB.velocity.magnitude;
-            Vector3 newAngle = rB.transform.up;
-            rB.velocity = forceBullet * newAngle;
+                float forceBullet = rB.velocity.magnitude;
+                Vector3 newAngle = rB.transform.up;
+                rB.velocity = forceBullet * newAngle;
+            } 
         }
 
     }
@@ -101,15 +104,18 @@ public class Bullet_Collide : MonoBehaviour
         // Destroy everything that leaves the trigger
         //Destroy(other.gameObject);
 
-        if (other.gameObject.tag == "whisk")
+        if (Input.GetKey(KeyCode.B))
         {
-            float angleBullet_x = transform.localEulerAngles.x;
-            float angleWhisk_z = -whiskObj.transform.rotation.eulerAngles.y;
-            rB.transform.localEulerAngles = new Vector3(angleBullet_x, 0, angleWhisk_z);
+            if (other.gameObject.tag == "whisk")
+            {
+                float angleBullet_x = transform.localEulerAngles.x;
+                float angleWhisk_z = -whiskObj.transform.rotation.eulerAngles.y;
+                rB.transform.localEulerAngles = new Vector3(angleBullet_x, 0, angleWhisk_z);
 
-            float forceBullet = rB.velocity.magnitude;
-            Vector3 newAngle = rB.transform.up;
-            rB.velocity = forceBullet * newAngle;
+                float forceBullet = rB.velocity.magnitude;
+                Vector3 newAngle = rB.transform.up;
+                rB.velocity = forceBullet * newAngle;
+            } 
         }
     }
 
