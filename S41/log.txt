@@ -1,8 +1,8 @@
-Position of Phillippa:  X: -26.87117 Y: 2.4 Z: 17.67083
+Position of Phillippa:  X: -12.04279 Y: 2.4 Z: 5.14369
 
-Position of Simone:  X: -10.87165 Y: 1.825134 Z: 11.57728
+Position of Simone:  X: -9.835282 Y: 1.825134 Z: 12.09208
 
-Position of Solveig:  X: -34.98871 Y: 1.77 Z: -6.23613
+Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
 
-Position of Elise:  X: 2.8 Y: 2.407347 Z: 16.93654
+Position of Elise:  X: 2.8 Y: 2.407347 Z: 8.2
 
