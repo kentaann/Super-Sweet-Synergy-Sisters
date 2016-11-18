@@ -26,9 +26,17 @@ public class Player_Logger : MonoBehaviour
     private string m_path = "log.txt";              // The path to where the data is saved
 
     private float m_currentTime = 0.0f;             // The current time, used for writing incrementally
+    private float m_phScore = 0.0f;
+    private float m_siScore = 0.0f;
+    private float m_soScore = 0.0f;
+    private float m_elScore = 0.0f;
+    private int m_phKills = 0;
+    private int m_siKills = 0;
+    private int m_soKills = 0;
+    private int m_elKills = 0;
+    private float m_healingDone = 0.0f;
     
-    public float m_timeToWrite = 1.0f;              // Interval for when the call to write is made   
-
+    public float m_timeToWrite = 1.0f;              // Interval for when the call to write is made
 
     #endregion
 
@@ -94,7 +102,12 @@ public class Player_Logger : MonoBehaviour
         m_streamWriter.WriteLine("Position of Phillippa: " + " X: " + m_PhillippaPosition.x + " Y: " + m_PhillippaPosition.y + " Z: " + m_PhillippaPosition.z + "\n");
         m_streamWriter.WriteLine("Position of Simone: " + " X: " + m_SimonePosition.x + " Y: " + m_SimonePosition.y + " Z: " + m_SimonePosition.z + "\n");
         m_streamWriter.WriteLine("Position of Solveig: " + " X: " + m_SolveigPosition.x + " Y: " + m_SolveigPosition.y + " Z: " + m_SolveigPosition.z + "\n");
-        m_streamWriter.WriteLine("Position of Elise: " + " X: " + m_ElisePosition.x + " Y: " + m_ElisePosition.y + " Z: " + m_ElisePosition.z + "\n");        
+        m_streamWriter.WriteLine("Position of Elise: " + " X: " + m_ElisePosition.x + " Y: " + m_ElisePosition.y + " Z: " + m_ElisePosition.z + "\n");
+
+        m_streamWriter.WriteLine("Phillippa Score: " + m_phScore);
+        m_streamWriter.WriteLine("Simone Score: " + m_siScore);
+        m_streamWriter.WriteLine("Solveig Score: " + m_soScore);
+        m_streamWriter.WriteLine("Elise Score: " + m_elScore);
 
         m_streamWriter.Close();                                                                                                     // Close and save the file
     }
