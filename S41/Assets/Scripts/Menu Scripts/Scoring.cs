@@ -2,33 +2,37 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 #endregion
 
 public class Scoring : MonoBehaviour
 {
+    // creating an empty GameObject and attach "singleton" element to it. 
+    public int score = 0;
+    private static Scoring m_Instance;     
+    public Text text;
 
-    public int score;
-    EnemyHealth AI_Health;
+    public int Score
+    { get { return score; } set { score = value; } }
+
+    public static Scoring Instance
+    { get { return m_Instance; } }
 
     void Start()
     {
-        AI_Health = GetComponent<EnemyHealth>(); 
-        score = 0;
+        if(m_Instance != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        m_Instance = this;
     }
 
     void Update()
     {
-        TakeScore();
-    }
+        text.text = score.ToString();
 
-    public void TakeScore()
-    {
-        if (AI_Health.health <= 0)
-        {
-            score += 10;
-            Debug.Log(AI_Health.health);
-        }
     }
 
 }

@@ -2,11 +2,13 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class EnemyHealth : MonoBehaviour {
+public class EnemyHealth : MonoBehaviour
+{
 
     public float health, maxHealth;
     public GameObject enemyToDestroy;
-   // public Scoring m_ScoreRef;                    // For Scoring but later
+    
+
 
     private float m_spicyChocolateDmg;
     private float m_spicyChocolateTimer = 0;
@@ -14,8 +16,8 @@ public class EnemyHealth : MonoBehaviour {
     public bool m_isOnFire;
     private Image healthBar;
 
-    Scoring scoring;
     
+
 
     private void OnEnable()
     {
@@ -24,6 +26,9 @@ public class EnemyHealth : MonoBehaviour {
 
     void Start()
     {
+        
+        
+        
         health = 100;
         maxHealth = 100;
         m_spicyChocolateDmg = 0.2f;
@@ -32,8 +37,8 @@ public class EnemyHealth : MonoBehaviour {
         healthBar = transform.FindChild("EnemyCanvas").FindChild("HealthBackGround").FindChild("Health").GetComponent<Image>();
     }
 
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -42,19 +47,20 @@ public class EnemyHealth : MonoBehaviour {
         }
         if (health <= 10)
         {
+            OnDestroyed();
             Destroy(enemyToDestroy);
-            
+
         }
 
         
 
-        if(m_isOnFire)
+        if (m_isOnFire)
         {
             m_spicyChocolateTimer += Time.deltaTime;
-            if(m_spicyChocolateTimer < 3)
+            if (m_spicyChocolateTimer < 3)
             {
                 health -= m_spicyChocolateDmg;
-                if(m_spicyChocolateTimer >= 3)
+                if (m_spicyChocolateTimer >= 3)
                 {
                     m_isOnFire = false;
                 }
@@ -62,10 +68,14 @@ public class EnemyHealth : MonoBehaviour {
         }
 
         healthBar.fillAmount = (float)health / (float)maxHealth;
-                
+        
     }
 
-    public float GetHealth { get { return health; } }
+    // adding points to the score when the object is destroyed
+    public void OnDestroyed()
+    {
+        Scoring.Instance.Score += 10;
+    }
 
     public void Hit(float damage)
     {
