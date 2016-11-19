@@ -6,3 +6,7 @@ Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
 
 Position of Elise:  X: 2.8 Y: 2.407347 Z: 8.2
 
+Phillippa Score: 0
+Simone Score: 0
+Solveig Score: 0
+Elise Score: 0

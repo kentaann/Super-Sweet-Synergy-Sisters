@@ -7,45 +7,28 @@ using System.Collections;
 
 public class Scoring : MonoBehaviour
 {
-    #region Variables
 
-    public float m_currentScore;            // The current score of the group
-    public float m_topScore;                // The highest score saved
+    public int score;
+    EnemyHealth AI_Health;
 
-    private float m_scoreToSave;            // The current score at the end of the round
-
-    private string m_scoreFileName = @"score.txt";
-
-    #endregion
-
-    public Scoring()
+    void Start()
     {
-        m_currentScore = 0;
+        AI_Health = GetComponent<EnemyHealth>(); 
+        score = 0;
     }
 
-    void Start () 
+    void Update()
     {
-	
-	}
-	
-	void Update () 
-    {
-	
-	}
-
-
-    public void UpdateScore(float point)
-    {
-        m_currentScore += point;
+        TakeScore();
     }
 
-    public void SaveScore(float score)
+    public void TakeScore()
     {
-        if(score > m_topScore)
+        if (AI_Health.health <= 0)
         {
-            m_scoreToSave = m_currentScore;
+            score += 10;
+            Debug.Log(AI_Health.health);
         }
-
-
     }
+
 }

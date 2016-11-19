@@ -14,17 +14,8 @@ public class EnemyHealth : MonoBehaviour {
     public bool m_isOnFire;
     private Image healthBar;
 
-    public float Health
-    {
-        get
-        {
-            return health;
-        }
-        set
-        {
-            health = value;
-        }
-    }
+    Scoring scoring;
+    
 
     private void OnEnable()
     {
@@ -52,7 +43,10 @@ public class EnemyHealth : MonoBehaviour {
         if (health <= 10)
         {
             Destroy(enemyToDestroy);
+            
         }
+
+        
 
         if(m_isOnFire)
         {
@@ -68,7 +62,10 @@ public class EnemyHealth : MonoBehaviour {
         }
 
         healthBar.fillAmount = (float)health / (float)maxHealth;
+                
     }
+
+    public float GetHealth { get { return health; } }
 
     public void Hit(float damage)
     {
