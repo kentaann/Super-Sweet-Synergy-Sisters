@@ -9,7 +9,7 @@ public class Scoring : MonoBehaviour
 {
     //high Score here?? 
     public int highScore;
-    List<int> highScoreList = new List<int>();
+    public List<int> highScoreList = new List<int>();
     
     // creating an empty GameObject and attach "singleton" element to it. 
     public int score = 0;
@@ -22,6 +22,7 @@ public class Scoring : MonoBehaviour
 
     void Start()
     {
+        highScore = 0;
         if(m_Instance != null)
         {
             Destroy(this.gameObject);
@@ -47,6 +48,9 @@ public class Scoring : MonoBehaviour
     public void AddScoreToList()
     {
         highScoreList.Add(score);
+        highScoreList.Sort();
+        highScoreList.Reverse();
+        Debug.Log(highScoreList);
     }
 
 }

@@ -13,7 +13,7 @@ public class GameOver : MonoBehaviour {
     public Image scoreListBG;
     public Text scoreListText;
 
-    public Text numberOfScore;
+    
 
     bool isScoreListOpened;
 
@@ -29,7 +29,7 @@ public class GameOver : MonoBehaviour {
         scoreListBG.enabled = false;
         scoreListText.enabled = false;
 
-        numberOfScore.text = scoring.score.ToString();
+        
 
         isScoreListOpened = false;
 
@@ -72,6 +72,10 @@ public class GameOver : MonoBehaviour {
                 scoreListBG.enabled = true;
                 scoreListText.enabled = true;
                 //scoring.AddScoreToList();    how to write the list???
+                for (int i = 0; i < scoring.highScoreList.Count; i++)
+                {
+                    scoreListText.text = scoring.highScoreList.ToString();
+                }
                 isScoreListOpened = false;
             }
             else
