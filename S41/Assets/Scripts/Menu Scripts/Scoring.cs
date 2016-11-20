@@ -14,7 +14,7 @@ public class Scoring : MonoBehaviour
     // creating an empty GameObject and attach "singleton" element to it. 
     public int score = 0;
     private static Scoring m_Instance;     
-    public Text text;
+    public Text text;    
 
     public int Score { get { return score; } set { score = value; } }
 
@@ -33,7 +33,13 @@ public class Scoring : MonoBehaviour
 
     void Update()
     {
+        
+    }
+
+    void FixedUpdate()
+    {
         text.text = score.ToString();
+        
         Debug.Log(score);
         AddScoreToList();
     }

@@ -13,6 +13,8 @@ public class GameOver : MonoBehaviour {
     public Image scoreListBG;
     public Text scoreListText;
 
+    public Text numberOfScore;
+
     bool isScoreListOpened;
 
     Scoring scoring;
@@ -26,6 +28,8 @@ public class GameOver : MonoBehaviour {
 
         scoreListBG.enabled = false;
         scoreListText.enabled = false;
+
+        numberOfScore.text = scoring.score.ToString();
 
         isScoreListOpened = false;
 
