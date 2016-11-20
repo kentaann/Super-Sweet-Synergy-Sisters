@@ -1,10 +1,8 @@
-﻿#region Using Statements
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
-#endregion
+
 
 public class Scoring : MonoBehaviour
 {
@@ -13,11 +11,9 @@ public class Scoring : MonoBehaviour
     private static Scoring m_Instance;     
     public Text text;
 
-    public int Score
-    { get { return score; } set { score = value; } }
+    public int Score { get { return score; } set { score = value; } }
 
-    public static Scoring Instance
-    { get { return m_Instance; } }
+    public static Scoring Instance { get { return m_Instance; } }
 
     void Start()
     {
@@ -32,7 +28,7 @@ public class Scoring : MonoBehaviour
     void Update()
     {
         text.text = score.ToString();
-
+        Debug.Log(score);
     }
 
 }

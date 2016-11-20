@@ -26,7 +26,6 @@ public class PauseMenu : MonoBehaviour
         controlsButton.SetActive(false);
         pauseTextinMenu.enabled = false;
         menuOpened = false;
-
     }
 
     void Update()
@@ -36,9 +35,10 @@ public class PauseMenu : MonoBehaviour
         ResumeGame();
     }
 
+    // Open the pause menu, the game is paused
     public void OpenMenu()
     {
-        //antingen escap eller back button on xbox back
+        //the escape or the back button on xbox opens it
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 6"))
         {
             if (menuOpened && Time.timeScale == 1.0f)
@@ -66,6 +66,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // Leave the game (Closes the whole game)   -> maybe it should go back to the Main menu and do not save the game????
     public void QuitGameInGameMenu()
     {
         if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown("joystick button 2"))
@@ -74,6 +75,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // The game continues
     public void ResumeGame()
     {
         if (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown("joystick button 3"))
