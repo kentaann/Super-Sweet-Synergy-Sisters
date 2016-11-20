@@ -27,20 +27,20 @@ public class GameOver : MonoBehaviour {
         scoreListButton = GameObject.Find("Highscore");
 
         scoreListBG.enabled = false;
-        scoreListText.enabled = false;
-
-        
-
-        isScoreListOpened = false;
+        scoreListText.enabled = false;           
 
         scoring = GetComponent<Scoring>();
+
+        isScoreListOpened = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
         Restart();
         Quit();
         HighScoreMenu();
+
 	}
 
     // Restart the game
@@ -72,10 +72,10 @@ public class GameOver : MonoBehaviour {
                 scoreListBG.enabled = true;
                 scoreListText.enabled = true;
                 //scoring.AddScoreToList();    how to write the list???
-                for (int i = 0; i < scoring.highScoreList.Count; i++)
-                {
-                    scoreListText.text = scoring.highScoreList.ToString();
-                }
+                //for (int i = 0; i < scoring.highScoreList.Count; i++)
+                //{
+                //    scoreListText.text = scoring.highScoreList.ToString();
+                //}
                 isScoreListOpened = false;
             }
             else
