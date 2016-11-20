@@ -15,6 +15,8 @@ public class GameOver : MonoBehaviour {
 
     bool isScoreListOpened;
 
+    Scoring scoring;
+
 	// Use this for initialization
 	void Start () {
 
@@ -26,6 +28,8 @@ public class GameOver : MonoBehaviour {
         scoreListText.enabled = false;
 
         isScoreListOpened = false;
+
+        scoring = GetComponent<Scoring>();
 	}
 	
 	// Update is called once per frame
@@ -63,6 +67,7 @@ public class GameOver : MonoBehaviour {
             {
                 scoreListBG.enabled = true;
                 scoreListText.enabled = true;
+                //scoring.AddScoreToList();    how to write the list???
                 isScoreListOpened = false;
             }
             else

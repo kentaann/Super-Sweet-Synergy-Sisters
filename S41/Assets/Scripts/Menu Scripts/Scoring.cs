@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 
 
 public class Scoring : MonoBehaviour
 {
+    //high Score here?? 
+    public int highScore;
+    List<int> highScoreList = new List<int>();
+    
     // creating an empty GameObject and attach "singleton" element to it. 
     public int score = 0;
     private static Scoring m_Instance;     
@@ -23,12 +28,19 @@ public class Scoring : MonoBehaviour
             return;
         }
         m_Instance = this;
+       
     }
 
     void Update()
     {
         text.text = score.ToString();
         Debug.Log(score);
+        AddScoreToList();
+    }
+
+    public void AddScoreToList()
+    {
+        highScoreList.Add(score);
     }
 
 }
