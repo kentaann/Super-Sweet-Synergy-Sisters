@@ -27,6 +27,12 @@ public class Channeling_script : MonoBehaviour
     private bool scaleIncrease;                         // Tells to start increase
     private bool scaleDecrease;                         // Tells to start decrease
     private bool startIncreaseUpDown;                   // Tells to start increase and decrease on y-axis
+
+    GameObject enemyObject;
+    public bool seeState;
+    public int i = 0;
+    public float seeTime;
+
     #endregion
 
     #region Start
@@ -71,6 +77,42 @@ public class Channeling_script : MonoBehaviour
         BeamGrowShrink();
 
         scale = transform.localScale;
+
+        if (enemyObject != null)
+        {
+            seeState = gameObject.GetComponent<Collider>().bounds.Intersects(enemyObject.GetComponent<Collider>().bounds);//kollar bara om det är sant eller falsk
+
+            if (gameObject.GetComponent<Collider>().bounds.Intersects(enemyObject.GetComponent<Collider>().bounds))
+            {
+                enemyObject.gameObject.GetComponent<EnemyHealth>().wcAbleToDamage = true;
+
+                if (enemyObject.gameObject.GetComponent<EnemyHealth>().ableToDamage)
+                {
+                    enemyObject.gameObject.GetComponent<EnemyHealth>().Hit(4);
+                    enemyObject.gameObject.GetComponent<EnemyHealth>().ableToDamage = false;
+                }
+            }
+
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        seeTime = Time.time;
+
+        if (other.gameObject.tag == "Enemy")
+        {
+            enemyObject = other.gameObject;
+
+
+        }
+        if (other.gameObject.tag == "Player")
+        {
+            if (other.GetComponent<Collider>().bounds.Intersects(gameObject.GetComponent<Collider>().bounds))
+            {
+                i = 944;
+            }
+        }
     }
 
     #endregion

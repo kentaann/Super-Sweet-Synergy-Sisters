@@ -16,7 +16,10 @@ public class EnemyHealth : MonoBehaviour
     public bool m_isOnFire;
     private Image healthBar;
 
-    
+    public float wcDamageTimer;
+    public bool wcAbleToDamage = false;
+    public float nextShot = 0;
+    public bool ableToDamage = false;
 
 
     private void OnEnable()
@@ -68,7 +71,18 @@ public class EnemyHealth : MonoBehaviour
         }
 
         healthBar.fillAmount = (float)health / (float)maxHealth;
-        
+
+        if (wcAbleToDamage)
+        {
+            wcDamageTimer += Time.deltaTime;
+
+            if (wcDamageTimer >= nextShot)
+            {
+                ableToDamage = true;
+                nextShot = wcDamageTimer + 1;
+            }
+        }
+
     }
 
     // adding points to the score when the object is destroyed
