@@ -51,10 +51,10 @@ public class Elise_Attack : MonoBehaviour
 
     private void E_MultiShot()
     {
-        Rigidbody multiBulletInstance1 = Instantiate(m_multiBullet, m_transformFireOrigin.position, m_transformFireOrigin.rotation) as Rigidbody;
-        Rigidbody multiBulletInstance2 = Instantiate(m_multiBullet, m_transformFireOriginLeft.position, m_transformFireOriginLeft.rotation) as Rigidbody;
+        Rigidbody multiBulletInstance1 = Instantiate(m_multiBullet, m_transformFireOrigin.position, m_transformFireOrigin.rotation * Quaternion.Euler(90, 0, 0)) as Rigidbody;
+        Rigidbody multiBulletInstance2 = Instantiate(m_multiBullet, m_transformFireOriginLeft.position, m_transformFireOriginLeft.rotation * Quaternion.Euler(90, 0, 0)) as Rigidbody;
         //multiBulletInstance2.rotation = Quaternion.Euler(30, 0, 0);
-        Rigidbody multiBulletInstance3 = Instantiate(m_multiBullet, m_transformFireOriginRight.position, m_transformFireOriginRight.rotation) as Rigidbody;
+        Rigidbody multiBulletInstance3 = Instantiate(m_multiBullet, m_transformFireOriginRight.position, m_transformFireOriginRight.rotation * Quaternion.Euler(90, 0, 0)) as Rigidbody;
         //multiBulletInstance3.rotation = Quaternion.Euler(-30, 0, 0);
 
         multiBulletInstance1.velocity = m_multiLaunchForce * m_transformFireOrigin.forward;

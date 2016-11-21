@@ -1,0 +1,12 @@
+Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+
+Position of Simone:  X: -9.835282 Y: 1.825134 Z: 12.09208
+
+Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
+
+Position of Elise:  X: 2.8 Y: 2.407347 Z: 8.2
+
+Phillippa Score: 0
+Simone Score: 0
+Solveig Score: 0
+Elise Score: 0

@@ -16,6 +16,10 @@ public class Bullet_Collide : MonoBehaviour
 
     private const float m_LIFESPAN = 3.0f;
 
+    Rigidbody rB;
+    GameObject whiskObj;
+
+
     #endregion
 
     #region Start
@@ -30,6 +34,10 @@ public class Bullet_Collide : MonoBehaviour
         {
             Physics.IgnoreCollision(player.GetComponent<Collider>(), GetComponent<Collider>());
         }
+
+        rB = this.GetComponent<Rigidbody>();
+        whiskObj = GameObject.FindGameObjectWithTag("whisk");
+
 
         Destroy(gameObject, m_LIFESPAN);
 	}
@@ -71,6 +79,20 @@ public class Bullet_Collide : MonoBehaviour
             other.gameObject.GetComponent<Trap_Trigger>().FiredUp(true);
         }
 
+        if (Input.GetKey(KeyCode.B))
+        {
+            if (other.gameObject.tag == "whisk")
+            {
+                float angleBullet_x = transform.localEulerAngles.x;
+                float angleWhisk_z = -whiskObj.transform.rotation.eulerAngles.y;
+                rB.transform.localEulerAngles = new Vector3(angleBullet_x, 0, angleWhisk_z);
+
+                float forceBullet = rB.velocity.magnitude;
+                Vector3 newAngle = rB.transform.up;
+                rB.velocity = forceBullet * newAngle;
+            } 
+        }
+
     }
     void OnTriggerExit(Collider other)
     {
@@ -81,6 +103,20 @@ public class Bullet_Collide : MonoBehaviour
         }
         // Destroy everything that leaves the trigger
         //Destroy(other.gameObject);
+
+        if (Input.GetKey(KeyCode.B))
+        {
+            if (other.gameObject.tag == "whisk")
+            {
+                float angleBullet_x = transform.localEulerAngles.x;
+                float angleWhisk_z = -whiskObj.transform.rotation.eulerAngles.y;
+                rB.transform.localEulerAngles = new Vector3(angleBullet_x, 0, angleWhisk_z);
+
+                float forceBullet = rB.velocity.magnitude;
+                Vector3 newAngle = rB.transform.up;
+                rB.velocity = forceBullet * newAngle;
+            } 
+        }
     }
 
     #endregion

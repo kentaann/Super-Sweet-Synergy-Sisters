@@ -4,6 +4,7 @@ using System.Collections;
 public class WhiskAttack : MonoBehaviour
 {
     public bool m_rushActive = false;
+    public bool m_beamActive = false;
 
     public Vector3 from;
     public Vector3 to;
@@ -27,11 +28,13 @@ public class WhiskAttack : MonoBehaviour
     void OnEnable()
     {
         Phillippa_Attack.RushEvent += AttackInRush;
+        Phillippa_Attack.BeamCollider += AttackInBeam;
     }
 
     void OnDisable()
     {
         Phillippa_Attack.RushEvent -= AttackInRush;
+        Phillippa_Attack.BeamCollider -= AttackInBeam;
     }
 
     public void OnTriggerStay(Collider other)
@@ -55,6 +58,11 @@ public class WhiskAttack : MonoBehaviour
             {
                 other.gameObject.GetComponent<EnemyHealth>().Hit(10);
             }
+
+            if (m_beamActive == true)
+            {
+                other.gameObject.GetComponent<EnemyHealth>().Hit(20);
+            }
         }
     }
 
@@ -65,6 +73,11 @@ public class WhiskAttack : MonoBehaviour
             if (m_rushActive == true)
             {
                 m_rushActive = false;
+            }
+
+            if (m_beamActive == true)
+            {
+                m_beamActive = false;
             }
         }
     }
@@ -79,12 +92,17 @@ public class WhiskAttack : MonoBehaviour
         m_rushActive = true;
     }
 
+    public void AttackInBeam()
+    {
+        m_beamActive = true;
+    }
+
     // Update is called once per frame
     void Update()
     {
         //IsRushing(m_rushActive);
 
-        if (Input.GetKey(KeyCode.B))
+        if (Input.GetKey(KeyCode.J))
         {
             float t = Mathf.PingPong(Time.time * speed * 2.0f, 1.0f);
             transform.localEulerAngles = Vector3.Lerp(from, to, t);

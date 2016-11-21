@@ -1,51 +1,56 @@
-﻿#region Using Statements
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using System.Collections.Generic;
 
-#endregion
+
 
 public class Scoring : MonoBehaviour
 {
-    #region Variables
+    //high Score here?? 
+    public int highScore;
+    public List<int> highScoreList = new List<int>();
+    
+    // creating an empty GameObject and attach "singleton" element to it. 
+    public int score = 0;
+    private static Scoring m_Instance;     
+    public Text text;    
 
-    public float m_currentScore;            // The current score of the group
-    public float m_topScore;                // The highest score saved
+    public int Score { get { return score; } set { score = value; } }
 
-    private float m_scoreToSave;            // The current score at the end of the round
+    public static Scoring Instance { get { return m_Instance; } }
 
-    private string m_scoreFileName = @"score.txt";
-
-    #endregion
-
-    public Scoring()
+    void Start()
     {
-        m_currentScore = 0;
-    }
-
-    void Start () 
-    {
-	
-	}
-	
-	void Update () 
-    {
-	
-	}
-
-
-    public void UpdateScore(float point)
-    {
-        m_currentScore += point;
-    }
-
-    public void SaveScore(float score)
-    {
-        if(score > m_topScore)
+        highScore = 0;
+        if(m_Instance != null)
         {
-            m_scoreToSave = m_currentScore;
+            Destroy(this.gameObject);
+            return;
         }
-
-
+        m_Instance = this;
+       
     }
+
+    void Update()
+    {
+        
+    }
+
+    void FixedUpdate()
+    {
+        text.text = score.ToString();
+        
+        Debug.Log(score);
+        AddScoreToList();
+    }
+
+    public void AddScoreToList()
+    {
+        highScoreList.Add(score);
+        highScoreList.Sort();
+        highScoreList.Reverse();
+        Debug.Log(highScoreList);
+    }
+
 }
