@@ -62,16 +62,7 @@ public class PlayerHealth : MonoBehaviour
 
         //The timer is not supposed to be in use. It is merely to test out cross-script communication
         timer += Time.deltaTime;
-
-        //if (timer >= 1)
-        //{
-        //    TakeDamagePhilippa(30);
-        //    TakeDamageElise(20);
-        //    TakeDamageSimone(20);
-        //    TakeDamageSolveig(20);
-        //    timer = 0;
-        //}
-
+                
         simoneHealth = fixedPlayerHealth_Simone.GetHealth();
         simoneScrollBar.size = simoneHealth / 100f;
 
@@ -84,103 +75,41 @@ public class PlayerHealth : MonoBehaviour
         eliseHealth = fixedPlayerHealth_Elise.GetHealth();
         eliseScrollBar.size = eliseHealth / 100f;
 
-        //GameOverMenu();
+
+        CheckHealthForGameOver();
+        GameOverMenu();
     }
 
-    public void TakeDamagePhilippa(int amount)
+    public void CheckHealthForGameOver()
     {
-        philippaHealth -= amount;
-        philippaScrollBar.size = philippaHealth / 200f;
-
-
-
         if (philippaHealth <= 0)
-        {
-            PhilippaIsDead();
+        {           
             deadPh = true;
         }
-    }
-
-    public void TakeDamageSimone(int amount)
-    {
-        simoneHealth -= amount;
-        simoneScrollBar.size = simoneHealth / 100f;
-
 
         if (simoneHealth <= 0)
-        {
-            SimoneIsDead();
+        {            
             deadSi = true;
         }
-    }
-
-    public void TakeDamageElise(int amount)
-    {
-        eliseHealth -= amount;
-        eliseScrollBar.size = eliseHealth / 100f;
-
 
         if (eliseHealth <= 0)
-        {
-            EliseIsDead();
+        {           
             deadEl = true;
         }
-    }
-
-    public void TakeDamageSolveig(int amount)
-    {
-        eliseHealth -= amount;
-        solveigScrollBar.size = eliseHealth / 100f;
 
 
         if (eliseHealth <= 0)
-        {
-            SolveigIsDead();
+        {           
             deadSol = true;
         }
+
     }
-
-    //void OnCollisionEnter(Collision other)            //spelar ingen roll, för den ligger inte i själva karaktärernas prefab
-    //{
-    //    if (other.gameObject.tag == "Enemy")
-    //    {
-    //        TakeDamagePhilippa(20);
-    //        TakeDamageElise(20);
-    //        TakeDamageSimone(20);
-    //        TakeDamageSolveig(20);
-    //        Debug.Log("Hit player");
-    //    }
-    //}
-
+   
     public void GameOverMenu()
     {
         if (deadSol == true && deadSi == true && deadPh == true && deadEl == true)
         {
             SceneManager.LoadScene("GamOver");
         }
-    }
-
-    public void PhilippaIsDead()
-    {
-        //animation
-        //sound
-    }
-
-    public void SimoneIsDead()
-    {
-        //animation
-        //sound
-    }
-
-    public void EliseIsDead()
-    {
-        //animation
-        //sound
-    }
-    public void SolveigIsDead()
-    {
-        //animation
-        //sound
-    }
-
+    }   
 }
