@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class EnemyProjectile : MonoBehaviour
 {
 
-
     public Transform m_transformOrigin;
     public Rigidbody m_EnemyBullet;
     private float m_bulletLaunchForce;
@@ -74,6 +73,7 @@ public class EnemyProjectile : MonoBehaviour
 
         return bestTarget;
     }
+
     public void GroupResize(int Size, ref Transform[] Group)
     {
 

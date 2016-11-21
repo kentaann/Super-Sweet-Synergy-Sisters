@@ -23,6 +23,8 @@ public class Player_Movement : MonoBehaviour
     private float m_movementInputValue;
     private float m_turnInputValue;
 
+    public Vector3 minScreenBounds;
+    public Vector3 maxScreenBounds;
     #endregion
 
     #region Awake
@@ -82,6 +84,8 @@ public class Player_Movement : MonoBehaviour
         // Store the player's input
         m_movementInputValue = Input.GetAxis(m_moveAxisName);
         m_turnInputValue = Input.GetAxis(m_turnAxisName);
+        minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
+        maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
 
     }
 
@@ -206,6 +210,8 @@ public class Player_Movement : MonoBehaviour
     {
         Vector3 movement = transform.forward * m_movementInputValue * m_moveSpeed * Time.deltaTime;
         m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
+        //m_Rigidbody.MovePosition(new Vector3(Mathf.Clamp(m_Rigidbody.position.x, minScreenBounds.x + 1, maxScreenBounds.x - 1), Mathf.Clamp(m_Rigidbody.position.y, minScreenBounds.y + 1, maxScreenBounds.y - 1), m_Rigidbody.position.z + movement);
+        //m_Rigidbody.transform.position = new Vector3(Mathf.Clamp(m_Rigidbody.transform.position.x, minScreenBounds.x + 1, maxScreenBounds.x - 1), Mathf.Clamp(m_Rigidbody.transform.position.y, minScreenBounds.y, maxScreenBounds.y), m_Rigidbody.transform.position.z);
     }
 
     /// <summary>
