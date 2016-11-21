@@ -30,11 +30,16 @@ public class Player_Logger : MonoBehaviour
     private float m_siScore = 0.0f;
     private float m_soScore = 0.0f;
     private float m_elScore = 0.0f;
+    private float m_healingDone = 0.0f;
+    private float m_phAliveTime = 0.0f;
+    private float m_siAliveTime = 0.0f;
+    private float m_soAliveTime = 0.0f;
+    private float m_elAliveTime = 0.0f;
     private int m_phKills = 0;
     private int m_siKills = 0;
     private int m_soKills = 0;
     private int m_elKills = 0;
-    private float m_healingDone = 0.0f;
+
     
     public float m_timeToWrite = 1.0f;              // Interval for when the call to write is made
 
@@ -67,6 +72,10 @@ public class Player_Logger : MonoBehaviour
     void Update () 
     {
         m_currentTime += Time.deltaTime;
+        m_phAliveTime += Time.deltaTime;
+        m_siAliveTime += Time.deltaTime;
+        m_soAliveTime += Time.deltaTime;
+        m_elAliveTime += Time.deltaTime;
 
         if(m_currentTime > m_timeToWrite)
         {
