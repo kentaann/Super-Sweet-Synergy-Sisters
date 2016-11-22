@@ -18,6 +18,9 @@ public class AiMovement : MonoBehaviour {
     private float m_stunTimer = 0;
     public bool m_isStunned;
 
+    GameObject[] otherObject;
+    Vector3 lastPosition;
+
     enum GameState
     {
         Patrol,//inte användas nu
@@ -35,7 +38,8 @@ public class AiMovement : MonoBehaviour {
         SelectedTarget = null;
         Players = new List<Transform>();
         AddPlayersToList();
-
+        otherObject = GameObject.FindGameObjectsWithTag("Enemy");
+        lastPosition = transform.position;
     }
 
     void Awake ()
@@ -108,7 +112,18 @@ public class AiMovement : MonoBehaviour {
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
         }
 
-        if(m_isStunned)
+        foreach (GameObject go in otherObject)
+        {
+            if (Vector3.Distance(transform.position, go.transform.position) <= 2.5f)
+            {
+                //transform.position = (transform.position - go.transform.position).normalized + go.transform.position;
+                go.transform.position += (transform.position - lastPosition);
+            }
+        }
+
+        lastPosition = transform.position;
+
+        if (m_isStunned)
         {
             if (m_stunTimer < 3)
             {
