@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Camera_test : MonoBehaviour
 {
@@ -7,7 +8,9 @@ public class Camera_test : MonoBehaviour
     private Vector3 offset;
     public Transform[] m_Targets;
     private Vector3 camera_startPos;
-   
+
+    public List<Transform> findPlayers;
+
     public float Speed;
     public Vector3 camPos;
     public float changeYpos = 0;
@@ -37,43 +40,65 @@ public class Camera_test : MonoBehaviour
         //camera_startPos = new Vector3(3, 17f, -8.5f);
         offset = FindAveragePosition() + camera_startPos;
         oldPosOneDecimal = (float)System.Math.Round(newdistance, 1);
-        
+
+        findPlayers = new List<Transform>();
+        AddPlayersToList();
     }
 
 
     void Update()
     {
-        //Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position , new Vector3(0, 20, -10), Time.deltaTime * Speed);
+        UpdatePlayerList();
+
         camPos = Camera.main.transform.position;
         ZoomByItSelf();
         ZoomWithButtons();
-        //cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, min, max);
-
     }
 
     void LateUpdate()
     {
-        //transform.position = FindAveragePosition() + offset;
         //Nytt
         //transform.position = new Vector3(FindAveragePosition().x + offset.x, FindAveragePosition().y + offset.y + changeYpos, FindAveragePosition().z + offset.z + changeZpos);
+        
         //Se kamerans postion utan offset
         //transform.position = new Vector3(FindAveragePosition().x, FindAveragePosition().y + offset.y + changeYpos, FindAveragePosition().z);
-        if (m_Targets.Length != GameObject.FindGameObjectsWithTag("Player").Length)
-        {
-            GroupResize(GameObject.FindGameObjectsWithTag("Player").Length, ref m_Targets);
-        }
-        //testar olika saker
+
+        //testar olika saker(men den som nu funkar rätt)
         transform.position = new Vector3(FindAveragePosition().x + changeXpos + camera_startPos.x, FindAveragePosition().y + changeYpos + camera_startPos.y, FindAveragePosition().z + changeZpos + camera_startPos.z);
     }
+
+    public void UpdatePlayerList()
+    {
+        if (findPlayers.Count != GameObject.FindGameObjectsWithTag("Player").Length)
+        {
+            findPlayers.Clear();
+            AddPlayersToList();
+        }
+    }
+
+    public void AddPlayersToList()
+    {
+        GameObject[] ItemsInList = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in ItemsInList)
+        {
+            AddTarget(player.transform);
+        }
+    }
+
+    public void AddTarget(Transform player)
+    {
+        findPlayers.Add(player);
+    }
+
     private Vector3 FindAveragePosition()
     {
         Vector3 averagePos = new Vector3();
         int numTargets = 0;
-        for (int i = 0; i < m_Targets.Length; i++)
+        for (int i = 0; i < findPlayers.Count; i++)
         {
-            if (!m_Targets[i].gameObject.activeSelf)
+            if (!findPlayers[i].gameObject.activeSelf)
                 continue;
-            averagePos += m_Targets[i].position;
+            averagePos += findPlayers[i].position;
             numTargets++;
         }
         if (numTargets > 0)
@@ -85,7 +110,7 @@ public class Camera_test : MonoBehaviour
     public void ZoomByItSelf()
     {
         cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, min, max);
-        Transform cameraTarget = GetFarthestPlayer(m_Targets);
+        Transform cameraTarget = GetFarthestPlayer();
         whoIsTheObject = cameraTarget.gameObject;
         if (cameraTarget)
         {
@@ -110,6 +135,7 @@ public class Camera_test : MonoBehaviour
             }
         }
     }
+
     private void ZoomWithButtons()
     {
         if (Input.GetKey(KeyCode.C))
@@ -122,12 +148,12 @@ public class Camera_test : MonoBehaviour
         }
     }
 
-    Transform GetFarthestPlayer(Transform[] player)
+    Transform GetFarthestPlayer()
     {
         Transform largest = null;
         float maxDist = 5;
         Vector3 currentPos = FindAveragePosition();
-        foreach (Transform t in m_Targets)
+        foreach (Transform t in findPlayers)
         {
             float dist = Vector3.Distance(t.position, currentPos);
             if (dist > maxDist)
@@ -138,18 +164,6 @@ public class Camera_test : MonoBehaviour
         }
         return largest;
     }
-
-    public void GroupResize(int Size, ref Transform[] players)
-    {
-
-        Transform[] temp = new Transform[Size];
-        for (int c = 0; c < Mathf.Min(Size, players.Length); c++)
-        {
-            temp[c] = players[c];
-        }
-        players = temp;
-    }
-
 }
 
 
