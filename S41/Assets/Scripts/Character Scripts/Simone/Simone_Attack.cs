@@ -17,7 +17,9 @@ public class Simone_Attack : MonoBehaviour
     public Rigidbody m_whippedBullet;                               // The rigidbody of the whipped cream projectile
     public Rigidbody m_energyBullet;                                // The rigidbody of the energy drink projectile
     //public Material m_bulletMaterial;
-    public GameObject obj;                                          // Object of whipped cream
+    public GameObject m_spicyObj;
+    public GameObject m_whippedObj;                                          // Object of whipped cream
+    public GameObject m_energyObj;
     Player_Movement m_playerMove;                                   // Used to manipulate movement from this class
 
     public string xbox_name_X360_A;
@@ -149,7 +151,7 @@ public class Simone_Attack : MonoBehaviour
                 {
                     if (m_autoAttackActive && !m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
                     {
-                        S_autoAttack();
+                        S_WhippedCreamAttack();
                         m_attackRate = 0;
                     } 
                 }
@@ -160,11 +162,12 @@ public class Simone_Attack : MonoBehaviour
                     m_attackRate = 0;
                 }
 
-                if (m_whippedCreamActive && !m_autoAttackActive && !m_energyDrinkActive && !m_spicyChocolateActive)
-                {
-                    S_WhippedCreamAttack();
-                    m_attackRate = 0;
-                }
+                //REPLACED BY AUTO ATTACK
+                //if (m_whippedCreamActive && !m_autoAttackActive && !m_energyDrinkActive && !m_spicyChocolateActive) 
+                //{
+                //    S_WhippedCreamAttack();
+                //    m_attackRate = 0;
+                //}
 
                 if (m_spicyChocolateActive && !m_autoAttackActive && !m_energyDrinkActive && !m_whippedCreamActive)
                 {
@@ -193,8 +196,12 @@ public class Simone_Attack : MonoBehaviour
             m_coolDown = 0.15f;
         }
 
-        //This returns the player from energy drink to auto attack. This will later be removed
-        if (Input.GetKeyUp(KeyCode.K))
+        #endregion
+
+        #region Activate Whipped Cream
+        //This returns the player from energy drink to auto attack. This will later be removed //Marcus
+        //I simply changed this to Whipped Cream and made it the default attack that Simone starts with //Bernhard
+        if (Input.GetKeyUp(KeyCode.K) || Input.GetButton(xbox_name_X360_X))
         {
             m_energyDrinkActive = false;
             m_autoAttackActive = true;
@@ -205,21 +212,17 @@ public class Simone_Attack : MonoBehaviour
             //m_damage = 10f;
         }
 
-        #endregion
-
-        #region Activate Whipped Cream
-
-        if (Input.GetKeyUp(KeyCode.J) || Input.GetButton(xbox_name_X360_X))
-        {
-            m_whippedCreamActive = true;
-            m_autoAttackActive = false;
-            m_spicyChocolateActive = false;
-            m_energyDrinkActive = false;
-            //m_damage = m_damage * 1.2;
-            m_playerMove.m_moveSpeed = m_playerMove.m_moveSpeed * m_whippedCreamMoveSpeedMod;
-            m_coolDown = 0.5f;
-            //Debug.Log(m_damage);
-        }
+        //if (Input.GetKeyUp(KeyCode.J) || Input.GetButton(xbox_name_X360_X))
+        //{
+        //    m_whippedCreamActive = true;
+        //    m_autoAttackActive = false;
+        //    m_spicyChocolateActive = false;
+        //    m_energyDrinkActive = false;
+        //    //m_damage = m_damage * 1.2;
+        //    m_playerMove.m_moveSpeed = m_playerMove.m_moveSpeed * m_whippedCreamMoveSpeedMod;
+        //    m_coolDown = 0.5f;
+        //    //Debug.Log(m_damage);
+        //}
 
         #endregion
 
@@ -248,7 +251,7 @@ public class Simone_Attack : MonoBehaviour
     /// Simones auto attack.
     /// Creates a bullet and shoots in the direction that Simone is facing.
     /// </summary>
-    private void S_autoAttack()
+    private void S_WhippedCreamAttack()
     {
         Vector3 playerPos = transform.position;
         Vector3 playerDirection = transform.forward;
@@ -256,7 +259,7 @@ public class Simone_Attack : MonoBehaviour
         float spawnDistance = 1.8f;
 
         Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
-        Instantiate(obj, spawnPos, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
+        Instantiate(m_whippedObj, spawnPos, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
         //bulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
     }
 
@@ -267,19 +270,19 @@ public class Simone_Attack : MonoBehaviour
     /// </summary>
     private void S_EnergyDrinkAttack()
     {
-        Rigidbody energyBulletInstance = Instantiate(m_energyBullet, m_transformOrigin.position, Quaternion.identity) as Rigidbody;
+        Rigidbody energyBulletInstance = Instantiate(m_energyBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
         energyBulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
 
     }
     
     /// <summary>
-    /// Whipped Cream Element
+    /// Whipped Cream Element //THIS IS NOW REPLACED BY THE PREVIOUS AUTO ATTACK
     /// </summary>
-    private void S_WhippedCreamAttack()
-    {
-        Rigidbody whippedBulletInstance = Instantiate(m_whippedBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
-        whippedBulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
-    }
+    //private void S_WhippedCreamAttack()
+    //{
+    //    Rigidbody whippedBulletInstance = Instantiate(m_whippedBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
+    //    whippedBulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
+    //}
 
     /// <summary>
     /// Spicy Chocolate Element

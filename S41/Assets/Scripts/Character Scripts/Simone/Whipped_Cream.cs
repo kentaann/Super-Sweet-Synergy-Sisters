@@ -79,11 +79,11 @@ public class Whipped_Cream : MonoBehaviour
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, m_RADIUS);
 
-        if (other.gameObject.tag == "Enemy" && !other.gameObject.GetComponent<EnemyHealth>().m_isOnFire)
-        {
-            other.gameObject.GetComponent<EnemyHealth>().Hit(m_damage);
-            other.gameObject.GetComponent<AiMovement>().SetMoveSpeed(m_MOVESPEEDMODIFIER);
-        }
+        //if (other.gameObject.tag == "Enemy" && !other.gameObject.GetComponent<EnemyHealth>().m_isOnFire)
+        //{
+        //    other.gameObject.GetComponent<EnemyHealth>().Hit(m_damage);
+        //    other.gameObject.GetComponent<AiMovement>().SetMoveSpeed(m_MOVESPEEDMODIFIER);
+        //}
 
         if (other.gameObject.tag == "Environment" /*|| other.gameObject.tag == "Player"*/)
         {
@@ -98,6 +98,17 @@ public class Whipped_Cream : MonoBehaviour
     }
 
     #endregion
+
+    void OnTriggerStay(Collider other)
+    {
+        Collider[] colliders = Physics.OverlapSphere(transform.position, m_RADIUS);
+
+        if (other.gameObject.tag == "Enemy" && !other.gameObject.GetComponent<EnemyHealth>().m_isOnFire)
+        {
+            other.gameObject.GetComponent<EnemyHealth>().Hit(m_damage);
+            other.gameObject.GetComponent<AiMovement>().SetMoveSpeed(m_MOVESPEEDMODIFIER);
+        }
+    }
 
     #region Update
 
