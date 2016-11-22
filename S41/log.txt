@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
 
 Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
@@ -290,3 +291,5 @@ Phillippa Score: 0
 Simone Score: 0
 Solveig Score: 0
 Elise Score: 0
+=======
+>>>>>>> origin/master

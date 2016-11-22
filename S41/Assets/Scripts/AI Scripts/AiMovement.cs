@@ -21,6 +21,7 @@ public class AiMovement : MonoBehaviour {
     GameObject[] otherObject;
     Vector3 lastPosition;
 
+    public int kolla;
     enum GameState
     {
         Patrol,//inte användas nu
@@ -97,6 +98,7 @@ public class AiMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        kolla = GameObject.FindGameObjectsWithTag("Player").Length;
         if (Players.Count != GameObject.FindGameObjectsWithTag("Player").Length)
         {
             Players.Clear();
