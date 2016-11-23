@@ -25,11 +25,11 @@ public class Scoring : MonoBehaviour
         highScore = 0;
         if(m_Instance != null)
         {
-            Destroy(this.gameObject);
+            Destroy(this.gameObject);            
             return;
         }
         m_Instance = this;
-       
+     
     }
 
     void Update()

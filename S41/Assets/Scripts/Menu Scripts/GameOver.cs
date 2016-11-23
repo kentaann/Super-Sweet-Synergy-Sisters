@@ -13,15 +13,18 @@ public class GameOver : MonoBehaviour {
     public Image scoreListBG;
     public Text scoreListText;
 
-    
+    public Text finalScoreText;
 
     bool isScoreListOpened;
 
     Scoring scoring;
+    
 
 	// Use this for initialization
 	void Start () {
 
+        DontDestroyOnLoad(scoring);
+        scoring.GetComponent<Scoring>();
         startGameButton = GameObject.Find("RestartButton");
         quitGameButton = GameObject.Find("Quit");
         scoreListButton = GameObject.Find("Highscore");
@@ -29,7 +32,7 @@ public class GameOver : MonoBehaviour {
         scoreListBG.enabled = false;
         scoreListText.enabled = false;           
 
-        scoring = GetComponent<Scoring>();
+        
 
         isScoreListOpened = false;
 	}
@@ -37,10 +40,11 @@ public class GameOver : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+       
         Restart();
         Quit();
         HighScoreMenu();
-
+        finalScoreText.text = scoring.score.ToString();
 	}
 
     // Restart the game

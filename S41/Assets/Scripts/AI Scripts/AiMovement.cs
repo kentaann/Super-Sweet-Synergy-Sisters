@@ -58,12 +58,11 @@ public class AiMovement : MonoBehaviour {
         //TankPlayer = GameObject.FindGameObjectWithTag("Här ska tankens tag vara").transform;
     }
 	
-    public void SetMoveSpeed(float moveSpeed)
-    {
-        MoveSpeed = moveSpeed;
-    }
+	public void SetMoveSpeed(float moveSpeed)
+	{
+		MoveSpeed = moveSpeed;
+	}
 	
-
     public void AddPlayersToList()
     {
         GameObject[] ItemsInList = GameObject.FindGameObjectsWithTag("Player");
@@ -218,11 +217,10 @@ public class AiMovement : MonoBehaviour {
     //            {
     //                currentGamestate = GameState.Attack;
     //            }
+	//            break;
 
-    //            break;
-
-    //        default:
-    //            break;
-    //    }
-    //}
+	//        default:
+	//            break;
+	//    }
+	//}
 }
