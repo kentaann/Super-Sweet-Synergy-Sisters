@@ -34,8 +34,8 @@ public class Simone_Attack : MonoBehaviour
     private float m_whippedCreamMoveSpeedMod;                       // Modifier for the players movespeed while using whipped cream
     private int m_Score;                                            // Player score
 
+    //private bool m_autoAttackActive;                                // Flag for the Regular attack
     private bool m_energyDrinkActive;                               // Flag for the Energy Drink element
-    private bool m_autoAttackActive;                                // Flag for the Regular attack
     private bool m_whippedCreamActive;                              // Flag for the Whipped Cream element
     private bool m_spicyChocolateActive;                            // Flag for the Spicy Chocolate element
     private bool m_rushStunned;
@@ -60,18 +60,18 @@ public class Simone_Attack : MonoBehaviour
         m_playerMove = GetComponent<Player_Movement>();
         //m_bulletMaterial = new Material("EnergyDrink_Material");
         m_energyDrinkActive = false;
-        m_whippedCreamActive = false;
-        m_autoAttackActive = true;
+        m_whippedCreamActive = true;
+        //m_autoAttackActive = true;
         m_spicyChocolateActive = false;
 
-        Phillippa_Attack.BeamCollider += RushCollide;
+        Phillippa_Attack.CreamCollider += RushCollide;
     }
 
     #endregion
 
     private void OnDisable()
     {
-        Phillippa_Attack.BeamCollider -= RushCollide;
+        Phillippa_Attack.CreamCollider -= RushCollide;
     }
 
     #region Start
@@ -149,14 +149,14 @@ public class Simone_Attack : MonoBehaviour
 
                 if (GameObject.FindGameObjectsWithTag("wcBeam").Length == 0)
                 {
-                    if (m_autoAttackActive && !m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
+                    if (m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
                     {
                         S_WhippedCreamAttack();
                         m_attackRate = 0;
                     } 
                 }
 
-                if (m_energyDrinkActive && !m_autoAttackActive && !m_spicyChocolateActive && !m_whippedCreamActive)
+                if (m_energyDrinkActive && !m_spicyChocolateActive && !m_whippedCreamActive)
                 {
                     S_EnergyDrinkAttack();
                     m_attackRate = 0;
@@ -169,7 +169,7 @@ public class Simone_Attack : MonoBehaviour
                 //    m_attackRate = 0;
                 //}
 
-                if (m_spicyChocolateActive && !m_autoAttackActive && !m_energyDrinkActive && !m_whippedCreamActive)
+                if (m_spicyChocolateActive && !m_energyDrinkActive && !m_whippedCreamActive)
                 {
                     S_SpicyChocolateAttack();
                     m_attackRate = 0;
@@ -188,12 +188,26 @@ public class Simone_Attack : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.L) || Input.GetButton(xbox_name_X360_B))
         {
             m_energyDrinkActive = true;
-            m_autoAttackActive = false;
             m_spicyChocolateActive = false;
             m_whippedCreamActive = false;
             m_playerMove.m_moveSpeed = 0;
+            //m_autoAttackActive = false;
            // m_damage = m_damage * 0.8;
             m_coolDown = 0.15f;
+        }
+
+        #endregion
+
+        #region Activate Spicy Chocolate
+
+        if (Input.GetKeyUp(KeyCode.M) || Input.GetButton(xbox_name_X360_Y))
+        {
+            m_spicyChocolateActive = true;
+            m_energyDrinkActive = false;
+            m_whippedCreamActive = false;
+            m_coolDown = 0.5f;
+            //m_autoAttackActive = false;
+            // m_damage = 10f;
         }
 
         #endregion
@@ -204,11 +218,11 @@ public class Simone_Attack : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.K) || Input.GetButton(xbox_name_X360_X))
         {
             m_energyDrinkActive = false;
-            m_autoAttackActive = true;
-            m_whippedCreamActive = false;
+            m_whippedCreamActive = true;
             m_spicyChocolateActive = false;
             m_playerMove.m_moveSpeed = 12;
             m_coolDown = 0.5f;
+            //m_autoAttackActive = true;
             //m_damage = 10f;
         }
 
@@ -223,20 +237,6 @@ public class Simone_Attack : MonoBehaviour
         //    m_coolDown = 0.5f;
         //    //Debug.Log(m_damage);
         //}
-
-        #endregion
-
-        #region Activate Spicy Chocolate
-
-        if (Input.GetKeyUp(KeyCode.M) || Input.GetButton(xbox_name_X360_Y))
-        {
-            m_spicyChocolateActive = true;
-            m_energyDrinkActive = false;
-            m_autoAttackActive = false;
-            m_whippedCreamActive = false;
-            m_coolDown = 0.5f;
-           // m_damage = 10f;
-        }
 
         #endregion
 
@@ -270,11 +270,32 @@ public class Simone_Attack : MonoBehaviour
     /// </summary>
     private void S_EnergyDrinkAttack()
     {
-        Rigidbody energyBulletInstance = Instantiate(m_energyBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
-        energyBulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
+        Vector3 playerPos = transform.position;
+        Vector3 playerDirection = transform.forward;
+        Quaternion playerRotation = transform.rotation;
+        float spawnDistance = 1.8f;
 
+        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
+        Instantiate(m_energyObj, spawnPos, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
+
+        //Rigidbody energyBulletInstance = Instantiate(m_energyBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
+        //energyBulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
     }
-    
+
+    private void S_SpicyChocolateAttack()
+    {
+        Vector3 playerPos = transform.position;
+        Vector3 playerDirection = transform.forward;
+        Quaternion playerRotation = transform.rotation;
+        float spawnDistance = 1.8f;
+
+        Vector3 spawnPos = playerPos + playerDirection * spawnDistance;
+        Instantiate(m_spicyObj, spawnPos, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
+
+        //Rigidbody spicyBulletInstance = Instantiate(m_spicyBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
+        //spicyBulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
+    }
+
     /// <summary>
     /// Whipped Cream Element //THIS IS NOW REPLACED BY THE PREVIOUS AUTO ATTACK
     /// </summary>
@@ -288,11 +309,6 @@ public class Simone_Attack : MonoBehaviour
     /// Spicy Chocolate Element
     /// Players attacks ignite the enemies.
     /// </summary>
-    private void S_SpicyChocolateAttack()
-    {
-        Rigidbody spicyBulletInstance = Instantiate(m_spicyBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
-        spicyBulletInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
-    }
 
     #endregion
 

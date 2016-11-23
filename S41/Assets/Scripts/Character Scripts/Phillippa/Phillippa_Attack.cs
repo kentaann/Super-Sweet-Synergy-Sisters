@@ -16,7 +16,10 @@ public class Phillippa_Attack : MonoBehaviour
 
     public delegate void EventHandler();
     public static event EventHandler RushEvent;
-    public static event EventHandler BeamCollider;
+    public static event EventHandler RushEnd;
+    public static event EventHandler CreamCollider;
+    public static event EventHandler EnergyCollider;
+    public static event EventHandler SpicyCollider;
 
     private const float m_FLUFFCOOLDOWN = 6;
     private const float m_FLUFFSTUNDURATION = 2;
@@ -59,9 +62,9 @@ public class Phillippa_Attack : MonoBehaviour
             m_angerIssuesDamage = 40.0f;
             UnityEngine.Debug.Log("WHIPPED RUSH ACTIVE FUCKER");
 
-            if (BeamCollider != null)
+            if (CreamCollider != null)
             {
-                BeamCollider();            //creates an event that activates when Philippa collides with Simone's beam
+                CreamCollider();            //creates an event that activates when Philippa collides with Simone's whipped cream beam
             }
         }
 
@@ -72,9 +75,9 @@ public class Phillippa_Attack : MonoBehaviour
             m_spicyRushActive = false;
             UnityEngine.Debug.Log("ENERGY RUSH ACTIVE");
 
-            if (BeamCollider != null)
+            if (EnergyCollider != null)
             {
-                BeamCollider();            //creates an event that activates when Philippa collides with Simone's beam
+                EnergyCollider();            //creates an event that activates when Philippa collides with Simone's energy drink beam
             }
         }
 
@@ -85,9 +88,9 @@ public class Phillippa_Attack : MonoBehaviour
             m_energyRushActive = false;
             UnityEngine.Debug.Log("SPICY RUSH ACTIVE");
 
-            if (BeamCollider != null)
+            if (SpicyCollider != null)
             {
-                BeamCollider();            //creates an event that activates when Philippa collides with Simone's beam
+                SpicyCollider();            //creates an event that activates when Philippa collides with Simone's spicy chocolate beam
             }
         }
     }
@@ -177,7 +180,7 @@ public class Phillippa_Attack : MonoBehaviour
         gameObject.SendMessage("SetMoveSpeed", 60f);
         //gameObject.GetComponents<Player_Movement>(Move
 
-        gameObject.SendMessage("IsRushing", true);
+        //gameObject.SendMessage("IsRushing", true);
         m_rushActive = true;
 
         if (RushEvent != null)
@@ -221,6 +224,11 @@ public class Phillippa_Attack : MonoBehaviour
             m_whippedCreamActive = false;
             m_spicyRushActive = false;
             m_energyRushActive = false;
+
+            if (RushEnd != null)
+            {
+                RushEnd();
+            }
         }
     }
 

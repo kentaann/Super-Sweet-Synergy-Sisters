@@ -4,13 +4,20 @@ using System.Collections;
 public class WhiskAttack : MonoBehaviour
 {
     public bool m_rushActive = false;
-    public bool m_beamActive = false;
+    public bool m_creamActive = false;
+    public bool m_energyActive = false;
+    public bool m_spicyActive = false;
+
+    public delegate void EventHandler();
+    public static event EventHandler EnergyStun;
 
     public Vector3 from;
     public Vector3 to;
     public float speed;
 
     private Quaternion startingRotation;
+
+    Phillippa_Attack philippa;
 
     // Use this for initialization
     void Start()
@@ -28,13 +35,20 @@ public class WhiskAttack : MonoBehaviour
     void OnEnable()
     {
         Phillippa_Attack.RushEvent += AttackInRush;
-        Phillippa_Attack.BeamCollider += AttackInBeam;
+        Phillippa_Attack.RushEnd += EndOfRush;
+        Phillippa_Attack.CreamCollider += AttackInCream;
+        Phillippa_Attack.EnergyCollider += AttackInEnergy;
+        Phillippa_Attack.SpicyCollider += AttackInSpicy;
+
     }
 
     void OnDisable()
     {
         Phillippa_Attack.RushEvent -= AttackInRush;
-        Phillippa_Attack.BeamCollider -= AttackInBeam;
+        Phillippa_Attack.RushEnd += EndOfRush;
+        Phillippa_Attack.CreamCollider -= AttackInCream;
+        Phillippa_Attack.EnergyCollider -= AttackInEnergy;
+        Phillippa_Attack.SpicyCollider -= AttackInSpicy;
     }
 
     public void OnTriggerStay(Collider other)
@@ -59,9 +73,17 @@ public class WhiskAttack : MonoBehaviour
                 other.gameObject.GetComponent<EnemyHealth>().Hit(10);
             }
 
-            if (m_beamActive == true)
+            if (m_creamActive == true)
             {
                 other.gameObject.GetComponent<EnemyHealth>().Hit(20);
+            }
+
+            if (m_energyActive == true)
+            {
+                if (EnergyStun != null)
+                {
+                    EnergyStun();
+                }
             }
         }
     }
@@ -74,12 +96,23 @@ public class WhiskAttack : MonoBehaviour
             {
                 m_rushActive = false;
             }
+        }
 
-            if (m_beamActive == true)
+        if (other.gameObject.tag == "wcBeam")
+        {
+            if (m_creamActive == true)
             {
-                m_beamActive = false;
+                m_creamActive = false;
             }
         }
+
+        if (other.gameObject.tag == "edBeam")
+	    {
+		    if (m_energyActive == true)
+            {
+                m_energyActive = false;
+            } 
+	    }
     }
 
     //public void IsRushing(bool rushing)
@@ -92,9 +125,27 @@ public class WhiskAttack : MonoBehaviour
         m_rushActive = true;
     }
 
-    public void AttackInBeam()
+    public void EndOfRush()
     {
-        m_beamActive = true;
+        m_rushActive = false;
+        m_creamActive = false;
+        m_energyActive = false;
+        m_spicyActive = false;
+    }
+
+    public void AttackInCream()
+    {
+        m_creamActive = true;
+    }
+
+    public void AttackInEnergy()
+    {
+        m_energyActive = true;
+    }
+
+    public void AttackInSpicy()
+    {
+        m_spicyActive = true;
     }
 
     // Update is called once per frame

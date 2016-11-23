@@ -43,6 +43,16 @@ public class AiMovement : MonoBehaviour {
         lastPosition = transform.position;
     }
 
+    void OnEnable()
+    {
+        WhiskAttack.EnergyStun += HitByEnergy;
+    }
+
+    void OnDisable()
+    {
+        WhiskAttack.EnergyStun -= HitByEnergy;
+    }
+
     void Awake ()
     {
         //TankPlayer = GameObject.FindGameObjectWithTag("Här ska tankens tag vara").transform;
@@ -93,6 +103,11 @@ public class AiMovement : MonoBehaviour {
         {
             m_isStunned = true;
         }
+    }
+
+    public void HitByEnergy()
+    {
+        m_isStunned = true;
     }
 
     // Update is called once per frame

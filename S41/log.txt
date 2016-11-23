@@ -1,147 +1,46 @@
-<<<<<<< HEAD
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Phillippa:  X: -0.7142067 Y: 2.4 Z: -6.346251
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Phillippa:  X: -0.7142067 Y: 2.4 Z: -6.346251
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Phillippa:  X: -0.7142067 Y: 2.4 Z: -6.346251
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Phillippa:  X: -0.7142067 Y: 2.4 Z: -6.346251
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Phillippa:  X: 1.000939 Y: 2.4 Z: -6.418785
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Phillippa:  X: 1.749959 Y: 2.4 Z: -6.439571
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Phillippa:  X: 1.749959 Y: 2.4 Z: -6.439571
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Phillippa:  X: 1.902995 Y: 2.4 Z: -6.42947
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Phillippa:  X: 11.68874 Y: 2.4 Z: -6.436502
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Phillippa:  X: 9.641778 Y: 2.4 Z: -6.639995
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Phillippa:  X: 4.472345 Y: 2.4 Z: -6.981222
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Elise:  X: -15.89 Y: 2.407347 Z: 8.2
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Elise:  X: -15.89 Y: 2.407347 Z: 8.2
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Elise:  X: -15.89 Y: 2.407347 Z: 8.2
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Elise:  X: -15.89 Y: 2.407347 Z: 8.2
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Elise:  X: -15.89 Y: 2.407347 Z: 8.2
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Elise:  X: -15.89 Y: 2.407347 Z: 8.2
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Elise:  X: -15.89 Y: 2.407347 Z: 8.2
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Elise:  X: -15.89 Y: 2.407347 Z: 8.2
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Elise:  X: -15.89 Y: 2.407347 Z: 8.2
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
+Position of Elise:  X: -15.89 Y: 2.407347 Z: 8.2
 
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Phillippa:  X: -9.934207 Y: 2.4 Z: 0.5137491
-
-Position of Elise:  X: 2.8 Y: 2.407347 Z: 8.2
-
-Position of Elise:  X: 2.8 Y: 2.407347 Z: 8.2
-
-Position of Elise:  X: 2.8 Y: 2.407347 Z: 8.2
-
-Position of Elise:  X: 2.8 Y: 2.407347 Z: 8.2
-
-Position of Elise:  X: 3.411523 Y: 2.407347 Z: 8.131437
-
-Position of Elise:  X: 3.414498 Y: 2.407347 Z: 8.123391
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.425549 Y: 2.407347 Z: 8.054764
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
-
-Position of Elise:  X: 3.440361 Y: 2.407347 Z: 8.024665
+Position of Elise:  X: -15.89 Y: 2.407347 Z: 8.2
 
 Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
 
@@ -165,131 +64,29 @@ Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
 
 Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
 
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
+Position of Simone:  X: 6.989134 Y: 1.825134 Z: 10.60573
 
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
+Position of Simone:  X: 6.989134 Y: 1.825134 Z: 10.60573
 
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
+Position of Simone:  X: 6.989134 Y: 1.825134 Z: 10.60573
 
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
+Position of Simone:  X: 6.989134 Y: 1.825134 Z: 10.60573
 
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
+Position of Simone:  X: 6.989134 Y: 1.825134 Z: 10.60573
 
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
+Position of Simone:  X: 6.989134 Y: 1.825134 Z: 10.60573
 
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
+Position of Simone:  X: 6.989134 Y: 1.825134 Z: 10.60573
 
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
+Position of Simone:  X: 6.989134 Y: 1.825134 Z: 10.60573
 
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
+Position of Simone:  X: 6.989134 Y: 1.825134 Z: 10.60573
 
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
+Position of Simone:  X: 6.989134 Y: 1.825134 Z: 10.60573
 
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Solveig:  X: -19.73 Y: 1.77 Z: 0.64
-
-Position of Simone:  X: -9.794828 Y: 1.825134 Z: 12.69673
-
-Position of Simone:  X: -5.85632 Y: 1.825134 Z: 16.02719
-
-Position of Simone:  X: -1.965141 Y: 1.825134 Z: 12.18128
-
-Position of Simone:  X: -1.462057 Y: 1.825134 Z: 10.75533
-
-Position of Simone:  X: 1.114528 Y: 1.825134 Z: 9.906802
-
-Position of Simone:  X: 1.501928 Y: 1.825134 Z: 10.06905
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 1.490876 Y: 1.825134 Z: 10.13768
-
-Position of Simone:  X: 3.735119 Y: 1.825134 Z: 10.65043
-
-Position of Simone:  X: 9.184275 Y: 1.825134 Z: 12.7888
-
-Position of Simone:  X: 12.3518 Y: 1.825134 Z: 8.465416
-
-Position of Simone:  X: 11.94335 Y: 1.825134 Z: 7.200248
-
-Position of Simone:  X: 11.94335 Y: 1.825134 Z: 7.200248
-
-Position of Simone:  X: 11.94335 Y: 1.825134 Z: 7.200248
-
-Position of Simone:  X: 11.94335 Y: 1.825134 Z: 7.200248
-
-Position of Simone:  X: 11.94335 Y: 1.825134 Z: 7.200248
-
-Position of Simone:  X: 11.94335 Y: 1.825134 Z: 7.200248
-
-Position of Simone:  X: 11.94335 Y: 1.825134 Z: 7.200248
-
-Position of Simone:  X: 11.94335 Y: 1.825134 Z: 7.200248
-
-Position of Simone:  X: 11.94335 Y: 1.825134 Z: 7.200248
-
-Position of Simone:  X: 11.94335 Y: 1.825134 Z: 7.200248
-
-Position of Simone:  X: 11.94335 Y: 1.825134 Z: 7.200248
-
-Position of Simone:  X: 11.94335 Y: 1.825134 Z: 7.200248
+Position of Simone:  X: 6.989134 Y: 1.825134 Z: 10.60573
 
 Phillippa Score: 0
 Simone Score: 0
 Solveig Score: 0
 Elise Score: 0
-=======
->>>>>>> origin/master
