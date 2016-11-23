@@ -17,18 +17,19 @@ public class GameOver : MonoBehaviour {
 
     bool isScoreListOpened;
 
-    Scoring scoring;
-    
 
+
+    string hScore = "HighScore";
+    int score;
 	// Use this for initialization
-	void Start () {
-
-        DontDestroyOnLoad(scoring);
-        scoring.GetComponent<Scoring>();
+	void Start () {        
+        
+        score = PlayerPrefs.GetInt(hScore, 0);
         startGameButton = GameObject.Find("RestartButton");
         quitGameButton = GameObject.Find("Quit");
         scoreListButton = GameObject.Find("Highscore");
-
+        Debug.Log(score);
+        
         scoreListBG.enabled = false;
         scoreListText.enabled = false;           
 
@@ -44,7 +45,7 @@ public class GameOver : MonoBehaviour {
         Restart();
         Quit();
         HighScoreMenu();
-        finalScoreText.text = scoring.score.ToString();
+        finalScoreText.text = score.ToString();
 	}
 
     // Restart the game
