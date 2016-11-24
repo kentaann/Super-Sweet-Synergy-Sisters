@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections;
 using System.IO;
 using System.Collections.Generic;
+using System;
 
 #endregion
 
@@ -30,6 +31,7 @@ public class Player_Logger : MonoBehaviour
 	private StreamWriter m_streamWriter = null;
 
 	private string m_path = "log.txt";              // The path to where the data is saved
+	
 
 	private float m_currentTime = 0.0f;             // The current time, used for writing incrementally
 	private float m_timeToWrite = 1.0f;              // Interval for when the call to write is made
@@ -60,6 +62,7 @@ public class Player_Logger : MonoBehaviour
 		m_SimoneRef.GetComponent<Transform>();
 		m_SolveigRef.GetComponent<Transform>();
 		m_EliseRef.GetComponent<Transform>();
+		m_path = (long)(DateTime.Today - new DateTime(1970, 1, 1)).TotalSeconds + DateTime.Now.TimeOfDay.TotalSeconds + ".txt";           // Creates a unique ID for each test case
 	}
 
 	#endregion
