@@ -111,6 +111,7 @@ public class Simone_Attack : MonoBehaviour
 
 	#endregion
 
+
 	public void RushCollide()
 	{
 		m_rushStunned = true;
@@ -177,6 +178,7 @@ public class Simone_Attack : MonoBehaviour
                     {
                         S_WhippedCreamAttack();
                         m_attackRate = 0;
+                        m_whippedCounter++;
                     } 
                 }
 
@@ -184,6 +186,7 @@ public class Simone_Attack : MonoBehaviour
                 {
                     S_EnergyDrinkAttack();
                     m_attackRate = 0;
+                    m_energyCounter++;
                 }
 
                 //REPLACED BY AUTO ATTACK
@@ -197,6 +200,7 @@ public class Simone_Attack : MonoBehaviour
                 {
                     S_SpicyChocolateAttack();
                     m_attackRate = 0;
+                    m_spicyCounter++;
                 }
             }
 	    }
