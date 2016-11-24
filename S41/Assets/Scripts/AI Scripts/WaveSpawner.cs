@@ -14,9 +14,11 @@ public class WaveSpawner : MonoBehaviour {
     public class Wave
     {
         public string name;         //name of the wave
-        public Transform enemy;     //the objects spawn position
+        public GameObject enemy;    //the objects spawn position
         public int count;           //enemy amount
         public float rate;          //spawn rate
+        public float enemyHP;       //set enemy health
+        public float enemySpeed;    //set enemy speed
     }
 
     GameObject[] enemyObject;
@@ -120,7 +122,7 @@ public class WaveSpawner : MonoBehaviour {
 
         for (int i = 0; i < _wave.count; i++)
         {
-            SpawnEnemy(_wave.enemy);
+            SpawnEnemy(_wave.enemy, _wave.enemyHP, _wave.enemySpeed);
             yield return new WaitForSeconds(1f/_wave.rate);
         }
 
@@ -129,11 +131,30 @@ public class WaveSpawner : MonoBehaviour {
         yield break;
     }
 
-    void SpawnEnemy(Transform _enemy)
+    void SpawnEnemy(GameObject _enemy, float setHealth, float setEnemySpeed)
     {
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-        Instantiate(_enemy, _sp.position, _sp.rotation);
+        GameObject eObj = Instantiate(_enemy, _sp.position, _sp.rotation) as GameObject;
+
+
+
+        if (eObj.GetComponent<EnemyHealth>())
+        {
+            EnemyHealth eHealth = eObj.GetComponent<EnemyHealth>();
+            eHealth.Initializing(setHealth, setHealth);
+        }
+        if (eObj.GetComponent<AiMovement>())
+        {
+            AiMovement eAiMovement = eObj.GetComponent<AiMovement>();
+            eAiMovement.Initializing(setEnemySpeed);
+        }
+        if (eObj.GetComponent<AiMovement_Range>())
+        {
+            AiMovement_Range eAiMovementRange = eObj.GetComponent<AiMovement_Range>();
+            eAiMovementRange.Initializing(setEnemySpeed);
+        }
+
 
         Debug.Log("Spawning Enemy" + _enemy.name);
     }

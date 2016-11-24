@@ -5,9 +5,9 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
 
-    public float health, maxHealth;
+    public float currHealth, maxHealth;
     public GameObject enemyToDestroy;
-    
+
 
 
     private float m_spicyChocolateDmg;
@@ -21,19 +21,24 @@ public class EnemyHealth : MonoBehaviour
     public float nextShot = 0;
     public bool ableToDamage = false;
 
-
     private void OnEnable()
     {
         //m_ScoreRef = GetComponent<Scoring>();
     }
 
+    public void Initializing(float newHealth, float newMaxHealth)
+    {
+        currHealth = newHealth;
+        maxHealth = newMaxHealth;
+    }
+
     void Start()
     {
-        
-        
-        
-        health = 100;
-        maxHealth = 100;
+        //Instantiate();
+
+
+        //currHealth = 100;
+        //maxHealth = 100;
         m_spicyChocolateDmg = 0.2f;
         m_isOnFire = false;
 
@@ -43,26 +48,30 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            currHealth = 0;
+        }
         if (Input.GetKeyDown(KeyCode.T))
         {
             Debug.Log("T key pressed");
             Hit(10);
         }
-        if (health <= 10)
+        if (currHealth <= 10)
         {
             OnDestroyed();
             Destroy(enemyToDestroy);
 
         }
 
-        
+
 
         if (m_isOnFire)
         {
             m_spicyChocolateTimer += Time.deltaTime;
             if (m_spicyChocolateTimer < 3)
             {
-                health -= m_spicyChocolateDmg;
+                currHealth -= m_spicyChocolateDmg;
                 if (m_spicyChocolateTimer >= 3)
                 {
                     m_isOnFire = false;
@@ -70,7 +79,7 @@ public class EnemyHealth : MonoBehaviour
             }
         }
 
-        healthBar.fillAmount = (float)health / (float)maxHealth;
+        healthBar.fillAmount = (float)currHealth / (float)maxHealth;
 
         if (wcAbleToDamage)
         {
@@ -85,6 +94,11 @@ public class EnemyHealth : MonoBehaviour
 
     }
 
+    public void setHealth(float k)
+    {
+        currHealth = k;
+    }
+
     // adding points to the score when the object is destroyed
     public void OnDestroyed()
     {
@@ -93,21 +107,21 @@ public class EnemyHealth : MonoBehaviour
 
     public void Hit(float damage)
     {
-        health -= damage;
-        healthBar.fillAmount = (float)health / (float)maxHealth;
+        currHealth -= damage;
+        healthBar.fillAmount = (float)currHealth / (float)maxHealth;
     }
 
     public void Heal(float heal)
     {
-        if ((health + heal) > maxHealth)
+        if ((currHealth + heal) > maxHealth)
         {
-            health = maxHealth;
-            healthBar.fillAmount = (float)health / (float)maxHealth;
+            currHealth = maxHealth;
+            healthBar.fillAmount = (float)currHealth / (float)maxHealth;
         }
-        else if ((health + heal) < maxHealth)
+        else if ((currHealth + heal) < maxHealth)
         {
-            health += (int)heal;
-            healthBar.fillAmount = (float)health / (float)maxHealth;
+            currHealth += (int)heal;
+            healthBar.fillAmount = (float)currHealth / (float)maxHealth;
         }
 
 

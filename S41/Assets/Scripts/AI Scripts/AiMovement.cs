@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic; //Always a good idea
 
 
-public class AiMovement : MonoBehaviour {
+public class AiMovement : MonoBehaviour
+{
 
     //public Transform Player;//används ej
     //public Transform TankPlayer;
-    public float MoveSpeed = 1.5f;
+    public float MoveSpeed;
     float MinDist = 0f;
     float InRangeAggresive = 15;
     float InRangeAttackTank = 40;
@@ -32,6 +33,11 @@ public class AiMovement : MonoBehaviour {
 
     GameState currentGamestate;
 
+    public void Initializing(float newMoveSpeed)
+    {
+        MoveSpeed = newMoveSpeed;
+    }
+
     void Start()
     {
         currentGamestate = GameState.Attack;//har så länge på Attack, byta sen till patrol ju längre vi har kommit på spelet
@@ -43,26 +49,17 @@ public class AiMovement : MonoBehaviour {
         lastPosition = transform.position;
     }
 
-    void OnEnable()
-    {
-        WhiskAttack.EnergyStun += HitByEnergy;
-    }
-
-    void OnDisable()
-    {
-        WhiskAttack.EnergyStun -= HitByEnergy;
-    }
-
-    void Awake ()
+    void Awake()
     {
         //TankPlayer = GameObject.FindGameObjectWithTag("Här ska tankens tag vara").transform;
     }
-	
-	public void SetMoveSpeed(float moveSpeed)
-	{
-		MoveSpeed = moveSpeed;
-	}
-	
+
+    public void SetMoveSpeed(float moveSpeed)
+    {
+        MoveSpeed = moveSpeed;
+    }
+
+
     public void AddPlayersToList()
     {
         GameObject[] ItemsInList = GameObject.FindGameObjectsWithTag("Player");
@@ -89,8 +86,8 @@ public class AiMovement : MonoBehaviour {
     {
         //if (SelectedTarget == null)
         //{
-            DistanceToTarget();
-            SelectedTarget = Players[0];
+        DistanceToTarget();
+        SelectedTarget = Players[0];
         //}
 
 
@@ -102,11 +99,6 @@ public class AiMovement : MonoBehaviour {
         {
             m_isStunned = true;
         }
-    }
-
-    public void HitByEnergy()
-    {
-        m_isStunned = true;
     }
 
     // Update is called once per frame
@@ -195,7 +187,7 @@ public class AiMovement : MonoBehaviour {
     //            {
     //                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
     //            }
-                
+
 
     //            break;
 
@@ -217,10 +209,11 @@ public class AiMovement : MonoBehaviour {
     //            {
     //                currentGamestate = GameState.Attack;
     //            }
-	//            break;
 
-	//        default:
-	//            break;
-	//    }
-	//}
+    //            break;
+
+    //        default:
+    //            break;
+    //    }
+    //}
 }

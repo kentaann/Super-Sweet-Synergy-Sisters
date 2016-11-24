@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic; //Always a good idea
 
 
-public class AiMovement_Range: MonoBehaviour {
+public class AiMovement_Range : MonoBehaviour
+{
 
     //public Transform Player;//används ej
     //public Transform TankPlayer;
-    public float MoveSpeed = 1.5f;
+    public float MoveSpeed;
     float MinDist = 0f;
     float InRangeAggresive = 15;
     float InRangeAttackTank = 40;
@@ -19,6 +20,9 @@ public class AiMovement_Range: MonoBehaviour {
     public bool m_isStunned;
     private float range = 20f;
 
+    GameObject[] otherObject;
+    Vector3 lastPosition;
+
     enum GameState
     {
         Patrol,//inte användas nu
@@ -29,6 +33,11 @@ public class AiMovement_Range: MonoBehaviour {
 
     GameState currentGamestate;
 
+    public void Initializing(float newMoveSpeed)
+    {
+        MoveSpeed = newMoveSpeed;
+    }
+
     void Start()
     {
         currentGamestate = GameState.Attack;//har så länge på Attack, byta sen till patrol ju längre vi har kommit på spelet
@@ -37,18 +46,20 @@ public class AiMovement_Range: MonoBehaviour {
         Players = new List<Transform>();
         AddPlayersToList();
 
+        otherObject = GameObject.FindGameObjectsWithTag("Enemy");
+        lastPosition = transform.position;
     }
 
-    void Awake ()
+    void Awake()
     {
         //TankPlayer = GameObject.FindGameObjectWithTag("Här ska tankens tag vara").transform;
     }
-	
+
     public void SetMoveSpeed(float moveSpeed)
     {
         MoveSpeed = moveSpeed;
     }
-	
+
 
     public void AddPlayersToList()
     {
@@ -76,8 +87,8 @@ public class AiMovement_Range: MonoBehaviour {
     {
         //if (SelectedTarget == null)
         //{
-            DistanceToTarget();
-            SelectedTarget = Players[0];
+        DistanceToTarget();
+        SelectedTarget = Players[0];
         //}
 
 
@@ -94,6 +105,16 @@ public class AiMovement_Range: MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        foreach (GameObject go in otherObject)
+        {
+            if (Vector3.Distance(transform.position, go.transform.position) <= 2.5f)
+            {
+                //transform.position = (transform.position - go.transform.position).normalized + go.transform.position;
+                go.transform.position += (transform.position - lastPosition);
+            }
+        }
+
+        lastPosition = transform.position;
 
         if (Players.Count != GameObject.FindGameObjectsWithTag("Player").Length)
         {
@@ -110,7 +131,7 @@ public class AiMovement_Range: MonoBehaviour {
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
         }
 
-        if(m_isStunned)
+        if (m_isStunned)
         {
             if (m_stunTimer < 3)
             {
@@ -166,7 +187,7 @@ public class AiMovement_Range: MonoBehaviour {
     //            {
     //                transform.position += transform.forward * MoveSpeed * Time.deltaTime;
     //            }
-                
+
 
     //            break;
 
