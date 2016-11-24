@@ -28,6 +28,8 @@ public class Solveig_Attack : MonoBehaviour
 	private float m_launchForce;                                        // Force the projectile is launched with
 	private float m_coolDown;                                           // Cooldown of the shot
 	private float m_attackRate;                                         // Rate of attack
+    private int m_fpCounter = 0;                                        // Times Flower Power was used
+    private int m_songCounter = 0;                                        // Times Song of Love was used
 
 	private const float m_LOVECOOLDOWN = 6.0f;
 	private const float m_FLOWERCOOLDOWN = 5.0f;
@@ -122,6 +124,7 @@ public class Solveig_Attack : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetButtonDown(xbox_name_X360_B))
 			{
 				FlowerPower();
+                m_fpCounter++;
 			}
 		}
 
@@ -130,6 +133,7 @@ public class Solveig_Attack : MonoBehaviour
 			if(Input.GetKeyDown(KeyCode.Keypad9) || Input.GetButtonDown(xbox_name_X360_X))
 			{
 				SongOfLove();
+                m_songCounter++;
 			}
 		}
 
@@ -220,5 +224,15 @@ public class Solveig_Attack : MonoBehaviour
 	}
 
 	#endregion
+
+    public int GetFlowerCounter()
+    {
+        return m_fpCounter;
+    }
+
+    public int GetSongCounter()
+    {
+        return m_songCounter;
+    }
 
 }

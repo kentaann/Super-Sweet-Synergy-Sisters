@@ -28,6 +28,8 @@ public class Phillippa_Attack : MonoBehaviour
     private float m_timer;
     private float m_rushTimer = 0;
     private float m_angerIssuesDamage = 25.0f;
+    private int m_fluffCounter = 0;                         // Times Fluff Pound was used
+    private int m_rushCounter = 0;                          // Times Rush was used
 
     private bool m_rushActive = false;
     private bool m_energyRushActive = false;
@@ -201,11 +203,13 @@ public class Phillippa_Attack : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown(xbox_name_X360_A))
         {
             Fluffpound();
+            m_fluffCounter++;
         }
 
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown(xbox_name_X360_B))
         {
             RushAttack();
+            m_rushCounter++;
         }
 
         if (m_rushActive == true)
@@ -233,4 +237,14 @@ public class Phillippa_Attack : MonoBehaviour
     }
 
     #endregion
+
+    public int GetRushCounter()
+    {
+        return m_rushCounter;
+    }
+
+    public int GetFluffCounter()
+    {
+        return m_fluffCounter;
+    }
 }

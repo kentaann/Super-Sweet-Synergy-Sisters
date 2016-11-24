@@ -111,30 +111,6 @@ public class Simone_Attack : MonoBehaviour
 
 	#endregion
 
-
-	public void RushCollide()
-	{
-		m_rushStunned = true;
-	}
-
-    #region Counter handlers
-
-    public int GetWhippedCounter()
-	{
-		return m_whippedCounter;
-	}
-
-    public int GetEnergyCounter()
-    {
-        return m_energyCounter;
-    }
-
-    public int GetSpicyCounter()
-    {
-        //Phillippa_Attack.CreamCollider -= RushCollide;
-        return m_spicyCounter;
-    }
-
     #region Update
 
     void Update()
@@ -168,7 +144,7 @@ public class Simone_Attack : MonoBehaviour
         #region Key Bindings
 
         if (m_attackRate >= m_coolDown)
-	    {
+        {
             if (Input.GetKey(KeyCode.P) || Input.GetButton(xbox_name_X360_A))
             {
 
@@ -179,7 +155,7 @@ public class Simone_Attack : MonoBehaviour
                         S_WhippedCreamAttack();
                         m_attackRate = 0;
                         m_whippedCounter++;
-                    } 
+                    }
                 }
 
                 if (m_energyDrinkActive && !m_spicyChocolateActive && !m_whippedCreamActive)
@@ -203,7 +179,7 @@ public class Simone_Attack : MonoBehaviour
                     m_spicyCounter++;
                 }
             }
-	    }
+        }
 
         //if (m_energyDrinkActive && !m_autoAttackActive && !m_spicyChocolateActive && !m_whippedCreamActive)
         //{
@@ -220,7 +196,7 @@ public class Simone_Attack : MonoBehaviour
             m_whippedCreamActive = false;
             m_playerMove.m_moveSpeed = 0;
             //m_autoAttackActive = false;
-           // m_damage = m_damage * 0.8;
+            // m_damage = m_damage * 0.8;
             m_coolDown = 0.15f;
         }
 
@@ -340,6 +316,30 @@ public class Simone_Attack : MonoBehaviour
 
     #endregion
 
+	public void RushCollide()
+	{
+		m_rushStunned = true;
+	}
+
+    #region Counter handlers
+
+    public int GetWhippedCounter()
+	{
+		return m_whippedCounter;
+	}
+
+    public int GetEnergyCounter()
+    {
+        return m_energyCounter;
+    }
+
+    public int GetSpicyCounter()
+    {
+        //Phillippa_Attack.CreamCollider -= RushCollide;
+        return m_spicyCounter;
+    }
+    #endregion
+
     #region List Handling
 
     void AddEnemyToList()
@@ -364,4 +364,3 @@ public class Simone_Attack : MonoBehaviour
     #endregion
 
 }
-    #endregion

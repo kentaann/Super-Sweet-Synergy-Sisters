@@ -11,7 +11,7 @@ public class Player_Logger : MonoBehaviour
 {
 	#region Variables
 
-	public GameObject Phillippa;                    // Reference to Phillippa
+	public GameObject m_PhillippaRef;                    // Reference to Phillippa
 	public GameObject m_SimoneRef;                  // Reference to Simone
 	public GameObject m_SolveigRef;                 // Reference to Solveig
 	public GameObject m_EliseRef;                   // Reference to Elise
@@ -56,7 +56,7 @@ public class Player_Logger : MonoBehaviour
 	private void OnEnable()
 	{
 		m_SimoneRef.GetComponent<Simone_Attack>();
-		Phillippa.GetComponent<Transform>();
+		m_PhillippaRef.GetComponent<Transform>();
 		m_SimoneRef.GetComponent<Transform>();
 		m_SolveigRef.GetComponent<Transform>();
 		m_EliseRef.GetComponent<Transform>();
@@ -84,7 +84,7 @@ public class Player_Logger : MonoBehaviour
 		m_currentTime += Time.deltaTime;
 
 		// Gets position from each character
-		m_PhillippaPosition = Phillippa.GetComponent<Transform>().position;
+		m_PhillippaPosition = m_PhillippaRef.GetComponent<Transform>().position;
 		m_SimonePosition = m_SimoneRef.GetComponent<Transform>().position;
 		m_SolveigPosition = m_SolveigRef.GetComponent<Transform>().position;
 		m_ElisePosition = m_EliseRef.GetComponent<Transform>().position;
@@ -140,6 +140,13 @@ public class Player_Logger : MonoBehaviour
 		m_streamWriter.WriteLine("Whipped cream used: " + m_SimoneRef.gameObject.GetComponent<Simone_Attack>().GetWhippedCounter());
 		m_streamWriter.WriteLine("Spicy chocolate used: " + m_SimoneRef.gameObject.GetComponent<Simone_Attack>().GetSpicyCounter());
 		m_streamWriter.WriteLine("Energy drink used: " + m_SimoneRef.gameObject.GetComponent<Simone_Attack>().GetEnergyCounter());
+		m_streamWriter.WriteLine("Flower Power used: " + m_SolveigRef.gameObject.GetComponent<Solveig_Attack>().GetFlowerCounter());
+		m_streamWriter.WriteLine("Song of Love used: " + m_SolveigRef.gameObject.GetComponent<Solveig_Attack>().GetSongCounter());
+		m_streamWriter.WriteLine("Song of Love used: " + m_SolveigRef.gameObject.GetComponent<Solveig_Attack>().GetFlowerCounter());
+		m_streamWriter.WriteLine("Fluff Pound used: " + m_PhillippaRef.gameObject.GetComponent<Phillippa_Attack>().GetFluffCounter());
+		m_streamWriter.WriteLine("Anger Issues used: " + m_PhillippaRef.gameObject.GetComponent<Phillippa_Attack>().GetRushCounter());
+		m_streamWriter.WriteLine("Marble Rain used: " + m_EliseRef.gameObject.GetComponent<Elise_Attack>().GetMultiCounter());
+		m_streamWriter.WriteLine("Cookie Jar used: " + m_EliseRef.gameObject.GetComponent<Elise_Attack>().GetTrapCounter());
 
 
 		m_streamWriter.Close();                                                                                                     // Close and save the file
