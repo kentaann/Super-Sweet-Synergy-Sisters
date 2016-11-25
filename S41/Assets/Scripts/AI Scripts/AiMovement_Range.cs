@@ -129,10 +129,14 @@ public class AiMovement_Range : MonoBehaviour
         if (SelectedTarget)
         {
 
-            if (dist >=20)
+            if (dist >= 20)
             {
                 navComponent.SetDestination(SelectedTarget.position);
-
+                navComponent.speed = 2.5f;
+            }
+            else
+            {
+                navComponent.speed = 0;
             }
         }
         
