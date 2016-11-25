@@ -22,6 +22,7 @@ public class AiMovement_Range : MonoBehaviour
 
     GameObject[] otherObject;
     Vector3 lastPosition;
+    private NavMeshAgent navComponent;
 
     enum GameState
     {
@@ -48,6 +49,8 @@ public class AiMovement_Range : MonoBehaviour
 
         otherObject = GameObject.FindGameObjectsWithTag("Enemy");
         lastPosition = transform.position;
+
+        navComponent = this.gameObject.GetComponent<NavMeshAgent>();
     }
 
     void Awake()
@@ -112,9 +115,7 @@ public class AiMovement_Range : MonoBehaviour
         //        //transform.position = (transform.position - go.transform.position).normalized + go.transform.position;
         //        go.transform.position += (transform.position - lastPosition);
         //    }
-        //}
-
-        lastPosition = transform.position;
+        //}  
 
         if (Players.Count != GameObject.FindGameObjectsWithTag("Player").Length)
         {
@@ -124,12 +125,28 @@ public class AiMovement_Range : MonoBehaviour
 
         TargetedPlayer();
 
-        transform.LookAt(SelectedTarget);
-
-        if (Vector3.Distance(transform.position, SelectedTarget.position) >= range)
+        float dist = Vector3.Distance(SelectedTarget.position, transform.position);
+        if (SelectedTarget)
         {
-            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+
+            if (dist >=20)
+            {
+                navComponent.SetDestination(SelectedTarget.position);
+
+            }
         }
+        
+        //lastPosition = transform.position;
+
+      
+
+
+        //transform.LookAt(SelectedTarget);
+
+        //if (Vector3.Distance(transform.position, SelectedTarget.position) >= range)
+        //{
+        //    transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+        //}
 
         if (m_isStunned)
         {
