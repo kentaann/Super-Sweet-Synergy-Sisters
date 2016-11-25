@@ -37,8 +37,8 @@ public class EnemyHealth : MonoBehaviour
         //Instantiate();
 
 
-        //currHealth = 100;
-        //maxHealth = 100;
+        currHealth = 100;
+        maxHealth = 100;
         m_spicyChocolateDmg = 0.2f;
         m_isOnFire = false;
 

@@ -15,6 +15,7 @@ public class Phillippa_Attack : MonoBehaviour
     public SphereCollider m_Spherecollider;
 
     public delegate void EventHandler();
+    public static event EventHandler FluffEvent;
     public static event EventHandler RushEvent;
     public static event EventHandler RushEnd;
     public static event EventHandler CreamCollider;
@@ -24,7 +25,7 @@ public class Phillippa_Attack : MonoBehaviour
     private const float m_FLUFFCOOLDOWN = 6;
     private const float m_FLUFFSTUNDURATION = 2;
 
-    private float m_fluffDamage = 10;    
+    //private float m_fluffDamage = 10;    
     private float m_timer;
     private float m_rushTimer = 0;
     private float m_angerIssuesDamage = 25.0f;
@@ -133,34 +134,34 @@ public class Phillippa_Attack : MonoBehaviour
     /// As of right now it damages but not always hit every enemy in the AOE.
     /// SYNERGY: If a trap is present it is propelled away Phillippa.
     /// </summary>
-    public void Fluffpound()
-    {
-       // m_timer.Start();
-        foreach (var target in m_targetList)
-        {
-            RaycastHit targetConnected;
-            Rigidbody targetBody = target.GetComponent<Rigidbody>();
+    //public void Fluffpound()
+    //{
+    //   // m_timer.Start();
+    //    foreach (var target in m_targetList)
+    //    {
+    //        RaycastHit targetConnected;
+    //        Rigidbody targetBody = target.GetComponent<Rigidbody>();
             
-            if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 100))
-            {
-                if (targetConnected.transform == target && targetConnected.transform != null)
-                {
-                    if (target.gameObject.tag == "Enemy")
-                    {
-                        target.SendMessage("Hit", m_fluffDamage);
-                        target.SendMessage("SetMoveSpeed", 0f);
-                        target.SendMessage("Stun", true); 
-                    }
+    //        if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 100))
+    //        {
+    //            if (targetConnected.transform == target && targetConnected.transform != null)
+    //            {
+    //                if (target.gameObject.tag == "Enemy")
+    //                {
+    //                    target.SendMessage("Hit", m_fluffDamage);
+    //                    target.SendMessage("SetMoveSpeed", 0f);
+    //                    target.SendMessage("Stun", true); 
+    //                }
 
-                    if (target.gameObject.tag == "Trap")
-                    {
-                        targetBody.AddExplosionForce(2000f, transform.position, 5f);
-                        target.SendMessage("FlyAway", true);
-                    }
-                }
-            }
-        }
-    }
+    //                if (target.gameObject.tag == "Trap")
+    //                {
+    //                    targetBody.AddExplosionForce(2000f, transform.position, 5f);
+    //                    target.SendMessage("FlyAway", true);
+    //                }
+    //            }
+    //        }
+    //    }
+    //}
 
     #endregion
 
@@ -202,7 +203,13 @@ public class Phillippa_Attack : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown(xbox_name_X360_A))
         {
-            Fluffpound();
+            //Fluffpound();
+
+            if (FluffEvent != null)
+            {
+                FluffEvent();
+            }
+
             m_fluffCounter++;
         }
 
