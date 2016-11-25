@@ -1,1 +1,9 @@
 C:\Users\Spellabbet\Desktop\S4\S41\Tool\SuperSweetAnalyser\SuperSweetAnalyser\bin\Debug\SuperSweetAnalyser.exe.config
+C:\Users\Spellabbet\Desktop\S4\S41\Tool\SuperSweetAnalyser\SuperSweetAnalyser\obj\Debug\SuperSweetAnalyser.csprojResolveAssemblyReference.cache
+C:\Users\Spellabbet\Desktop\S4\S41\Tool\SuperSweetAnalyser\SuperSweetAnalyser\obj\Debug\SuperSweetAnalyser.SuperSweetAnalyser.resources
+C:\Users\Spellabbet\Desktop\S4\S41\Tool\SuperSweetAnalyser\SuperSweetAnalyser\obj\Debug\SuperSweetAnalyser.Properties.Resources.resources
+C:\Users\Spellabbet\Desktop\S4\S41\Tool\SuperSweetAnalyser\SuperSweetAnalyser\obj\Debug\SuperSweetAnalyser.csproj.GenerateResource.Cache
+C:\Users\Spellabbet\Desktop\S4\S41\Tool\SuperSweetAnalyser\SuperSweetAnalyser\bin\Debug\SuperSweetAnalyser.exe
+C:\Users\Spellabbet\Desktop\S4\S41\Tool\SuperSweetAnalyser\SuperSweetAnalyser\bin\Debug\SuperSweetAnalyser.pdb
+C:\Users\Spellabbet\Desktop\S4\S41\Tool\SuperSweetAnalyser\SuperSweetAnalyser\obj\Debug\SuperSweetAnalyser.exe
+C:\Users\Spellabbet\Desktop\S4\S41\Tool\SuperSweetAnalyser\SuperSweetAnalyser\obj\Debug\SuperSweetAnalyser.pdb
