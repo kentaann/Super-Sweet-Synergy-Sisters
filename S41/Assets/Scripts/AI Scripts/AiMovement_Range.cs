@@ -105,14 +105,14 @@ public class AiMovement_Range : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (GameObject go in otherObject)
-        {
-            if (Vector3.Distance(transform.position, go.transform.position) <= 2.5f)
-            {
-                //transform.position = (transform.position - go.transform.position).normalized + go.transform.position;
-                go.transform.position += (transform.position - lastPosition);
-            }
-        }
+        //foreach (GameObject go in otherObject)
+        //{
+        //    if (Vector3.Distance(transform.position, go.transform.position) <= 2.5f)
+        //    {
+        //        //transform.position = (transform.position - go.transform.position).normalized + go.transform.position;
+        //        go.transform.position += (transform.position - lastPosition);
+        //    }
+        //}
 
         lastPosition = transform.position;
 

@@ -21,6 +21,7 @@ public class AiMovement : MonoBehaviour
 
     GameObject[] otherObject;
     Vector3 lastPosition;
+    private NavMeshAgent navComponent;
 
     public int kolla;
     enum GameState
@@ -47,6 +48,7 @@ public class AiMovement : MonoBehaviour
         AddPlayersToList();
         otherObject = GameObject.FindGameObjectsWithTag("Enemy");
         lastPosition = transform.position;
+        navComponent = this.gameObject.GetComponent<NavMeshAgent>();
     }
 
     void Awake()
@@ -113,23 +115,29 @@ public class AiMovement : MonoBehaviour
 
         TargetedPlayer();
 
-        transform.LookAt(SelectedTarget);
+        //transform.LookAt(SelectedTarget);
 
-        if (Vector3.Distance(transform.position, SelectedTarget.position) >= MinDist)
-        {
-            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-        }
+        //if (Vector3.Distance(transform.position, SelectedTarget.position) >= MinDist)
+        //{
+        //    transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+        //}
 
-        foreach (GameObject go in otherObject)
-        {
-            if (Vector3.Distance(transform.position, go.transform.position) <= 2.5f)
-            {
-                //transform.position = (transform.position - go.transform.position).normalized + go.transform.position;
-                go.transform.position += (transform.position - lastPosition);
-            }
-        }
+        //foreach (GameObject go in otherObject)
+        //{
+        //    if (Vector3.Distance(transform.position, go.transform.position) <= 2.5f)
+        //    {
+        //        //transform.position = (transform.position - go.transform.position).normalized + go.transform.position;
+        //        go.transform.position += (transform.position - lastPosition);
+        //    }
+        //}
 
         lastPosition = transform.position;
+
+        float dist = Vector3.Distance(SelectedTarget.position, transform.position);
+        if (SelectedTarget)
+        {
+            navComponent.SetDestination(SelectedTarget.position);
+        }
 
         if (m_isStunned)
         {
