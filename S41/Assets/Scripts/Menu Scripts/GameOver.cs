@@ -17,13 +17,21 @@ public class GameOver : MonoBehaviour {
 
     bool isScoreListOpened;
 
+    public Text scoreText;
+    public Text newHighScore;
+
+    public Text scoreBoardText;
+
+    High_Score_Manager highScoreMan;
+
     //public List<int> scoreList = new List<int>();
 
     string hScore = "HighScore";
     int score;
 	// Use this for initialization
-	void Start () {        
-        
+	void Start () {
+
+        highScoreMan = GetComponent<High_Score_Manager>();
         score = PlayerPrefs.GetInt(hScore, 0);
         startGameButton = GameObject.Find("RestartButton");
         quitGameButton = GameObject.Find("Quit");
@@ -34,6 +42,11 @@ public class GameOver : MonoBehaviour {
         scoreListText.enabled = false;         
 
         isScoreListOpened = false;
+
+        foreach(Scoring s in highScoreMan.highScore_List)
+        {
+            scoreBoardText.text = s.ToString();
+        }
 
         //AddScoreToList(score);
         

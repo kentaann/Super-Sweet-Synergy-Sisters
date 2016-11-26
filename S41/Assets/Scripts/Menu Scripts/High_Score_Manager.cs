@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class High_Score_Manager : MonoBehaviour
 {
-
+    //public Text score;
     private static High_Score_Manager m_Instance;
     private const int ScoreBoardLength = 10;
+    public List<Scoring> highScore_List = new List<Scoring>();
 
     public static High_Score_Manager _instance
     {
@@ -36,7 +38,7 @@ public class High_Score_Manager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -46,9 +48,9 @@ public class High_Score_Manager : MonoBehaviour
     }
 
     //Saving the high score
-    public void SaveHighScore(string players, int score)
+    public void SaveHighScore(int score)
     {
-        List<Scoring> highScore_List = new List<Scoring>();
+        highScore_List = new List<Scoring>();
 
         int i = 1;
 
@@ -97,16 +99,16 @@ public class High_Score_Manager : MonoBehaviour
     // a list of the existing scores
     public List<Scoring> GetHighScores()
     {
-        List<Scoring> highScores = new List<Scoring>();
+        highScore_List = new List<Scoring>();
         int i = 1;
         while(i <= ScoreBoardLength && PlayerPrefs.HasKey("HighScore" + i + "score"))
         {
             Scoring temp = new Scoring();
             temp.score = PlayerPrefs.GetInt("HighScore" + i + "score");
-            highScores.Add(temp);
+            highScore_List.Add(temp);
             i++;
         }
-        return highScores;
+        return highScore_List;
     }
 
     // Clears the scoreboard - for testing
@@ -120,6 +122,7 @@ public class High_Score_Manager : MonoBehaviour
     }
 
     // dont know if it needs or not.
+
     void OnApplicationQuit()
     {
         PlayerPrefs.Save();
