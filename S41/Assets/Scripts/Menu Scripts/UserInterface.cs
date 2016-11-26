@@ -75,7 +75,7 @@ public class UserInterface : MonoBehaviour {
         // need to build to be able to run it
         if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.F1))
         {
-            SceneManager.LoadScene("DemoLevel");
+            SceneManager.LoadScene("Survival_Level");
             Debug.Log("StartPressed");
         }       
     }
