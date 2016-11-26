@@ -11,7 +11,7 @@ public class Scoring : MonoBehaviour
 {
     //high Score here?? 
     public int highScore;
-    public List<int> highScoreList = new List<int>();
+   
 
     string hScore = "HighScore";
 
@@ -56,12 +56,12 @@ public class Scoring : MonoBehaviour
         // AddScoreToList();
     }
 
-    public void AddScoreToList()
-    {
-        highScoreList.Add(score);
-        highScoreList.Sort();
-        highScoreList.Reverse();
-        Debug.Log(highScoreList);
-    }
+    //public void AddScoreToList()
+    //{
+    //    highScoreList.Add(score);
+    //    highScoreList.Sort();
+    //    highScoreList.Reverse();
+    //    Debug.Log(highScoreList);
+    //}
 
 }

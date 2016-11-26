@@ -17,7 +17,7 @@ public class GameOver : MonoBehaviour {
 
     bool isScoreListOpened;
 
-    List<int> scoreList = new List<int>();
+    //public List<int> scoreList = new List<int>();
 
     string hScore = "HighScore";
     int score;
@@ -35,7 +35,7 @@ public class GameOver : MonoBehaviour {
 
         isScoreListOpened = false;
 
-        AddScoreToList(score);
+        //AddScoreToList(score);
         
 
 	}
@@ -78,15 +78,11 @@ public class GameOver : MonoBehaviour {
             {
                 scoreListBG.enabled = true;
                 scoreListText.enabled = true;
-                foreach (int s in scoreList)
-                {                    
-                    scoreListText.text = s.ToString();
-                }
-                //scoring.AddScoreToList();    how to write the list???
-                //for (int i = 0; i < scoring.highScoreList.Count; i++)
-                //{
-                //    scoreListText.text = scoring.highScoreList.ToString();
+                //foreach (int s in scoreList)
+                //{                    
+                //    scoreListText.text = s.ToString();
                 //}
+               
                 isScoreListOpened = false;
             }
             else
@@ -99,8 +95,8 @@ public class GameOver : MonoBehaviour {
     }
 
     //Adding the scores to the list
-    public void AddScoreToList(int s)
-    {
-        scoreList.Add(s);
-    }
+    //public void AddScoreToList(int s)
+    //{
+    //    scoreList.Add(s);
+    //}
 }
