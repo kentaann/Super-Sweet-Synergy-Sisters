@@ -16,7 +16,7 @@ namespace SuperSweetAnalyser
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SuperSweetAnalyser());
+            Application.Run(new Form1());
         }
     }
 }

@@ -43,7 +43,7 @@ namespace SuperSweetAnalyser
         /// </summary>
         private void ReadLine()
         {
-            while((m_line = m_fileToRead.ReadLine()) != null)
+            while ((m_line = m_fileToRead.ReadLine()) != null)
             {
                 Console.WriteLine(m_line);
                 m_counter++;
