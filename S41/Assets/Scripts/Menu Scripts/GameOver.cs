@@ -13,7 +13,7 @@ public class GameOver : MonoBehaviour {
     public Image scoreListBG;
     public Text scoreListText;
 
-    public Text finalScoreText;
+    public Text currentScoreTextNumber;
 
     bool isScoreListOpened;
 
@@ -21,46 +21,40 @@ public class GameOver : MonoBehaviour {
     public Text newHighScore;
 
     public Text scoreBoardText;
+       
 
-    High_Score_Manager highScoreMan;
 
-    //public List<int> scoreList = new List<int>();
 
     string hScore = "HighScore";
     int score;
 	// Use this for initialization
 	void Start () {
 
-        highScoreMan = GetComponent<High_Score_Manager>();
-        score = PlayerPrefs.GetInt(hScore, 0);
+       
+        //score = PlayerPrefs.GetInt(hScore, 0);
         startGameButton = GameObject.Find("RestartButton");
         quitGameButton = GameObject.Find("Quit");
         scoreListButton = GameObject.Find("Highscore");
-        Debug.Log(score);
+        score = Scoring.Instance.score;
         
         scoreListBG.enabled = false;
         scoreListText.enabled = false;         
 
         isScoreListOpened = false;
-
-        foreach(Scoring s in highScoreMan.highScore_List)
-        {
-            scoreBoardText.text = s.ToString();
-        }
-
-        //AddScoreToList(score);
         
+        Scoring.Instance.SaveHighScore();
+        ShowHighScore();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-       
+        currentScoreTextNumber.text = score.ToString();
         Restart();
         Quit();
         HighScoreMenu();
-        finalScoreText.text = score.ToString();
+        
 	}
 
     // Restart the game
@@ -91,10 +85,6 @@ public class GameOver : MonoBehaviour {
             {
                 scoreListBG.enabled = true;
                 scoreListText.enabled = true;
-                //foreach (int s in scoreList)
-                //{                    
-                //    scoreListText.text = s.ToString();
-                //}
                
                 isScoreListOpened = false;
             }
@@ -107,9 +97,16 @@ public class GameOver : MonoBehaviour {
         }
     }
 
-    //Adding the scores to the list
-    //public void AddScoreToList(int s)
-    //{
-    //    scoreList.Add(s);
-    //}
+   public void ShowHighScore()
+   {
+       
+       List<int> lista = new List<int>();       
+       lista = Scoring.Instance.LoadHighScore();
+       scoreBoardText.text = "\n";
+       foreach(int s in lista)
+       {
+           scoreBoardText.text += s.ToString() + "\n";
+       }
+       Debug.Log("showHigh");
+   }
 }
