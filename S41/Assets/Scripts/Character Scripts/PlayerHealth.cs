@@ -74,8 +74,8 @@ public class PlayerHealth : MonoBehaviour
 
         eliseHealth = fixedPlayerHealth_Elise.GetHealth();
         eliseScrollBar.size = eliseHealth / 100f;
-        Debug.Log(philippaScrollBar.size);
-        Debug.Log(solveigScrollBar.size);
+        
+        
 
         CheckHealthForGameOver();
         GameOverMenu();
