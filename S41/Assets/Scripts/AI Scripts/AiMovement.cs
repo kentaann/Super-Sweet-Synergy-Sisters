@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic; //Always a good idea
-
+using System;
 
 public class AiMovement : MonoBehaviour
 {
@@ -23,7 +23,7 @@ public class AiMovement : MonoBehaviour
     Vector3 lastPosition;
     private NavMeshAgent navComponent;
 
-    public int kolla;
+    public int numberOfPlayers;
     enum GameState
     {
         Patrol,//inte användas nu
@@ -39,6 +39,11 @@ public class AiMovement : MonoBehaviour
         MoveSpeed = newMoveSpeed;
     }
 
+    public void SetMoveSpeed(float moveSpeed)
+    {
+        MoveSpeed = moveSpeed;
+    }
+
     void Start()
     {
         currentGamestate = GameState.Attack;//har så länge på Attack, byta sen till patrol ju längre vi har kommit på spelet
@@ -51,16 +56,20 @@ public class AiMovement : MonoBehaviour
         navComponent = this.gameObject.GetComponent<NavMeshAgent>();
     }
 
-    void Awake()
+    // Update is called once per frame
+    void Update()
     {
-        //TankPlayer = GameObject.FindGameObjectWithTag("Här ska tankens tag vara").transform;
-    }
+        numberOfPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
 
-    public void SetMoveSpeed(float moveSpeed)
-    {
-        MoveSpeed = moveSpeed;
-    }
+        UpdatePlayerList();
+        KeepDistanceToOtherEnemies();
+        TargetedPlayer();
+        MoveToPlayer();
+        Stunned();
 
+        lastPosition = transform.position;
+        //SwitchGameState();//Inte klar än
+    }
 
     public void AddPlayersToList()
     {
@@ -78,21 +87,16 @@ public class AiMovement : MonoBehaviour
 
     public void DistanceToTarget()
     {
-        Players.Sort(delegate (Transform t1, Transform t2) {
+        Players.Sort(delegate (Transform t1, Transform t2)
+        {
             return Vector3.Distance(t1.transform.position, transform.position).CompareTo(Vector3.Distance(t2.transform.position, transform.position));
         });
-
     }
 
     public void TargetedPlayer()
     {
-        //if (SelectedTarget == null)
-        //{
         DistanceToTarget();
         SelectedTarget = Players[0];
-        //}
-
-
     }
 
     public void Stun(bool fluffHit)
@@ -103,42 +107,8 @@ public class AiMovement : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Stunned()
     {
-        kolla = GameObject.FindGameObjectsWithTag("Player").Length;
-        if (Players.Count != GameObject.FindGameObjectsWithTag("Player").Length)
-        {
-            Players.Clear();
-            AddPlayersToList();
-        }
-
-        TargetedPlayer();
-
-        //transform.LookAt(SelectedTarget);
-
-        //if (Vector3.Distance(transform.position, SelectedTarget.position) >= MinDist)
-        //{
-        //    transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-        //}
-
-        //foreach (GameObject go in otherObject)
-        //{
-        //    if (Vector3.Distance(transform.position, go.transform.position) <= 2.5f)
-        //    {
-        //        //transform.position = (transform.position - go.transform.position).normalized + go.transform.position;
-        //        go.transform.position += (transform.position - lastPosition);
-        //    }
-        //}
-
-        lastPosition = transform.position;
-
-        float dist = Vector3.Distance(SelectedTarget.position, transform.position);
-        if (SelectedTarget)
-        {
-            navComponent.SetDestination(SelectedTarget.position);
-        }
-
         if (m_isStunned)
         {
             if (m_stunTimer < 3)
@@ -154,7 +124,46 @@ public class AiMovement : MonoBehaviour
                 }
             }
         }
-        //SwitchGameState();//Inte klar än
+    }
+
+    private void MoveToPlayer()
+    {
+        float dist = Vector3.Distance(SelectedTarget.position, transform.position);
+        if (SelectedTarget)
+        {
+            navComponent.SetDestination(SelectedTarget.position);
+        }
+    }
+
+    private void KeepDistanceToOtherEnemies()
+    {
+        foreach (GameObject go in otherObject)
+        {
+            if (go != gameObject)
+            {
+                if (Vector3.Distance(transform.position, go.transform.position) <= 4f)
+                {
+                    //Koden från början, dock funkar inte den riktigt med navmesh
+                    //transform.position = (transform.position - go.transform.position).normalized + go.transform.position;
+                    //go.transform.position += (transform.position - lastPosition);
+
+                    //simpel kod, finns bättre, men använder den ändå
+                    //transform.position = lastPosition;
+
+                    //Funkar bäst hittills
+                    go.transform.position += (transform.position - lastPosition);
+                }
+            }
+        }
+    }
+
+    private void UpdatePlayerList()
+    {
+        if (Players.Count != GameObject.FindGameObjectsWithTag("Player").Length)
+        {
+            Players.Clear();
+            AddPlayersToList();
+        }
     }
 
     //void SwitchGameState()
