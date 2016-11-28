@@ -139,13 +139,13 @@ public class AiMovement_Range : MonoBehaviour
                 navComponent.speed = 0;
             }
         }
-        
+
         //lastPosition = transform.position;
 
-      
 
 
-        //transform.LookAt(SelectedTarget);
+
+        transform.LookAt(SelectedTarget);
 
         //if (Vector3.Distance(transform.position, SelectedTarget.position) >= range)
         //{
