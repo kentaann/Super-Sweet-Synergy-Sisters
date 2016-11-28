@@ -12,7 +12,7 @@ public class Player_Logger : MonoBehaviour
 {
 	#region Variables
 
-	public GameObject m_PhillippaRef;                    // Reference to Phillippa
+	public GameObject m_PhillippaRef;               // Reference to Phillippa
 	public GameObject m_SimoneRef;                  // Reference to Simone
 	public GameObject m_SolveigRef;                 // Reference to Solveig
 	public GameObject m_EliseRef;                   // Reference to Elise
@@ -30,15 +30,10 @@ public class Player_Logger : MonoBehaviour
 
 	private StreamWriter m_streamWriter = null;
 
-	private string m_path = "log.txt";              // The path to where the data is saved
-	
+	private string m_path = "";                     // The path to where the data is saved	
 
 	private float m_currentTime = 0.0f;             // The current time, used for writing incrementally
-	private float m_timeToWrite = 1.0f;              // Interval for when the call to write is made
-	private float m_phScore = 0.0f;                 // The score of Phillippa
-	private float m_siScore = 0.0f;                 // The score of Simone
-	private float m_soScore = 0.0f;                 // The score of Solveig               
-	private float m_elScore = 0.0f;                 // The score of Elise
+	private float m_timeToWrite = 1.0f;             // Interval for when the call to write is made
 	private float m_healingDone = 0.0f;             //Amount of healing done
 	private float m_phAliveTime = 0.0f;
 	private float m_siAliveTime = 0.0f;
@@ -47,9 +42,7 @@ public class Player_Logger : MonoBehaviour
 	private int m_phKills = 0;
 	private int m_siKills = 0;
 	private int m_soKills = 0;
-	private int m_elKills = 0;
-
-	
+	private int m_elKills = 0;	
 
 	#endregion
 
@@ -106,7 +99,6 @@ public class Player_Logger : MonoBehaviour
 			m_soPosList.Add(m_SolveigPosition);
 			m_currentTime = 0.0f;
 		}
-
 	}    
 
 	#endregion
@@ -136,10 +128,6 @@ public class Player_Logger : MonoBehaviour
 			m_streamWriter.WriteLine("Position of Simone: " + " X: " + m_siPosList[i].x + " Y: " + m_siPosList[i].y + " Z: " + m_siPosList[i].z + "\n");
 		}
 
-		m_streamWriter.WriteLine("Phillippa Score: " + m_phScore);
-		m_streamWriter.WriteLine("Simone Score: " + m_siScore);
-		m_streamWriter.WriteLine("Solveig Score: " + m_soScore);
-		m_streamWriter.WriteLine("Elise Score: " + m_elScore);
 		m_streamWriter.WriteLine("Whipped cream used: " + m_SimoneRef.gameObject.GetComponent<Simone_Attack>().GetWhippedCounter());
 		m_streamWriter.WriteLine("Spicy chocolate used: " + m_SimoneRef.gameObject.GetComponent<Simone_Attack>().GetSpicyCounter());
 		m_streamWriter.WriteLine("Energy drink used: " + m_SimoneRef.gameObject.GetComponent<Simone_Attack>().GetEnergyCounter());
@@ -150,7 +138,6 @@ public class Player_Logger : MonoBehaviour
 		m_streamWriter.WriteLine("Anger Issues used: " + m_PhillippaRef.gameObject.GetComponent<Phillippa_Attack>().GetRushCounter());
 		m_streamWriter.WriteLine("Marble Rain used: " + m_EliseRef.gameObject.GetComponent<Elise_Attack>().GetMultiCounter());
 		m_streamWriter.WriteLine("Cookie Jar used: " + m_EliseRef.gameObject.GetComponent<Elise_Attack>().GetTrapCounter());
-
 
 		m_streamWriter.Close();                                                                                                     // Close and save the file
 	}
