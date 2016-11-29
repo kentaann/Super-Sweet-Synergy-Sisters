@@ -23,7 +23,11 @@ public class Player_Logger : MonoBehaviour
 	private Vector3 m_SimonePosition;               // The position of Simone
 	private Vector3 m_SolveigPosition;              // The position of Solveig
 	private Vector3 m_ElisePosition;                // The position of Elise
-	private List<Vector3> m_phPosList;              // List of Phillippas positions    
+    private Vector3 m_DeathPositionPh;              // The final position of Phillippa
+    private Vector3 m_DeathPositionEl;              // The final position of Elise
+    private Vector3 m_DeathPositionSo;              // The final position of Solveig
+    private Vector3 m_DeathPositionSi;              // The final position of Simone
+    private List<Vector3> m_phPosList;              // List of Phillippas positions    
 	private List<Vector3> m_siPosList;              // List of Simones positions
 	private List<Vector3> m_soPosList;              // List of Solveigs positions
 	private List<Vector3> m_elPosList;              // List of Elises positions
@@ -138,16 +142,29 @@ public class Player_Logger : MonoBehaviour
 		m_streamWriter.WriteLine("Anger Issues used: " + m_PhillippaRef.gameObject.GetComponent<Phillippa_Attack>().GetRushCounter());
 		m_streamWriter.WriteLine("Marble Rain used: " + m_EliseRef.gameObject.GetComponent<Elise_Attack>().GetMultiCounter());
 		m_streamWriter.WriteLine("Cookie Jar used: " + m_EliseRef.gameObject.GetComponent<Elise_Attack>().GetTrapCounter());
+        //m_streamWriter.WriteLine("Position where Phillippa died: " + m_DeathPositionPh.ToString());
+        //m_streamWriter.WriteLine("Position where Simone died: " + m_DeathPositionSi.ToString());
+        //m_streamWriter.WriteLine("Position where Solveig died: " + m_DeathPositionSo.ToString());
+        //m_streamWriter.WriteLine("Position where Elise died: " + m_DeathPositionEl.ToString());
 
-		m_streamWriter.Close();                                                                                                     // Close and save the file
+        m_streamWriter.Close();                                                                                                     // Close and save the file
 	}
 
 	#endregion
+
+    void SetDeathPositions()
+    {
+        m_DeathPositionEl = m_elPosList[m_elPosList.Count - 1];
+        m_DeathPositionSi = m_siPosList[m_siPosList.Count - 1];
+        m_DeathPositionSo = m_soPosList[m_soPosList.Count - 1];
+        m_DeathPositionPh = m_phPosList[m_phPosList.Count - 1];
+    }
 
 	#region On Application Quit
 
 	void OnApplicationQuit()
 	{
+       // SetDeathPositions();
 		WriteToFile();
 	}
 
