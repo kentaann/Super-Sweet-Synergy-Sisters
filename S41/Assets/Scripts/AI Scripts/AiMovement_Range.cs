@@ -99,7 +99,7 @@ public class AiMovement_Range : MonoBehaviour
         SelectedTarget = Players[0];
     }
 
-    public void Stun(bool fluffHit)
+    public void StunRange(bool fluffHit)
     {
         if (fluffHit == true)
         {
