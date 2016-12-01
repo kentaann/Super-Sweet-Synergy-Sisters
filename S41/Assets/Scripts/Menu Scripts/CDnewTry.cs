@@ -10,6 +10,22 @@ public class CDnewTry : MonoBehaviour {
     public List<Skill> SolveigSkills;
     public List<Skill> EliseSkills;
     // hardcoding- if there are more skills -> needs to do more dynamic
+
+    private bool phiFluff = false;
+    private bool phiAnger = false;
+
+    void OnEnable()
+    {
+        Phillippa_Attack.FluffEvent += PhilippaFluff;
+        Phillippa_Attack.RushEvent += PhilippaAnger;
+    }
+
+    void OnDisable()
+    {
+        Phillippa_Attack.FluffEvent -= PhilippaFluff;
+        Phillippa_Attack.RushEvent -= PhilippaAnger;
+    }
+
     void FixedUpdate()
     {
         PhilippaSkillsFixedUpdate();
@@ -64,21 +80,23 @@ public class CDnewTry : MonoBehaviour {
 
     public void PhilippaSkillsFixedUpdate() // behövs skicka in tre bool om MArkus säger bools
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (phiFluff == true)
         {
             if (PhilippaSkills[0].currentCoolDown >= PhilippaSkills[0].cooldown)
             {
                 //do something.
                 PhilippaSkills[0].currentCoolDown = 0;
+                phiFluff = false;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.M))
+        else if (phiAnger == true)
         {
             if (PhilippaSkills[1].currentCoolDown >= PhilippaSkills[1].cooldown)
             {
                 //do something.
                 PhilippaSkills[1].currentCoolDown = 0;
-                Debug.Log("M is pressed");
+                phiAnger = false;
+                //Debug.Log("M is pressed");
             }
         }
         else if (Input.GetKeyDown(KeyCode.N))
@@ -177,6 +195,18 @@ public class CDnewTry : MonoBehaviour {
             }
         }
     }
+
+    #region PhilippaMethods
+    public void PhilippaFluff()
+    {
+        phiFluff = true;
+    }
+
+    public void PhilippaAnger()
+    {
+        phiAnger = true;
+    }
+    #endregion
 }
 
 [System.Serializable]

@@ -1,0 +1,143 @@
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: -9.989995
+
+Position of Phillippa:  X: 17.6908 Y: 2.22 Z: -9.752779
+
+Position of Phillippa:  X: 18.3298 Y: 2.22 Z: -8.504567
+
+Position of Phillippa:  X: 20.21215 Y: 2.22 Z: -11.72532
+
+Position of Phillippa:  X: 21.1277 Y: 2.22 Z: -16.69461
+
+Position of Phillippa:  X: 21.091 Y: 2.22 Z: -16.81658
+
+Position of Phillippa:  X: 21.091 Y: 2.22 Z: -16.81658
+
+Position of Phillippa:  X: 20.36898 Y: 2.22 Z: -15.99892
+
+Position of Phillippa:  X: 20.15834 Y: 2.22 Z: -15.76038
+
+Position of Phillippa:  X: 20.15834 Y: 2.22 Z: -15.76038
+
+Position of Phillippa:  X: 19.38932 Y: 2.22 Z: -14.88947
+
+Position of Phillippa:  X: 19.15063 Y: 2.22 Z: -14.61916
+
+Position of Phillippa:  X: 15.21777 Y: 2.22 Z: -10.73697
+
+Position of Phillippa:  X: 11.63757 Y: 2.22 Z: -6.103755
+
+Position of Phillippa:  X: 15.18892 Y: 2.22 Z: -1.812962
+
+Position of Phillippa:  X: 19.26321 Y: 2.22 Z: -5.625376
+
+Position of Phillippa:  X: 19.536 Y: 2.22 Z: -11.50107
+
+Position of Phillippa:  X: 24.46097 Y: 2.22 Z: -15.22146
+
+Position of Phillippa:  X: 29.63783 Y: 2.22 Z: -13.57813
+
+Position of Phillippa:  X: 27.88084 Y: 2.22 Z: -8.228554
+
+Position of Phillippa:  X: 22.30491 Y: 2.22 Z: -5.431938
+
+Position of Phillippa:  X: 16.6987 Y: 2.22 Z: -2.691967
+
+Position of Phillippa:  X: 12.5912 Y: 2.22 Z: 1.558598
+
+Position of Phillippa:  X: 10.10236 Y: 2.22 Z: 6.891273
+
+Position of Phillippa:  X: 14.35968 Y: 2.22 Z: 10.49013
+
+Position of Phillippa:  X: 17.68642 Y: 2.22 Z: 6.022938
+
+Position of Phillippa:  X: 13.25256 Y: 2.22 Z: 2.863352
+
+Position of Phillippa:  X: 7.419602 Y: 2.22 Z: 1.646067
+
+Position of Phillippa:  X: 7.783449 Y: 2.22 Z: -4.06732
+
+Position of Phillippa:  X: 11.44642 Y: 2.22 Z: -8.819345
+
+Position of Phillippa:  X: 16.13666 Y: 2.22 Z: -12.89895
+
+Position of Phillippa:  X: 18.31376 Y: 2.22 Z: -14.55926
+
+Position of Phillippa:  X: 18.31376 Y: 2.22 Z: -14.55926
+
+Position of Phillippa:  X: 18.63235 Y: 2.22 Z: -12.07436
+
+Position of Phillippa:  X: 13.69179 Y: 2.22 Z: -9.502607
+
+Position of Phillippa:  X: 9.097367 Y: 2.22 Z: -13.29015
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 
