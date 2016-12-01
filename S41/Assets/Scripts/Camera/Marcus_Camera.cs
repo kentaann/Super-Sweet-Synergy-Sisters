@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 
 public class Marcus_Camera : MonoBehaviour
 {
     public float m_DampTime = 0.2f;                 // Approximate time for the camera to refocus.
     public float m_ScreenEdgeBuffer = 4f;           // Space between the top/bottom most target and the screen edge.
     public float m_MinSize = 6.5f;                  // The smallest orthographic size the camera can be.
-    public Transform[] m_Targets;                   // All the targets the camera needs to encompass.
-
+    [HideInInspector]
+    public List<Transform> m_Targets;               // All the targets the camera needs to encompass.
     private Camera m_Camera;                        // Used for referencing the camera.
     private float m_ZoomSpeed;                      // Reference speed for the smooth damping of the orthographic size.
     private Vector3 m_MoveVelocity;                 // Reference velocity for the smooth damping of the position.
@@ -17,6 +19,12 @@ public class Marcus_Camera : MonoBehaviour
     private void Awake()
     {
         m_Camera = GetComponentInChildren<Camera>();
+        m_Targets = new List<Transform>();
+    }
+
+    void Update()
+    {
+        UpdatePlayerList();
     }
 
 
@@ -39,7 +47,7 @@ public class Marcus_Camera : MonoBehaviour
         Vector3 averagePos = new Vector3();
         int numTargets = 0;
 
-        for (int i = 0; i < m_Targets.Length; i++)
+        for (int i = 0; i < m_Targets.Count; i++)
         {
             if (!m_Targets[i].gameObject.activeSelf)
                 continue;
@@ -70,7 +78,7 @@ public class Marcus_Camera : MonoBehaviour
 
         float size = 0f;
 
-        for (int i = 0; i < m_Targets.Length; i++)
+        for (int i = 0; i < m_Targets.Count; i++)
         {
             if (!m_Targets[i].gameObject.activeSelf)
                 continue;
@@ -99,5 +107,29 @@ public class Marcus_Camera : MonoBehaviour
         transform.position = m_DesiredPosition;
 
         m_Camera.orthographicSize = FindRequiredSize();
+    }
+
+    public void UpdatePlayerList()
+    {
+        if (m_Targets.Count != GameObject.FindGameObjectsWithTag("Player").Length)
+        {
+            m_Targets.Clear();
+            AddToPlayerList();
+        }
+    }
+
+    public void AddToPlayerList()
+    {
+        GameObject[] playersInList = GameObject.FindGameObjectsWithTag("Player");
+
+        foreach (GameObject player in playersInList)
+        {
+            AddTarget(player.transform);
+        }
+    }
+
+    public void AddTarget(Transform player)
+    {
+        m_Targets.Add(player);
     }
 }
