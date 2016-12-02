@@ -37,6 +37,12 @@ public class Phillippa_Attack : MonoBehaviour
     private bool m_spicyRushActive = false;
     private bool m_whippedCreamActive = false;
 
+    public float m_fluffCooldown = 0;
+    public float m_angerCooldown = 0;
+
+    private bool m_fluffCooldownTiming = false;
+    private bool m_angerCooldownTiming = false;
+
     public string xbox_name_X360_A;
     public string xbox_name_X360_B;
     public string xbox_name_X360_X;
@@ -201,22 +207,53 @@ public class Phillippa_Attack : MonoBehaviour
             RemoveNullTarget();
         }
 
+        #region Fluffpound
         if (Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown(xbox_name_X360_A))
         {
             //Fluffpound();
-
-            if (FluffEvent != null)
+            if (m_fluffCooldownTiming == false)
             {
-                FluffEvent();
+                if (FluffEvent != null)
+                {
+                    FluffEvent();
+                }
+                m_fluffCounter++;
+                m_fluffCooldownTiming = true;
             }
-
-            m_fluffCounter++;
         }
 
+        if (m_fluffCooldownTiming == true)
+        {
+            m_fluffCooldown += Time.deltaTime;
+        }
+
+        if (m_fluffCooldown >= 6.0f)
+        {
+            m_fluffCooldownTiming = false;
+            m_fluffCooldown = 0f;
+        }
+        #endregion
+
+        #region Anger Issues
         if (Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown(xbox_name_X360_B))
         {
-            RushAttack();
-            m_rushCounter++;
+            if (m_angerCooldownTiming == false)
+            {
+                RushAttack();
+                m_rushCounter++;
+                m_angerCooldownTiming = true;
+            }
+        }
+
+        if (m_angerCooldownTiming == true)
+        {
+            m_angerCooldown += Time.deltaTime;
+        }
+
+        if (m_angerCooldown >= 3.0f)
+        {
+            m_angerCooldownTiming = false;
+            m_angerCooldown = 0f;
         }
 
         if (m_rushActive == true)
@@ -241,6 +278,7 @@ public class Phillippa_Attack : MonoBehaviour
                 RushEnd();
             }
         }
+        #endregion
     }
 
     #endregion

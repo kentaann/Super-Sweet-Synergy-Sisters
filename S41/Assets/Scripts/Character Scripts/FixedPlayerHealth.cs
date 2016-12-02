@@ -12,7 +12,7 @@ public class FixedPlayerHealth : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        health = 100;
+        //health = 100;
     }
 
     // Update is called once per frame

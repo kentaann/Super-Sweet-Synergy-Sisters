@@ -1,6 +1,4 @@
-﻿#region Using Statements
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,8 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-#endregion
-
 namespace SuperSweetAnalyser
 {
     public partial class Form1 : Form
@@ -20,16 +16,11 @@ namespace SuperSweetAnalyser
         public Form1()
         {
             InitializeComponent();
+            MapImageBox.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
-        /// <summary>
-        /// Opens file dialog.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OpenFileBtn_Click(object sender, EventArgs e)
+        private void OpenFileButton_Click(object sender, EventArgs e)
         {
-            int size = -1;
             DialogResult result = openFileDialog1.ShowDialog();
 
             if(result == DialogResult.OK)
@@ -38,17 +29,14 @@ namespace SuperSweetAnalyser
                 try
                 {
                     string text = File.ReadAllText(file);
-                    size = text.Length;                    
                 }
 
-                catch(IOException)
+                catch (IOException)
                 {
 
                 }
 
             }
-            Console.WriteLine(size);
-            Console.WriteLine(result);        
         }
     }
 }

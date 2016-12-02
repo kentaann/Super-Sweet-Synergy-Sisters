@@ -46,12 +46,14 @@ public class Solveig_Projectile : MonoBehaviour
         if(other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyHealth>().Hit(m_DAMAGE);
+            Destroy(gameObject);
         }
 
         //Heal friendly
         if(other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<FixedPlayerHealth>().GetHeal(m_HEAL);
+            Destroy(gameObject);
         }
 
         if(other.gameObject.tag == "Environment")

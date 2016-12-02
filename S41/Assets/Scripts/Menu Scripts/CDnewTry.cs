@@ -10,6 +10,31 @@ public class CDnewTry : MonoBehaviour {
     public List<Skill> SolveigSkills;
     public List<Skill> EliseSkills;
     // hardcoding- if there are more skills -> needs to do more dynamic
+
+    private bool phiFluff = false;
+    private bool phiAnger = false;
+    private bool simChannel = false;
+    private bool solFlower = false;
+    private bool solLove = false;
+
+    void OnEnable()
+    {
+        Phillippa_Attack.FluffEvent += PhilippaFluff;
+        Phillippa_Attack.RushEvent += PhilippaAnger;
+        Simone_Attack.ChannelEvent += SimoneChannel;
+        Solveig_Attack.FlowerEvent += SolveigFlower;
+        Solveig_Attack.LoveEvent += SolveigLove;
+    }
+
+    void OnDisable()
+    {
+        Phillippa_Attack.FluffEvent -= PhilippaFluff;
+        Phillippa_Attack.RushEvent -= PhilippaAnger;
+        Simone_Attack.ChannelEvent -= SimoneChannel;
+        Solveig_Attack.FlowerEvent -= SolveigFlower;
+        Solveig_Attack.LoveEvent -= SolveigLove;
+    }
+
     void FixedUpdate()
     {
         PhilippaSkillsFixedUpdate();
@@ -64,89 +89,94 @@ public class CDnewTry : MonoBehaviour {
 
     public void PhilippaSkillsFixedUpdate() // behövs skicka in tre bool om MArkus säger bools
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (phiFluff == true)
         {
             if (PhilippaSkills[0].currentCoolDown >= PhilippaSkills[0].cooldown)
             {
                 //do something.
                 PhilippaSkills[0].currentCoolDown = 0;
+                phiFluff = false;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.M))
+        else if (phiAnger == true)
         {
             if (PhilippaSkills[1].currentCoolDown >= PhilippaSkills[1].cooldown)
             {
                 //do something.
                 PhilippaSkills[1].currentCoolDown = 0;
-                Debug.Log("M is pressed");
+                phiAnger = false;
+                //Debug.Log("M is pressed");
             }
         }
-        else if (Input.GetKeyDown(KeyCode.N))
-        {
-            if (PhilippaSkills[2].currentCoolDown >= PhilippaSkills[2].cooldown)
-            {
-                //do something.
-                PhilippaSkills[2].currentCoolDown = 0;
-            }
-        }
+        //else if (Input.GetKeyDown(KeyCode.N))
+        //{
+        //    if (PhilippaSkills[2].currentCoolDown >= PhilippaSkills[2].cooldown)
+        //    {
+        //        //do something.
+        //        PhilippaSkills[2].currentCoolDown = 0;
+        //    }
+        //}
     }
 
     public void SimoneSkillsFixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (simChannel == true)
         {
             if (SimoneSkills[0].currentCoolDown >= SimoneSkills[0].cooldown)
             {
                 //do something.
                 SimoneSkills[0].currentCoolDown = 0;
+                simChannel = false;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.X))
-        {
-            if (SimoneSkills[1].currentCoolDown >= SimoneSkills[1].cooldown)
-            {
-                //do something.
-                SimoneSkills[1].currentCoolDown = 0;
-                Debug.Log("M is pressed");
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.C))
-        {
-            if (SimoneSkills[2].currentCoolDown >= SimoneSkills[2].cooldown)
-            {
-                //do something.
-                SimoneSkills[2].currentCoolDown = 0;
-            }
-        }
+        //else if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    if (SimoneSkills[1].currentCoolDown >= SimoneSkills[1].cooldown)
+        //    {
+        //        //do something.
+        //        SimoneSkills[1].currentCoolDown = 0;
+        //        Debug.Log("M is pressed");
+        //    }
+        //}
+        //else if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    if (SimoneSkills[2].currentCoolDown >= SimoneSkills[2].cooldown)
+        //    {
+        //        //do something.
+        //        SimoneSkills[2].currentCoolDown = 0;
+        //    }
+        //}
     }
 
     public void SolveigSkillsFixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (solFlower == true)
         {
             if (SolveigSkills[0].currentCoolDown >= SolveigSkills[0].cooldown)
             {
                 //do something.
                 SolveigSkills[0].currentCoolDown = 0;
+                solFlower = false;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.I))
+        else if (solLove == true)
         {
             if (SolveigSkills[1].currentCoolDown >= SolveigSkills[1].cooldown)
             {
                 //do something.
                 SolveigSkills[1].currentCoolDown = 0;
-                Debug.Log("M is pressed");
+                solLove = false;
+                //Debug.Log("M is pressed");
             }
         }
-        else if (Input.GetKeyDown(KeyCode.O))
-        {
-            if (SolveigSkills[2].currentCoolDown >= SolveigSkills[2].cooldown)
-            {
-                //do something.
-                SolveigSkills[2].currentCoolDown = 0;
-            }
-        }
+        //else if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    if (SolveigSkills[2].currentCoolDown >= SolveigSkills[2].cooldown)
+        //    {
+        //        //do something.
+        //        SolveigSkills[2].currentCoolDown = 0;
+        //    }
+        //}
     }
 
     public void EliseSkillsFixedUpdate()
@@ -177,6 +207,33 @@ public class CDnewTry : MonoBehaviour {
             }
         }
     }
+
+    #region PhilippaMethods
+    public void PhilippaFluff()
+    {
+        phiFluff = true;
+    }
+
+    public void PhilippaAnger()
+    {
+        phiAnger = true;
+    }
+
+    public void SimoneChannel()
+    {
+        simChannel = true;
+    }
+
+    public void SolveigFlower()
+    {
+        solFlower = true;
+    }
+
+    public void SolveigLove()
+    {
+        solLove = true;
+    }
+    #endregion
 }
 
 [System.Serializable]

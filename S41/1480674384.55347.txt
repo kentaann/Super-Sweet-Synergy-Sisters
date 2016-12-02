@@ -1,0 +1,82 @@
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: -9.989995
+
+Position of Phillippa:  X: 18.08161 Y: 2.22 Z: -5.882871
+
+Position of Phillippa:  X: 22.78819 Y: 2.22 Z: -3.191299
+
+Position of Phillippa:  X: 27.78304 Y: 2.22 Z: -6.333593
+
+Position of Phillippa:  X: 35.24866 Y: 2.22 Z: -23.15621
+
+Position of Phillippa:  X: 35.57699 Y: 2.22 Z: -23.01405
+
+Position of Phillippa:  X: 39.13515 Y: 2.22 Z: -23.26253
+
+Position of Phillippa:  X: 43.93011 Y: 2.22 Z: -19.52081
+
+Position of Phillippa:  X: 44.38676 Y: 2.22 Z: -17.76917
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -0.99
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.1
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -10.90258
+
+Whipped cream used: 0
+Spicy chocolate used: 0
+Energy drink used: 0
+Flower Power used: 0
+Song of Love used: 0
+Song of Love used: 0
+Fluff Pound used: 1
+Anger Issues used: 1
+Marble Rain used: 0
+Cookie Jar used: 0

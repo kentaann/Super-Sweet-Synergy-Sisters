@@ -6,17 +6,31 @@ using System.Diagnostics;
 public class Fluff_Script : MonoBehaviour
 {
     public List<Transform> m_targetList = new List<Transform>();
+    MeshRenderer mr;
+    private bool meshActive = false;
+    private float meshTimer = 0;
+
 
 	// Use this for initialization
 	void Start () 
     {
-	
+        mr = GetComponent<MeshRenderer>();
 	}
 	
 	// Update is called once per frame
 	void Update () 
     {
-	
+        if (meshActive == true)
+        {
+            meshTimer += Time.deltaTime;
+
+            if (meshTimer >= 0.2f)
+            {
+                mr.enabled = false;
+                meshActive = false;
+                meshTimer = 0f;
+            }
+        }
 	}
 
     void OnEnable()
@@ -55,13 +69,16 @@ public class Fluff_Script : MonoBehaviour
 
     public void Fluffpound()
     {
+        mr.enabled = true;
+        meshActive = true;
+
         // m_timer.Start();
         foreach (var target in m_targetList)
         {
             RaycastHit targetConnected;
             Rigidbody targetBody = target.GetComponent<Rigidbody>();
 
-            if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 100))
+            if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 1000))
             {
                 if (targetConnected.transform == target && targetConnected.transform != null)
                 {
@@ -70,11 +87,12 @@ public class Fluff_Script : MonoBehaviour
                         target.SendMessage("Hit", 10);
                         target.SendMessage("SetMoveSpeed", 0f);
                         target.SendMessage("Stun", true);
+                        target.SendMessage("StunRange", true);
                     }
 
                     if (target.gameObject.tag == "Trap")
                     {
-                        targetBody.AddExplosionForce(2000f, transform.position, 5f);
+                        targetBody.AddExplosionForce(2000f, transform.position, 50f);
                         target.SendMessage("FlyAway", true);
                     }
                 }
