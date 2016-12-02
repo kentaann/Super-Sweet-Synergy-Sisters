@@ -33,6 +33,7 @@ public class PauseMenu : MonoBehaviour
         OpenMenu();
         QuitGameInGameMenu();
         ResumeGame();
+        OpenControls();
     }
 
     // Open the pause menu, the game is paused
@@ -64,6 +65,11 @@ public class PauseMenu : MonoBehaviour
                 menuOpened = true;
             }
         }
+    }
+
+    public void OpenControls()
+    {
+
     }
 
     // Leave the game (Closes the whole game)   -> maybe it should go back to the Main menu and do not save the game????
