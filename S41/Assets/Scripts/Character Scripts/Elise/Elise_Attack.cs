@@ -15,9 +15,11 @@ public class Elise_Attack : MonoBehaviour
     public static event EventHandler TrapEvent;
     public static event EventHandler MultiEvent;
 
+    public float m_eliNormalCooldown = 0;
     public float m_trapCooldown = 0;
     public float m_multiCooldown = 0;
 
+    public bool m_eliNormalCooldownTiming = false;
     public bool m_trapCooldownTiming = false;
     public bool m_multiCooldownTiming = false;
 
@@ -38,6 +40,28 @@ public class Elise_Attack : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+
+        #region Elise Normal Attack
+        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown(xbox_name_X360_A))
+        {
+            if (m_eliNormalCooldownTiming == false)
+            {
+                E_Normal_Attack();
+                m_eliNormalCooldownTiming = true;
+            }
+
+            if (m_eliNormalCooldownTiming == true)
+            {
+                m_eliNormalCooldown += Time.deltaTime;
+            }
+
+            if (m_eliNormalCooldown >= 0.025f)
+            {
+                m_eliNormalCooldownTiming = false;
+                m_eliNormalCooldown = 0f;
+            }
+        }
+        #endregion
 
         #region Cookie Jar Trap
         if (Input.GetKeyDown(KeyCode.O) || Input.GetButtonDown(xbox_name_X360_X))
@@ -92,6 +116,13 @@ public class Elise_Attack : MonoBehaviour
             m_multiCooldown = 0f;
         }
         #endregion
+    }
+
+    private void E_Normal_Attack()
+    {
+        Rigidbody bulletInstance = Instantiate(m_multiBullet, m_transformFireOrigin.position, m_transformFireOrigin.rotation * Quaternion.Euler(90, 0, 0)) as Rigidbody;
+
+        bulletInstance.velocity = m_multiLaunchForce * m_transformFireOrigin.forward;
     }
 
 	/// <summary>
