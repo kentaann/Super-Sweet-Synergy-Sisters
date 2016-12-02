@@ -21,6 +21,9 @@ public class Simone_Attack : MonoBehaviour
 	public GameObject m_energyObj;                                  // Object of energy drink
 	Player_Movement m_playerMove;                                   // Used to manipulate movement from this class
 
+    public delegate void EventHandler();
+    public static event EventHandler ChannelEvent;
+
 	public string xbox_name_X360_A;
 	public string xbox_name_X360_B;
 	public string xbox_name_X360_X;
@@ -31,6 +34,7 @@ public class Simone_Attack : MonoBehaviour
 	private float m_stunTimer;                 
 	private float m_attackRate;                                     // Attackrate
 	private float m_whippedCreamMoveSpeedMod;                       // Modifier for the players movespeed while using whipped cream
+    private float m_channelCooldown = 0;
 
 	private int m_whippedCounter = 0;                               // Number of times whipped cream has been fired
 	private int m_energyCounter = 0;                                // Number of times energy drink has been fired 
@@ -42,6 +46,7 @@ public class Simone_Attack : MonoBehaviour
 	private bool m_whippedCreamActive;                              // Flag for the Whipped Cream element
 	private bool m_spicyChocolateActive;                            // Flag for the Spicy Chocolate element
 	private bool m_rushStunned;
+    private bool m_channelCooldownTiming = false;
 
 	//public float m_damage;                                         // Base damage per projectile
 
@@ -191,14 +196,24 @@ public class Simone_Attack : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.L) || Input.GetButton(xbox_name_X360_B))
         {
-            m_energyDrinkActive = true;
-            m_spicyChocolateActive = false;
-            m_whippedCreamActive = false;
-            m_playerMove.m_moveSpeed = 0;
-            //m_autoAttackActive = false;
-            // m_damage = m_damage * 0.8;
-            m_coolDown = 0.15f;
+            if (m_channelCooldownTiming == false)
+            {
+                if (ChannelEvent != null)
+                {
+                    ChannelEvent();
+                }
+                m_energyDrinkActive = true;
+                m_spicyChocolateActive = false;
+                m_whippedCreamActive = false;
+                m_playerMove.m_moveSpeed = 0;
+                m_coolDown = 0.15f;
+                m_channelCooldownTiming = true;
+                //m_autoAttackActive = false;
+                // m_damage = m_damage * 0.8;
+            }
         }
+
+
 
         #endregion
 
@@ -206,12 +221,20 @@ public class Simone_Attack : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.M) || Input.GetButton(xbox_name_X360_Y))
         {
-            m_spicyChocolateActive = true;
-            m_energyDrinkActive = false;
-            m_whippedCreamActive = false;
-            m_coolDown = 0.5f;
-            //m_autoAttackActive = false;
-            // m_damage = 10f;
+            if (m_channelCooldownTiming == false)
+            {
+                if (ChannelEvent != null)
+                {
+                    ChannelEvent();
+                }
+                m_spicyChocolateActive = true;
+                m_energyDrinkActive = false;
+                m_whippedCreamActive = false;
+                m_coolDown = 0.5f;
+                m_channelCooldownTiming = true;
+                //m_autoAttackActive = false;
+                // m_damage = 10f; 
+            }
         }
 
         #endregion
@@ -221,13 +244,21 @@ public class Simone_Attack : MonoBehaviour
         //I simply changed this to Whipped Cream and made it the default attack that Simone starts with //Bernhard
         if (Input.GetKeyUp(KeyCode.K) || Input.GetButton(xbox_name_X360_X))
         {
-            m_energyDrinkActive = false;
-            m_whippedCreamActive = true;
-            m_spicyChocolateActive = false;
-            m_playerMove.m_moveSpeed = 12;
-            m_coolDown = 0.5f;
-            //m_autoAttackActive = true;
-            //m_damage = 10f;
+            if (m_channelCooldownTiming == false)
+            {
+                if (ChannelEvent != null)
+                {
+                    ChannelEvent();
+                }
+                m_energyDrinkActive = false;
+                m_whippedCreamActive = true;
+                m_spicyChocolateActive = false;
+                m_playerMove.m_moveSpeed = 12;
+                m_coolDown = 0.5f;
+                m_channelCooldownTiming = true;
+                //m_autoAttackActive = true;
+                //m_damage = 10f; 
+            }
         }
 
         //if (Input.GetKeyUp(KeyCode.J) || Input.GetButton(xbox_name_X360_X))
@@ -243,6 +274,17 @@ public class Simone_Attack : MonoBehaviour
         //}
 
         #endregion
+
+        if (m_channelCooldownTiming == true)
+        {
+            m_channelCooldown += Time.deltaTime;
+        }
+
+        if (m_channelCooldown >= 2.0f)
+        {
+            m_channelCooldownTiming = false;
+            m_channelCooldown = 0f;
+        }
 
         #endregion
     }
