@@ -1,0 +1,66 @@
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: -2.62999
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: 6.01001
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: 14.33001
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: 22.33
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: 30.65
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: 38.64999
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: 46.64999
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: 6.370001
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: 15.00999
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: 23.32999
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: 31.32998
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: 39.64997
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: 47.64997
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: 55.64996
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -11.74001
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -3.100009
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: 5.219992
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: 13.21999
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: 21.53998
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: 29.53997
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: 37.53997
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -3.542579
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: 5.097421
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: 13.41742
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: 21.41741
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: 29.7374
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: 37.73739
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: 45.73738
+
+Whipped cream used: 0
+Spicy chocolate used: 0
+Energy drink used: 0
+Flower Power used: 0
+Song of Love used: 0
+Song of Love used: 0
+Fluff Pound used: 0
+Anger Issues used: 0
+Marble Rain used: 0
+Cookie Jar used: 0

@@ -1,0 +1,146 @@
+Position of Phillippa:  X: 17.78659 Y: 2.22 Z: -9.989995
+
+Position of Phillippa:  X: 18.6086 Y: 2.22 Z: -9.989995
+
+Position of Phillippa:  X: 19.7286 Y: 2.22 Z: -9.989995
+
+Position of Phillippa:  X: 21.8086 Y: 2.22 Z: -9.989995
+
+Position of Phillippa:  X: 22.7686 Y: 2.22 Z: -9.989995
+
+Position of Phillippa:  X: 24.2086 Y: 2.22 Z: -9.989995
+
+Position of Phillippa:  X: 25.1686 Y: 2.22 Z: -9.989995
+
+Position of Phillippa:  X: 27.2486 Y: 2.22 Z: -9.989995
+
+Position of Phillippa:  X: 28.3686 Y: 2.22 Z: -9.989995
+
+Position of Phillippa:  X: 29.65165 Y: 2.22 Z: -9.910835
+
+Position of Phillippa:  X: 31.85255 Y: 2.22 Z: -9.361066
+
+Position of Phillippa:  X: 33.74326 Y: 2.22 Z: -9.361066
+
+Position of Phillippa:  X: 35.16129 Y: 2.22 Z: -9.361066
+
+Position of Phillippa:  X: 35.16129 Y: 2.22 Z: -9.361066
+
+Position of Phillippa:  X: 35.33658 Y: 2.22 Z: -9.361066
+
+Position of Phillippa:  X: 35.33658 Y: 2.22 Z: -9.361066
+
+Position of Phillippa:  X: 35.33658 Y: 2.22 Z: -9.361066
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Elise:  X: -3.770533 Y: 2.129323 Z: -0.99
+
+Position of Solveig:  X: -14.87659 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: -10.89861 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: -6.578609 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: -2.258611 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: 1.901388 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: 5.901388 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: 10.38138 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: 14.38138 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: 18.38138 Y: 1.256764 Z: -19.1
+
+Position of Solveig:  X: 22.5371 Y: 1.256764 Z: -18.94103
+
+Position of Solveig:  X: 26.62134 Y: 1.256764 Z: -18.18932
+
+Position of Solveig:  X: 30.71786 Y: 1.256764 Z: -18.18932
+
+Position of Solveig:  X: 32.76612 Y: 1.256764 Z: -18.18932
+
+Position of Solveig:  X: 32.76612 Y: 1.256764 Z: -18.18932
+
+Position of Solveig:  X: 32.94141 Y: 1.256764 Z: -18.18932
+
+Position of Solveig:  X: 32.94141 Y: 1.256764 Z: -18.18932
+
+Position of Solveig:  X: 32.94141 Y: 1.256764 Z: -18.18932
+
+Position of Simone:  X: -9.157024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.157024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.157024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.157024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.157024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.157024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.157024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.157024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.157024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -9.157024 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -7.397026 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -5.477028 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -4.197029 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -3.877029 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -3.877029 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -3.877029 Y: 1.825134 Z: -10.90258
+
+Position of Simone:  X: -3.877029 Y: 1.825134 Z: -10.90258
+
+Whipped cream used: 0
+Spicy chocolate used: 0
+Energy drink used: 0
+Flower Power used: 0
+Song of Love used: 0
+Song of Love used: 0
+Fluff Pound used: 0
+Anger Issues used: 0
+Marble Rain used: 0
+Cookie Jar used: 0

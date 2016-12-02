@@ -36,7 +36,8 @@ public class Camera_test : MonoBehaviour
 
         //offset = FindAveragePosition() + camera_startPos;
         averagePosition = FindAveragePosition();
-        camera_startPos = new Vector3(0, 30f, -30f);
+        camera_startPos = new Vector3(0, 50f, -50f);
+        transform.rotation = Quaternion.Euler(40, 0, 0);
         //camera_startPos = new Vector3(3, 17f, -8.5f);
         offset = FindAveragePosition() + camera_startPos;
         oldPosOneDecimal = (float)System.Math.Round(newdistance, 1);
@@ -49,7 +50,6 @@ public class Camera_test : MonoBehaviour
     void Update()
     {
         UpdatePlayerList();
-
         camPos = Camera.main.transform.position;
         ZoomByItSelf();
         ZoomWithButtons();
@@ -118,8 +118,8 @@ public class Camera_test : MonoBehaviour
             oneDecimal = (float)System.Math.Round(newdistance, 1);
             if (oneDecimal != oldPosOneDecimal && oneDecimal > oldPosOneDecimal)
             {
-                cam.fieldOfView += 0.12f;
-               // changeYpos += 0.1f;
+                cam.fieldOfView += 0.05f;
+                // changeYpos += 0.1f;
                 //changeZpos -= 0.1f;
                 //changeXpos += 0.1f;
 
@@ -127,7 +127,7 @@ public class Camera_test : MonoBehaviour
             }
             if (oneDecimal != oldPosOneDecimal && oneDecimal < oldPosOneDecimal)
             {
-                cam.fieldOfView -= 0.12f;
+                cam.fieldOfView -= 0.05f;
                 //changeXpos -= 0.1f;
                 //changeYpos -= 0.1f;
                 //changeZpos += 0.1f;

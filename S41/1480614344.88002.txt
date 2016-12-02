@@ -1,0 +1,626 @@
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: -10.30999
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: -10.30999
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: -10.30999
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: -10.30999
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: -10.30999
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: -10.30999
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: -10.30999
+
+Position of Phillippa:  X: 17.66 Y: 2.22 Z: -10.30999
+
+Position of Phillippa:  X: 17.76112 Y: 2.22 Z: -7.989578
+
+Position of Phillippa:  X: 21.10326 Y: 2.22 Z: -3.329577
+
+Position of Phillippa:  X: 27.09158 Y: 2.22 Z: -3.224985
+
+Position of Phillippa:  X: 33.57043 Y: 2.22 Z: -3.346889
+
+Position of Phillippa:  X: 39.7719 Y: 2.22 Z: -2.721233
+
+Position of Phillippa:  X: 45.72187 Y: 2.22 Z: -1.948221
+
+Position of Phillippa:  X: 50.62984 Y: 2.22 Z: -1.144287
+
+Position of Phillippa:  X: 52.65689 Y: 2.22 Z: -0.3335075
+
+Position of Phillippa:  X: 52.94728 Y: 2.22 Z: 3.309792
+
+Position of Phillippa:  X: 48.8007 Y: 2.22 Z: 7.776167
+
+Position of Phillippa:  X: 42.96725 Y: 2.22 Z: 9.178505
+
+Position of Phillippa:  X: 37.10746 Y: 2.22 Z: 10.45153
+
+Position of Phillippa:  X: 32.53482 Y: 2.22 Z: 7.184614
+
+Position of Phillippa:  X: 33.09005 Y: 2.22 Z: 1.237936
+
+Position of Phillippa:  X: 28.96323 Y: 2.22 Z: -3.244737
+
+Position of Phillippa:  X: 23.29963 Y: 2.22 Z: -5.864122
+
+Position of Phillippa:  X: 17.90619 Y: 2.22 Z: -8.912689
+
+Position of Phillippa:  X: 15.84723 Y: 2.22 Z: -14.74666
+
+Position of Phillippa:  X: 14.34062 Y: 2.22 Z: -20.80208
+
+Position of Phillippa:  X: 12.77608 Y: 2.22 Z: -27.09039
+
+Position of Phillippa:  X: 11.32742 Y: 2.22 Z: -32.9129
+
+Position of Phillippa:  X: 9.878764 Y: 2.22 Z: -38.73537
+
+Position of Phillippa:  X: 8.363595 Y: 2.22 Z: -40.94851
+
+Position of Phillippa:  X: 4.019922 Y: 2.22 Z: -40.16766
+
+Position of Phillippa:  X: -1.06832 Y: 2.22 Z: -36.42517
+
+Position of Phillippa:  X: -5.550254 Y: 2.22 Z: -32.4362
+
+Position of Phillippa:  X: -10.95085 Y: 2.22 Z: -30.84478
+
+Position of Phillippa:  X: -13.33332 Y: 2.22 Z: -36.15306
+
+Position of Phillippa:  X: -14.30444 Y: 2.22 Z: -39.3516
+
+Position of Phillippa:  X: -18.98243 Y: 2.22 Z: -39.24799
+
+Position of Phillippa:  X: -24.00194 Y: 2.22 Z: -39.75503
+
+Position of Phillippa:  X: -29.43387 Y: 2.22 Z: -40.02054
+
+Position of Phillippa:  X: -34.4059 Y: 2.22 Z: -37.51939
+
+Position of Phillippa:  X: -37.98782 Y: 2.22 Z: -32.75069
+
+Position of Phillippa:  X: -44.04853 Y: 2.22 Z: -32.37785
+
+Position of Phillippa:  X: -50.22699 Y: 2.22 Z: -32.24382
+
+Position of Phillippa:  X: -52.25746 Y: 2.22 Z: -30.95477
+
+Position of Phillippa:  X: -54.12567 Y: 2.22 Z: -29.70986
+
+Position of Phillippa:  X: -54.8151 Y: 2.22 Z: -25.9246
+
+Position of Phillippa:  X: -55.85348 Y: 2.22 Z: -22.82067
+
+Position of Phillippa:  X: -57.51349 Y: 2.22 Z: -20.57003
+
+Position of Phillippa:  X: -59.1735 Y: 2.22 Z: -18.31939
+
+Position of Phillippa:  X: -60.89737 Y: 2.22 Z: -15.98219
+
+Position of Phillippa:  X: -62.49352 Y: 2.22 Z: -13.81813
+
+Position of Phillippa:  X: -64.08967 Y: 2.22 Z: -11.65408
+
+Position of Phillippa:  X: -65.46336 Y: 2.22 Z: -9.534721
+
+Position of Phillippa:  X: -63.78842 Y: 2.22 Z: -4.414925
+
+Position of Phillippa:  X: -59.45964 Y: 2.22 Z: 0.06327057
+
+Position of Phillippa:  X: -54.79738 Y: 2.22 Z: 4.563744
+
+Position of Phillippa:  X: -49.97584 Y: 2.22 Z: 7.95116
+
+Position of Phillippa:  X: -43.85646 Y: 2.22 Z: 6.91164
+
+Position of Phillippa:  X: -37.78159 Y: 2.22 Z: 5.488808
+
+Position of Phillippa:  X: -31.55257 Y: 2.22 Z: 5.620975
+
+Position of Phillippa:  X: -25.97775 Y: 2.22 Z: 7.664742
+
+Position of Phillippa:  X: -21.56395 Y: 2.22 Z: 10.43497
+
+Position of Phillippa:  X: -15.79274 Y: 2.22 Z: 12.80786
+
+Position of Phillippa:  X: -12.14637 Y: 2.22 Z: 17.19523
+
+Position of Phillippa:  X: -10.91979 Y: 2.22 Z: 23.06849
+
+Position of Phillippa:  X: -9.55071 Y: 2.22 Z: 29.64755
+
+Position of Phillippa:  X: -8.328309 Y: 2.22 Z: 35.52171
+
+Position of Phillippa:  X: -7.098496 Y: 2.22 Z: 41.43147
+
+Position of Phillippa:  X: -7.489343 Y: 2.22 Z: 39.55331
+
+Position of Phillippa:  X: -6.543218 Y: 2.22 Z: 33.94625
+
+Position of Phillippa:  X: -2.267488 Y: 2.22 Z: 33.38539
+
+Position of Phillippa:  X: -4.186776 Y: 2.22 Z: 28.50591
+
+Position of Phillippa:  X: -6.205251 Y: 2.22 Z: 22.85564
+
+Position of Phillippa:  X: -7.687539 Y: 2.22 Z: 17.06506
+
+Position of Phillippa:  X: -8.565526 Y: 2.22 Z: 10.88713
+
+Position of Phillippa:  X: -9.502885 Y: 2.22 Z: 4.291389
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Elise:  X: -3.930533 Y: 2.129323 Z: -1.63
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Solveig:  X: -15.07 Y: 1.256764 Z: -19.42
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Position of Simone:  X: -9.317024 Y: 1.825134 Z: -11.22258
+
+Whipped cream used: 0
+Spicy chocolate used: 0
+Energy drink used: 0
+Flower Power used: 0
+Song of Love used: 0
+Song of Love used: 0
+Fluff Pound used: 0
+Anger Issues used: 0
+Marble Rain used: 0
+Cookie Jar used: 0

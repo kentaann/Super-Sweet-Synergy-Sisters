@@ -13,6 +13,18 @@ public class PlayerController : MonoBehaviour {
     public string xbox_name_Vertical;
     public string xbox_name_RstickX;
     public string xbox_name_RstickY;
+        
+
+    public Vector3 screenPos;
+    public float sizeWidth;
+    public float sizeHeight;
+    public float half_sz_X;
+    public float half_sz_Y;
+
+    public bool över;
+    public float whatValue;
+
+    Vector3 rbLastPosition;
 
     void Awake()
     {
@@ -22,18 +34,31 @@ public class PlayerController : MonoBehaviour {
 
     void Start ()
     {
+
+
         rb = GetComponent<Rigidbody>();
-           
+
+        half_sz_X = GetComponent<Renderer>().bounds.size.x;
+        half_sz_Y = GetComponent<Renderer>().bounds.size.y / 2;
+
+        över = false;
+        rbLastPosition = transform.position;
     }
-   
+
     void Update()
     {
-        
+        screenPos.x = Mathf.Clamp(screenPos.x, 0, Camera.main.pixelWidth);
+
+        sizeWidth = Camera.main.pixelWidth;
+        sizeHeight = Camera.main.pixelHeight;
+
+        screenPos = Camera.main.WorldToScreenPoint(transform.position);
+
+
     }
-  
+    
     void FixedUpdate()
     {
-        
         //Jonathan Pisch
         //Kontroller för XBOX_360 
         float moveHorizontal = Input.GetAxis(xbox_name_Horizontal);
@@ -45,18 +70,36 @@ public class PlayerController : MonoBehaviour {
         rb.velocity = movement * speed;
 
 
+        whatValue = (screenPos.x - 10);
+        if ((screenPos.y + 10) > sizeHeight)
+        {
+            rb.velocity = new Vector3(0, 0, -rb.velocity.z - 20);
+            //rb.position = rbLastPosition;
+        }
+        else if ((screenPos.y - 20) < 0)
+        {
+            rb.velocity = new Vector3(0, 0, -rb.velocity.z + 20);
+            //rb.position = rbLastPosition;
+        }
+        else if ((screenPos.x + 10) > sizeWidth)
+        {
+            rb.velocity = new Vector3(-rb.velocity.x - 10, 0, 0);
+            //rb.position = rbLastPosition;
+        }
+        else if ((screenPos.x - 10) < 0)
+        {
+            rb.velocity = new Vector3(-rb.velocity.x + 10, 0, 0);
+            //rb.position = rbLastPosition;
+        }
+
+        rbLastPosition = rb.position;
+
         var direction = new Vector3(Input.GetAxis(xbox_name_RstickX), 0, -(Input.GetAxis(xbox_name_RstickY)));
         if (direction.magnitude > 0.1f)
         {
             var rotation = Quaternion.LookRotation(direction, Vector3.up);
             transform.rotation = rotation;
         }
-
-        //Quaternion rotation = Quaternion.Euler(new Vector3(0, rStickX, 0) * turnSpeed * Time.deltaTime);
-        //transform.Rotate(new Vector3(0, rStickX, 0), turnSpeed * Time.deltaTime);
-
-        //var direction = new Vector3(Input.GetAxis("X360_RStickY"), 0, Input.GetAxis(xbox_name_RstickX));
-        //transform.forward = direction;
 
         float dPadX = Input.GetAxis("X360_DPadX");
 

@@ -1,0 +1,50 @@
+Position of Phillippa:  X: -0.04052734 Y: 0 Z: -1.995014
+
+Position of Phillippa:  X: -0.04781914 Y: 0 Z: -2.260178
+
+Position of Phillippa:  X: -0.05374718 Y: 0 Z: -2.47776
+
+Position of Phillippa:  X: -0.05714798 Y: 0 Z: -2.617981
+
+Position of Phillippa:  X: -0.05896378 Y: 0 Z: -2.725021
+
+Position of Elise:  X: 0.5805731 Y: 0 Z: -0.3147588
+
+Position of Elise:  X: 0.6793823 Y: 0 Z: -0.4987234
+
+Position of Elise:  X: 0.7630682 Y: 0 Z: -0.6256858
+
+Position of Elise:  X: 0.8266864 Y: 0 Z: -0.7454006
+
+Position of Elise:  X: 0.8970804 Y: 0 Z: -0.814774
+
+Position of Solveig:  X: 0.9408379 Y: 0 Z: 0.553587
+
+Position of Solveig:  X: 0.9417896 Y: 0 Z: 0.5138283
+
+Position of Solveig:  X: 0.9420815 Y: 0 Z: 0.5744114
+
+Position of Solveig:  X: 0.9424324 Y: 0 Z: 0.4847145
+
+Position of Solveig:  X: 0.9428864 Y: 0 Z: 0.4898396
+
+Position of Simone:  X: 1.202921 Y: 0 Z: 0.5702448
+
+Position of Simone:  X: 1.202872 Y: 0 Z: 0.5702448
+
+Position of Simone:  X: 1.202827 Y: 0 Z: 0.5702448
+
+Position of Simone:  X: 1.202842 Y: 0 Z: 0.5702448
+
+Position of Simone:  X: 1.202862 Y: 0 Z: 0.5702448
+
+Whipped cream used: 0
+Spicy chocolate used: 0
+Energy drink used: 0
+Flower Power used: 0
+Song of Love used: 0
+Song of Love used: 0
+Fluff Pound used: 0
+Anger Issues used: 0
+Marble Rain used: 0
+Cookie Jar used: 0
