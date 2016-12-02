@@ -11,6 +11,16 @@ public class Elise_Attack : MonoBehaviour
 	public Collider m_trap;
 	public Rigidbody m_multiBullet;
 
+    public delegate void EventHandler();
+    public static event EventHandler TrapEvent;
+    public static event EventHandler MultiEvent;
+
+    public float m_trapCooldown = 0;
+    public float m_multiCooldown = 0;
+
+    public bool m_trapCooldownTiming = false;
+    public bool m_multiCooldownTiming = false;
+
 	public float m_multiLaunchForce;
 	public string xbox_name_X360_A;
 	public string xbox_name_X360_B;
@@ -26,20 +36,63 @@ public class Elise_Attack : MonoBehaviour
 	}
 	
 	// Update is called once per frame
-	void Update () 
-	{
-		if (Input.GetKeyDown(KeyCode.O) || Input.GetButtonDown(xbox_name_X360_X))
-		{
-			E_LayTrap();
-			m_trapCounter++;
-		} 
+	void Update ()
+    {
 
-		if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown(xbox_name_X360_B))
+        #region Cookie Jar Trap
+        if (Input.GetKeyDown(KeyCode.O) || Input.GetButtonDown(xbox_name_X360_X))
 		{
-			E_MultiShot();
-			m_multiShotCounter++;
-		}
-	}
+            if (m_trapCooldownTiming == false)
+            {
+                if (TrapEvent != null)
+                {
+                    TrapEvent();
+                }
+                E_LayTrap();
+                m_trapCounter++;
+                m_trapCooldownTiming = true;
+            }
+        }
+
+        if (m_trapCooldownTiming == true)
+        {
+            m_trapCooldown += Time.deltaTime;
+        }
+
+        if (m_trapCooldown >= 8.0f)
+        {
+            m_trapCooldownTiming = false;
+            m_trapCooldown = 0f;
+        }
+        #endregion
+
+        #region Multi Shot
+        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown(xbox_name_X360_B))
+		{
+            if (m_multiCooldownTiming == false)
+            {
+                if (MultiEvent != null)
+                {
+                    MultiEvent();
+                }
+                E_MultiShot();
+                m_multiShotCounter++;
+                m_multiCooldownTiming = true;
+            }
+        }
+
+        if (m_multiCooldownTiming == true)
+        {
+            m_multiCooldown += Time.deltaTime;
+        }
+
+        if (m_multiCooldown >= 4.0f)
+        {
+            m_multiCooldownTiming = false;
+            m_multiCooldown = 0f;
+        }
+        #endregion
+    }
 
 	/// <summary>
 	/// Elise lays a stationary trap at her current position

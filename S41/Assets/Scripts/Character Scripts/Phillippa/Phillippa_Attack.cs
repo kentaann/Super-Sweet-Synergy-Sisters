@@ -22,8 +22,8 @@ public class Phillippa_Attack : MonoBehaviour
     public static event EventHandler EnergyCollider;
     public static event EventHandler SpicyCollider;
 
-    private const float m_FLUFFCOOLDOWN = 6;
-    private const float m_FLUFFSTUNDURATION = 2;
+    //private const float m_FLUFFCOOLDOWN = 6;
+    //private const float m_FLUFFSTUNDURATION = 2;
 
     //private float m_fluffDamage = 10;    
     private float m_timer;
