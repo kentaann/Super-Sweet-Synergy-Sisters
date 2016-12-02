@@ -16,6 +16,10 @@ public class Solveig_Attack : MonoBehaviour
 	public Rigidbody m_Projectile;                                      // The projectile
 	public Rigidbody m_FlowerPower;
 
+    public delegate void EventHandler();
+    public static event EventHandler FlowerEvent;
+    public static event EventHandler LoveEvent;
+
 	Player_Movement m_playerMove;                                       // Reference to the movement component of the character for manipulating
 
 	public string xbox_name_X360_A;
@@ -31,8 +35,11 @@ public class Solveig_Attack : MonoBehaviour
     private int m_fpCounter = 0;                                        // Times Flower Power was used
     private int m_songCounter = 0;                                        // Times Song of Love was used
 
-	private const float m_LOVECOOLDOWN = 6.0f;
-	private const float m_FLOWERCOOLDOWN = 5.0f;
+    private float m_flowerCooldown = 0f;
+	private float m_loveCooldown = 0f;
+
+    private bool m_flowerCooldownTiming = false;
+    private bool m_loveCooldownTiming = false;
 
 	private bool m_spicyCreamActive = false;
 	private bool m_lovelyCreamActive = false;
@@ -118,26 +125,65 @@ public class Solveig_Attack : MonoBehaviour
 			{
 				Sol_Attack();
 			}
-		}
-		if (m_attackRate >= m_FLOWERCOOLDOWN)
-		{
-			if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetButtonDown(xbox_name_X360_B))
-			{
-				FlowerPower();
-                m_fpCounter++;
-			}
-		}
+        }
 
-		if(m_attackRate >= m_LOVECOOLDOWN)
-		{
-			if(Input.GetKeyDown(KeyCode.Keypad9) || Input.GetButtonDown(xbox_name_X360_X))
-			{
-				SongOfLove();
-                m_songCounter++;
-			}
-		}
+        #region Flower Power
+		if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetButtonDown(xbox_name_X360_B))
+	    {
+             if (m_flowerCooldownTiming == false)
+             {
+                 if (FlowerEvent != null)
+                 {
+                     FlowerEvent();
+                 }
 
-	}
+                 FlowerPower();
+                 m_fpCounter++;
+                 m_flowerCooldownTiming = true;
+             }
+	    }
+
+        if (m_flowerCooldownTiming == true)
+        {
+            m_flowerCooldown += Time.deltaTime;
+        }
+
+        if (m_flowerCooldown >= 3.0f)
+        {
+            m_flowerCooldownTiming = false;
+            m_flowerCooldown = 0f;
+        }
+        #endregion
+
+        #region Song of Love
+        if(Input.GetKeyDown(KeyCode.Keypad9) || Input.GetButtonDown(xbox_name_X360_X))
+		{
+             if (m_loveCooldownTiming == false)
+             {
+                 if (LoveEvent != null)
+                 {
+                     LoveEvent();
+                 }
+
+                 SongOfLove();
+                 m_songCounter++;
+                 m_loveCooldownTiming = true;
+             }
+	    }
+
+        if (m_loveCooldownTiming == true)
+        {
+            m_loveCooldown += Time.deltaTime;
+        }
+
+        if (m_loveCooldown >= 5.0f)
+        {
+            m_loveCooldownTiming = false;
+            m_loveCooldown = 0f;
+        }
+        #endregion
+
+    }
 
 	#endregion
 

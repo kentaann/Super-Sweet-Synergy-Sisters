@@ -14,12 +14,16 @@ public class CDnewTry : MonoBehaviour {
     private bool phiFluff = false;
     private bool phiAnger = false;
     private bool simChannel = false;
+    private bool solFlower = false;
+    private bool solLove = false;
 
     void OnEnable()
     {
         Phillippa_Attack.FluffEvent += PhilippaFluff;
         Phillippa_Attack.RushEvent += PhilippaAnger;
         Simone_Attack.ChannelEvent += SimoneChannel;
+        Solveig_Attack.FlowerEvent += SolveigFlower;
+        Solveig_Attack.LoveEvent += SolveigLove;
     }
 
     void OnDisable()
@@ -27,6 +31,8 @@ public class CDnewTry : MonoBehaviour {
         Phillippa_Attack.FluffEvent -= PhilippaFluff;
         Phillippa_Attack.RushEvent -= PhilippaAnger;
         Simone_Attack.ChannelEvent -= SimoneChannel;
+        Solveig_Attack.FlowerEvent -= SolveigFlower;
+        Solveig_Attack.LoveEvent -= SolveigLove;
     }
 
     void FixedUpdate()
@@ -144,31 +150,33 @@ public class CDnewTry : MonoBehaviour {
 
     public void SolveigSkillsFixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (solFlower == true)
         {
             if (SolveigSkills[0].currentCoolDown >= SolveigSkills[0].cooldown)
             {
                 //do something.
                 SolveigSkills[0].currentCoolDown = 0;
+                solFlower = false;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.I))
+        else if (solLove == true)
         {
             if (SolveigSkills[1].currentCoolDown >= SolveigSkills[1].cooldown)
             {
                 //do something.
                 SolveigSkills[1].currentCoolDown = 0;
-                Debug.Log("M is pressed");
+                solLove = false;
+                //Debug.Log("M is pressed");
             }
         }
-        else if (Input.GetKeyDown(KeyCode.O))
-        {
-            if (SolveigSkills[2].currentCoolDown >= SolveigSkills[2].cooldown)
-            {
-                //do something.
-                SolveigSkills[2].currentCoolDown = 0;
-            }
-        }
+        //else if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    if (SolveigSkills[2].currentCoolDown >= SolveigSkills[2].cooldown)
+        //    {
+        //        //do something.
+        //        SolveigSkills[2].currentCoolDown = 0;
+        //    }
+        //}
     }
 
     public void EliseSkillsFixedUpdate()
@@ -214,6 +222,16 @@ public class CDnewTry : MonoBehaviour {
     public void SimoneChannel()
     {
         simChannel = true;
+    }
+
+    public void SolveigFlower()
+    {
+        solFlower = true;
+    }
+
+    public void SolveigLove()
+    {
+        solLove = true;
     }
     #endregion
 }
