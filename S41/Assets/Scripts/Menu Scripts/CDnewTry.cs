@@ -13,17 +13,20 @@ public class CDnewTry : MonoBehaviour {
 
     private bool phiFluff = false;
     private bool phiAnger = false;
+    private bool simChannel = false;
 
     void OnEnable()
     {
         Phillippa_Attack.FluffEvent += PhilippaFluff;
         Phillippa_Attack.RushEvent += PhilippaAnger;
+        Simone_Attack.ChannelEvent += SimoneChannel;
     }
 
     void OnDisable()
     {
         Phillippa_Attack.FluffEvent -= PhilippaFluff;
         Phillippa_Attack.RushEvent -= PhilippaAnger;
+        Simone_Attack.ChannelEvent -= SimoneChannel;
     }
 
     void FixedUpdate()
@@ -99,43 +102,44 @@ public class CDnewTry : MonoBehaviour {
                 //Debug.Log("M is pressed");
             }
         }
-        else if (Input.GetKeyDown(KeyCode.N))
-        {
-            if (PhilippaSkills[2].currentCoolDown >= PhilippaSkills[2].cooldown)
-            {
-                //do something.
-                PhilippaSkills[2].currentCoolDown = 0;
-            }
-        }
+        //else if (Input.GetKeyDown(KeyCode.N))
+        //{
+        //    if (PhilippaSkills[2].currentCoolDown >= PhilippaSkills[2].cooldown)
+        //    {
+        //        //do something.
+        //        PhilippaSkills[2].currentCoolDown = 0;
+        //    }
+        //}
     }
 
     public void SimoneSkillsFixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (simChannel == true)
         {
             if (SimoneSkills[0].currentCoolDown >= SimoneSkills[0].cooldown)
             {
                 //do something.
                 SimoneSkills[0].currentCoolDown = 0;
+                simChannel = false;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.X))
-        {
-            if (SimoneSkills[1].currentCoolDown >= SimoneSkills[1].cooldown)
-            {
-                //do something.
-                SimoneSkills[1].currentCoolDown = 0;
-                Debug.Log("M is pressed");
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.C))
-        {
-            if (SimoneSkills[2].currentCoolDown >= SimoneSkills[2].cooldown)
-            {
-                //do something.
-                SimoneSkills[2].currentCoolDown = 0;
-            }
-        }
+        //else if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    if (SimoneSkills[1].currentCoolDown >= SimoneSkills[1].cooldown)
+        //    {
+        //        //do something.
+        //        SimoneSkills[1].currentCoolDown = 0;
+        //        Debug.Log("M is pressed");
+        //    }
+        //}
+        //else if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    if (SimoneSkills[2].currentCoolDown >= SimoneSkills[2].cooldown)
+        //    {
+        //        //do something.
+        //        SimoneSkills[2].currentCoolDown = 0;
+        //    }
+        //}
     }
 
     public void SolveigSkillsFixedUpdate()
@@ -205,6 +209,11 @@ public class CDnewTry : MonoBehaviour {
     public void PhilippaAnger()
     {
         phiAnger = true;
+    }
+
+    public void SimoneChannel()
+    {
+        simChannel = true;
     }
     #endregion
 }
