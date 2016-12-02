@@ -8,8 +8,7 @@ public class UserInterface : MonoBehaviour {
     public GameObject optionsButton;
     public GameObject quitGameButton;    
     public GameObject startGameButton;
-    public Image optionsMenuBg;    
-    public Text controlsWhatItDoesText;
+    public Image optionsMenuBg;     
     public Text controlButtonsText;    
     public Text controlsText;    
     bool optionMenuOpened = false;   
@@ -22,7 +21,7 @@ public class UserInterface : MonoBehaviour {
         startGameButton = GameObject.Find("StartButton");
         quitGameButton = GameObject.Find("LeaveGameButton");
         optionsMenuBg.enabled = false;      
-        controlsWhatItDoesText.enabled = false;
+     
         controlButtonsText.enabled = false;        
         controlsText.enabled = false;
         optionMenuOpened = false;         
@@ -42,17 +41,15 @@ public class UserInterface : MonoBehaviour {
         {
             if (optionMenuOpened)
             {
-                optionsMenuBg.enabled = true;
-                controlsWhatItDoesText.enabled = true;
+                optionsMenuBg.enabled = true;                
                 controlButtonsText.enabled = true;
                 controlsText.enabled = true;
                 optionMenuOpened = false;
-                Debug.Log("pressedStart");
+                Debug.Log("pressedOpenOptions");
             }
             else
             {
-                optionsMenuBg.enabled = false;
-                controlsWhatItDoesText.enabled = false;
+                optionsMenuBg.enabled = false;               
                 controlButtonsText.enabled = false;
                 controlsText.enabled = false;
                 optionMenuOpened = true;
