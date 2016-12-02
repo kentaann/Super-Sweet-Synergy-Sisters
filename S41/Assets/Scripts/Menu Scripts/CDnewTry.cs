@@ -16,6 +16,8 @@ public class CDnewTry : MonoBehaviour {
     private bool simChannel = false;
     private bool solFlower = false;
     private bool solLove = false;
+    private bool eliTrap = false;
+    private bool eliMulti = false;
 
     void OnEnable()
     {
@@ -24,6 +26,8 @@ public class CDnewTry : MonoBehaviour {
         Simone_Attack.ChannelEvent += SimoneChannel;
         Solveig_Attack.FlowerEvent += SolveigFlower;
         Solveig_Attack.LoveEvent += SolveigLove;
+        Elise_Attack.TrapEvent += EliseTrap;
+        Elise_Attack.MultiEvent += EliseMulti;
     }
 
     void OnDisable()
@@ -33,6 +37,8 @@ public class CDnewTry : MonoBehaviour {
         Simone_Attack.ChannelEvent -= SimoneChannel;
         Solveig_Attack.FlowerEvent -= SolveigFlower;
         Solveig_Attack.LoveEvent -= SolveigLove;
+        Elise_Attack.TrapEvent -= EliseTrap;
+        Elise_Attack.MultiEvent -= EliseMulti;
     }
 
     void FixedUpdate()
@@ -181,34 +187,36 @@ public class CDnewTry : MonoBehaviour {
 
     public void EliseSkillsFixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.U))
+        if (eliTrap == true)
         {
             if (EliseSkills[0].currentCoolDown >= EliseSkills[0].cooldown)
             {
                 //do something.
                 EliseSkills[0].currentCoolDown = 0;
+                eliTrap = false;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.I))
+        else if (eliMulti == true)
         {
             if (EliseSkills[1].currentCoolDown >= EliseSkills[1].cooldown)
             {
                 //do something.
                 EliseSkills[1].currentCoolDown = 0;
-                Debug.Log("M is pressed");
+                eliMulti = false;
+                //Debug.Log("M is pressed");
             }
         }
-        else if (Input.GetKeyDown(KeyCode.O))
-        {
-            if (EliseSkills[2].currentCoolDown >= EliseSkills[2].cooldown)
-            {
-                //do something.
-                EliseSkills[2].currentCoolDown = 0;
-            }
-        }
+        //else if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    if (EliseSkills[2].currentCoolDown >= EliseSkills[2].cooldown)
+        //    {
+        //        //do something.
+        //        EliseSkills[2].currentCoolDown = 0;
+        //    }
+        //}
     }
 
-    #region PhilippaMethods
+    #region Event Methods
     public void PhilippaFluff()
     {
         phiFluff = true;
@@ -232,6 +240,16 @@ public class CDnewTry : MonoBehaviour {
     public void SolveigLove()
     {
         solLove = true;
+    }
+
+    public void EliseTrap()
+    {
+        eliTrap = true;
+    }
+
+    public void EliseMulti()
+    {
+        eliMulti = true;
     }
     #endregion
 }
