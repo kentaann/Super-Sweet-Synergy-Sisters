@@ -180,8 +180,7 @@ public class PauseMenu : MonoBehaviour
             if (controlsOpened && !menuOpened)
             {
 
-                controlPanel.enabled = true;
-                pauseTextinMenu.enabled = true;
+                controlPanel.enabled = true;                
                 phillippaControlsText.enabled = true;
                 eliseControlsText.enabled = true;
                 simoneControlsText.enabled = true;
@@ -192,8 +191,7 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
-                controlPanel.enabled = false;
-                pauseTextinMenu.enabled = false;
+                controlPanel.enabled = false;                
                 phillippaControlsText.enabled = false;
                 eliseControlsText.enabled = false;
                 simoneControlsText.enabled = false;

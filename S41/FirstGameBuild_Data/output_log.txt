@@ -4,21 +4,182 @@ Direct3D:
     Version:  Direct3D 11.0 [level 10.1]
     Renderer: Intel(R) HD Graphics 3000 (ID=0x126)
     Vendor:   Intel
-    VRAM:     848 MB
+    VRAM:     880 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Kenneth\Documents\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Kenneth\Documents\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Kenneth\Documents\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Kenneth\Documents\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Kenneth\Documents\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Kenneth\Documents\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Kenneth\Documents\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Kenneth\Documents\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Kenneth\Documents\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Kenneth\Documents\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.059 seconds
-Platform assembly: C:\Users\Kenneth\Documents\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Kenneth\Documents\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\System.dll (this message is harmless)
-desktop: 1366x768 40Hz; virtual: 1366x768 at 0,0
+Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.055 seconds
+Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\FirstGameBuild_Data\Managed\System.dll (this message is harmless)
+desktop: 1600x900 60Hz; virtual: 3520x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.825696 ms
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2298 -> priority: 1 
+  Thread -> id: 1a44 -> priority: 1 
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+StartPressed
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'Phillippa') is missing!
+ 
+(Filename:  Line: 1656)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 1.386005 ms
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3817.
+Total: 0.836397 ms (FindLiveObjects: 0.206317 ms CreateObjectMapping: 0.074051 ms MarkObjects: 0.537622 ms  DeleteObjects: 0.017549 ms)
+
+The class WaveSpawner started
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+UnityException: Tag: EastWall is not defined.
+  at (wrapper managed-to-native) UnityEngine.GameObject:CompareTag (string)
+  at PlayerController.OnCollisionEnter (UnityEngine.Collision collision) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Spawning Wave: Wave spawn 1.0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Spawning EnemyEnemy2.0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Spawning EnemyEnemy2.0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Spawning EnemyEnemy2.0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Spawning EnemyEnemy2.0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Spawning EnemyEnemy2.0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Spawning EnemyEnemy2.0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
+The referenced script on this Behaviour is missing!
+ 
+(Filename:  Line: 1510)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+The referenced script on this Behaviour (Game Object 'EnemyCanvas') is missing!
+ 
+(Filename:  Line: 1656)
+
+Spawning EnemyEnemy2.0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
+
