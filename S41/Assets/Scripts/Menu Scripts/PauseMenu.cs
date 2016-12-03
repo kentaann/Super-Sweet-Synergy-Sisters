@@ -208,7 +208,6 @@ public class PauseMenu : MonoBehaviour
     // Leave the game (Closes the whole game)   -> maybe it should go back to the Main menu and do not save the game????
     public void QuitGameInGameMenu()
     {
-
         if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown("joystick button 4"))
         {
             Application.Quit();
