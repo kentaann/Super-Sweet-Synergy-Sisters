@@ -15,6 +15,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject resumeGameButton;
     public GameObject quitButton;
 
+    public GameObject enemySpawn;    
+    public GameObject solveig;
+    public GameObject phillippa;
+    public GameObject elise;
+    public GameObject simone;
+    public GameObject phillippaWhisk;
+
     bool menuOpened = false;
     bool controlsOpened = false;
 
@@ -25,6 +32,35 @@ public class PauseMenu : MonoBehaviour
         controlsButton = GameObject.Find("ControlsButton");
         resumeGameButton = GameObject.Find("ResumeButton");
 
+        enemySpawn = GameObject.Find("Spawn Manager");
+        solveig = GameObject.Find("Player");
+        elise = GameObject.Find("Player3");
+        phillippa = GameObject.Find("Player4");
+        simone = GameObject.Find("Player2");
+        phillippaWhisk = GameObject.Find("BalloonWhisk");
+
+        enemySpawn.GetComponent<AiSpawningScript>().enabled = true;
+        enemySpawn.GetComponent<WaveSpawner>().enabled = true;
+
+        solveig.GetComponent<Player_Movement>().enabled = true;
+        solveig.GetComponent<PlayerController>().enabled = true;
+        solveig.GetComponent<Solveig_Attack>().enabled = true;
+        // health should be disabled?
+
+        elise.GetComponent<Player_Movement>().enabled = true;
+        elise.GetComponent<PlayerController>().enabled = true;
+        elise.GetComponent<Elise_Attack>().enabled = true;
+
+        simone.GetComponent<Player_Movement>().enabled = true;
+        simone.GetComponent<PlayerController>().enabled = true;
+        simone.GetComponent<Simone_Attack>().enabled = true;
+
+        phillippa.GetComponent<Player_Movement>().enabled = true;
+        phillippa.GetComponent<PlayerController>().enabled = true;
+        phillippa.GetComponent<Phillippa_Attack>().enabled = true;
+
+        phillippaWhisk.GetComponent<WhiskAttack>().enabled = true;
+        
         pausePanel = pausePanel.GetComponent<Image>();
         controlPanel = controlPanel.GetComponent<Image>();
 
@@ -64,6 +100,29 @@ public class PauseMenu : MonoBehaviour
                 quitButton.SetActive(true);
                 resumeGameButton.SetActive(true);
                 controlsButton.SetActive(true);
+
+                enemySpawn.GetComponent<AiSpawningScript>().enabled = false;
+                enemySpawn.GetComponent<WaveSpawner>().enabled = false;
+
+                solveig.GetComponent<Player_Movement>().enabled = false;
+                solveig.GetComponent<PlayerController>().enabled = false;
+                solveig.GetComponent<Solveig_Attack>().enabled = false;
+
+                elise.GetComponent<Player_Movement>().enabled = false;
+                elise.GetComponent<PlayerController>().enabled = false;
+                elise.GetComponent<Elise_Attack>().enabled = false;
+
+                simone.GetComponent<Player_Movement>().enabled = false;
+                simone.GetComponent<PlayerController>().enabled = false;
+                simone.GetComponent<Simone_Attack>().enabled = false;
+
+                phillippa.GetComponent<Player_Movement>().enabled = false;
+                phillippa.GetComponent<PlayerController>().enabled = false;
+                phillippa.GetComponent<Phillippa_Attack>().enabled = false;
+
+                phillippaWhisk.GetComponent<WhiskAttack>().enabled = false;
+
+
                 menuOpened = false;
                 Debug.Log("pressedOpenPause");
 
@@ -71,7 +130,30 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 Time.timeScale = 1.0f;
-                pausePanel.enabled = false;
+
+                enemySpawn.GetComponent<AiSpawningScript>().enabled = true;
+                enemySpawn.GetComponent<WaveSpawner>().enabled = true;
+
+                solveig.GetComponent<Player_Movement>().enabled = true;
+                solveig.GetComponent<PlayerController>().enabled = true;
+                solveig.GetComponent<Solveig_Attack>().enabled = true;
+
+                elise.GetComponent<Player_Movement>().enabled = true;
+                elise.GetComponent<PlayerController>().enabled = true;
+                elise.GetComponent<Elise_Attack>().enabled = true;
+
+                simone.GetComponent<Player_Movement>().enabled = true;
+                simone.GetComponent<PlayerController>().enabled = true;
+                simone.GetComponent<Simone_Attack>().enabled = true;
+
+                phillippa.GetComponent<Player_Movement>().enabled = true;
+                phillippa.GetComponent<PlayerController>().enabled = true;
+                phillippa.GetComponent<Phillippa_Attack>().enabled = true;
+
+                phillippaWhisk.GetComponent<WhiskAttack>().enabled = true;
+
+
+                pausePanel.enabled = false;               
                 pauseTextinMenu.enabled = false;
                 quitButton.SetActive(false);
                 controlsButton.SetActive(false);
