@@ -13,6 +13,8 @@ namespace SuperSweetAnalyser
 {
     public partial class Form1 : Form
     {
+        public ReadFromJSON read;
+
         public Form1()
         {
             InitializeComponent();
@@ -38,5 +40,6 @@ namespace SuperSweetAnalyser
 
             }
         }
+
     }
 }
