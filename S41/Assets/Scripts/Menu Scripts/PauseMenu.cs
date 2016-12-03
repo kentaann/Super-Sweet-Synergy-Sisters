@@ -7,15 +7,20 @@ public class PauseMenu : MonoBehaviour
 
     public Image pausePanel;
     public Image controlPanel;
-    
+
     public Text pauseTextinMenu;
-    public Text controlsText;
+    public Text phillippaControlsText;
+    public Text eliseControlsText;
+    public Text simoneControlsText;
+    public Text solveigControlsText;
+    public Text commonButtonsText;
+
 
     public GameObject controlsButton;
     public GameObject resumeGameButton;
     public GameObject quitButton;
 
-    public GameObject enemySpawn;    
+    public GameObject enemySpawn;
     public GameObject solveig;
     public GameObject phillippa;
     public GameObject elise;
@@ -60,7 +65,7 @@ public class PauseMenu : MonoBehaviour
         phillippa.GetComponent<Phillippa_Attack>().enabled = true;
 
         phillippaWhisk.GetComponent<WhiskAttack>().enabled = true;
-        
+
         pausePanel = pausePanel.GetComponent<Image>();
         controlPanel = controlPanel.GetComponent<Image>();
 
@@ -72,7 +77,11 @@ public class PauseMenu : MonoBehaviour
         controlsButton.SetActive(false);
 
         pauseTextinMenu.enabled = false;
-        controlsText.enabled = false;
+        phillippaControlsText.enabled = false;
+        eliseControlsText.enabled = false;
+        simoneControlsText.enabled = false;
+        solveigControlsText.enabled = false;
+        commonButtonsText.enabled = false;
 
         menuOpened = false;
         controlsOpened = false;
@@ -153,7 +162,7 @@ public class PauseMenu : MonoBehaviour
                 phillippaWhisk.GetComponent<WhiskAttack>().enabled = true;
 
 
-                pausePanel.enabled = false;               
+                pausePanel.enabled = false;
                 pauseTextinMenu.enabled = false;
                 quitButton.SetActive(false);
                 controlsButton.SetActive(false);
@@ -172,18 +181,28 @@ public class PauseMenu : MonoBehaviour
             {
 
                 controlPanel.enabled = true;
-                controlsText.enabled = true;
+                pauseTextinMenu.enabled = true;
+                phillippaControlsText.enabled = true;
+                eliseControlsText.enabled = true;
+                simoneControlsText.enabled = true;
+                solveigControlsText.enabled = true;
+                commonButtonsText.enabled = true;
                 controlsOpened = false;
 
             }
             else
             {
                 controlPanel.enabled = false;
-                controlsText.enabled = false;
+                pauseTextinMenu.enabled = false;
+                phillippaControlsText.enabled = false;
+                eliseControlsText.enabled = false;
+                simoneControlsText.enabled = false;
+                solveigControlsText.enabled = false;
+                commonButtonsText.enabled = false;
                 controlsOpened = true;
             }
         }
-        
+
     }
 
     // Leave the game (Closes the whole game)   -> maybe it should go back to the Main menu and do not save the game????
