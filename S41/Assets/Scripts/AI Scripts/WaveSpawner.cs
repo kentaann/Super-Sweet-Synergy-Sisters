@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour {
 
@@ -30,6 +31,8 @@ public class WaveSpawner : MonoBehaviour {
 
     public float timeBetweenWaves = 5f;//5 seconds
     public float waveCountDown;//count down to next wave
+    public Text m_counterText;
+    public Text m_waveDescriptionText;
 
     private SpawnState state = SpawnState.COUNTING;
 
@@ -44,6 +47,11 @@ public class WaveSpawner : MonoBehaviour {
 
         waveCountDown = timeBetweenWaves;
         Debug.Log("The class WaveSpawner started");
+    }
+
+    void InitiateCountText()
+    {
+        m_counterText.text = "Time until next wave is released: " + waveCountDown.ToString();
     }
 
     void Update()

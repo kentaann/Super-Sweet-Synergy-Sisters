@@ -31,8 +31,6 @@ public class Player_Logger : MonoBehaviour
 	private float m_currentTime = 0.0f;             // The current time, used for writing incrementally
 	private float m_timeToWrite = 1.0f;             // Interval for when the call to write is made
 
-
-
 	#endregion
 
 	#region On Enable
@@ -102,8 +100,7 @@ public class Player_Logger : MonoBehaviour
 		m_streamWriter.Write(data);
 		m_streamWriter.Close();
 	}
-
-
+    
 	#region On Application Quit
 
 	void OnApplicationQuit()
