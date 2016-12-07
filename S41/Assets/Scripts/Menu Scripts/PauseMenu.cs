@@ -44,7 +44,6 @@ public class PauseMenu : MonoBehaviour
         simone = GameObject.Find("Player2");
         phillippaWhisk = GameObject.Find("BalloonWhisk");
 
-        enemySpawn.GetComponent<AiSpawningScript>().enabled = true;
         enemySpawn.GetComponent<WaveSpawner>().enabled = true;
 
         solveig.GetComponent<Player_Movement>().enabled = true;
@@ -110,7 +109,6 @@ public class PauseMenu : MonoBehaviour
                 resumeGameButton.SetActive(true);
                 controlsButton.SetActive(true);
 
-                enemySpawn.GetComponent<AiSpawningScript>().enabled = false;
                 enemySpawn.GetComponent<WaveSpawner>().enabled = false;
 
                 solveig.GetComponent<Player_Movement>().enabled = false;
@@ -140,7 +138,6 @@ public class PauseMenu : MonoBehaviour
             {
                 Time.timeScale = 1.0f;
 
-                enemySpawn.GetComponent<AiSpawningScript>().enabled = true;
                 enemySpawn.GetComponent<WaveSpawner>().enabled = true;
 
                 solveig.GetComponent<Player_Movement>().enabled = true;
