@@ -151,7 +151,7 @@ public class AiMovement : MonoBehaviour
                     //transform.position = lastPosition;
 
                     //Funkar bäst hittills
-                    go.transform.position += (transform.position - lastPosition);
+                    //go.transform.position += (transform.position - lastPosition);
                 }
             }
         }
