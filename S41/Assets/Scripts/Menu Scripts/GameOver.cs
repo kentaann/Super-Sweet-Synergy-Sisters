@@ -9,6 +9,7 @@ public class GameOver : MonoBehaviour {
     public GameObject quitGameButton;
     public GameObject startGameButton;
     public GameObject scoreListButton;
+    
 
     public Image scoreListBG;
     public Text scoreListText;
@@ -22,7 +23,7 @@ public class GameOver : MonoBehaviour {
 
     public Text scoreBoardText;
        
-
+    
 
 
     string hScore = "HighScore";
@@ -35,6 +36,7 @@ public class GameOver : MonoBehaviour {
         startGameButton = GameObject.Find("RestartButton");
         quitGameButton = GameObject.Find("Quit");
         scoreListButton = GameObject.Find("Highscore");
+        
         score = Scoring.Instance.score;
         
         scoreListBG.enabled = false;
