@@ -77,6 +77,7 @@ public class Phillippa_Attack : MonoBehaviour
             }
         }
 
+        //Energy rush = Stuns target
         if(other.gameObject.tag == "edBeam" && m_rushActive)
         {
             m_energyRushActive = true;

@@ -32,6 +32,7 @@ public class Channeling_script : MonoBehaviour
     public bool seeState;
     public int i = 0;
     public float seeTime;
+    float timer = 0;
 
     #endregion
 
@@ -54,7 +55,7 @@ public class Channeling_script : MonoBehaviour
     /// <returns></returns>
     IEnumerator Expand()
     {
-        float timer = 0;
+
 
         while (m_maxRange > transform.localScale.y)
         {
@@ -102,9 +103,8 @@ public class Channeling_script : MonoBehaviour
 
         if (other.gameObject.tag == "Enemy")
         {
-            enemyObject = other.gameObject;
-
-
+            enemyObject = other.gameObject;;
+           
         }
         if (other.gameObject.tag == "Player")
         {
@@ -114,8 +114,9 @@ public class Channeling_script : MonoBehaviour
             }
         }
     }
-
     #endregion
+
+
 
     void DestroyObject()
     {
@@ -133,6 +134,7 @@ public class Channeling_script : MonoBehaviour
             scaleDecrease = false;
 
         }
+
         else if (transform.localScale.x >= maxScale)
         {
             scaleIncrease = false;
@@ -145,6 +147,7 @@ public class Channeling_script : MonoBehaviour
             transform.localScale += Vector3.right * Time.deltaTime * scaleRate;
 
         }
+
         else if (scaleDecrease)
         {
             transform.localScale -= Vector3.right * Time.deltaTime * scaleRate;

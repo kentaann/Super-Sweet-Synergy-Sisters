@@ -38,6 +38,11 @@ public class Enemy_Projectile_Collide : MonoBehaviour
             other.gameObject.GetComponent<FixedPlayerHealth>().TakeDamage(20);
             Destroy(gameObject);
         }
+        
+        if(other.gameObject.tag == "Environment")
+        {
+            Destroy(gameObject);
+        }
 
     }
 }
