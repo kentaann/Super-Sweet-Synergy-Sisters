@@ -23,6 +23,10 @@ public class Player_Movement : MonoBehaviour
 
     public Vector3 minScreenBounds;
     public Vector3 maxScreenBounds;
+
+    Animator anim;
+    bool walking = false;
+
     #endregion
 
     #region Awake
@@ -30,6 +34,7 @@ public class Player_Movement : MonoBehaviour
     private void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     #endregion
@@ -67,7 +72,7 @@ public class Player_Movement : MonoBehaviour
     {
         m_moveAxisName = "Vertical" + m_PlayerNumber;
         m_turnAxisName = "Horizontal" + m_PlayerNumber;
-
+        walking = false;
         //m_OriginalPitch = m_playerAudio.pitch;          // Assigns the initial pitch of the audio
     }
 
@@ -86,6 +91,8 @@ public class Player_Movement : MonoBehaviour
         maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
 
     }
+
+   
 
     #endregion
 
@@ -124,9 +131,10 @@ public class Player_Movement : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+
         Move();
         Turn();
-
+        anim.SetBool("IsWalking", walking);
         /*
         //Jonathan Pisch
         //Kontroller för XBOX_360 
@@ -210,6 +218,7 @@ public class Player_Movement : MonoBehaviour
         m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
         //m_Rigidbody.MovePosition(new Vector3(Mathf.Clamp(m_Rigidbody.position.x, minScreenBounds.x + 1, maxScreenBounds.x - 1), Mathf.Clamp(m_Rigidbody.position.y, minScreenBounds.y + 1, maxScreenBounds.y - 1), m_Rigidbody.position.z + movement);
         //m_Rigidbody.transform.position = new Vector3(Mathf.Clamp(m_Rigidbody.transform.position.x, minScreenBounds.x + 1, maxScreenBounds.x - 1), Mathf.Clamp(m_Rigidbody.transform.position.y, minScreenBounds.y, maxScreenBounds.y), m_Rigidbody.transform.position.z);
+        walking = true;
     }
 
     /// <summary>
@@ -230,4 +239,10 @@ public class Player_Movement : MonoBehaviour
         m_moveSpeed = moveSpeed;
     }
     #endregion
+
+    void Animating(float h, float v)
+    {
+        bool walking = h != 0f || v != 0f;
+       
+    }
 }
