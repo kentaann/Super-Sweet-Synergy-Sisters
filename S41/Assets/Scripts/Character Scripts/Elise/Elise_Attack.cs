@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Elise_Attack : MonoBehaviour 
 {
@@ -11,17 +10,17 @@ public class Elise_Attack : MonoBehaviour
 	public Collider m_trap;
 	public Rigidbody m_multiBullet;
 
-    public delegate void EventHandler();
-    public static event EventHandler TrapEvent;
-    public static event EventHandler MultiEvent;
+	public delegate void EventHandler();
+	public static event EventHandler TrapEvent;
+	public static event EventHandler MultiEvent;
 
-    public float m_eliNormalCooldown = 0;
-    public float m_trapCooldown = 0;
-    public float m_multiCooldown = 0;
+	public float m_eliNormalCooldown = 0;
+	public float m_trapCooldown = 0;
+	public float m_multiCooldown = 0;
 
-    public bool m_eliNormalCooldownTiming = false;
-    public bool m_trapCooldownTiming = false;
-    public bool m_multiCooldownTiming = false;
+	public bool m_eliNormalCooldownTiming = false;
+	public bool m_trapCooldownTiming = false;
+	public bool m_multiCooldownTiming = false;
 
 	public float m_multiLaunchForce;
 	public string xbox_name_X360_A;
@@ -39,91 +38,91 @@ public class Elise_Attack : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update ()
-    {
+	{
 
-        #region Elise Normal Attack
-        if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown(xbox_name_X360_A))
-        {
-            if (m_eliNormalCooldownTiming == false)
-            {
-                E_Normal_Attack();
-                m_eliNormalCooldownTiming = true;
-            }
-
-            if (m_eliNormalCooldownTiming == true)
-            {
-                m_eliNormalCooldown += Time.deltaTime;
-            }
-
-            if (m_eliNormalCooldown >= 0.025f)
-            {
-                m_eliNormalCooldownTiming = false;
-                m_eliNormalCooldown = 0f;
-            }
-        }
-        #endregion
-
-        #region Cookie Jar Trap
-        if (Input.GetKeyDown(KeyCode.O) || Input.GetButtonDown(xbox_name_X360_X))
+		#region Elise Normal Attack
+		if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown(xbox_name_X360_A))
 		{
-            if (m_trapCooldownTiming == false)
-            {
-                if (TrapEvent != null)
-                {
-                    TrapEvent();
-                }
-                E_LayTrap();
-                m_trapCounter++;
-                m_trapCooldownTiming = true;
-            }
-        }
+			if (m_eliNormalCooldownTiming == false)
+			{
+				E_Normal_Attack();
+				m_eliNormalCooldownTiming = true;
+			}
 
-        if (m_trapCooldownTiming == true)
-        {
-            m_trapCooldown += Time.deltaTime;
-        }
+			if (m_eliNormalCooldownTiming == true)
+			{
+				m_eliNormalCooldown += Time.deltaTime;
+			}
 
-        if (m_trapCooldown >= 8.0f)
-        {
-            m_trapCooldownTiming = false;
-            m_trapCooldown = 0f;
-        }
-        #endregion
+			if (m_eliNormalCooldown >= 0.025f)
+			{
+				m_eliNormalCooldownTiming = false;
+				m_eliNormalCooldown = 0f;
+			}
+		}
+		#endregion
 
-        #region Multi Shot
-        if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown(xbox_name_X360_B))
+		#region Cookie Jar Trap
+		if (Input.GetKeyDown(KeyCode.O) || Input.GetButtonDown(xbox_name_X360_X))
 		{
-            if (m_multiCooldownTiming == false)
-            {
-                if (MultiEvent != null)
-                {
-                    MultiEvent();
-                }
-                E_MultiShot();
-                m_multiShotCounter++;
-                m_multiCooldownTiming = true;
-            }
-        }
+			if (m_trapCooldownTiming == false)
+			{
+				if (TrapEvent != null)
+				{
+					TrapEvent();
+				}
+				E_LayTrap();
+				m_trapCounter++;
+				m_trapCooldownTiming = true;
+			}
+		}
 
-        if (m_multiCooldownTiming == true)
-        {
-            m_multiCooldown += Time.deltaTime;
-        }
+		if (m_trapCooldownTiming == true)
+		{
+			m_trapCooldown += Time.deltaTime;
+		}
 
-        if (m_multiCooldown >= 4.0f)
-        {
-            m_multiCooldownTiming = false;
-            m_multiCooldown = 0f;
-        }
-        #endregion
-    }
+		if (m_trapCooldown >= 8.0f)
+		{
+			m_trapCooldownTiming = false;
+			m_trapCooldown = 0f;
+		}
+		#endregion
 
-    private void E_Normal_Attack()
-    {
-        Rigidbody bulletInstance = Instantiate(m_multiBullet, m_transformFireOrigin.position, m_transformFireOrigin.rotation * Quaternion.Euler(90, 0, 0)) as Rigidbody;
+		#region Multi Shot
+		if (Input.GetKeyDown(KeyCode.B) || Input.GetButtonDown(xbox_name_X360_B))
+		{
+			if (m_multiCooldownTiming == false)
+			{
+				if (MultiEvent != null)
+				{
+					MultiEvent();
+				}
+				E_MultiShot();
+				m_multiShotCounter++;
+				m_multiCooldownTiming = true;
+			}
+		}
 
-        bulletInstance.velocity = m_multiLaunchForce * m_transformFireOrigin.forward;
-    }
+		if (m_multiCooldownTiming == true)
+		{
+			m_multiCooldown += Time.deltaTime;
+		}
+
+		if (m_multiCooldown >= 4.0f)
+		{
+			m_multiCooldownTiming = false;
+			m_multiCooldown = 0f;
+		}
+		#endregion
+	}
+
+	private void E_Normal_Attack()
+	{
+		Rigidbody bulletInstance = Instantiate(m_multiBullet, m_transformFireOrigin.position, m_transformFireOrigin.rotation * Quaternion.Euler(90, 0, 0)) as Rigidbody;
+
+		bulletInstance.velocity = m_multiLaunchForce * m_transformFireOrigin.forward;
+	}
 
 	/// <summary>
 	/// Elise lays a stationary trap at her current position

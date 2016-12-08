@@ -1,8 +1,6 @@
 ﻿#region Using Statements
 
 using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 
 #endregion
 

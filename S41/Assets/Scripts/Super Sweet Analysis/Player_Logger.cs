@@ -1,9 +1,7 @@
 ﻿#region Using Statements
 
 using UnityEngine;
-using System.Collections;
 using System.IO;
-using System.Collections.Generic;
 using System;
 using Assets.Scripts.Super_Sweet_Analysis;
 
@@ -100,7 +98,7 @@ public class Player_Logger : MonoBehaviour
 		m_streamWriter.Write(data);
 		m_streamWriter.Close();
 	}
-    
+	
 	#region On Application Quit
 
 	void OnApplicationQuit()
