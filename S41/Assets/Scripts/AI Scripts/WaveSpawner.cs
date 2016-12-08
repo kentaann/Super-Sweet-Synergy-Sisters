@@ -2,7 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class WaveSpawner : MonoBehaviour {
+public class WaveSpawner : MonoBehaviour
+{
 
     public enum SpawnState
     {
@@ -13,7 +14,7 @@ public class WaveSpawner : MonoBehaviour {
 
     [System.Serializable]           //with this you could add amount of waves in unity
 
-    
+
     public class Wave
     {
         public string name;         //name of the wave
@@ -22,19 +23,21 @@ public class WaveSpawner : MonoBehaviour {
         public float rate;          //spawn rate
         public float enemyHP;       //set enemy health
         public float enemySpeed;    //set enemy speed
-        
+
     }
 
     GameObject[] enemyObject;
-    GameObject particle;
+    public GameObject particle;
+    public GameObject particle2;
+    public GameObject particle3;
     GameObject spawn_Point1;
     GameObject spawn_Point2;
     GameObject spawn_Point3;
-    GameObject spawn_Point_Cylinder1;
-    GameObject spawn_Point_Cylinder2;
+    public GameObject spawn_Point_Cylinder1;
+    public GameObject spawn_Point_Cylinder2;
     GameObject spawn_Point_Cylinder3;
-    
-    
+    Transform _sp;
+
     public Wave[] waves;
     private int nextWave = 0;//index of the next wave
 
@@ -51,11 +54,11 @@ public class WaveSpawner : MonoBehaviour {
 
     void Start()
     {
-        particle = GameObject.Find("Spiral_02.1.2 Fairydust");
+
         spawn_Point1 = GameObject.Find("Spawn Point 1");
-        spawn_Point_Cylinder1 = GameObject.Find("CylinderSpawnPoint1");
         spawn_Point2 = GameObject.Find("Spawn Point 2");
         spawn_Point3 = GameObject.Find("Spawn Point 3");
+        spawn_Point_Cylinder1 = GameObject.Find("CylinderSpawnPoint1");
         spawn_Point_Cylinder2 = GameObject.Find("CylinderSpawnPoint1 (1)");
         spawn_Point_Cylinder3 = GameObject.Find("CylinderSpawnPoint1 (2)");
 
@@ -66,6 +69,13 @@ public class WaveSpawner : MonoBehaviour {
 
         waveCountDown = timeBetweenWaves;
         Debug.Log("The class WaveSpawner started");
+        spawn_Point_Cylinder1.transform.position = new Vector3(spawn_Point1.transform.position.x, spawn_Point1.transform.position.y - 3.5f, spawn_Point1.transform.position.z);
+        spawn_Point_Cylinder2.transform.position = new Vector3(spawn_Point2.transform.position.x, spawn_Point2.transform.position.y - 0.8f, spawn_Point2.transform.position.z);
+        spawn_Point_Cylinder3.transform.position = new Vector3(spawn_Point3.transform.position.x, spawn_Point3.transform.position.y - 2.5f, spawn_Point3.transform.position.z);
+        Instantiate(particle, new Vector3(spawn_Point1.transform.position.x, spawn_Point1.transform.position.y - 3.5f, spawn_Point1.transform.position.z), Quaternion.identity);
+        Instantiate(particle2, new Vector3(spawn_Point2.transform.position.x, spawn_Point2.transform.position.y - 3.5f, spawn_Point2.transform.position.z), Quaternion.identity);
+        Instantiate(particle3, new Vector3(spawn_Point3.transform.position.x, spawn_Point3.transform.position.y - 3.5f, spawn_Point3.transform.position.z), Quaternion.identity);
+
     }
 
     void InitiateCountText()
@@ -86,7 +96,7 @@ public class WaveSpawner : MonoBehaviour {
             if (!EnemyIsAlive())
             {
                 WaveCompleted();
-                
+
             }
             else
             {
@@ -99,12 +109,13 @@ public class WaveSpawner : MonoBehaviour {
             if (state != SpawnState.SPAWNING)
             {
                 StartCoroutine(SpawnWave(waves[nextWave]));
-            }           
+            }
         }
         else
         {
             waveCountDown -= Time.deltaTime;
         }
+
     }
 
     void WaveCompleted()
@@ -137,7 +148,7 @@ public class WaveSpawner : MonoBehaviour {
             if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
                 return false;
-            } 
+            }
         }
         return true;
     }
@@ -150,7 +161,7 @@ public class WaveSpawner : MonoBehaviour {
         for (int i = 0; i < _wave.count; i++)
         {
             SpawnEnemy(_wave.enemy, _wave.enemyHP, _wave.enemySpeed);
-            yield return new WaitForSeconds(1f/_wave.rate);
+            yield return new WaitForSeconds(1f / _wave.rate);
         }
 
         state = SpawnState.WAITING;
@@ -160,19 +171,9 @@ public class WaveSpawner : MonoBehaviour {
 
     void SpawnEnemy(GameObject _enemy, float setHealth, float setEnemySpeed)
     {
-        Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
         GameObject eObj = Instantiate(_enemy, _sp.position, _sp.rotation) as GameObject;
-
-        particle.transform.position = _sp.transform.position;
-        spawn_Point_Cylinder1.transform.position = spawn_Point1.transform.position;
-        spawn_Point_Cylinder1.transform.position = new Vector3(spawn_Point_Cylinder1.transform.position.x, spawn_Point_Cylinder1.transform.position.y - 3.5f, spawn_Point_Cylinder1.transform.position.z);
-
-        spawn_Point_Cylinder2.transform.position = spawn_Point2.transform.position;
-        spawn_Point_Cylinder2.transform.position = new Vector3(spawn_Point_Cylinder2.transform.position.x , spawn_Point_Cylinder2.transform.position.y - 2f, spawn_Point_Cylinder2.transform.position.z);
-
-        spawn_Point_Cylinder3.transform.position = spawn_Point3.transform.position;
-        spawn_Point_Cylinder3.transform.position = new Vector3(spawn_Point_Cylinder3.transform.position.x, spawn_Point_Cylinder3.transform.position.y - 2.5f, spawn_Point_Cylinder3.transform.position.z);
 
 
         if (eObj.GetComponent<EnemyHealth>())
