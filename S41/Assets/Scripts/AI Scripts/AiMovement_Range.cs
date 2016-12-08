@@ -139,7 +139,7 @@ public class AiMovement_Range : MonoBehaviour
             }
             else
             {
-                transform.LookAt(SelectedTarget);
+                transform.LookAt(new Vector3(SelectedTarget.transform.position.x, 0, SelectedTarget.transform.position.z));
                 navComponent.Stop();
             }
         }
@@ -170,7 +170,7 @@ public class AiMovement_Range : MonoBehaviour
                     //transform.position = lastPosition;
 
                     //Funkar bäst hittills
-                    go.transform.position += (transform.position - lastPosition);
+                    //go.transform.position += (transform.position - lastPosition);
                 }
             }
         }
