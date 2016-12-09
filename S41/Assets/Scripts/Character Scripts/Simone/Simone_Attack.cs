@@ -27,8 +27,11 @@ public class Simone_Attack : MonoBehaviour
 	public string xbox_name_X360_B;
 	public string xbox_name_X360_X;
 	public string xbox_name_X360_Y;
+    public string xbox_name_Rtrigger;
 
-	private float m_bulletLaunchForce;                              // Speed of the projectile
+    private bool m_isAxisInUse = false;
+
+    private float m_bulletLaunchForce;                              // Speed of the projectile
 	private float m_coolDown;                                       // Cooldown of attacks
 	private float m_stunTimer;                 
 	private float m_attackRate;                                     // Attackrate
@@ -147,18 +150,38 @@ public class Simone_Attack : MonoBehaviour
 
         #region Key Bindings
 
+        //if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0) //Input.GetKeyDown(KeyCode.Keypad0) ||
+        //{
+        //    if (m_isAxisInUse == false)
+        //    {
+        //        Sol_Attack();
+        //        m_isAxisInUse = true;
+        //    }
+
+        //}
+        //if (Input.GetAxisRaw(xbox_name_Rtrigger) == 0)
+        //{
+        //    m_isAxisInUse = false;
+        //}
+
+
+
         if (m_attackRate >= m_coolDown)
         {
-            if (Input.GetKey(KeyCode.P) || Input.GetButton(xbox_name_X360_A))
+            if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0) //Input.GetKey(KeyCode.P))
             {
-
-                if (GameObject.FindGameObjectsWithTag("wcBeam").Length == 0)
+                if (m_isAxisInUse == false)
                 {
-                    if (m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
+
+                    if (GameObject.FindGameObjectsWithTag("wcBeam").Length == 0)
                     {
-                        S_WhippedCreamAttack();
-                        m_attackRate = 0;
-                        m_whippedCounter++;
+                        if (m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
+                        {
+                            S_WhippedCreamAttack();
+                            m_attackRate = 0;
+                            m_whippedCounter++;
+                            m_isAxisInUse = true;
+                        }
                     }
                 }
 
@@ -167,6 +190,7 @@ public class Simone_Attack : MonoBehaviour
                     S_EnergyDrinkAttack();
                     m_attackRate = 0;
                     m_energyCounter++;
+
                 }
 
                 //REPLACED BY AUTO ATTACK
@@ -182,6 +206,11 @@ public class Simone_Attack : MonoBehaviour
                     m_attackRate = 0;
                     m_spicyCounter++;
                 }
+            }
+
+            if (Input.GetAxisRaw(xbox_name_Rtrigger) == 0)
+            {
+                m_isAxisInUse = false;
             }
         }
 

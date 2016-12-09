@@ -27,43 +27,69 @@ public class Elise_Attack : MonoBehaviour
 	public string xbox_name_X360_B;
 	public string xbox_name_X360_X;
 	public string xbox_name_X360_Y;
+    public string xbox_name_Rtrigger;
 
-	private int m_trapCounter = 0;              // Times Cookie Jar was used
+    private bool m_isAxisInUse = false;
+    private int m_trapCounter = 0;              // Times Cookie Jar was used
 	private int m_multiShotCounter = 0;         // Times Marble rain was used
 	// Use this for initialization
 	void Start () 
 	{
 	
 	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
 
-		#region Elise Normal Attack
-		if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown(xbox_name_X360_A))
-		{
-			if (m_eliNormalCooldownTiming == false)
-			{
-				E_Normal_Attack();
-				m_eliNormalCooldownTiming = true;
-			}
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0)
+        {
+            if (m_eliNormalCooldownTiming == false)
+            {
+                if (m_isAxisInUse == false)
+                {
+                    E_Normal_Attack();
+                    m_isAxisInUse = true;
+                }
+                m_eliNormalCooldownTiming = true;
+            }
+            if (m_eliNormalCooldownTiming == true)
+            {
+                m_eliNormalCooldown += Time.deltaTime;
+            }
+        }
+        if (m_eliNormalCooldown >= 0.025f)
+        {
+            if (Input.GetAxisRaw(xbox_name_Rtrigger) == 0)
+            {
+                m_isAxisInUse = false;
+                m_eliNormalCooldownTiming = false;
+                m_eliNormalCooldown = 0f;
+            }
+        }
+        #region Elise Normal Attack
+        //      if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown(xbox_name_X360_A))
+        //{
+        //	if (m_eliNormalCooldownTiming == false)
+        //	{
+        //		E_Normal_Attack();
+        //		m_eliNormalCooldownTiming = true;
+        //	}
 
-			if (m_eliNormalCooldownTiming == true)
-			{
-				m_eliNormalCooldown += Time.deltaTime;
-			}
+        //	if (m_eliNormalCooldownTiming == true)
+        //	{
+        //		m_eliNormalCooldown += Time.deltaTime;
+        //	}
 
-			if (m_eliNormalCooldown >= 0.025f)
-			{
-				m_eliNormalCooldownTiming = false;
-				m_eliNormalCooldown = 0f;
-			}
-		}
-		#endregion
+        //	if (m_eliNormalCooldown >= 0.025f)
+        //	{
+        //		m_eliNormalCooldownTiming = false;
+        //		m_eliNormalCooldown = 0f;
+        //	}
+        //}
+        #endregion
 
-		#region Cookie Jar Trap
-		if (Input.GetKeyDown(KeyCode.O) || Input.GetButtonDown(xbox_name_X360_X))
+        #region Cookie Jar Trap
+        if (Input.GetKeyDown(KeyCode.O) || Input.GetButtonDown(xbox_name_X360_X))
 		{
 			if (m_trapCooldownTiming == false)
 			{

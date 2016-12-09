@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     public string xbox_name_Vertical;
     public string xbox_name_RstickX;
     public string xbox_name_RstickY;
-        
+    public string xbox_name_Rtrigger;
+
 
     public Vector3 screenPos;
     public float sizeWidth;
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis(xbox_name_Vertical);
         float rStickX = Input.GetAxis(xbox_name_RstickX);
         float rStickY = Input.GetAxis(xbox_name_RstickY);
-        
+        float rTrigger = Input.GetAxis(xbox_name_Rtrigger);
         //Animating(moveHorizontal, moveVertical);
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
