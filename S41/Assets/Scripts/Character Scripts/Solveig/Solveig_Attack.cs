@@ -163,8 +163,6 @@ public class Solveig_Attack : MonoBehaviour
 				 {
 					 LoveEvent();
 				 }
-
-				 SongOfLove();
 				 m_songCounter++;
 				 m_loveCooldownTiming = true;
 			 }
@@ -199,48 +197,6 @@ public class Solveig_Attack : MonoBehaviour
 		projectileInstance.velocity = m_launchForce * m_transformOrigin.forward;
 	}
 
-	private void SongOfLove()
-	{
-		foreach(var target in m_targetList)
-		{
-			RaycastHit targetConnected;
-			Rigidbody targetBody = target.GetComponent<Rigidbody>();
-
-			if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 100))
-			{
-				if(targetConnected.transform == target && target.transform != null)
-				{
-					if(target.gameObject.tag == "Enemy" && m_spicyCreamActive)
-					{
-						target.SendMessage("Hit", m_SPICYCREAMDAMAGE);
-					}
-				}
-			}            
-		}
-
-		foreach(var ally in m_allyList)
-		{
-			RaycastHit allyConnected;
-			Rigidbody allyBody = ally.GetComponent<Rigidbody>();
-
-			if (Physics.Raycast(transform.position, (ally.position - transform.position), out allyConnected, 100))
-			{
-				if(allyConnected.transform == ally && allyConnected.transform != null)
-				{
-					if(ally.gameObject.tag == "Player")
-					{
-						ally.SendMessage("GetHeal", 25);
-					}
-
-					if(ally.gameObject.tag == "Player" && m_lovelyCreamActive)
-					{
-						ally.SendMessage("GetHeal", 15);
-						ally.SendMessage("MakeInvulnerable");
-					}
-				}
-			}                       
-		}
-	}
 
 	#endregion
 
