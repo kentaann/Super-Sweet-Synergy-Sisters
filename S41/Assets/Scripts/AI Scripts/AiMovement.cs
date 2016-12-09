@@ -69,6 +69,11 @@ public class AiMovement : MonoBehaviour
 
         lastPosition = transform.position;
         //SwitchGameState();//Inte klar än
+        transform.LookAt(SelectedTarget);
+        if (Vector3.Distance(transform.position, SelectedTarget.position) >= MinDist) //needed for movement to work in SyneryTester
+        {
+            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+        }
     }
 
     public void AddPlayersToList()
