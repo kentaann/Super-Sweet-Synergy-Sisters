@@ -1,8 +1,6 @@
 ﻿#region Using Statements
 
 using UnityEngine;
-using System.Collections;
-using UnityEngine.UI;
 
 #endregion
 
@@ -25,6 +23,10 @@ public class Player_Movement : MonoBehaviour
 
     public Vector3 minScreenBounds;
     public Vector3 maxScreenBounds;
+
+    Animator anim;
+    bool walking = false;
+
     #endregion
 
     #region Awake
@@ -32,6 +34,7 @@ public class Player_Movement : MonoBehaviour
     private void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
     }
 
     #endregion
@@ -69,7 +72,7 @@ public class Player_Movement : MonoBehaviour
     {
         m_moveAxisName = "Vertical" + m_PlayerNumber;
         m_turnAxisName = "Horizontal" + m_PlayerNumber;
-
+        walking = false;
         //m_OriginalPitch = m_playerAudio.pitch;          // Assigns the initial pitch of the audio
     }
 
@@ -87,7 +90,7 @@ public class Player_Movement : MonoBehaviour
         minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
         maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
 
-    }
+    }  
 
     #endregion
 
@@ -126,78 +129,10 @@ public class Player_Movement : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
+
         Move();
         Turn();
-
-        /*
-        //Jonathan Pisch
-        //Kontroller för XBOX_360 
-        float moveHorizontal = Input.GetAxis("HorizontalJoyStick");
-        float moveVertical = Input.GetAxis("VerticalJoyStick");
-        float rStickX = Input.GetAxis("X360_RStickX");
-
-        Vector3 movement = transform.TransformDirection(new Vector3(moveHorizontal, 0, moveVertical) * m_moveSpeed * Time.deltaTime);
-        m_Rigidbody.MovePosition(transform.position + movement);
-
-        Quaternion rotation = Quaternion.Euler(new Vector3(0, rStickX, 0) * m_turnSpeed * Time.deltaTime);
-        transform.Rotate(new Vector3(0, rStickX, 0), m_turnSpeed * Time.deltaTime);
-
-        float dPadX = Input.GetAxis("X360_DPadX");
-        float dPadY = Input.GetAxis("X360_DPadY");
-        float triggerAxis = Input.GetAxis("X360_Triggers");
-        if (dPadX != 0)
-        {
-            print("DPad Horizontal Value: " + dPadX);
-        }
-        if (dPadY != 0)
-        {
-            print("DPad Vertical Value: " + dPadY);
-        }
-        if (triggerAxis != 0)
-        {
-            print("Trigger Value: " + triggerAxis);
-        }
-        if (Input.GetButtonDown("X360_LBumper"))
-        {
-            print("Left Bumper");
-        }
-        if (Input.GetButtonDown("X360_RBumper"))
-        {
-            print("Right Bumper");
-        }
-        if (Input.GetButtonDown("X360_A"))
-        {
-            print("A Button");
-        }
-        if (Input.GetButtonDown("X360_B"))
-        {
-            print("B Button");
-        }
-        if (Input.GetButtonDown("X360_X"))
-        {
-            print("X Button");
-        }
-        if (Input.GetButtonDown("X360_Y"))
-        {
-            print("Y Button");
-        }
-        if (Input.GetButtonDown("X360_Back"))
-        {
-            print("Back Button");
-        }
-        if (Input.GetButtonDown("X360_Start"))
-        {
-            print("Start Button");
-        }
-        if (Input.GetButtonDown("X360_LStickClick"))
-        {
-            print("Clicked Left Stick");
-        }
-        if (Input.GetButtonDown("X360_RStickClick"))
-        {
-            print("Clicked Right Stick");
-        }
-        */
+        Animating(m_turnInputValue, m_movementInputValue);
     }
 
     #endregion
@@ -210,8 +145,8 @@ public class Player_Movement : MonoBehaviour
     {
         Vector3 movement = transform.forward * m_movementInputValue * m_moveSpeed * Time.deltaTime;
         m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
-        //m_Rigidbody.MovePosition(new Vector3(Mathf.Clamp(m_Rigidbody.position.x, minScreenBounds.x + 1, maxScreenBounds.x - 1), Mathf.Clamp(m_Rigidbody.position.y, minScreenBounds.y + 1, maxScreenBounds.y - 1), m_Rigidbody.position.z + movement);
-        //m_Rigidbody.transform.position = new Vector3(Mathf.Clamp(m_Rigidbody.transform.position.x, minScreenBounds.x + 1, maxScreenBounds.x - 1), Mathf.Clamp(m_Rigidbody.transform.position.y, minScreenBounds.y, maxScreenBounds.y), m_Rigidbody.transform.position.z);
+       
+        walking = true;
     }
 
     /// <summary>
@@ -232,4 +167,11 @@ public class Player_Movement : MonoBehaviour
         m_moveSpeed = moveSpeed;
     }
     #endregion
+
+    void Animating(float m_turnInputValue, float m_movementInputValue)
+    {
+        bool walking = m_turnInputValue != 0f || m_movementInputValue != 0f;
+        anim.SetBool("IsWalking", walking);
+       
+    }
 }

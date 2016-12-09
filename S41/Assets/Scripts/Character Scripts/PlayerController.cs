@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
 
-public class PlayerController : MonoBehaviour {
-
-    
+public class PlayerController : MonoBehaviour 
+{    
     public float speed;
     public float turnSpeed = 200;
     public Rigidbody rb;
@@ -13,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     public string xbox_name_Vertical;
     public string xbox_name_RstickX;
     public string xbox_name_RstickY;
-    public string xbox_name_Rtrigger;    
+        
 
     public Vector3 screenPos;
     public float sizeWidth;
@@ -22,14 +19,18 @@ public class PlayerController : MonoBehaviour {
     public float half_sz_Y;
 
     public bool över;
+   // private bool walking = false;
     public float whatValue;
 
     Vector3 rbLastPosition;
+    //private Animator anim;
 
     void Awake()
     {
         rb.freezeRotation = true;
-        rb.useGravity = false; 
+        rb.useGravity = false;
+        //anim = GetComponent<Animator>();
+
     }
 
     void Start ()
@@ -42,6 +43,9 @@ public class PlayerController : MonoBehaviour {
         half_sz_Y = GetComponent<Renderer>().bounds.size.y / 2;
 
         över = false;
+        
+        //walking = false;
+        
         rbLastPosition = transform.position;
     }
 
@@ -54,7 +58,6 @@ public class PlayerController : MonoBehaviour {
 
         screenPos = Camera.main.WorldToScreenPoint(transform.position);
 
-
     }
     
     void FixedUpdate()
@@ -65,7 +68,8 @@ public class PlayerController : MonoBehaviour {
         float moveVertical = Input.GetAxis(xbox_name_Vertical);
         float rStickX = Input.GetAxis(xbox_name_RstickX);
         float rStickY = Input.GetAxis(xbox_name_RstickY);
-        float Rtrigger = Input.GetAxis(xbox_name_Rtrigger);
+        
+        //Animating(moveHorizontal, moveVertical);
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
@@ -108,58 +112,60 @@ public class PlayerController : MonoBehaviour {
 
         float triggerAxis = Input.GetAxis("X360_Triggers");
 
-        if (dPadX != 0)
-        {
-            print("DPad Horizontal Value: " + dPadX);
-        }
-        if (dPadY != 0)
-        {
-            print("DPad Vertical Value: " + dPadY);
-        }
-        if (triggerAxis != 0)
-        {
-            print("Trigger Value: " + triggerAxis);
-        }
-        if (Input.GetButtonDown("X360_LBumper"))
-        {
-            print("Left Bumper");
-        }
-        if (Input.GetButtonDown("X360_RBumper"))
-        {
-            print("Right Bumper");
-        }
-        if (Input.GetButtonDown("X360_A"))
-        {
-            print("A Button");
-        }
-        if (Input.GetButtonDown("X360_B"))
-        {
-            print("B Button");
-        }
-        if (Input.GetButtonDown("X360_X"))
-        {
-            print("X Button");
-        }
-        if (Input.GetButtonDown("X360_Y"))
-        {
-            print("Y Button");
-        }
-        if (Input.GetButtonDown("X360_Back"))
-        {
-            print("Back Button");
-        }
-        if (Input.GetButtonDown("X360_Start"))
-        {
-            print("Start Button");
-        }
-        if (Input.GetButtonDown("X360_LStickClick"))
-        {
-            print("Clicked Left Stick");
-        }
-        if (Input.GetButtonDown("X360_RStickClick"))
-        {
-            print("Clicked Right Stick");
-        }
+        #region Ta bort om du inte använder detta mer Jonathan!
+        //if (dPadX != 0)
+        //{
+        //    print("DPad Horizontal Value: " + dPadX);
+        //}
+        //if (dPadY != 0)
+        //{
+        //    print("DPad Vertical Value: " + dPadY);
+        //}
+        //if (triggerAxis != 0)
+        //{
+        //    print("Trigger Value: " + triggerAxis);
+        //}
+        //if (Input.GetButtonDown("X360_LBumper"))
+        //{
+        //    print("Left Bumper");
+        //}
+        //if (Input.GetButtonDown("X360_RBumper"))
+        //{
+        //    print("Right Bumper");
+        //}
+        //if (Input.GetButtonDown("X360_A"))
+        //{
+        //    print("A Button");
+        //}
+        //if (Input.GetButtonDown("X360_B"))
+        //{
+        //    print("B Button");
+        //}
+        //if (Input.GetButtonDown("X360_X"))
+        //{
+        //    print("X Button");
+        //}
+        //if (Input.GetButtonDown("X360_Y"))
+        //{
+        //    print("Y Button");
+        //}
+        //if (Input.GetButtonDown("X360_Back"))
+        //{
+        //    print("Back Button");
+        //}
+        //if (Input.GetButtonDown("X360_Start"))
+        //{
+        //    print("Start Button");
+        //}
+        //if (Input.GetButtonDown("X360_LStickClick"))
+        //{
+        //    print("Clicked Left Stick");
+        //}
+        //if (Input.GetButtonDown("X360_RStickClick"))
+        //{
+        //    print("Clicked Right Stick");
+        //}
+        #endregion
 
     }
 
@@ -185,5 +191,11 @@ public class PlayerController : MonoBehaviour {
         {
             moveDirectionSmoothly.z = rb.velocity.z;
         }
+    }
+
+    void Animating(float moveHorizontal, float moveVertical)
+    {
+        bool walking = moveHorizontal != 0f || moveVertical != 0f;
+       // anim.SetBool("IsWalking", walking);
     }
 }

@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SuperSweetAnalyser
@@ -28,14 +21,19 @@ namespace SuperSweetAnalyser
             if(result == DialogResult.OK)
             {
                 string file = openFileDialog1.FileName;
+
                 try
                 {
                     string text = File.ReadAllText(file);
+
+                    ReadFromJSON reader = new ReadFromJSON();
+                    Newtonsoft.Json.JsonConvert.PopulateObject(text, reader);
+                    ResultTextBox.Text = reader.m_printStats;
                 }
 
                 catch (IOException)
                 {
-
+                    MessageBox.Show("Unable to load that for you");
                 }
 
             }

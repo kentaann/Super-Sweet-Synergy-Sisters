@@ -26,7 +26,9 @@ namespace SuperSweetAnalyser
         public ReadFromJSON()
         {
             m_printStats = "Fluffpound used: " + m_phFluffCount + "\n Anger Issues used: " + m_phRushCount + "\n Whipped Cream used: " + m_siWhippCount
-                + "\n Energy Drink used: " + m_siEnerCount + "\n Spicy Chocolate used: " + m_siSpicyCount;
+                + "\n Energy Drink used: " + m_siEnerCount + "\n Spicy Chocolate used: " + m_siSpicyCount + "\n Song of Love used: " + m_soSongCount
+                + "\n Flower Power used: " + m_soFlowerCount + "Cookie Jar used: " + m_elTrapCount + "\n Marble Rain used: " + m_elMultiCount;
+
         }
     }
 }
