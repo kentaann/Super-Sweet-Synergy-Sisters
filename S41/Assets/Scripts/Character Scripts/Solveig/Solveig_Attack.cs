@@ -19,14 +19,16 @@ public class Solveig_Attack : MonoBehaviour
 	public static event EventHandler FlowerEvent;
 	public static event EventHandler LoveEvent;
 
-	Player_Movement m_playerMove;                                       // Reference to the movement component of the character for manipulating
+	Player_Movement m_playerMove;  // Reference to the movement component of the character for manipulating
+    private bool m_isAxisInUse = false;
 
 	public string xbox_name_X360_A;
 	public string xbox_name_X360_B;
 	public string xbox_name_X360_X;
 	public string xbox_name_X360_Y;
+    public string xbox_name_Rtrigger;
 
-	private const float m_SPICYCREAMDAMAGE = 47.3f;                     // Damage modifier for Flower Power while under the Spicy Chocolate effect
+    private const float m_SPICYCREAMDAMAGE = 47.3f;                     // Damage modifier for Flower Power while under the Spicy Chocolate effect
 
 	private float m_launchForce;                                        // Force the projectile is launched with
 	private float m_coolDown;                                           // Cooldown of the shot
@@ -120,10 +122,20 @@ public class Solveig_Attack : MonoBehaviour
 
 		if(m_attackRate >= m_coolDown)
 		{
-			if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetButtonDown(xbox_name_X360_A))
-			{
-				Sol_Attack();
-			}
+            if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0) //Input.GetKeyDown(KeyCode.Keypad0) ||
+            {
+                if (m_isAxisInUse == false)
+                {
+                    Sol_Attack();
+                    m_isAxisInUse = true;
+                }
+                
+            }
+            if (Input.GetAxisRaw(xbox_name_Rtrigger) == 0)
+            {
+                m_isAxisInUse = false;
+            }
+			
 		}
 
 		#region Flower Power
@@ -163,8 +175,6 @@ public class Solveig_Attack : MonoBehaviour
 				 {
 					 LoveEvent();
 				 }
-
-				 SongOfLove();
 				 m_songCounter++;
 				 m_loveCooldownTiming = true;
 			 }
@@ -199,48 +209,6 @@ public class Solveig_Attack : MonoBehaviour
 		projectileInstance.velocity = m_launchForce * m_transformOrigin.forward;
 	}
 
-	private void SongOfLove()
-	{
-		foreach(var target in m_targetList)
-		{
-			RaycastHit targetConnected;
-			Rigidbody targetBody = target.GetComponent<Rigidbody>();
-
-			if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 100))
-			{
-				if(targetConnected.transform == target && target.transform != null)
-				{
-					if(target.gameObject.tag == "Enemy" && m_spicyCreamActive)
-					{
-						target.SendMessage("Hit", m_SPICYCREAMDAMAGE);
-					}
-				}
-			}            
-		}
-
-		foreach(var ally in m_allyList)
-		{
-			RaycastHit allyConnected;
-			Rigidbody allyBody = ally.GetComponent<Rigidbody>();
-
-			if (Physics.Raycast(transform.position, (ally.position - transform.position), out allyConnected, 100))
-			{
-				if(allyConnected.transform == ally && allyConnected.transform != null)
-				{
-					if(ally.gameObject.tag == "Player")
-					{
-						ally.SendMessage("GetHeal", 25);
-					}
-
-					if(ally.gameObject.tag == "Player" && m_lovelyCreamActive)
-					{
-						ally.SendMessage("GetHeal", 15);
-						ally.SendMessage("MakeInvulnerable");
-					}
-				}
-			}                       
-		}
-	}
 
 	#endregion
 
