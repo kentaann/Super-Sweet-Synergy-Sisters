@@ -156,7 +156,8 @@ public class Elise_Attack : MonoBehaviour
 
 	private void E_LayTrap()
 	{
-		Collider m_trapInstance = Instantiate(m_trap, m_transformTrapOrigin.position, m_transformTrapOrigin.rotation) as Collider;
+        m_transformTrapOrigin.position = new Vector3(m_transformTrapOrigin.position.x, m_transformTrapOrigin.position.y - 1.5f, m_transformTrapOrigin.position.z);
+		Collider m_trapInstance = Instantiate(m_trap, m_transformTrapOrigin.position, m_transformTrapOrigin.rotation * Quaternion.Euler(270,0,0)) as Collider;
 	}
 
 	/// <summary>
