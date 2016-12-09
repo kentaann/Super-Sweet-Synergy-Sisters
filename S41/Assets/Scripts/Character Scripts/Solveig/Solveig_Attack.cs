@@ -20,15 +20,15 @@ public class Solveig_Attack : MonoBehaviour
 	public static event EventHandler LoveEvent;
 
 	Player_Movement m_playerMove;  // Reference to the movement component of the character for manipulating
-    private bool m_isAxisInUse = false;
+	private bool m_isAxisInUse = false;
 
 	public string xbox_name_X360_A;
 	public string xbox_name_X360_B;
 	public string xbox_name_X360_X;
 	public string xbox_name_X360_Y;
-    public string xbox_name_Rtrigger;
+	public string xbox_name_Rtrigger;
 
-    private const float m_SPICYCREAMDAMAGE = 47.3f;                     // Damage modifier for Flower Power while under the Spicy Chocolate effect
+	private const float m_SPICYCREAMDAMAGE = 47.3f;                     // Damage modifier for Flower Power while under the Spicy Chocolate effect
 
 	private float m_launchForce;                                        // Force the projectile is launched with
 	private float m_coolDown;                                           // Cooldown of the shot
@@ -122,19 +122,19 @@ public class Solveig_Attack : MonoBehaviour
 
 		if(m_attackRate >= m_coolDown)
 		{
-            if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0) //Input.GetKeyDown(KeyCode.Keypad0) ||
-            {
-                if (m_isAxisInUse == false)
-                {
-                    Sol_Attack();
-                    m_isAxisInUse = true;
-                }
-                
-            }
-            if (Input.GetAxisRaw(xbox_name_Rtrigger) == 0)
-            {
-                m_isAxisInUse = false;
-            }
+			if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0) //Input.GetKeyDown(KeyCode.Keypad0) ||
+			{
+				if (m_isAxisInUse == false)
+				{
+					Sol_Attack();
+					m_isAxisInUse = true;
+				}
+				
+			}
+			if (Input.GetAxisRaw(xbox_name_Rtrigger) == 0)
+			{
+				m_isAxisInUse = false;
+			}
 			
 		}
 

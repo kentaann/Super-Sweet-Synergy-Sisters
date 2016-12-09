@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Song_Script : MonoBehaviour 
 {
 	private MeshRenderer m_songRenderer;
-	private List<Transform> m_allyList = new List<Transform>();
+	public List<Transform> m_allyList = new List<Transform>();
 
 	private bool m_activeMesh = false;
 	private float m_timer = 0;
@@ -44,10 +44,17 @@ public class Song_Script : MonoBehaviour
 	{
 	   if(other.gameObject.tag == "Player")
 	   {
-
+		   m_allyList.Add(other.gameObject.transform);
 	   }
 	}
 
+	void OnTriggerExit(Collider other)
+	{
+		if(other.gameObject.tag =="Player")
+		{
+			m_allyList.Remove(other.gameObject.transform);
+		}
+	}
 	void RemoveNullTarget()
 	{
 		foreach(var ally in m_allyList)
