@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
         float rStickX = Input.GetAxis(xbox_name_RstickX);
         float rStickY = Input.GetAxis(xbox_name_RstickY);
         float rTrigger = Input.GetAxis(xbox_name_Rtrigger);
-        Animating(moveHorizontal, moveVertical);
+        //Animating(moveHorizontal, moveVertical);
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
