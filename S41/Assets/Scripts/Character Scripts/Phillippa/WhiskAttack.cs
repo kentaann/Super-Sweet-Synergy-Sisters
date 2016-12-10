@@ -9,6 +9,7 @@ public class WhiskAttack : MonoBehaviour
     public bool m_spicyActive = false;
 
     public delegate void EventHandler();
+    public static event EventHandler SpicySplash;
     public static event EventHandler EnergyStun;
 
     public Vector3 from;
@@ -85,6 +86,14 @@ public class WhiskAttack : MonoBehaviour
                     EnergyStun();
                 }
             }
+
+            if (m_spicyActive == true)
+            {
+                if (SpicySplash != null)
+                {
+                    SpicySplash();
+                }
+            }
         }
     }
 
@@ -103,6 +112,14 @@ public class WhiskAttack : MonoBehaviour
             if (m_creamActive == true)
             {
                 m_creamActive = false;
+            }
+        }
+
+        if (other.gameObject.tag == "scBeam")
+        {
+            if (m_spicyActive == true)
+            {
+                m_spicyActive = false;
             }
         }
 

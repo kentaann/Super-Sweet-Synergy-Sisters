@@ -168,7 +168,7 @@ public class Simone_Attack : MonoBehaviour
 
         if (m_attackRate >= m_coolDown)
         {
-            if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0) //Input.GetKey(KeyCode.P))
+            if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0 || Input.GetKey(KeyCode.P))
             {
                 if (m_isAxisInUse == false)
                 {
@@ -233,7 +233,7 @@ public class Simone_Attack : MonoBehaviour
                 m_energyDrinkActive = true;
                 m_spicyChocolateActive = false;
                 m_whippedCreamActive = false;
-                m_playerMove.m_moveSpeed = 0;
+                //m_playerMove.m_moveSpeed = 0;
                 m_coolDown = 0.15f;
                 m_channelCooldownTiming = true;
                 //m_autoAttackActive = false;
@@ -281,7 +281,7 @@ public class Simone_Attack : MonoBehaviour
                 m_energyDrinkActive = false;
                 m_whippedCreamActive = true;
                 m_spicyChocolateActive = false;
-                m_playerMove.m_moveSpeed = 12;
+                //m_playerMove.m_moveSpeed = 12;
                 m_coolDown = 0.5f;
                 m_channelCooldownTiming = true;
                 //m_autoAttackActive = true;
