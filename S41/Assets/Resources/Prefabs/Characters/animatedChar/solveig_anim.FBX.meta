@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: eabf54dfa53cb754e9396f213a18b0a2
-timeCreated: 1481309458
+guid: 5e39dc4b42bd4c14780a9d4dc64741f0
+timeCreated: 1481399849
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -37,7 +37,7 @@ ModelImporter:
     100058: Bip001 Spine1
     100060: Bip001 Spine2
     100062: Bip001 Spine3
-    100064: Philippa
+    100064: Plane004
     100066: //RootNode
     100068: weapon
     400000: Bip001
@@ -72,18 +72,18 @@ ModelImporter:
     400058: Bip001 Spine1
     400060: Bip001 Spine2
     400062: Bip001 Spine3
-    400064: Philippa
+    400064: Plane004
     400066: //RootNode
     400068: weapon
     2300000: weapon
     3300000: weapon
-    4300000: Philippa
+    4300000: Plane004
     4300002: weapon
     7400000: Take 001
     7400002: Walking
     7400004: Idle
     9500000: //RootNode
-    13700000: Philippa
+    13700000: Plane004
   materials:
     importMaterials: 1
     materialName: 0
@@ -224,9 +224,9 @@ ModelImporter:
           Spine3/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001
           R Hand/Bip001 R Finger0/Bip001 R Finger0Nub
         weight: 1
-      - path: Philippa
+      - path: Plane004
         weight: 1
-      - path: Philippa/weapon
+      - path: Plane004/weapon
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -350,9 +350,9 @@ ModelImporter:
           Spine3/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001
           R Hand/Bip001 R Finger0/Bip001 R Finger0Nub
         weight: 1
-      - path: Philippa
+      - path: Plane004
         weight: 1
-      - path: Philippa/weapon
+      - path: Plane004/weapon
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -476,9 +476,9 @@ ModelImporter:
           Spine3/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001
           R Hand/Bip001 R Finger0/Bip001 R Finger0Nub
         weight: 1
-      - path: Philippa
+      - path: Plane004
         weight: 1
-      - path: Philippa/weapon
+      - path: Plane004/weapon
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
