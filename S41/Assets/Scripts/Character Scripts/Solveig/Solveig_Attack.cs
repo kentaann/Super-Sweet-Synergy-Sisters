@@ -10,8 +10,8 @@ public class Solveig_Attack : MonoBehaviour
 	#region Variables
 
 	public Transform m_transformOrigin;                                 // Where the projectile is instantiated
-	public List<Transform> m_targetList = new List<Transform>();        // List of enemies
-	public List<Transform> m_allyList = new List<Transform>();          // List of friendlies
+	private List<Transform> m_targetList = new List<Transform>();        // List of enemies
+	private List<Transform> m_allyList = new List<Transform>();          // List of friendlies
 	public Rigidbody m_Projectile;                                      // The projectile
 	public Rigidbody m_FlowerPower;
 
