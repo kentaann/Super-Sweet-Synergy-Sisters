@@ -61,7 +61,6 @@ public class AiMovement_Range : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        navComponent.speed = MoveSpeed;
         KeepDistanceToOtherEnemies();
         UpdatePlayerList();
         TargetedPlayer();

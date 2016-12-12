@@ -24,8 +24,8 @@ public class Player_Movement : MonoBehaviour
     public Vector3 minScreenBounds;
     public Vector3 maxScreenBounds;
 
-    //Animator anim;
-    //bool walking = false;
+    Animator anim;
+    bool walking = false;
 
     #endregion
 
@@ -34,7 +34,7 @@ public class Player_Movement : MonoBehaviour
     private void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
     #endregion
@@ -72,7 +72,7 @@ public class Player_Movement : MonoBehaviour
     {
         m_moveAxisName = "Vertical" + m_PlayerNumber;
         m_turnAxisName = "Horizontal" + m_PlayerNumber;
-        //walking = false;
+        walking = false;
         //m_OriginalPitch = m_playerAudio.pitch;          // Assigns the initial pitch of the audio
     }
 
@@ -132,7 +132,7 @@ public class Player_Movement : MonoBehaviour
 
         Move();
         Turn();
-        //Animating(m_turnInputValue, m_movementInputValue);
+        Animating(m_turnInputValue, m_movementInputValue);
     }
 
     #endregion
@@ -146,7 +146,7 @@ public class Player_Movement : MonoBehaviour
         Vector3 movement = transform.forward * m_movementInputValue * m_moveSpeed * Time.deltaTime;
         m_Rigidbody.MovePosition(m_Rigidbody.position + movement);
        
-        //walking = true;
+        walking = true;
     }
 
     /// <summary>
@@ -171,7 +171,7 @@ public class Player_Movement : MonoBehaviour
     void Animating(float m_turnInputValue, float m_movementInputValue)
     {
         bool walking = m_turnInputValue != 0f || m_movementInputValue != 0f;
-        //anim.SetBool("IsWalking", walking);
+        anim.SetBool("IsWalking", walking);
        
     }
 }
