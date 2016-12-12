@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
 
-    public float currHealth, maxHealth;
+    public float currHealth = 100, maxHealth = 100;
     public GameObject enemyToDestroy;
 
 
@@ -37,8 +37,8 @@ public class EnemyHealth : MonoBehaviour
         //Instantiate();
 
 
-        currHealth = 100;
-        maxHealth = 100;
+        //currHealth = 100;
+        //maxHealth = 100;
         m_spicyChocolateDmg = 0.2f;
         m_isOnFire = false;
 
