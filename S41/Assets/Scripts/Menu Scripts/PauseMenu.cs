@@ -25,6 +25,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject phillippa;
     public GameObject elise;
     public GameObject simone;
+
+    public GameObject eliseAutoAttack;
  
 
     bool menuOpened = false;
@@ -49,11 +51,12 @@ public class PauseMenu : MonoBehaviour
         solveig.GetComponent<Player_Movement>().enabled = true;
         solveig.GetComponent<PlayerController>().enabled = true;
         solveig.GetComponent<Solveig_Attack>().enabled = true;
+        solveig.GetComponentInChildren<Song_Script>().enabled = true;
         // health should be disabled?
 
         elise.GetComponent<Player_Movement>().enabled = true;
         elise.GetComponent<PlayerController>().enabled = true;
-        elise.GetComponent<Elise_Attack>().enabled = true;
+        elise.GetComponent<Elise_Attack>().enabled = true;        
 
         simone.GetComponent<Player_Movement>().enabled = true;
         simone.GetComponent<PlayerController>().enabled = true;
@@ -62,8 +65,11 @@ public class PauseMenu : MonoBehaviour
         phillippa.GetComponent<Player_Movement>().enabled = true;
         phillippa.GetComponent<PlayerController>().enabled = true;
         phillippa.GetComponent<Phillippa_Attack>().enabled = true;
+        phillippa.GetComponentInChildren<WhiskAttack>().enabled = true;
+        phillippa.GetComponentInChildren<Fluff_Script>().enabled = true;
+        phillippa.GetComponentInChildren<SpicyWhisk>().enabled = true;
+        phillippa.GetComponentInChildren<EnergyWhisk>().enabled = true;
 
-      
 
         pausePanel = pausePanel.GetComponent<Image>();
         controlPanel = controlPanel.GetComponent<Image>();
