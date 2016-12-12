@@ -16,6 +16,12 @@ public class EnemyProjectile : MonoBehaviour
 
 
     public float distance;
+
+    public void InitializeBulletForce(float force)
+    {
+        m_bulletLaunchForce = force;
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -75,7 +81,7 @@ public class EnemyProjectile : MonoBehaviour
 
     private void OnEnable()
     {
-        m_bulletLaunchForce = 5f;
+        //m_bulletLaunchForce = 5f;
     }
 
     private void EnemyShooting()

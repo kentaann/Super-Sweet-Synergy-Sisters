@@ -23,7 +23,7 @@ public class WaveSpawner : MonoBehaviour
         public float rate;          //spawn rate
         public float enemyHP;       //set enemy health
         public float enemySpeed;    //set enemy speed
-
+        public float projectileSpeed; //set projectile speed of bullet
     }
 
     GameObject[] enemyObject;
@@ -142,7 +142,7 @@ public class WaveSpawner : MonoBehaviour
             }
             else
             {
-                m_fadeColor -= 0.013f;
+                m_fadeColor -= 0.014f;
                 m_waveDescriptionText.color = new Color(1, 1, 1, m_fadeColor);
             }
 
@@ -195,7 +195,7 @@ public class WaveSpawner : MonoBehaviour
 
         for (int i = 0; i < _wave.count; i++)
         {
-            SpawnEnemy(_wave.enemy, _wave.enemyHP, _wave.enemySpeed);
+            SpawnEnemy(_wave.enemy, _wave.enemyHP, _wave.enemySpeed, _wave.projectileSpeed);
             yield return new WaitForSeconds(1f / _wave.rate);
         }
 
@@ -204,7 +204,7 @@ public class WaveSpawner : MonoBehaviour
         yield break;
     }
 
-    void SpawnEnemy(GameObject _enemy, float setHealth, float setEnemySpeed)
+    void SpawnEnemy(GameObject _enemy, float setHealth, float setEnemySpeed, float setProjSpeed)
     {
         _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
@@ -225,6 +225,11 @@ public class WaveSpawner : MonoBehaviour
         {
             AiMovement_Range eAiMovementRange = eObj.GetComponent<AiMovement_Range>();
             eAiMovementRange.Initializing(setEnemySpeed);
+        }
+        if (eObj.GetComponent<EnemyProjectile>())
+        {
+            EnemyProjectile eProjectile = eObj.GetComponent<EnemyProjectile>();
+            eProjectile.InitializeBulletForce(setProjSpeed);
         }
 
 
