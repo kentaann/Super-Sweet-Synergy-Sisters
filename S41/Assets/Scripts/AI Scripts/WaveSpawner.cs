@@ -149,7 +149,7 @@ public class WaveSpawner : MonoBehaviour
 
     void WaveCompleted()
     {
-        Debug.Log("Wave Completed");
+        Debug.Log("Wave Completed");                // Ta bort detta från Debug.Log och kör det istället så spelaren kan se //Marcus
 
         state = SpawnState.COUNTING;
         waveCountDown = timeBetweenWaves;
@@ -184,7 +184,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave(Wave _wave)
     {
-        Debug.Log("Spawning Wave: " + _wave.name);
+        Debug.Log("Spawning Wave: " + _wave.name);      // Flytta det så spelaren ser samt lägga till vad som spawnas till ex "2 melee + 4 range this wave" //Marcus
         state = SpawnState.SPAWNING;
 
         //m_waveDescriptionText.font = Font.

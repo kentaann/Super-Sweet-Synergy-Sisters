@@ -24,7 +24,7 @@ public class Player_Movement : MonoBehaviour
     public Vector3 minScreenBounds;
     public Vector3 maxScreenBounds;
 
-//    Animator anim;
+    //Animator anim;
     //bool walking = false;
 
     #endregion
@@ -132,7 +132,7 @@ public class Player_Movement : MonoBehaviour
 
         Move();
         Turn();
-        Animating(m_turnInputValue, m_movementInputValue);
+        //Animating(m_turnInputValue, m_movementInputValue);
     }
 
     #endregion

@@ -94,7 +94,7 @@ public class Player_Logger : MonoBehaviour
 
 	void WriteToJSON()
 	{		
-		string data = JsonUtility.ToJson(m_jsonObject);
+		string data = JsonUtility.ToJson(m_jsonObject, true);
 		m_streamWriter.Write(data);
 		m_streamWriter.Close();
 	}

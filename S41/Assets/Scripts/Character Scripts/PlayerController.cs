@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     public string xbox_name_Vertical;
     public string xbox_name_RstickX;
     public string xbox_name_RstickY;
-        
+    public string xbox_name_Rtrigger;
+
 
     public Vector3 screenPos;
     public float sizeWidth;
@@ -19,17 +20,18 @@ public class PlayerController : MonoBehaviour
     public float half_sz_Y;
 
     public bool över;
-   // private bool walking = false;
+    private bool walking = false;
     public float whatValue;
 
     Vector3 rbLastPosition;
-    //private Animator anim;
+    private Animator anim;
 
     void Awake()
     {
         rb.freezeRotation = true;
         rb.useGravity = false;
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
+        Debug.Log(anim);
 
     }
 
@@ -44,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
         över = false;
         
-        //walking = false;
+        walking = false;
         
         rbLastPosition = transform.position;
     }
@@ -68,8 +70,8 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis(xbox_name_Vertical);
         float rStickX = Input.GetAxis(xbox_name_RstickX);
         float rStickY = Input.GetAxis(xbox_name_RstickY);
-        
-        //Animating(moveHorizontal, moveVertical);
+        float rTrigger = Input.GetAxis(xbox_name_Rtrigger);
+        Animating(moveHorizontal, moveVertical);
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
@@ -111,6 +113,7 @@ public class PlayerController : MonoBehaviour
         float dPadY = Input.GetAxis("X360_DPadY");
 
         float triggerAxis = Input.GetAxis("X360_Triggers");
+        
 
         #region Ta bort om du inte använder detta mer Jonathan!
         //if (dPadX != 0)
@@ -166,7 +169,7 @@ public class PlayerController : MonoBehaviour
         //    print("Clicked Right Stick");
         //}
         #endregion
-
+       
     }
 
     void OnCollisionEnter(Collision collision)
@@ -196,6 +199,6 @@ public class PlayerController : MonoBehaviour
     void Animating(float moveHorizontal, float moveVertical)
     {
         bool walking = moveHorizontal != 0f || moveVertical != 0f;
-       // anim.SetBool("IsWalking", walking);
+        anim.SetBool("IsWalking", walking);
     }
 }

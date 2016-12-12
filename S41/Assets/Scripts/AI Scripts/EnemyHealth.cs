@@ -48,10 +48,10 @@ public class EnemyHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            currHealth = 0;
-        }
+        //if (Input.GetKeyDown(KeyCode.M))
+        //{
+        //    currHealth = 0;
+        //}
         if (Input.GetKeyDown(KeyCode.T))
         {
             Debug.Log("T key pressed");
