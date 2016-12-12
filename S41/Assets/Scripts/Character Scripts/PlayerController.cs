@@ -24,14 +24,14 @@ public class PlayerController : MonoBehaviour
     public float whatValue;
 
     Vector3 rbLastPosition;
-    private Animator anim;
+    //private Animator anim;
 
     void Awake()
     {
         rb.freezeRotation = true;
         rb.useGravity = false;
-        anim = GetComponent<Animator>();
-        Debug.Log(anim);
+        //anim = GetComponent<Animator>();
+        //Debug.Log(anim);
 
     }
 
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
         float rStickX = Input.GetAxis(xbox_name_RstickX);
         float rStickY = Input.GetAxis(xbox_name_RstickY);
         float rTrigger = Input.GetAxis(xbox_name_Rtrigger);
-        Animating(moveHorizontal, moveVertical);
+        //Animating(moveHorizontal, moveVertical);
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
@@ -199,6 +199,6 @@ public class PlayerController : MonoBehaviour
     void Animating(float moveHorizontal, float moveVertical)
     {
         bool walking = moveHorizontal != 0f || moveVertical != 0f;
-        anim.SetBool("IsWalking", walking);
+        //anim.SetBool("IsWalking", walking);
     }
 }
