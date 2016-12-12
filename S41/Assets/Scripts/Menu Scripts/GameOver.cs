@@ -8,8 +8,7 @@ public class GameOver : MonoBehaviour {
 
     public GameObject quitGameButton;
     public GameObject startGameButton;
-    public GameObject scoreListButton;
-    
+    public GameObject scoreListButton;    
 
     public Image scoreListBG;
     public Text scoreListText;
@@ -21,18 +20,14 @@ public class GameOver : MonoBehaviour {
     public Text scoreText;
     public Text newHighScore;
 
-    public Text scoreBoardText;
-       
-    
-
+    public Text scoreBoardText;     
 
     string hScore = "HighScore";
     int score;
+
 	// Use this for initialization
 	void Start () {
-
-       
-        //score = PlayerPrefs.GetInt(hScore, 0);
+        
         startGameButton = GameObject.Find("RestartButton");
         quitGameButton = GameObject.Find("Quit");
         scoreListButton = GameObject.Find("Highscore");
@@ -78,7 +73,7 @@ public class GameOver : MonoBehaviour {
         }
     }
 
-    // Shows the last 5 games score
+    // Shows the last 10 games score
     public void HighScoreMenu()
     {
         if (Input.GetKeyDown("joystick button 7") || Input.GetKeyDown(KeyCode.M))

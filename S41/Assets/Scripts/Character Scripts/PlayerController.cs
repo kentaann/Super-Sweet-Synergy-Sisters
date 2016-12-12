@@ -31,8 +31,6 @@ public class PlayerController : MonoBehaviour
         rb.freezeRotation = true;
         rb.useGravity = false;
         anim = GetComponent<Animator>();
-        Debug.Log(anim);
-
     }
 
     void Start ()
@@ -71,6 +69,8 @@ public class PlayerController : MonoBehaviour
         float rStickX = Input.GetAxis(xbox_name_RstickX);
         float rStickY = Input.GetAxis(xbox_name_RstickY);
         float rTrigger = Input.GetAxis(xbox_name_Rtrigger);
+
+        // Animating the players while they are going
         Animating(moveHorizontal, moveVertical);
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);

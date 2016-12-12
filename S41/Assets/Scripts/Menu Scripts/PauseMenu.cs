@@ -45,14 +45,14 @@ public class PauseMenu : MonoBehaviour
         phillippa = GameObject.Find("Philippa_anim");
         simone = GameObject.Find("Simone_Animated");
        
-
+        // players attack, enemy spawn true while pause menu is not opened 
         enemySpawn.GetComponent<WaveSpawner>().enabled = true;
+        
 
         solveig.GetComponent<Player_Movement>().enabled = true;
         solveig.GetComponent<PlayerController>().enabled = true;
         solveig.GetComponent<Solveig_Attack>().enabled = true;
-        solveig.GetComponentInChildren<Song_Script>().enabled = true;
-        // health should be disabled?
+        solveig.GetComponentInChildren<Song_Script>().enabled = true;      
 
         elise.GetComponent<Player_Movement>().enabled = true;
         elise.GetComponent<PlayerController>().enabled = true;
@@ -106,6 +106,7 @@ public class PauseMenu : MonoBehaviour
         //the escape or the back button on xbox opens it
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 6"))
         {
+            //menu is opened
             if (menuOpened && Time.timeScale == 1.0f)
             {
                 Time.timeScale = 0f;
@@ -116,6 +117,8 @@ public class PauseMenu : MonoBehaviour
                 controlsButton.SetActive(true);
 
                 enemySpawn.GetComponent<WaveSpawner>().enabled = false;
+                
+
 
                 solveig.GetComponent<Player_Movement>().enabled = false;
                 solveig.GetComponent<PlayerController>().enabled = false;
@@ -139,14 +142,15 @@ public class PauseMenu : MonoBehaviour
                 phillippa.GetComponentInChildren<EnergyWhisk>().enabled = false;
 
                 menuOpened = false;
-                Debug.Log("pressedOpenPause");
-
+               
             }
             else
             {
+                //menu is not opened
                 Time.timeScale = 1.0f;
 
                 enemySpawn.GetComponent<WaveSpawner>().enabled = true;
+                
 
                 solveig.GetComponent<Player_Movement>().enabled = true;
                 solveig.GetComponent<PlayerController>().enabled = true;
@@ -184,11 +188,11 @@ public class PauseMenu : MonoBehaviour
     public void OpenControls()
     {
         // Open it with Left Bumper
-        if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown("joystick button 5"))
+        if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown("joystick button 4"))
         {
             if (controlsOpened && !menuOpened)
             {
-
+                // controls are opened
                 controlPanel.enabled = true;                
                 phillippaControlsText.enabled = true;
                 eliseControlsText.enabled = true;
@@ -200,6 +204,7 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
+                //controls are not opened
                 controlPanel.enabled = false;                
                 phillippaControlsText.enabled = false;
                 eliseControlsText.enabled = false;
@@ -209,7 +214,6 @@ public class PauseMenu : MonoBehaviour
                 controlsOpened = true;
             }
         }
-
     }
 
     // Leave the game (Closes the whole game)   -> maybe it should go back to the Main menu and do not save the game????
