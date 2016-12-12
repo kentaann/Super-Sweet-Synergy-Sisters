@@ -66,6 +66,7 @@ public class WaveSpawner : MonoBehaviour
         spawn_Point_Cylinder1 = GameObject.Find("CylinderSpawnPoint1");
         spawn_Point_Cylinder2 = GameObject.Find("CylinderSpawnPoint1 (1)");
         spawn_Point_Cylinder3 = GameObject.Find("CylinderSpawnPoint1 (2)");
+        
 
         if (spawnPoints.Length == 0)
         {
