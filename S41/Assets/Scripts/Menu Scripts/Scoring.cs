@@ -47,6 +47,7 @@ public class Scoring : MonoBehaviour
         text.text = score.ToString();
     }
 
+    // high score saving
     public void SaveHighScore()
     {
         Debug.Log("SAvestart");
@@ -90,6 +91,7 @@ public class Scoring : MonoBehaviour
         }       
     }
 
+    //load highscore
     public List<int> LoadHighScore()
     {
         List<int> lista = new List<int>();

@@ -29,7 +29,7 @@ public class UserInterface : MonoBehaviour
         quitGameButton = GameObject.Find("LeaveGameButton");
         optionsMenuBg.enabled = false;
 
-
+        // controls text for players 
         eliseControlsText.enabled = false;
         phillippaControlsText.enabled = false;
         solveigControlsText.enabled = false;
@@ -55,6 +55,7 @@ public class UserInterface : MonoBehaviour
         {
             if (optionMenuOpened)
             {
+                // options are opened
                 optionsMenuBg.enabled = true;
 
                 eliseControlsText.enabled = true;
@@ -67,6 +68,7 @@ public class UserInterface : MonoBehaviour
             }
             else
             {
+                //options are not opened
                 optionsMenuBg.enabled = false;
 
                 eliseControlsText.enabled = false;
