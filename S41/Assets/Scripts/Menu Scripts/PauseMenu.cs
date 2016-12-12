@@ -120,6 +120,7 @@ public class PauseMenu : MonoBehaviour
                 solveig.GetComponent<Player_Movement>().enabled = false;
                 solveig.GetComponent<PlayerController>().enabled = false;
                 solveig.GetComponent<Solveig_Attack>().enabled = false;
+                solveig.GetComponentInChildren<Song_Script>().enabled = false;
 
                 elise.GetComponent<Player_Movement>().enabled = false;
                 elise.GetComponent<PlayerController>().enabled = false;
@@ -132,9 +133,10 @@ public class PauseMenu : MonoBehaviour
                 phillippa.GetComponent<Player_Movement>().enabled = false;
                 phillippa.GetComponent<PlayerController>().enabled = false;
                 phillippa.GetComponent<Phillippa_Attack>().enabled = false;
-
-              
-
+                phillippa.GetComponentInChildren<WhiskAttack>().enabled = false;
+                phillippa.GetComponentInChildren<Fluff_Script>().enabled = false;
+                phillippa.GetComponentInChildren<SpicyWhisk>().enabled = false;
+                phillippa.GetComponentInChildren<EnergyWhisk>().enabled = false;
 
                 menuOpened = false;
                 Debug.Log("pressedOpenPause");
@@ -149,6 +151,7 @@ public class PauseMenu : MonoBehaviour
                 solveig.GetComponent<Player_Movement>().enabled = true;
                 solveig.GetComponent<PlayerController>().enabled = true;
                 solveig.GetComponent<Solveig_Attack>().enabled = true;
+                solveig.GetComponentInChildren<Song_Script>().enabled = true;
 
                 elise.GetComponent<Player_Movement>().enabled = true;
                 elise.GetComponent<PlayerController>().enabled = true;
@@ -161,15 +164,18 @@ public class PauseMenu : MonoBehaviour
                 phillippa.GetComponent<Player_Movement>().enabled = true;
                 phillippa.GetComponent<PlayerController>().enabled = true;
                 phillippa.GetComponent<Phillippa_Attack>().enabled = true;
-
-          
-
+                phillippa.GetComponentInChildren<WhiskAttack>().enabled = true;
+                phillippa.GetComponentInChildren<Fluff_Script>().enabled = true;
+                phillippa.GetComponentInChildren<SpicyWhisk>().enabled = true;
+                phillippa.GetComponentInChildren<EnergyWhisk>().enabled = true;    
 
                 pausePanel.enabled = false;
                 pauseTextinMenu.enabled = false;
                 quitButton.SetActive(false);
                 controlsButton.SetActive(false);
+
                 resumeGameButton.SetActive(false);
+
                 menuOpened = true;
             }
         }
