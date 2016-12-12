@@ -45,15 +45,20 @@ public class WaveSpawner : MonoBehaviour
 
     public float timeBetweenWaves = 5f;//5 seconds
     public float waveCountDown;//count down to next wave
+
     public Text m_counterText;
     public Text m_waveDescriptionText;
+    public Color m_startColor;
+    public float m_fadeColor;
 
     private SpawnState state = SpawnState.COUNTING;
 
     private float searchCountDown = 1f;
 
+
     void Start()
     {
+        m_startColor = m_waveDescriptionText.color;
 
         spawn_Point1 = GameObject.Find("Spawn Point 1");
         spawn_Point2 = GameObject.Find("Spawn Point 2");
@@ -106,6 +111,9 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveCountDown <= 0)
         {
+            m_counterText.color = Color.red;
+            m_counterText.text = 0.ToString();
+
             if (state != SpawnState.SPAWNING)
             {
                 StartCoroutine(SpawnWave(waves[nextWave]));
@@ -114,8 +122,29 @@ public class WaveSpawner : MonoBehaviour
         else
         {
             waveCountDown -= Time.deltaTime;
-        }
 
+            m_counterText.color = Color.white;
+            m_counterText.text = ((int)waveCountDown + 1).ToString();
+
+            if (waveCountDown >= 4)
+            {
+                m_waveDescriptionText.color = new Color(1, 1, 1, 1.0f);
+                m_fadeColor = 1;
+
+                m_waveDescriptionText.text = "Name of the wave:       " + waves[nextWave].name + "\n" +
+                                     "Type of enemy:            " + waves[nextWave].enemy.name + "\n" +
+                                     "Numbers of enemies:   " + waves[nextWave].count + "\n" +
+                                     "Spawn rate:                  " + waves[nextWave].rate + "\n" +
+                                     "Hp:                               " + waves[nextWave].enemyHP + "\n" +
+                                     "Speed:                          " + waves[nextWave].enemySpeed;
+            }
+            else
+            {
+                m_fadeColor -= 0.013f;
+                m_waveDescriptionText.color = new Color(1, 1, 1, m_fadeColor);
+            }
+
+        }
     }
 
     void WaveCompleted()
@@ -157,6 +186,10 @@ public class WaveSpawner : MonoBehaviour
     {
         Debug.Log("Spawning Wave: " + _wave.name);      // Flytta det så spelaren ser samt lägga till vad som spawnas till ex "2 melee + 4 range this wave" //Marcus
         state = SpawnState.SPAWNING;
+
+        //m_waveDescriptionText.font = Font.
+
+
 
         for (int i = 0; i < _wave.count; i++)
         {
