@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
 
-        half_sz_X = GetComponent<Renderer>().bounds.size.x;
-        half_sz_Y = GetComponent<Renderer>().bounds.size.y / 2;
+        half_sz_X = GetComponentInChildren<Renderer>().bounds.size.x;
+        half_sz_Y = GetComponentInChildren<Renderer>().bounds.size.y / 2;
 
         över = false;
         
