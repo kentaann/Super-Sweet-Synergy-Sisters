@@ -59,6 +59,7 @@ public class AiMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        navComponent.speed = MoveSpeed;
         numberOfPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
 
         UpdatePlayerList();
