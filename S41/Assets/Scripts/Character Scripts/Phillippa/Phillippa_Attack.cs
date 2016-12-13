@@ -179,6 +179,12 @@ public class Phillippa_Attack : MonoBehaviour
         //gameObject.transform.position = transform.forward * Time.deltaTime * 100;
         //gameObject.SendMessage("IsRushing", true);
         m_rushActive = false;                    //needs to start as true in order to not be activated at start, for some reason
+
+        //ParticleSystem ps = GetComponent<ParticleSystem>();
+        ////var ma = ps.mai
+
+        //ma.startDelay = 5.0f;
+        //ma.startLifetime = 2.0f;
     }
 
     #endregion
@@ -205,7 +211,7 @@ public class Phillippa_Attack : MonoBehaviour
         }
 
     
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown(xbox_name_X360_A))
+        if (Input.GetKeyDown(KeyCode.I) /*|| Input.GetButtonDown(xbox_name_X360_A)*/)
         {
             //Fluffpound();
             if (m_fluffCooldownTiming == false)
@@ -230,7 +236,7 @@ public class Phillippa_Attack : MonoBehaviour
             m_fluffCooldown = 0f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown(xbox_name_X360_B))
+        if (Input.GetKeyDown(KeyCode.Q) /*|| Input.GetButtonDown(xbox_name_X360_B)*/)
         {
             if (m_angerCooldownTiming == false)
             {
