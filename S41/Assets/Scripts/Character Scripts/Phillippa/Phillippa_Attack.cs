@@ -186,9 +186,7 @@ public class Phillippa_Attack : MonoBehaviour
     public void RushAttack()
     {
         gameObject.SendMessage("SetMoveSpeed", 60f);
-        //gameObject.GetComponents<Player_Movement>(Move
 
-        //gameObject.SendMessage("IsRushing", true);
         m_rushActive = true;
 
         if (RushEvent != null)
@@ -206,7 +204,7 @@ public class Phillippa_Attack : MonoBehaviour
             RemoveNullTarget();
         }
 
-        #region Fluffpound
+    
         if (Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown(xbox_name_X360_A))
         {
             //Fluffpound();
@@ -231,10 +229,8 @@ public class Phillippa_Attack : MonoBehaviour
             m_fluffCooldownTiming = false;
             m_fluffCooldown = 0f;
         }
-        #endregion
 
-        #region Anger Issues
-        if (Input.GetKeyDown(KeyCode.Z) || Input.GetButtonDown(xbox_name_X360_B))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown(xbox_name_X360_B))
         {
             if (m_angerCooldownTiming == false)
             {
@@ -263,8 +259,6 @@ public class Phillippa_Attack : MonoBehaviour
         if (m_rushTimer >= 0.3f)            //makes there Rush attack stop after 0.3 seconds
         {
             gameObject.SendMessage("SetMoveSpeed", 12f);
-            //gameObject.transform.position = gameObject.GetComponent<Player_Movement>().Move(movement);
-            //gameObject.SendMessage("IsRushing", false);
             m_rushActive = false;
             m_rushTimer = 0;
             m_angerIssuesDamage = 25.0f;
@@ -276,8 +270,7 @@ public class Phillippa_Attack : MonoBehaviour
             {
                 RushEnd();
             }
-        }
-        #endregion
+        } 
     }
 
     #endregion
