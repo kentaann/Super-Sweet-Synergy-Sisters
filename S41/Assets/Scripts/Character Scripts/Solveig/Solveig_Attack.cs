@@ -28,14 +28,7 @@ public class Solveig_Attack : MonoBehaviour
 	public string xbox_name_X360_Y;
 	public string xbox_name_Rtrigger;
 
-    public AudioClip autoAttackSound1;
-    public AudioClip autoAttackSound2;
-    public AudioClip flowerPowerSound1;
-    public AudioClip flowerPowerSound2;
-    public AudioClip songOfLoveSound1;
-    public AudioClip songOfLoveSound2;
-
-    private const float m_SPICYCREAMDAMAGE = 47.3f;                     // Damage modifier for Flower Power while under the Spicy Chocolate effect
+	private const float m_SPICYCREAMDAMAGE = 47.3f;                     // Damage modifier for Flower Power while under the Spicy Chocolate effect
 
 	private float m_launchForce;                                        // Force the projectile is launched with
 	private float m_coolDown;                                           // Cooldown of the shot
@@ -134,7 +127,6 @@ public class Solveig_Attack : MonoBehaviour
 				if (m_isAxisInUse == false)
 				{
 					Sol_Attack();
-                    SoundManager.instance.RandomizeSfx(autoAttackSound1, autoAttackSound2);
 					m_isAxisInUse = true;
 				}
 				
@@ -154,7 +146,6 @@ public class Solveig_Attack : MonoBehaviour
 				 if (FlowerEvent != null)
 				 {
 					 FlowerEvent();
-                    SoundManager.instance.RandomizeSfx(flowerPowerSound1, flowerPowerSound2);
 				 }
 
 				 FlowerPower();
@@ -183,8 +174,7 @@ public class Solveig_Attack : MonoBehaviour
 				 if (LoveEvent != null)
 				 {
 					 LoveEvent();
-                    SoundManager.instance.RandomizeSfx(songOfLoveSound1, songOfLoveSound2);
-}
+				 }
 				 m_songCounter++;
 				 m_loveCooldownTiming = true;
 			 }

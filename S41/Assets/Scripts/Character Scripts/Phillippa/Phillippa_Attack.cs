@@ -46,12 +46,6 @@ public class Phillippa_Attack : MonoBehaviour
     public string xbox_name_X360_X;
     public string xbox_name_X360_Y;
 
-    public AudioClip fluffPoundSound1;
-    public AudioClip fluffPoundSound2;
-    public AudioClip rushSound1;
-    public AudioClip rushSound2;
-
-
 
     #endregion
 
@@ -222,7 +216,6 @@ public class Phillippa_Attack : MonoBehaviour
                 if (FluffEvent != null)
                 {
                     FluffEvent();
-                    SoundManager.instance.RandomizeSfx(fluffPoundSound1, fluffPoundSound2);
                 }
                 m_fluffCounter++;
                 m_fluffCooldownTiming = true;
@@ -245,7 +238,6 @@ public class Phillippa_Attack : MonoBehaviour
             if (m_angerCooldownTiming == false)
             {
                 RushAttack();
-                SoundManager.instance.RandomizeSfx(rushSound1, rushSound2);
                 m_rushCounter++;
                 m_angerCooldownTiming = true;
             }
