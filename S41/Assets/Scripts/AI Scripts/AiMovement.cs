@@ -15,6 +15,7 @@ public class AiMovement : MonoBehaviour
 
     public List<Transform> Players;
     public Transform SelectedTarget;
+    public ParticleSystem m_stunSystem;
 
     private float m_stunTimer = 0;
     public bool m_isStunned;
@@ -54,6 +55,7 @@ public class AiMovement : MonoBehaviour
         otherObject = GameObject.FindGameObjectsWithTag("Enemy");
         lastPosition = transform.position;
         navComponent = this.gameObject.GetComponent<NavMeshAgent>();
+        m_stunSystem = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
@@ -121,11 +123,14 @@ public class AiMovement : MonoBehaviour
             {
                 m_stunTimer += Time.deltaTime;
                 MoveSpeed = 0f;
+                m_stunSystem.Play();
+
 
                 if (m_stunTimer >= 3)
                 {
                     MoveSpeed = 2f;
                     m_isStunned = false;
+                    m_stunSystem.Stop();
                     m_stunTimer = 0;
                 }
             }
