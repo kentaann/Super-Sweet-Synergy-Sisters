@@ -205,7 +205,7 @@ public class Phillippa_Attack : MonoBehaviour
         }
 
     
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown(xbox_name_X360_A))
+        if (Input.GetKeyDown(KeyCode.I) /*|| Input.GetButtonDown(xbox_name_X360_A)*/)
         {
             //Fluffpound();
             if (m_fluffCooldownTiming == false)
@@ -230,7 +230,7 @@ public class Phillippa_Attack : MonoBehaviour
             m_fluffCooldown = 0f;
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) || Input.GetButtonDown(xbox_name_X360_B))
+        if (Input.GetKeyDown(KeyCode.Q) /*|| Input.GetButtonDown(xbox_name_X360_B)*/)
         {
             if (m_angerCooldownTiming == false)
             {

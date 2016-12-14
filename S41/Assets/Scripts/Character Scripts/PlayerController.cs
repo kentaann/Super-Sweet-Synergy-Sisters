@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
 
         float dPadY = Input.GetAxis("X360_DPadY");
 
-        float triggerAxis = Input.GetAxis("X360_Triggers");
+        //float triggerAxis = Input.GetAxis("X360_Triggers");
         
 
         #region Ta bort om du inte använder detta mer Jonathan!

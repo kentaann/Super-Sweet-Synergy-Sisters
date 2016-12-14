@@ -106,6 +106,8 @@ public class PauseMenu : MonoBehaviour
         //the escape or the back button on xbox opens it
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 6"))
         {
+            menuOpened = !menuOpened;
+
             //menu is opened
             if (menuOpened && Time.timeScale == 1.0f)
             {
@@ -116,8 +118,7 @@ public class PauseMenu : MonoBehaviour
                 resumeGameButton.SetActive(true);
                 controlsButton.SetActive(true);
 
-                enemySpawn.GetComponent<WaveSpawner>().enabled = false;
-                
+                enemySpawn.GetComponent<WaveSpawner>().enabled = false;            
 
 
                 solveig.GetComponent<Player_Movement>().enabled = false;
@@ -140,15 +141,12 @@ public class PauseMenu : MonoBehaviour
                 phillippa.GetComponentInChildren<Fluff_Script>().enabled = false;
                 phillippa.GetComponentInChildren<SpicyWhisk>().enabled = false;
                 phillippa.GetComponentInChildren<EnergyWhisk>().enabled = false;
-
-                menuOpened = false;
                
             }
             else
             {
                 //menu is not opened
                 Time.timeScale = 1.0f;
-
                 enemySpawn.GetComponent<WaveSpawner>().enabled = true;
                 
 
@@ -180,7 +178,7 @@ public class PauseMenu : MonoBehaviour
 
                 resumeGameButton.SetActive(false);
 
-                menuOpened = true;
+                
             }
         }
     }
