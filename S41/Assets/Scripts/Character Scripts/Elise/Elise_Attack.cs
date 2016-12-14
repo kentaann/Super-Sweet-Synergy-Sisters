@@ -29,6 +29,14 @@ public class Elise_Attack : MonoBehaviour
 	public string xbox_name_X360_Y;
     public string xbox_name_Rtrigger;
 
+    //sounds
+    public AudioClip aaSound1;
+    public AudioClip aaSound2;
+    public AudioClip marbleRainSound1;
+    public AudioClip marbleRainSound2;
+    public AudioClip trapSound1;
+    public AudioClip trapSound2;
+
     private bool m_isAxisInUse = false;
     private int m_trapCounter = 0;              // Times Cookie Jar was used
 	private int m_multiShotCounter = 0;         // Times Marble rain was used
@@ -48,6 +56,7 @@ public class Elise_Attack : MonoBehaviour
                 if (m_isAxisInUse == false)
                 {
                     E_Normal_Attack();
+                    SoundManager.instance.RandomizeSfx(aaSound1, aaSound2);
                     m_isAxisInUse = true;
                 }
                 m_eliNormalCooldownTiming = true;
@@ -96,6 +105,7 @@ public class Elise_Attack : MonoBehaviour
 				if (TrapEvent != null)
 				{
 					TrapEvent();
+                    SoundManager.instance.RandomizeSfx(trapSound1, trapSound2);
 				}
 				E_LayTrap();
 				m_trapCounter++;
@@ -123,7 +133,8 @@ public class Elise_Attack : MonoBehaviour
 				if (MultiEvent != null)
 				{
 					MultiEvent();
-				}
+                    SoundManager.instance.RandomizeSfx(marbleRainSound1, marbleRainSound2);
+                }
 				E_MultiShot();
 				m_multiShotCounter++;
 				m_multiCooldownTiming = true;

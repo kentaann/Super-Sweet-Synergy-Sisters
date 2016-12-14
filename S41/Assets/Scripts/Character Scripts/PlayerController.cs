@@ -24,13 +24,13 @@ public class PlayerController : MonoBehaviour
     public float whatValue;
 
     Vector3 rbLastPosition;
-    //private Animator anim;
+     Animator anim;
 
     void Awake()
     {
         rb.freezeRotation = true;
         rb.useGravity = false;
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
 
     }
 
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
-
+      
 
         whatValue = (screenPos.x - 10);
         if ((screenPos.y + 10) > sizeHeight)
@@ -194,9 +194,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Animating(float moveHorizontal, float moveVertical)
-    {
-        bool walking = moveHorizontal != 0f || moveVertical != 0f;
-       // anim.SetBool("IsWalking", walking);
-    }
+    //void Animating(float moveHorizontal, float moveVertical)
+    //{
+    //    bool walking = moveHorizontal != 0f || moveVertical != 0f;
+    //   // anim.SetBool("IsWalking", walking);
+    //}
 }
