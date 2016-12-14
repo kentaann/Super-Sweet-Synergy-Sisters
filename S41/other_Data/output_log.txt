@@ -16,44 +16,17 @@ Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\
 Loading C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.054 seconds
+- Completed reload, in  0.086 seconds
 Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\System.dll (this message is harmless)
 desktop: 1600x900 60Hz; virtual: 3520x1080 at -1920,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.831271 ms
+UnloadTime: 0.861658 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 1f88 -> priority: 1 
-  Thread -> id: 19d0 -> priority: 1 
-Scene 'Survival_Level' (-1) couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
-To add a scene to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 532)
-
-StartPressed
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Scene 'Survival_Level' (-1) couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
-To add a scene to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 532)
-
-StartPressed
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
-Scene 'Survival_Level' (-1) couldn't be loaded because it has not been added to the build settings or the AssetBundle has not been loaded.
-To add a scene to the build settings use the menu File->Build Settings...
- 
-(Filename:  Line: 532)
-
-StartPressed
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
+  Thread -> id: 20f8 -> priority: 1 
+  Thread -> id: 23ec -> priority: 1 
 QuitPressed
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
