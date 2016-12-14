@@ -29,7 +29,10 @@ public class Simone_Attack : MonoBehaviour
 	public string xbox_name_X360_Y;
 	public string xbox_name_Rtrigger;
 
-	private bool m_isAxisInUse = false;
+    public AudioClip sound1;
+    public AudioClip sound2;
+
+    private bool m_isAxisInUse = false;
 
 	private float m_bulletLaunchForce;                              // Speed of the projectile
 	private float m_coolDown;                                       // Cooldown of attacks
@@ -178,7 +181,8 @@ public class Simone_Attack : MonoBehaviour
 						if (m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
 						{
 							S_WhippedCreamAttack();
-							m_attackRate = 0;
+                            SoundManager.instance.RandomizeSfx(sound1, sound2);
+                            m_attackRate = 0;
 							m_whippedCounter++;
 							m_isAxisInUse = true;
 						}
@@ -188,7 +192,8 @@ public class Simone_Attack : MonoBehaviour
 				if (m_energyDrinkActive && !m_spicyChocolateActive && !m_whippedCreamActive)
 				{
 					S_EnergyDrinkAttack();
-					m_attackRate = 0;
+                    SoundManager.instance.RandomizeSfx(sound1, sound2);
+                    m_attackRate = 0;
 					m_energyCounter++;
 
 				}
@@ -196,7 +201,8 @@ public class Simone_Attack : MonoBehaviour
 				if (m_spicyChocolateActive && !m_energyDrinkActive && !m_whippedCreamActive)
 				{
 					S_SpicyChocolateAttack();
-					m_attackRate = 0;
+                    SoundManager.instance.RandomizeSfx(sound1, sound2);
+                    m_attackRate = 0;
 					m_spicyCounter++;
 				}
 			}
