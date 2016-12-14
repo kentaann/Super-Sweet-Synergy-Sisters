@@ -31,6 +31,7 @@ public class Channeling_script : MonoBehaviour
     GameObject enemyObject;
     public bool seeState;
     public int i = 0;
+    public float m_damage;
     public float seeTime;
     float timer = 0;
 
@@ -43,6 +44,7 @@ public class Channeling_script : MonoBehaviour
         destroy = false;
         StartCoroutine(Expand());
         minScale = transform.localScale;
+        m_damage = 12;
     }
 
     #endregion
@@ -89,7 +91,7 @@ public class Channeling_script : MonoBehaviour
 
                 if (enemyObject.gameObject.GetComponent<EnemyHealth>().ableToDamage)
                 {
-                    enemyObject.gameObject.GetComponent<EnemyHealth>().Hit(4);
+                    enemyObject.gameObject.GetComponent<EnemyHealth>().Hit(m_damage);
                     enemyObject.gameObject.GetComponent<EnemyHealth>().ableToDamage = false;
                 }
             }

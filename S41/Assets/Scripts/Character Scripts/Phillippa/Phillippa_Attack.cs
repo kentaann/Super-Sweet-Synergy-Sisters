@@ -67,7 +67,6 @@ public class Phillippa_Attack : MonoBehaviour
             m_spicyRushActive = false;
             m_energyRushActive = false;
             m_angerIssuesDamage = 40.0f;
-            UnityEngine.Debug.Log("WHIPPED RUSH ACTIVE FUCKER");
 
             if (CreamCollider != null)
             {
@@ -81,7 +80,6 @@ public class Phillippa_Attack : MonoBehaviour
             m_energyRushActive = true;
             m_whippedCreamActive = false;
             m_spicyRushActive = false;
-            UnityEngine.Debug.Log("ENERGY RUSH ACTIVE");
 
             if (EnergyCollider != null)
             {
@@ -94,7 +92,6 @@ public class Phillippa_Attack : MonoBehaviour
             m_spicyRushActive = true;
             m_whippedCreamActive = false;
             m_energyRushActive = false;
-            UnityEngine.Debug.Log("SPICY RUSH ACTIVE");
 
             if (SpicyCollider != null)
             {
