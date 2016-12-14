@@ -186,9 +186,10 @@ public class PauseMenu : MonoBehaviour
     public void OpenControls()
     {
         // Open it with Left Bumper
-        if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown("joystick button 4"))
+        if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown("joystick button 5"))
         {
-            if (controlsOpened && !menuOpened)
+            controlsOpened = !controlsOpened;
+            if (controlsOpened && menuOpened)
             {
                 // controls are opened
                 controlPanel.enabled = true;                
@@ -197,8 +198,6 @@ public class PauseMenu : MonoBehaviour
                 simoneControlsText.enabled = true;
                 solveigControlsText.enabled = true;
                 commonButtonsText.enabled = true;
-                controlsOpened = false;
-
             }
             else
             {
@@ -209,7 +208,6 @@ public class PauseMenu : MonoBehaviour
                 simoneControlsText.enabled = false;
                 solveigControlsText.enabled = false;
                 commonButtonsText.enabled = false;
-                controlsOpened = true;
             }
         }
     }
@@ -227,7 +225,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         // Resume with start
-        if (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown("joystick button 7"))
+        if (menuOpened && Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown("joystick button 7"))
         {
             Time.timeScale = 1.0f;
             pausePanel.enabled = false;
