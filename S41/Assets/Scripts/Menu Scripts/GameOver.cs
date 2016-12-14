@@ -103,7 +103,6 @@ public class GameOver : MonoBehaviour {
        foreach(int s in lista)
        {
            scoreBoardText.text += s.ToString() + "\n";
-       }
-       Debug.Log("showHigh");
+       }  
    }
 }
