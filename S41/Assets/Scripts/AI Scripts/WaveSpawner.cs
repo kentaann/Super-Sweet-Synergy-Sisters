@@ -67,7 +67,6 @@ public class WaveSpawner : MonoBehaviour
         spawn_Point_Cylinder2 = GameObject.Find("CylinderSpawnPoint1 (1)");
         spawn_Point_Cylinder3 = GameObject.Find("CylinderSpawnPoint1 (2)");
         
-
         if (spawnPoints.Length == 0)
         {
             Debug.LogError("No spawn points reference");
@@ -91,7 +90,6 @@ public class WaveSpawner : MonoBehaviour
 
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("R key pressed");
@@ -145,28 +143,22 @@ public class WaveSpawner : MonoBehaviour
                 m_fadeColor -= 0.014f;
                 m_waveDescriptionText.color = new Color(1, 1, 1, m_fadeColor);
             }
-
         }
     }
 
     void WaveCompleted()
     {
-        Debug.Log("Wave Completed");                // Ta bort detta från Debug.Log och kör det istället så spelaren kan se //Marcus
-
         state = SpawnState.COUNTING;
         waveCountDown = timeBetweenWaves;
 
         if (nextWave + 1 > waves.Length - 1)
         {
             nextWave = 0;
-            Debug.Log("All waves complete looping");
         }
         else
         {
             nextWave++;
-
         }
-
     }
 
     bool EnemyIsAlive()
@@ -186,13 +178,8 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave(Wave _wave)
     {
-        Debug.Log("Spawning Wave: " + _wave.name);      // Flytta det så spelaren ser samt lägga till vad som spawnas till ex "2 melee + 4 range this wave" //Marcus
         state = SpawnState.SPAWNING;
-
-        //m_waveDescriptionText.font = Font.
-
-
-
+        
         for (int i = 0; i < _wave.count; i++)
         {
             SpawnEnemy(_wave.enemy, _wave.enemyHP, _wave.enemySpeed, _wave.projectileSpeed);
@@ -231,9 +218,6 @@ public class WaveSpawner : MonoBehaviour
             EnemyProjectile eProjectile = eObj.GetComponent<EnemyProjectile>();
             eProjectile.InitializeBulletForce(setProjSpeed);
         }
-
-
-        Debug.Log("Spawning Enemy" + _enemy.name);
     }
 
     void DestroyAllEnemyObjects()

@@ -179,6 +179,12 @@ public class Phillippa_Attack : MonoBehaviour
         //gameObject.transform.position = transform.forward * Time.deltaTime * 100;
         //gameObject.SendMessage("IsRushing", true);
         m_rushActive = false;                    //needs to start as true in order to not be activated at start, for some reason
+
+        //ParticleSystem ps = GetComponent<ParticleSystem>();
+        ////var ma = ps.mai
+
+        //ma.startDelay = 5.0f;
+        //ma.startLifetime = 2.0f;
     }
 
     #endregion
