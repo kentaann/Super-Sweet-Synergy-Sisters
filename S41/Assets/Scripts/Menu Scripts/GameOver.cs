@@ -31,17 +31,16 @@ public class GameOver : MonoBehaviour {
         startGameButton = GameObject.Find("RestartButton");
         quitGameButton = GameObject.Find("Quit");
         scoreListButton = GameObject.Find("Highscore");
-        
-        score = Scoring.Instance.score;
-        
         scoreListBG.enabled = false;
-        scoreListText.enabled = false;         
+        scoreListText.enabled = false; 
 
-        isScoreListOpened = false;
+        score = Scoring.Instance.score;              
+
+        
         
         Scoring.Instance.SaveHighScore();
         ShowHighScore();
-
+        isScoreListOpened = false;
 	}
 	
 	// Update is called once per frame
@@ -78,18 +77,19 @@ public class GameOver : MonoBehaviour {
     {
         if (Input.GetKeyDown("joystick button 7") || Input.GetKeyDown(KeyCode.M))
         {
+            isScoreListOpened = !isScoreListOpened;
             if (isScoreListOpened)
             {
                 scoreListBG.enabled = true;
                 scoreListText.enabled = true;
                
-                isScoreListOpened = false;
+                
             }
             else
             {
                 scoreListBG.enabled = false;
                 scoreListText.enabled = false;
-                isScoreListOpened = true;
+                
             }
         }
     }
