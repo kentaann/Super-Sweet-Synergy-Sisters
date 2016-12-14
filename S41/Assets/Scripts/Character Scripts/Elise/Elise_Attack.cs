@@ -18,27 +18,19 @@ public class Elise_Attack : MonoBehaviour
 	public float m_trapCooldown = 0;
 	public float m_multiCooldown = 0;
 
-	public bool m_eliNormalCooldownTiming = false;
-	public bool m_trapCooldownTiming = false;
-	public bool m_multiCooldownTiming = false;
+	private bool m_eliNormalCooldownTiming = false;
+	private bool m_trapCooldownTiming = false;
+	private bool m_multiCooldownTiming = false;
 
 	public float m_multiLaunchForce;
 	public string xbox_name_X360_A;
 	public string xbox_name_X360_B;
 	public string xbox_name_X360_X;
 	public string xbox_name_X360_Y;
-    public string xbox_name_Rtrigger;
+	public string xbox_name_Rtrigger;
 
-    //sounds
-    public AudioClip aaSound1;
-    public AudioClip aaSound2;
-    public AudioClip marbleRainSound1;
-    public AudioClip marbleRainSound2;
-    public AudioClip trapSound1;
-    public AudioClip trapSound2;
-
-    private bool m_isAxisInUse = false;
-    private int m_trapCounter = 0;              // Times Cookie Jar was used
+	private bool m_isAxisInUse = false;
+	private int m_trapCounter = 0;              // Times Cookie Jar was used
 	private int m_multiShotCounter = 0;         // Times Marble rain was used
 	// Use this for initialization
 	void Start () 
@@ -46,66 +38,64 @@ public class Elise_Attack : MonoBehaviour
 	
 	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0)
-        {
-            if (m_eliNormalCooldownTiming == false)
-            {
-                if (m_isAxisInUse == false)
-                {
-                    E_Normal_Attack();
-                    SoundManager.instance.RandomizeSfx(aaSound1, aaSound2);
-                    m_isAxisInUse = true;
-                }
-                m_eliNormalCooldownTiming = true;
-            }
-            if (m_eliNormalCooldownTiming == true)
-            {
-                m_eliNormalCooldown += Time.deltaTime;
-            }
-        }
-        if (m_eliNormalCooldown >= 0.025f)
-        {
-            if (Input.GetAxisRaw(xbox_name_Rtrigger) == 0)
-            {
-                m_isAxisInUse = false;
-                m_eliNormalCooldownTiming = false;
-                m_eliNormalCooldown = 0f;
-            }
-        }
-        #region Elise Normal Attack
-        //      if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown(xbox_name_X360_A))
-        //{
-        //	if (m_eliNormalCooldownTiming == false)
-        //	{
-        //		E_Normal_Attack();
-        //		m_eliNormalCooldownTiming = true;
-        //	}
+	// Update is called once per frame
+	void Update()
+	{
+		if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0)
+		{
+			if (m_eliNormalCooldownTiming == false)
+			{
+				if (m_isAxisInUse == false)
+				{
+					E_Normal_Attack();
+					m_isAxisInUse = true;
+				}
+				m_eliNormalCooldownTiming = true;
+			}
+			if (m_eliNormalCooldownTiming == true)
+			{
+				m_eliNormalCooldown += Time.deltaTime;
+			}
+		}
+		if (m_eliNormalCooldown >= 0.025f)
+		{
+			if (Input.GetAxisRaw(xbox_name_Rtrigger) == 0)
+			{
+				m_isAxisInUse = false;
+				m_eliNormalCooldownTiming = false;
+				m_eliNormalCooldown = 0f;
+			}
+		}
+		#region Elise Normal Attack
+		//      if (Input.GetKeyDown(KeyCode.X) || Input.GetButtonDown(xbox_name_X360_A))
+		//{
+		//	if (m_eliNormalCooldownTiming == false)
+		//	{
+		//		E_Normal_Attack();
+		//		m_eliNormalCooldownTiming = true;
+		//	}
 
-        //	if (m_eliNormalCooldownTiming == true)
-        //	{
-        //		m_eliNormalCooldown += Time.deltaTime;
-        //	}
+		//	if (m_eliNormalCooldownTiming == true)
+		//	{
+		//		m_eliNormalCooldown += Time.deltaTime;
+		//	}
 
-        //	if (m_eliNormalCooldown >= 0.025f)
-        //	{
-        //		m_eliNormalCooldownTiming = false;
-        //		m_eliNormalCooldown = 0f;
-        //	}
-        //}
-        #endregion
+		//	if (m_eliNormalCooldown >= 0.025f)
+		//	{
+		//		m_eliNormalCooldownTiming = false;
+		//		m_eliNormalCooldown = 0f;
+		//	}
+		//}
+		#endregion
 
-        #region Cookie Jar Trap
-        if (Input.GetKeyDown(KeyCode.O) || Input.GetButtonDown(xbox_name_X360_X))
+		#region Cookie Jar Trap
+		if (Input.GetKeyDown(KeyCode.O) || Input.GetButtonDown(xbox_name_X360_X))
 		{
 			if (m_trapCooldownTiming == false)
 			{
 				if (TrapEvent != null)
 				{
 					TrapEvent();
-                    SoundManager.instance.RandomizeSfx(trapSound1, trapSound2);
 				}
 				E_LayTrap();
 				m_trapCounter++;
@@ -133,8 +123,7 @@ public class Elise_Attack : MonoBehaviour
 				if (MultiEvent != null)
 				{
 					MultiEvent();
-                    SoundManager.instance.RandomizeSfx(marbleRainSound1, marbleRainSound2);
-                }
+				}
 				E_MultiShot();
 				m_multiShotCounter++;
 				m_multiCooldownTiming = true;
@@ -167,7 +156,7 @@ public class Elise_Attack : MonoBehaviour
 
 	private void E_LayTrap()
 	{
-        m_transformTrapOrigin.position = new Vector3(m_transformTrapOrigin.position.x, m_transformTrapOrigin.position.y - 1.5f, m_transformTrapOrigin.position.z);
+		m_transformTrapOrigin.position = new Vector3(m_transformTrapOrigin.position.x, m_transformTrapOrigin.position.y - 1.5f, m_transformTrapOrigin.position.z);
 		Collider m_trapInstance = Instantiate(m_trap, m_transformTrapOrigin.position, m_transformTrapOrigin.rotation * Quaternion.Euler(270,0,0)) as Collider;
 	}
 

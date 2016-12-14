@@ -25,7 +25,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject phillippa;
     public GameObject elise;
     public GameObject simone;
-    public GameObject phillippaWhisk;
+
+    public GameObject eliseAutoAttack;
+ 
 
     bool menuOpened = false;
     bool controlsOpened = false;
@@ -38,22 +40,23 @@ public class PauseMenu : MonoBehaviour
         resumeGameButton = GameObject.Find("ResumeButton");
 
         enemySpawn = GameObject.Find("Spawn Manager");
-        solveig = GameObject.Find("Player");
-        elise = GameObject.Find("Player3");
-        phillippa = GameObject.Find("Player4");
-        simone = GameObject.Find("Player2");
-        phillippaWhisk = GameObject.Find("BalloonWhisk");
-
+        solveig = GameObject.Find("Solveig_Animated");
+        elise = GameObject.Find("Elise_Animated");
+        phillippa = GameObject.Find("Philippa_anim");
+        simone = GameObject.Find("Simone_Animated");
+       
+        // players attack, enemy spawn true while pause menu is not opened 
         enemySpawn.GetComponent<WaveSpawner>().enabled = true;
+        
 
         solveig.GetComponent<Player_Movement>().enabled = true;
         solveig.GetComponent<PlayerController>().enabled = true;
         solveig.GetComponent<Solveig_Attack>().enabled = true;
-        // health should be disabled?
+        solveig.GetComponentInChildren<Song_Script>().enabled = true;      
 
         elise.GetComponent<Player_Movement>().enabled = true;
         elise.GetComponent<PlayerController>().enabled = true;
-        elise.GetComponent<Elise_Attack>().enabled = true;
+        elise.GetComponent<Elise_Attack>().enabled = true;        
 
         simone.GetComponent<Player_Movement>().enabled = true;
         simone.GetComponent<PlayerController>().enabled = true;
@@ -62,8 +65,11 @@ public class PauseMenu : MonoBehaviour
         phillippa.GetComponent<Player_Movement>().enabled = true;
         phillippa.GetComponent<PlayerController>().enabled = true;
         phillippa.GetComponent<Phillippa_Attack>().enabled = true;
+        phillippa.GetComponentInChildren<WhiskAttack>().enabled = true;
+        phillippa.GetComponentInChildren<Fluff_Script>().enabled = true;
+        phillippa.GetComponentInChildren<SpicyWhisk>().enabled = true;
+        phillippa.GetComponentInChildren<EnergyWhisk>().enabled = true;
 
-        phillippaWhisk.GetComponent<WhiskAttack>().enabled = true;
 
         pausePanel = pausePanel.GetComponent<Image>();
         controlPanel = controlPanel.GetComponent<Image>();
@@ -100,6 +106,9 @@ public class PauseMenu : MonoBehaviour
         //the escape or the back button on xbox opens it
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 6"))
         {
+            menuOpened = !menuOpened;
+
+            //menu is opened
             if (menuOpened && Time.timeScale == 1.0f)
             {
                 Time.timeScale = 0f;
@@ -109,11 +118,13 @@ public class PauseMenu : MonoBehaviour
                 resumeGameButton.SetActive(true);
                 controlsButton.SetActive(true);
 
-                enemySpawn.GetComponent<WaveSpawner>().enabled = false;
+                enemySpawn.GetComponent<WaveSpawner>().enabled = false;            
+
 
                 solveig.GetComponent<Player_Movement>().enabled = false;
                 solveig.GetComponent<PlayerController>().enabled = false;
                 solveig.GetComponent<Solveig_Attack>().enabled = false;
+                solveig.GetComponentInChildren<Song_Script>().enabled = false;
 
                 elise.GetComponent<Player_Movement>().enabled = false;
                 elise.GetComponent<PlayerController>().enabled = false;
@@ -126,23 +137,23 @@ public class PauseMenu : MonoBehaviour
                 phillippa.GetComponent<Player_Movement>().enabled = false;
                 phillippa.GetComponent<PlayerController>().enabled = false;
                 phillippa.GetComponent<Phillippa_Attack>().enabled = false;
-
-                phillippaWhisk.GetComponent<WhiskAttack>().enabled = false;
-
-
-                menuOpened = false;
-                Debug.Log("pressedOpenPause");
-
+                phillippa.GetComponentInChildren<WhiskAttack>().enabled = false;
+                phillippa.GetComponentInChildren<Fluff_Script>().enabled = false;
+                phillippa.GetComponentInChildren<SpicyWhisk>().enabled = false;
+                phillippa.GetComponentInChildren<EnergyWhisk>().enabled = false;
+               
             }
             else
             {
+                //menu is not opened
                 Time.timeScale = 1.0f;
-
                 enemySpawn.GetComponent<WaveSpawner>().enabled = true;
+                
 
                 solveig.GetComponent<Player_Movement>().enabled = true;
                 solveig.GetComponent<PlayerController>().enabled = true;
                 solveig.GetComponent<Solveig_Attack>().enabled = true;
+                solveig.GetComponentInChildren<Song_Script>().enabled = true;
 
                 elise.GetComponent<Player_Movement>().enabled = true;
                 elise.GetComponent<PlayerController>().enabled = true;
@@ -155,16 +166,19 @@ public class PauseMenu : MonoBehaviour
                 phillippa.GetComponent<Player_Movement>().enabled = true;
                 phillippa.GetComponent<PlayerController>().enabled = true;
                 phillippa.GetComponent<Phillippa_Attack>().enabled = true;
-
-                phillippaWhisk.GetComponent<WhiskAttack>().enabled = true;
-
+                phillippa.GetComponentInChildren<WhiskAttack>().enabled = true;
+                phillippa.GetComponentInChildren<Fluff_Script>().enabled = true;
+                phillippa.GetComponentInChildren<SpicyWhisk>().enabled = true;
+                phillippa.GetComponentInChildren<EnergyWhisk>().enabled = true;    
 
                 pausePanel.enabled = false;
                 pauseTextinMenu.enabled = false;
                 quitButton.SetActive(false);
                 controlsButton.SetActive(false);
+
                 resumeGameButton.SetActive(false);
-                menuOpened = true;
+
+                
             }
         }
     }
@@ -174,30 +188,28 @@ public class PauseMenu : MonoBehaviour
         // Open it with Left Bumper
         if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown("joystick button 5"))
         {
-            if (controlsOpened && !menuOpened)
+            controlsOpened = !controlsOpened;
+            if (controlsOpened && menuOpened)
             {
-
+                // controls are opened
                 controlPanel.enabled = true;                
                 phillippaControlsText.enabled = true;
                 eliseControlsText.enabled = true;
                 simoneControlsText.enabled = true;
                 solveigControlsText.enabled = true;
                 commonButtonsText.enabled = true;
-                controlsOpened = false;
-
             }
             else
             {
+                //controls are not opened
                 controlPanel.enabled = false;                
                 phillippaControlsText.enabled = false;
                 eliseControlsText.enabled = false;
                 simoneControlsText.enabled = false;
                 solveigControlsText.enabled = false;
                 commonButtonsText.enabled = false;
-                controlsOpened = true;
             }
         }
-
     }
 
     // Leave the game (Closes the whole game)   -> maybe it should go back to the Main menu and do not save the game????
@@ -213,7 +225,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         // Resume with start
-        if (Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown("joystick button 7"))
+        if (menuOpened && Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown("joystick button 7"))
         {
             Time.timeScale = 1.0f;
             pausePanel.enabled = false;

@@ -29,7 +29,7 @@ public class UserInterface : MonoBehaviour
         quitGameButton = GameObject.Find("LeaveGameButton");
         optionsMenuBg.enabled = false;
 
-
+        // controls text for players 
         eliseControlsText.enabled = false;
         phillippaControlsText.enabled = false;
         solveigControlsText.enabled = false;
@@ -53,29 +53,26 @@ public class UserInterface : MonoBehaviour
         // open the controls with Left Bumper
         if (Input.GetKeyDown("joystick button 5") || Input.GetKeyDown(KeyCode.F2))
         {
+            optionMenuOpened = !optionMenuOpened;
             if (optionMenuOpened)
             {
+                // options are opened
                 optionsMenuBg.enabled = true;
-
                 eliseControlsText.enabled = true;
                 phillippaControlsText.enabled = true;
                 solveigControlsText.enabled = true;
                 simoneControlsText.enabled = true;
                 commonControlsText.enabled = true;
-                
-                optionMenuOpened = false;                
             }
             else
             {
+                //options are not opened
                 optionsMenuBg.enabled = false;
-
                 eliseControlsText.enabled = false;
                 phillippaControlsText.enabled = false;
                 solveigControlsText.enabled = false;
                 simoneControlsText.enabled = false;
                 commonControlsText.enabled = false;
-                
-                optionMenuOpened = true;
             }
         }
     }

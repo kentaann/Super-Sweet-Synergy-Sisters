@@ -99,7 +99,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
 
-        if (eliseHealth <= 0)
+        if (solveigHealth <= 0)
         {           
             deadSol = true;
         }

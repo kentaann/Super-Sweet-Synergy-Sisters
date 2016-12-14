@@ -61,6 +61,8 @@ public class AiMovement_Range : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        navComponent.speed = MoveSpeed;
+
         KeepDistanceToOtherEnemies();
         UpdatePlayerList();
         TargetedPlayer();
@@ -72,11 +74,11 @@ public class AiMovement_Range : MonoBehaviour
 
 
         
-        transform.LookAt(SelectedTarget);
-        if (Vector3.Distance(transform.position, SelectedTarget.position) >= MinDist) //needed for movement to work in SyneryTester
-        {
-            transform.position += transform.forward * MoveSpeed * Time.deltaTime;
-        }
+        //transform.LookAt(SelectedTarget);
+        //if (Vector3.Distance(transform.position, SelectedTarget.position) >= MinDist) //needed for movement to work in SyneryTester
+        //{
+        //    transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+        //}
     }
 
     public void AddPlayersToList()

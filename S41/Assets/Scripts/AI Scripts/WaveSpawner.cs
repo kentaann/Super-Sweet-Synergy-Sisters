@@ -23,7 +23,7 @@ public class WaveSpawner : MonoBehaviour
         public float rate;          //spawn rate
         public float enemyHP;       //set enemy health
         public float enemySpeed;    //set enemy speed
-
+        public float projectileSpeed; //set projectile speed of bullet
     }
 
     GameObject[] enemyObject;
@@ -45,15 +45,20 @@ public class WaveSpawner : MonoBehaviour
 
     public float timeBetweenWaves = 5f;//5 seconds
     public float waveCountDown;//count down to next wave
+
     public Text m_counterText;
     public Text m_waveDescriptionText;
+    public Color m_startColor;
+    public float m_fadeColor;
 
     private SpawnState state = SpawnState.COUNTING;
 
     private float searchCountDown = 1f;
 
+
     void Start()
     {
+        m_startColor = m_waveDescriptionText.color;
 
         spawn_Point1 = GameObject.Find("Spawn Point 1");
         spawn_Point2 = GameObject.Find("Spawn Point 2");
@@ -61,7 +66,7 @@ public class WaveSpawner : MonoBehaviour
         spawn_Point_Cylinder1 = GameObject.Find("CylinderSpawnPoint1");
         spawn_Point_Cylinder2 = GameObject.Find("CylinderSpawnPoint1 (1)");
         spawn_Point_Cylinder3 = GameObject.Find("CylinderSpawnPoint1 (2)");
-
+        
         if (spawnPoints.Length == 0)
         {
             Debug.LogError("No spawn points reference");
@@ -106,6 +111,9 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveCountDown <= 0)
         {
+            m_counterText.color = Color.red;
+            m_counterText.text = 0.ToString();
+
             if (state != SpawnState.SPAWNING)
             {
                 StartCoroutine(SpawnWave(waves[nextWave]));
@@ -114,28 +122,43 @@ public class WaveSpawner : MonoBehaviour
         else
         {
             waveCountDown -= Time.deltaTime;
-        }
 
+            m_counterText.color = Color.white;
+            m_counterText.text = ((int)waveCountDown + 1).ToString();
+
+            if (waveCountDown >= 4)
+            {
+                m_waveDescriptionText.color = new Color(1, 1, 1, 1.0f);
+                m_fadeColor = 1;
+
+                m_waveDescriptionText.text = "Name of the wave: " + waves[nextWave].name + "\n" +
+                                     "Type of enemy: " + waves[nextWave].enemy.name + "\n" +
+                                     "Numbers of enemies: " + waves[nextWave].count + "\n" +
+                                     "Spawn rate: " + waves[nextWave].rate + "\n" +
+                                     "Hp: " + waves[nextWave].enemyHP + "\n" +
+                                     "Speed: " + waves[nextWave].enemySpeed;
+            }
+            else
+            {
+                m_fadeColor -= 0.014f;
+                m_waveDescriptionText.color = new Color(1, 1, 1, m_fadeColor);
+            }
+        }
     }
 
     void WaveCompleted()
     {
-        Debug.Log("Wave Completed");
-
         state = SpawnState.COUNTING;
         waveCountDown = timeBetweenWaves;
 
         if (nextWave + 1 > waves.Length - 1)
         {
             nextWave = 0;
-            Debug.Log("All waves complete looping");
         }
         else
         {
             nextWave++;
-
         }
-
     }
 
     bool EnemyIsAlive()
@@ -155,12 +178,11 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave(Wave _wave)
     {
-        Debug.Log("Spawning Wave: " + _wave.name);
         state = SpawnState.SPAWNING;
-
+        
         for (int i = 0; i < _wave.count; i++)
         {
-            SpawnEnemy(_wave.enemy, _wave.enemyHP, _wave.enemySpeed);
+            SpawnEnemy(_wave.enemy, _wave.enemyHP, _wave.enemySpeed, _wave.projectileSpeed);
             yield return new WaitForSeconds(1f / _wave.rate);
         }
 
@@ -169,7 +191,7 @@ public class WaveSpawner : MonoBehaviour
         yield break;
     }
 
-    void SpawnEnemy(GameObject _enemy, float setHealth, float setEnemySpeed)
+    void SpawnEnemy(GameObject _enemy, float setHealth, float setEnemySpeed, float setProjSpeed)
     {
         _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
@@ -191,9 +213,11 @@ public class WaveSpawner : MonoBehaviour
             AiMovement_Range eAiMovementRange = eObj.GetComponent<AiMovement_Range>();
             eAiMovementRange.Initializing(setEnemySpeed);
         }
-
-
-        Debug.Log("Spawning Enemy" + _enemy.name);
+        if (eObj.GetComponent<EnemyProjectile>())
+        {
+            EnemyProjectile eProjectile = eObj.GetComponent<EnemyProjectile>();
+            eProjectile.InitializeBulletForce(setProjSpeed);
+        }
     }
 
     void DestroyAllEnemyObjects()

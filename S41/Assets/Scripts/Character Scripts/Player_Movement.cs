@@ -132,7 +132,7 @@ public class Player_Movement : MonoBehaviour
 
         Move();
         Turn();
-        Animating(m_turnInputValue, m_movementInputValue);
+        //Animating(m_turnInputValue, m_movementInputValue);
     }
 
     #endregion

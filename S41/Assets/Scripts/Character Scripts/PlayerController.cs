@@ -20,18 +20,17 @@ public class PlayerController : MonoBehaviour
     public float half_sz_Y;
 
     public bool över;
-   // private bool walking = false;
+    private bool walking = false;
     public float whatValue;
 
     Vector3 rbLastPosition;
-     Animator anim;
+    private Animator anim;
 
     void Awake()
     {
         rb.freezeRotation = true;
         rb.useGravity = false;
         anim = GetComponent<Animator>();
-
     }
 
     void Start ()
@@ -40,12 +39,12 @@ public class PlayerController : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
 
-        half_sz_X = GetComponent<Renderer>().bounds.size.x;
-        half_sz_Y = GetComponent<Renderer>().bounds.size.y / 2;
+        half_sz_X = GetComponentInChildren<Renderer>().bounds.size.x;
+        half_sz_Y = GetComponentInChildren<Renderer>().bounds.size.y / 2;
 
         över = false;
         
-        //walking = false;
+        walking = false;
         
         rbLastPosition = transform.position;
     }
@@ -70,11 +69,13 @@ public class PlayerController : MonoBehaviour
         float rStickX = Input.GetAxis(xbox_name_RstickX);
         float rStickY = Input.GetAxis(xbox_name_RstickY);
         float rTrigger = Input.GetAxis(xbox_name_Rtrigger);
-        //Animating(moveHorizontal, moveVertical);
+
+        // Animating the players while they are going
+        Animating(moveHorizontal, moveVertical);
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rb.velocity = movement * speed;
-      
+
 
         whatValue = (screenPos.x - 10);
         if ((screenPos.y + 10) > sizeHeight)
@@ -111,7 +112,8 @@ public class PlayerController : MonoBehaviour
 
         float dPadY = Input.GetAxis("X360_DPadY");
 
-        float triggerAxis = Input.GetAxis("X360_Triggers");
+        //float triggerAxis = Input.GetAxis("X360_Triggers");
+        
 
         #region Ta bort om du inte använder detta mer Jonathan!
         //if (dPadX != 0)
@@ -167,7 +169,7 @@ public class PlayerController : MonoBehaviour
         //    print("Clicked Right Stick");
         //}
         #endregion
-
+       
     }
 
     void OnCollisionEnter(Collision collision)
@@ -194,9 +196,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //void Animating(float moveHorizontal, float moveVertical)
-    //{
-    //    bool walking = moveHorizontal != 0f || moveVertical != 0f;
-    //   // anim.SetBool("IsWalking", walking);
-    //}
+    void Animating(float moveHorizontal, float moveVertical)
+    {
+        bool walking = moveHorizontal != 0f || moveVertical != 0f;
+        anim.SetBool("IsWalking", walking);
+    }
 }
