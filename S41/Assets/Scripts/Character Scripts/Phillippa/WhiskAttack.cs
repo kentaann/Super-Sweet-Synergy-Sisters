@@ -46,7 +46,7 @@ public class WhiskAttack : MonoBehaviour
     void OnDisable()
     {
         Phillippa_Attack.RushEvent -= AttackInRush;
-        Phillippa_Attack.RushEnd += EndOfRush;
+        Phillippa_Attack.RushEnd -= EndOfRush;
         Phillippa_Attack.CreamCollider -= AttackInCream;
         Phillippa_Attack.EnergyCollider -= AttackInEnergy;
         Phillippa_Attack.SpicyCollider -= AttackInSpicy;
