@@ -17,7 +17,7 @@ public class PauseMenu : MonoBehaviour
 
 
     public GameObject controlsButton;
-    public GameObject resumeGameButton;
+    
     public GameObject quitButton;
 
     public GameObject enemySpawn;
@@ -37,7 +37,7 @@ public class PauseMenu : MonoBehaviour
     {
         quitButton = GameObject.Find("QuitButton");
         controlsButton = GameObject.Find("ControlsButton");
-        resumeGameButton = GameObject.Find("ResumeButton");
+     
 
         enemySpawn = GameObject.Find("Spawn Manager");
         solveig = GameObject.Find("Solveig_Animated");
@@ -78,7 +78,7 @@ public class PauseMenu : MonoBehaviour
         controlPanel.enabled = false;
 
         quitButton.SetActive(false);
-        resumeGameButton.SetActive(false);
+       
         controlsButton.SetActive(false);
 
         pauseTextinMenu.enabled = false;
@@ -96,7 +96,7 @@ public class PauseMenu : MonoBehaviour
     {
         OpenMenu();
         QuitGameInGameMenu();
-        ResumeGame();
+       
         OpenControls();
     }
 
@@ -115,7 +115,7 @@ public class PauseMenu : MonoBehaviour
                 pausePanel.enabled = true;
                 pauseTextinMenu.enabled = true;
                 quitButton.SetActive(true);
-                resumeGameButton.SetActive(true);
+               
                 controlsButton.SetActive(true);
 
                 enemySpawn.GetComponent<WaveSpawner>().enabled = false;            
@@ -176,7 +176,7 @@ public class PauseMenu : MonoBehaviour
                 quitButton.SetActive(false);
                 controlsButton.SetActive(false);
 
-                resumeGameButton.SetActive(false);
+              
 
                 
             }
@@ -219,20 +219,5 @@ public class PauseMenu : MonoBehaviour
         {
             Application.Quit();
         }
-    }
-
-    // The game continues
-    public void ResumeGame()
-    {
-        // Resume with start
-        if (menuOpened && Input.GetKeyDown(KeyCode.F1) || Input.GetKeyDown("joystick button 7"))
-        {
-            Time.timeScale = 1.0f;
-            pausePanel.enabled = false;
-            pauseTextinMenu.enabled = false;
-            quitButton.SetActive(false);
-            controlsButton.SetActive(false);
-            resumeGameButton.SetActive(false);
-        }
-    }
+    }    
 }
