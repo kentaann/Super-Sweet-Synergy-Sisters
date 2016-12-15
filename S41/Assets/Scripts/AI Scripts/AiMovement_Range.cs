@@ -142,7 +142,7 @@ public class AiMovement_Range : MonoBehaviour
         if (SelectedTarget)
         {
 
-            if (dist >= 20)
+            if (dist >= 10)
             {
                 navComponent.Resume();
                 navComponent.SetDestination(SelectedTarget.position);
