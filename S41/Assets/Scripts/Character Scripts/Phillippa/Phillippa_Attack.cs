@@ -10,7 +10,6 @@ public class Phillippa_Attack : MonoBehaviour
     #region Variables
 
     public List<Transform> m_targetList = new List<Transform>();
-    public SphereCollider m_Spherecollider;
 
     public delegate void EventHandler();
     public static event EventHandler FluffEvent;
@@ -19,6 +18,12 @@ public class Phillippa_Attack : MonoBehaviour
     public static event EventHandler CreamCollider;
     public static event EventHandler EnergyCollider;
     public static event EventHandler SpicyCollider;
+
+    public GameObject philippa;
+    public GameObject phiPlayer;
+    public GameObject phiWhisk;
+    public GameObject phiSpicy;
+    public GameObject phiEnergy;
 
     //private const float m_FLUFFCOOLDOWN = 6;
     //private const float m_FLUFFSTUNDURATION = 2;
@@ -180,7 +185,7 @@ public class Phillippa_Attack : MonoBehaviour
         gameObject.SendMessage("SetMoveSpeed", 12f);
         //gameObject.transform.position = transform.forward * Time.deltaTime * 100;
         //gameObject.SendMessage("IsRushing", true);
-        m_rushActive = false;                    //needs to start as true in order to not be activated at start, for some reason
+        m_rushActive = false;
 
         //ParticleSystem ps = GetComponent<ParticleSystem>();
         ////var ma = ps.mai
