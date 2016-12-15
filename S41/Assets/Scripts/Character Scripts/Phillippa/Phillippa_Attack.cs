@@ -250,7 +250,7 @@ public class Phillippa_Attack : MonoBehaviour
             }
         }
 
-        if (m_angerCooldownTiming == true)
+        if (m_angerCooldownTiming == true)          //Timing for cooldown, and not the duration of the rush
         {
             m_angerCooldown += Time.deltaTime;
         }
@@ -266,7 +266,7 @@ public class Phillippa_Attack : MonoBehaviour
             m_rushTimer += Time.deltaTime;
         }
 
-        if (m_rushTimer >= 0.3f)            //makes there Rush attack stop after 0.3 seconds
+        if (m_rushTimer >= 0.3f)            //makes the Rush attack stop after 0.3 seconds
         {
             gameObject.SendMessage("SetMoveSpeed", 12f);
             m_rushActive = false;

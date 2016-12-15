@@ -91,7 +91,6 @@ public class Trap_Trigger : MonoBehaviour
                 {
                     other.gameObject.SendMessage("SetMoveSpeed", 2f);
                     Destroy(gameObject);
-                    other.gameObject.SendMessage("SetMoveSpeed", 2f);
                 }
             }
 
@@ -100,7 +99,6 @@ public class Trap_Trigger : MonoBehaviour
                 other.gameObject.SendMessage("SetMoveSpeed", 2f);
                 trapDestroyed = true;
                 Destroy(gameObject);
-                other.gameObject.SendMessage("SetMoveSpeed", 2f);
             }
 
             if (trapDestroyed == true)
