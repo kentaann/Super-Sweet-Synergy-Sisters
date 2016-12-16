@@ -35,6 +35,8 @@ public class Solveig_Attack : MonoBehaviour
     public AudioClip songOfLoveSound1;
     public AudioClip songOfLoveSound2;
 
+    public ParticleSystem aoe_healing_stream;
+
     private const float m_SPICYCREAMDAMAGE = 47.3f;                     // Damage modifier for Flower Power while under the Spicy Chocolate effect
 
 	private float m_launchForce;                                        // Force the projectile is launched with
