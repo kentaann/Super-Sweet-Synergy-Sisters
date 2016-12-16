@@ -34,9 +34,6 @@ public class EnemyHealth : MonoBehaviour
 
     void Start()
     {
-        //Instantiate();
-
-
         currHealth = 100;
         maxHealth = 100;
         m_spicyChocolateDmg = 0.2f;
@@ -45,27 +42,16 @@ public class EnemyHealth : MonoBehaviour
         healthBar = transform.FindChild("EnemyCanvas").FindChild("HealthBackGround").FindChild("Health").GetComponent<Image>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.M))
-        //{
-        //    currHealth = 0;
-        //}
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            Debug.Log("T key pressed");
-            Hit(10);
-        }
-        if (currHealth <= 10)
-        {
-            OnDestroyed();
-            Destroy(enemyToDestroy);
+        DestroyWhenDead();
+        ResizeHealthBar();
+        WhippedCreamDmg();
+        OnFire();
+    }
 
-        }
-
-
-
+    public void OnFire()
+    {
         if (m_isOnFire)
         {
             m_spicyChocolateTimer += Time.deltaTime;
@@ -78,9 +64,10 @@ public class EnemyHealth : MonoBehaviour
                 }
             }
         }
+    }
 
-        healthBar.fillAmount = (float)currHealth / (float)maxHealth;
-
+    public void WhippedCreamDmg()
+    {
         if (wcAbleToDamage)
         {
             wcDamageTimer += Time.deltaTime;
@@ -91,7 +78,20 @@ public class EnemyHealth : MonoBehaviour
                 nextShot = wcDamageTimer + 1;
             }
         }
+    }
 
+    public void ResizeHealthBar()
+    {
+        healthBar.fillAmount = (float)currHealth / (float)maxHealth;
+    }
+
+    public void DestroyWhenDead()
+    {
+        if (currHealth <= 10)
+        {
+            OnDestroyed();
+            Destroy(enemyToDestroy);
+        }
     }
 
     public void setHealth(float k)
@@ -122,18 +122,6 @@ public class EnemyHealth : MonoBehaviour
         {
             currHealth += (int)heal;
             healthBar.fillAmount = (float)currHealth / (float)maxHealth;
-        }
-
-
-    }
-
-    //Kan användas i andra klasser för kollision
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            other.gameObject.GetComponent<EnemyHealth>().Hit(10);
-            Debug.Log("Hit enemy");
         }
     }
 }
