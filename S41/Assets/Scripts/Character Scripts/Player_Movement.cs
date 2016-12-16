@@ -24,6 +24,10 @@ public class Player_Movement : MonoBehaviour
     public Vector3 minScreenBounds;
     public Vector3 maxScreenBounds;
 
+    public bool energySpeed = false;
+    private bool energyTiming = false;
+    private float energyDuration = 0f;
+
     //Animator anim;
     //bool walking = false;
 
@@ -90,6 +94,26 @@ public class Player_Movement : MonoBehaviour
         minScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
         maxScreenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
 
+        if (energySpeed == true)
+        {
+            m_moveSpeed = 24f;
+            m_turnSpeed = 360f;
+            energyTiming = true;
+        }
+
+        if (energyTiming == true)
+        {
+            energyDuration += Time.deltaTime;
+        }
+
+        if (energyDuration >= 3.5f)
+        {
+            energySpeed = false;
+            energyTiming = false;
+            m_moveSpeed = 12f;
+            m_turnSpeed = 180f;
+            energyDuration = 0f;
+        }
     }  
 
     #endregion

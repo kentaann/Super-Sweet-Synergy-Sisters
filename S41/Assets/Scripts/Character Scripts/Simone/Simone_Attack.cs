@@ -321,6 +321,8 @@ public class Simone_Attack : MonoBehaviour
 		Quaternion playerRotation = transform.rotation;
 
 		Instantiate(m_whippedObj, m_transformOrigin.position, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
+
+        m_whippedObj.GetComponent<Channeling_script>().whippedActive = true;
 	}
 
 	/// <summary>
@@ -335,6 +337,10 @@ public class Simone_Attack : MonoBehaviour
 		Quaternion playerRotation = transform.rotation;
 
 		Instantiate(m_energyObj, m_transformOrigin.position, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
+
+        m_energyObj.GetComponent<Channeling_script>().energyActive = true;
+
+        gameObject.GetComponent<Player_Movement>().energySpeed = true;
 	}
 
 	private void S_SpicyChocolateAttack()
@@ -344,6 +350,8 @@ public class Simone_Attack : MonoBehaviour
 		Quaternion playerRotation = transform.rotation;
 
 		Instantiate(m_spicyObj, m_transformOrigin.position, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
+
+        m_spicyObj.GetComponent<Channeling_script>().spicyActive = true;
 	}
 
 	#endregion

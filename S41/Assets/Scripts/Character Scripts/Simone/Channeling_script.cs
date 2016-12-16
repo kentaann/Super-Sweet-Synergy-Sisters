@@ -28,6 +28,10 @@ public class Channeling_script : MonoBehaviour
     private bool scaleDecrease;                         // Tells to start decrease
     private bool startIncreaseUpDown;                   // Tells to start increase and decrease on y-axis
 
+    public bool whippedActive = false;
+    public bool spicyActive = false;
+    public bool energyActive = false;
+
     GameObject enemyObject;
     public bool seeState;
     public int i = 0;
@@ -91,7 +95,19 @@ public class Channeling_script : MonoBehaviour
 
                 if (enemyObject.gameObject.GetComponent<EnemyHealth>().ableToDamage)
                 {
-                    enemyObject.gameObject.GetComponent<EnemyHealth>().Hit(m_damage);
+                    if (whippedActive == true)
+                    {
+                        enemyObject.gameObject.GetComponent<EnemyHealth>().Hit(m_damage + 1); 
+                    }
+                    if (spicyActive == true)
+                    {
+                        enemyObject.gameObject.GetComponent<EnemyHealth>().Hit(m_damage);
+                    }
+                    if (energyActive == true)
+                    {
+                        enemyObject.gameObject.GetComponent<EnemyHealth>().Hit(m_damage);
+                    }
+
                     enemyObject.gameObject.GetComponent<EnemyHealth>().ableToDamage = false;
                 }
             }
