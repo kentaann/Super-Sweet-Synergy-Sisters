@@ -82,7 +82,7 @@ public class UserInterface : MonoBehaviour
     public void QuitGame()
     {
         // need to build to be able to run it   // Quit -> Backs on controller
-        if (Input.GetKeyDown("joystick button 6") || Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown("joystick button 6") || Input.GetKeyDown(KeyCode.Escape) && !optionMenuOpened)
         {
             Application.Quit();
            
@@ -93,7 +93,7 @@ public class UserInterface : MonoBehaviour
     public void StartGame()
     {
         // need to build to be able to run it   // Start the game -> Start button on the controller
-        if (Input.GetKeyDown("joystick button 7") || Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown("joystick button 7") || Input.GetKeyDown(KeyCode.F1) && !optionMenuOpened)
         {
             SceneManager.LoadScene("Survival_Level");
            
