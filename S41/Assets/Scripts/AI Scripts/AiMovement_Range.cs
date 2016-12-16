@@ -5,9 +5,6 @@ using System.Collections.Generic; //Always a good idea
 
 public class AiMovement_Range : MonoBehaviour
 {
-
-    //public Transform Player;//används ej
-    //public Transform TankPlayer;
     public float MoveSpeed;
     float MinDist = 0f;
     float InRangeAggresive = 15;
@@ -63,17 +60,18 @@ public class AiMovement_Range : MonoBehaviour
     {
         navComponent.speed = MoveSpeed;
 
-        KeepDistanceToOtherEnemies();
         UpdatePlayerList();
         TargetedPlayer();
         KeepDistanceToPlayers();
-        Stunned();        
+        Stunned();
+        UseForTestSynergies();
 
         lastPosition = transform.position;
         //SwitchGameState();//Inte klar än
+    }
 
-
-        
+    public void UseForTestSynergies()//menad för dig bernhard när du testade synergies
+    {
         //transform.LookAt(SelectedTarget);
         //if (Vector3.Distance(transform.position, SelectedTarget.position) >= MinDist) //needed for movement to work in SyneryTester
         //{
@@ -164,7 +162,7 @@ public class AiMovement_Range : MonoBehaviour
         }
     }
 
-    private void KeepDistanceToOtherEnemies()
+    private void KeepDistanceToOtherEnemies()//sparar den så länge, men den här metoden körs inte
     {
         foreach (GameObject go in otherObject)
         {
