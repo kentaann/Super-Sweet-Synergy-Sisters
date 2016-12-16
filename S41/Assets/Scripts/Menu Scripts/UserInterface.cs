@@ -63,6 +63,7 @@ public class UserInterface : MonoBehaviour
                 solveigControlsText.enabled = true;
                 simoneControlsText.enabled = true;
                 commonControlsText.enabled = true;
+                Debug.Log("controls opened");
             }
             else
             {
@@ -84,7 +85,7 @@ public class UserInterface : MonoBehaviour
         if (Input.GetKeyDown("joystick button 6") || Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
-            Debug.Log("QuitPressed");
+           
         }
     }
 
@@ -95,7 +96,7 @@ public class UserInterface : MonoBehaviour
         if (Input.GetKeyDown("joystick button 7") || Input.GetKeyDown(KeyCode.F1))
         {
             SceneManager.LoadScene("Survival_Level");
-            Debug.Log("StartPressed");
+           
         }
     }
 }

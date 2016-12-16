@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class Fluff_Script : MonoBehaviour
 {
+    Phillippa_Attack philippa;
 	public List<Transform> m_targetList = new List<Transform>();
 	MeshRenderer mr;
 	private bool meshActive = false;

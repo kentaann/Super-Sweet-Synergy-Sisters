@@ -50,6 +50,11 @@ public class WaveSpawner : MonoBehaviour
     public Text m_waveDescriptionText;
     public Color m_startColor;
     public float m_fadeColor;
+    public Image m_imageFade;
+    Color m_imgStartColor;
+    public bool m_fadeIn;
+    public float m_imgFadeColor;
+    public float m_counterTextFadeColor;
 
     private SpawnState state = SpawnState.COUNTING;
 
@@ -59,6 +64,8 @@ public class WaveSpawner : MonoBehaviour
     void Start()
     {
         m_startColor = m_waveDescriptionText.color;
+        m_imgStartColor = m_imageFade.color;
+        m_fadeIn = false;
 
         spawn_Point1 = GameObject.Find("Spawn Point 1");
         spawn_Point2 = GameObject.Find("Spawn Point 2");
@@ -111,6 +118,8 @@ public class WaveSpawner : MonoBehaviour
 
         if (waveCountDown <= 0)
         {
+            m_fadeIn = true;
+
             m_counterText.color = Color.red;
             m_counterText.text = 0.ToString();
 
@@ -121,28 +130,40 @@ public class WaveSpawner : MonoBehaviour
         }
         else
         {
+            m_fadeIn = false;
+
             waveCountDown -= Time.deltaTime;
 
             m_counterText.color = Color.white;
             m_counterText.text = ((int)waveCountDown + 1).ToString();
 
-            if (waveCountDown >= 4)
+            if (int.Parse(m_counterText.text) >= 4)
             {
-                m_waveDescriptionText.color = new Color(1, 1, 1, 1.0f);
+                m_waveDescriptionText.color = new Color(1, 1, 1, 1);
                 m_fadeColor = 1;
 
-                m_waveDescriptionText.text = "Name of the wave: " + waves[nextWave].name + "\n" +
-                                     "Type of enemy: " + waves[nextWave].enemy.name + "\n" +
-                                     "Numbers of enemies: " + waves[nextWave].count + "\n" +
-                                     "Spawn rate: " + waves[nextWave].rate + "\n" +
-                                     "Hp: " + waves[nextWave].enemyHP + "\n" +
-                                     "Speed: " + waves[nextWave].enemySpeed;
+                m_imageFade.color = m_imgStartColor;
+                m_imgFadeColor = m_imageFade.color.a;
+
+                m_waveDescriptionText.text = "Name of the wave: " + waves[nextWave].name + "\n\n" +
+                                             "Type of enemy: " + waves[nextWave].enemy.name + "\n\n" +
+                                             "Numbers of enemies: " + waves[nextWave].count + "\n\n" +
+                                             "Spawn rate: " + waves[nextWave].rate + "\n\n" +
+                                             "Hp: " + waves[nextWave].enemyHP + "\n\n" +
+                                             "Speed: " + waves[nextWave].enemySpeed;
             }
             else
             {
                 m_fadeColor -= 0.014f;
                 m_waveDescriptionText.color = new Color(1, 1, 1, m_fadeColor);
             }
+        }
+
+        if (m_fadeIn)
+        {
+            m_imgFadeColor -= 0.01f;
+            m_imageFade.color = new Color(1, 1, 1, m_imgFadeColor);
+            m_counterText.color = new Color(m_counterText.color.r, m_counterText.color.g, m_counterText.color.b, m_imgFadeColor);
         }
     }
 

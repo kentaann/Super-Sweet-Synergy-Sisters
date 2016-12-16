@@ -11,6 +11,7 @@ public class Bullet_Collide : MonoBehaviour
 
 	public LayerMask m_EnemyMask;
 	public GameObject[] players;
+    public bool multiActive = false;
 	bool bouncinessDisabled = true;
 	public float m_explosionRadius = 1f;
 
@@ -26,6 +27,11 @@ public class Bullet_Collide : MonoBehaviour
 
 	void Start () 
 	{
+        if (multiActive == true)
+        {
+            GetComponent<Renderer>().material.color = Color.blue;
+        }
+
 		gameObject.GetComponent<Collider>().isTrigger = true;
 		players = GameObject.FindGameObjectsWithTag("Player");
 
@@ -62,7 +68,14 @@ public class Bullet_Collide : MonoBehaviour
 		// If the collided object is an enemy
 		if (other.gameObject.tag == "Enemy")
 		{
-			other.gameObject.GetComponent<EnemyHealth>().Hit(10);       //Hit(10) has to be changed to Hit(dmg variable in simone script)
+            if (multiActive == false)
+            {
+                other.gameObject.GetComponent<EnemyHealth>().Hit(10);       //Hit(10) has to be changed to Hit(dmg variable in simone script) 
+            }
+            if (multiActive == true)
+            {
+                other.gameObject.GetComponent<EnemyHealth>().Hit(40);
+            }
 			Destroy(gameObject);
 	   
 				//m_Simone.GetComponent<Simone_Attack>().SetScore(10); This is for the future scoring system and is to be moved to appropriate location when finalized
@@ -71,13 +84,6 @@ public class Bullet_Collide : MonoBehaviour
 		// If the collided object is Environment the bullet is removed
 		if (other.gameObject.tag == "Environment" && bouncinessDisabled/*|| other.gameObject.tag == "Player"*/)
 		{
-			Destroy(gameObject);
-		}
-
-		// If the collided object is a Trap (Cookie Jar skill) sets it on fire. This is a placeholder solution until unique scripts for each element exist
-		if (other.gameObject.tag == "Trap")
-		{
-			other.gameObject.GetComponent<Trap_Trigger>().FiredUp(true);
 			Destroy(gameObject);
 		}
 

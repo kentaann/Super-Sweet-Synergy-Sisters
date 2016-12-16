@@ -9,6 +9,7 @@ public class CDnewTry : MonoBehaviour {
     public List<Skill> SimoneSkills;
     public List<Skill> SolveigSkills;
     public List<Skill> EliseSkills;
+    public List<Skill> AllSkills;
     // hardcoding- if there are more skills -> needs to do more dynamic
 
     private bool phiFluff = false;
@@ -40,6 +41,14 @@ public class CDnewTry : MonoBehaviour {
         Elise_Attack.TrapEvent -= EliseTrap;
         Elise_Attack.MultiEvent -= EliseMulti;
     }
+
+    //void Start()
+    //{
+    //    foreach (Skill s in AllSkills)
+    //    {
+    //        s.cooldown = 100;
+    //    }
+    //}
 
     void FixedUpdate()
     {
@@ -259,6 +268,6 @@ public class Skill
 {
     public float cooldown;
     public Image skillIcon;
-    [HideInInspector]
+    //[HideInInspector]
     public float currentCoolDown;
 }
