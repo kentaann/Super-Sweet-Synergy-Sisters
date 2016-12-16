@@ -143,7 +143,7 @@ public class PauseMenu : MonoBehaviour
                 phillippa.GetComponentInChildren<EnergyWhisk>().enabled = false;
                
             }
-            else
+            else if (!controlsOpened)
             {
                 //menu is not opened
                 Time.timeScale = 1.0f;
