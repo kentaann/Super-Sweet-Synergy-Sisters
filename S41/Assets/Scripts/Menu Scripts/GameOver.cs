@@ -31,42 +31,39 @@ public class GameOver : MonoBehaviour {
         startGameButton = GameObject.Find("RestartButton");
         quitGameButton = GameObject.Find("Quit");
         scoreListButton = GameObject.Find("Highscore");
+
         scoreListBG.enabled = false;
         scoreListText.enabled = false; 
 
-        score = Scoring.Instance.score;              
-
-        
-        
+        score = Scoring.Instance.score;     
+         
         Scoring.Instance.SaveHighScore();
         ShowHighScore();
         isScoreListOpened = false;
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
         currentScoreTextNumber.text = score.ToString();
         Restart();
         Quit();
         HighScoreMenu();
-        
 	}
 
     // Restart the game
     public void Restart()
     {
-        if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown("joystick button 2") || Input.GetKeyDown(KeyCode.F1) && !isScoreListOpened)
         {
-            SceneManager.LoadScene("MainMenu");
-            Debug.Log("Restart");
+            SceneManager.LoadScene("MainMenu");          
         }
     }
 
     // Leave the game (close)
     public void Quit()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown("joystick button 6"))
+        if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown("joystick button 6") && !isScoreListOpened)
         {
             Application.Quit();
         }
@@ -82,21 +79,17 @@ public class GameOver : MonoBehaviour {
             {
                 scoreListBG.enabled = true;
                 scoreListText.enabled = true;
-               
-                
             }
             else
             {
                 scoreListBG.enabled = false;
                 scoreListText.enabled = false;
-                
             }
         }
     }
 
    public void ShowHighScore()
    {
-       
        List<int> lista = new List<int>();       
        lista = Scoring.Instance.LoadHighScore();
        scoreBoardText.text = "\n";
