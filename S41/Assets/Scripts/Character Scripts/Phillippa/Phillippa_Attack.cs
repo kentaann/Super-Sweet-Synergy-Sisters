@@ -56,10 +56,10 @@ public class Phillippa_Attack : MonoBehaviour
     public AudioClip rushSound1;
     public AudioClip rushSound2;
 
-    public ParticleSystem rushPS;
+    //public ParticleSystem rushPS;
     public ParticleSystem fluffPS;
-    public GameObject PS1;
-    public GameObject PS2;
+    //public GameObject PS1;
+    //public GameObject PS2;
     
 
     #endregion
@@ -186,7 +186,7 @@ public class Phillippa_Attack : MonoBehaviour
 
     void Start()
     {
-        rushPS = GetComponent<ParticleSystem>();
+        //rushPS = GetComponent<ParticleSystem>();
         fluffPS = GetComponent<ParticleSystem>();
         //transform.position += transform.forward * Time.deltaTime * 1000;
         gameObject.SendMessage("SetMoveSpeed", 12f);
@@ -234,7 +234,7 @@ public class Phillippa_Attack : MonoBehaviour
                 if (FluffEvent != null)
                 {
                     FluffEvent();
-                    GetComponentInChildren<ParticleSystem>(fluffPS).Play();
+                    GetComponentInChildren<ParticleSystem>().Play();
                     
                     
                     SoundManager.instance.RandomizeSfx(fluffPoundSound1, fluffPoundSound2);
@@ -261,7 +261,7 @@ public class Phillippa_Attack : MonoBehaviour
             {
                 RushAttack();
                 
-                GetComponentInChildren<ParticleSystem>(rushPS).Play();
+                //GetComponentInChildren<ParticleSystem>(rushPS).Play();
                 SoundManager.instance.RandomizeSfx(rushSound1, rushSound2);
                 m_rushCounter++;
                 m_angerCooldownTiming = true;
