@@ -16,6 +16,7 @@ public class WhiskAttack : MonoBehaviour
 	public Vector3 to;
 	public float speed;
 
+    private float m_damage = 25f;
 	private Quaternion startingRotation;
 
 	Phillippa_Attack philippa;
@@ -60,7 +61,7 @@ public class WhiskAttack : MonoBehaviour
 		{
 			if (Input.GetKeyDown(KeyCode.J))            //The normal melee attack
 			{
-				other.gameObject.GetComponent<EnemyHealth>().Hit(10);       //Hit(10) has to be changed to Hit(dmg variable in simone script)
+				other.gameObject.GetComponent<EnemyHealth>().Hit(m_damage);       //Hit(10) has to be changed to Hit(dmg variable in simone script)
 				//Destroy(gameObject);
 			}
 		}
