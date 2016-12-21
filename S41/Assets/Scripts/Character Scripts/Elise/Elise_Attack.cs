@@ -29,15 +29,15 @@ public class Elise_Attack : MonoBehaviour
 	public string xbox_name_X360_Y;
 	public string xbox_name_Rtrigger;
 
-    public AudioClip aASound1;
-    public AudioClip aASound2;
-    public AudioClip marbleRainSound1;
-    public AudioClip marbleRainSound2;
-    public AudioClip trapSound1;
-    public AudioClip trapSound2;
+	public AudioClip aASound1;
+	public AudioClip aASound2;
+	public AudioClip marbleRainSound1;
+	public AudioClip marbleRainSound2;
+	public AudioClip trapSound1;
+	public AudioClip trapSound2;
 
 
-    private bool m_isAxisInUse = false;
+	private bool m_isAxisInUse = false;
 	private int m_trapCounter = 0;              // Times Cookie Jar was used
 	private int m_multiShotCounter = 0;         // Times Marble rain was used
 	// Use this for initialization
@@ -49,52 +49,52 @@ public class Elise_Attack : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-        if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0)
-        {
-            if (m_eliNormalCooldownTiming == false)
-            {
-                if (m_isAxisInUse == false)
-                {
-                    E_Normal_Attack();
-                    SoundManager.instance.RandomizeSfx(aASound1, aASound2);
-                    m_isAxisInUse = true;
-                }
-                m_eliNormalCooldownTiming = true;
-            }
-            if (m_eliNormalCooldownTiming == true)
-            {
-                m_eliNormalCooldown += Time.deltaTime;
-            }
-        }
-        if (m_eliNormalCooldown >= 0.025f)
-        {
-            if (Input.GetAxisRaw(xbox_name_Rtrigger) == 0)
-            {
-                m_isAxisInUse = false;
-                m_eliNormalCooldownTiming = false;
-                m_eliNormalCooldown = 0f;
-            }
-        }
+		if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0)
+		{
+			if (m_eliNormalCooldownTiming == false)
+			{
+				if (m_isAxisInUse == false)
+				{
+					E_Normal_Attack();
+					SoundManager.instance.RandomizeSfx(aASound1, aASound2);
+					m_isAxisInUse = true;
+				}
+				m_eliNormalCooldownTiming = true;
+			}
+			if (m_eliNormalCooldownTiming == true)
+			{
+				m_eliNormalCooldown += Time.deltaTime;
+			}
+		}
+		if (m_eliNormalCooldown >= 0.025f)
+		{
+			if (Input.GetAxisRaw(xbox_name_Rtrigger) == 0)
+			{
+				m_isAxisInUse = false;
+				m_eliNormalCooldownTiming = false;
+				m_eliNormalCooldown = 0f;
+			}
+		}
 		#region Elise Normal Attack
-        if (Input.GetKeyDown(KeyCode.H))         //for keyboard usage
-        {
-            if (m_eliNormalCooldownTiming == false)
-            {
-                E_Normal_Attack();
-                m_eliNormalCooldownTiming = true;
-            }
+		if (Input.GetKeyDown(KeyCode.H))         //for keyboard usage
+		{
+			if (m_eliNormalCooldownTiming == false)
+			{
+				E_Normal_Attack();
+				m_eliNormalCooldownTiming = true;
+			}
 
-            if (m_eliNormalCooldownTiming == true)
-            {
-                m_eliNormalCooldown += Time.deltaTime;
-            }
+			if (m_eliNormalCooldownTiming == true)
+			{
+				m_eliNormalCooldown += Time.deltaTime;
+			}
 
-            if (m_eliNormalCooldown >= 0.025f)
-            {
-                m_eliNormalCooldownTiming = false;
-                m_eliNormalCooldown = 0f;
-            }
-        }
+			if (m_eliNormalCooldown >= 0.025f)
+			{
+				m_eliNormalCooldownTiming = false;
+				m_eliNormalCooldown = 0f;
+			}
+		}
 		#endregion
 
 		#region Cookie Jar Trap
@@ -105,7 +105,7 @@ public class Elise_Attack : MonoBehaviour
 				if (TrapEvent != null)
 				{
 					TrapEvent();
-                    SoundManager.instance.RandomizeSfx(trapSound1, trapSound2);
+					SoundManager.instance.RandomizeSfx(trapSound1, trapSound2);
 				}
 				E_LayTrap();
 				m_trapCounter++;
@@ -133,7 +133,7 @@ public class Elise_Attack : MonoBehaviour
 				if (MultiEvent != null)
 				{
 					MultiEvent();
-                    SoundManager.instance.RandomizeSfx(marbleRainSound1, marbleRainSound2);
+					SoundManager.instance.RandomizeSfx(marbleRainSound1, marbleRainSound2);
 				}
 				E_MultiShot();
 				m_multiShotCounter++;
@@ -186,9 +186,9 @@ public class Elise_Attack : MonoBehaviour
 		multiBulletInstance1.velocity = m_multiLaunchForce * m_transformFireOrigin.forward;
 		multiBulletInstance2.velocity = m_multiLaunchForce * m_transformFireOriginLeft.forward;
 		multiBulletInstance3.velocity = m_multiLaunchForce * m_transformFireOriginRight.forward;
-        multiBulletInstance1.gameObject.GetComponent<Bullet_Collide>().multiActive = true;
-        multiBulletInstance2.gameObject.GetComponent<Bullet_Collide>().multiActive = true;
-        multiBulletInstance3.gameObject.GetComponent<Bullet_Collide>().multiActive = true;
+		multiBulletInstance1.gameObject.GetComponent<Bullet_Collide>().multiActive = true;
+		multiBulletInstance2.gameObject.GetComponent<Bullet_Collide>().multiActive = true;
+		multiBulletInstance3.gameObject.GetComponent<Bullet_Collide>().multiActive = true;
 	}
 
 	public int GetMultiCounter()
