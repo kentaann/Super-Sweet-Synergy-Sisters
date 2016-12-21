@@ -21,6 +21,10 @@ public class PlayerController : MonoBehaviour
 
     public bool över;
     private bool walking = false;
+    public bool m_energySpeed = false;
+    private bool m_energyTiming = false;
+    private float m_energyDuration = 0f;
+
     public float whatValue;
 
     Vector3 rbLastPosition;
@@ -57,6 +61,27 @@ public class PlayerController : MonoBehaviour
         sizeHeight = Camera.main.pixelHeight;
 
         screenPos = Camera.main.WorldToScreenPoint(transform.position);
+
+        if(m_energySpeed == true)
+        {
+            speed = 24f;
+            turnSpeed = 360f;
+            m_energyTiming = true;
+        }
+
+        if(m_energyTiming == true)
+        {
+            m_energyDuration += Time.deltaTime;
+        }
+
+        if(m_energyDuration >= 3.5f)
+        {
+            m_energySpeed = false;
+            m_energyTiming = false;
+            speed = 12f;
+            turnSpeed = 200f;
+            m_energyDuration = 0f;
+        }
 
     }
     
@@ -113,62 +138,6 @@ public class PlayerController : MonoBehaviour
         float dPadY = Input.GetAxis("X360_DPadY");
 
         //float triggerAxis = Input.GetAxis("X360_Triggers");
-        
-
-        #region Ta bort om du inte använder detta mer Jonathan!
-        //if (dPadX != 0)
-        //{
-        //    print("DPad Horizontal Value: " + dPadX);
-        //}
-        //if (dPadY != 0)
-        //{
-        //    print("DPad Vertical Value: " + dPadY);
-        //}
-        //if (triggerAxis != 0)
-        //{
-        //    print("Trigger Value: " + triggerAxis);
-        //}
-        //if (Input.GetButtonDown("X360_LBumper"))
-        //{
-        //    print("Left Bumper");
-        //}
-        //if (Input.GetButtonDown("X360_RBumper"))
-        //{
-        //    print("Right Bumper");
-        //}
-        //if (Input.GetButtonDown("X360_A"))
-        //{
-        //    print("A Button");
-        //}
-        //if (Input.GetButtonDown("X360_B"))
-        //{
-        //    print("B Button");
-        //}
-        //if (Input.GetButtonDown("X360_X"))
-        //{
-        //    print("X Button");
-        //}
-        //if (Input.GetButtonDown("X360_Y"))
-        //{
-        //    print("Y Button");
-        //}
-        //if (Input.GetButtonDown("X360_Back"))
-        //{
-        //    print("Back Button");
-        //}
-        //if (Input.GetButtonDown("X360_Start"))
-        //{
-        //    print("Start Button");
-        //}
-        //if (Input.GetButtonDown("X360_LStickClick"))
-        //{
-        //    print("Clicked Left Stick");
-        //}
-        //if (Input.GetButtonDown("X360_RStickClick"))
-        //{
-        //    print("Clicked Right Stick");
-        //}
-        #endregion
        
     }
 

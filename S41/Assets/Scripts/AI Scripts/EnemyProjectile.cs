@@ -50,7 +50,6 @@ public class EnemyProjectile : MonoBehaviour
             {
                 EnemyShooting();
                 nextShot = Time.time + shootInterval;
-
             }
         }
 

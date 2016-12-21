@@ -19,6 +19,7 @@ public class Simone_Attack : MonoBehaviour
 	public GameObject m_whippedObj;                                 // Object of whipped cream
 	public GameObject m_energyObj;                                  // Object of energy drink
 	Player_Movement m_playerMove;                                   // Used to manipulate movement from this class
+	PlayerController m_playerMoveRef;
 
 	public delegate void EventHandler();
 	public static event EventHandler ChannelEvent;
@@ -29,10 +30,10 @@ public class Simone_Attack : MonoBehaviour
 	public string xbox_name_X360_Y;
 	public string xbox_name_Rtrigger;
 
-    public AudioClip sound1;
-    public AudioClip sound2;
+	public AudioClip sound1;
+	public AudioClip sound2;
 
-    private bool m_isAxisInUse = false;
+	private bool m_isAxisInUse = false;
 
 	private float m_bulletLaunchForce;                              // Speed of the projectile
 	private float m_coolDown;                                       // Cooldown of attacks
@@ -70,6 +71,8 @@ public class Simone_Attack : MonoBehaviour
 		m_coolDown = 0.5f;
 		m_whippedCreamMoveSpeedMod = 0.75f;
 		m_playerMove = GetComponent<Player_Movement>();
+		m_playerMoveRef = GetComponent<PlayerController>();
+
 		//m_bulletMaterial = new Material("EnergyDrink_Material");
 		m_energyDrinkActive = false;
 		m_whippedCreamActive = true;
@@ -181,8 +184,8 @@ public class Simone_Attack : MonoBehaviour
 						if (m_whippedCreamActive && !m_spicyChocolateActive && !m_energyDrinkActive)
 						{
 							S_WhippedCreamAttack();
-                            SoundManager.instance.RandomizeSfx(sound1, sound2);
-                            m_attackRate = 0;
+							SoundManager.instance.RandomizeSfx(sound1, sound2);
+							m_attackRate = 0;
 							m_whippedCounter++;
 							m_isAxisInUse = true;
 						}
@@ -192,8 +195,8 @@ public class Simone_Attack : MonoBehaviour
 				if (m_energyDrinkActive && !m_spicyChocolateActive && !m_whippedCreamActive)
 				{
 					S_EnergyDrinkAttack();
-                    SoundManager.instance.RandomizeSfx(sound1, sound2);
-                    m_attackRate = 0;
+					SoundManager.instance.RandomizeSfx(sound1, sound2);
+					m_attackRate = 0;
 					m_energyCounter++;
 
 				}
@@ -201,8 +204,8 @@ public class Simone_Attack : MonoBehaviour
 				if (m_spicyChocolateActive && !m_energyDrinkActive && !m_whippedCreamActive)
 				{
 					S_SpicyChocolateAttack();
-                    SoundManager.instance.RandomizeSfx(sound1, sound2);
-                    m_attackRate = 0;
+					SoundManager.instance.RandomizeSfx(sound1, sound2);
+					m_attackRate = 0;
 					m_spicyCounter++;
 				}
 			}
@@ -223,6 +226,7 @@ public class Simone_Attack : MonoBehaviour
 				if (ChannelEvent != null)
 				{
 					ChannelEvent();
+										
 				}
 				m_energyDrinkActive = true;
 				m_spicyChocolateActive = false;
@@ -322,7 +326,7 @@ public class Simone_Attack : MonoBehaviour
 
 		Instantiate(m_whippedObj, m_transformOrigin.position, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
 
-        m_whippedObj.GetComponent<Channeling_script>().whippedActive = true;
+		m_whippedObj.GetComponent<Channeling_script>().whippedActive = true;
 	}
 
 	/// <summary>
@@ -335,12 +339,14 @@ public class Simone_Attack : MonoBehaviour
 		Vector3 playerPos = transform.position;
 		Vector3 playerDirection = transform.forward;
 		Quaternion playerRotation = transform.rotation;
+		m_playerMoveRef.GetComponent<PlayerController>().m_energySpeed = true;
+
 
 		Instantiate(m_energyObj, m_transformOrigin.position, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
 
-        m_energyObj.GetComponent<Channeling_script>().energyActive = true;
+		m_energyObj.GetComponent<Channeling_script>().energyActive = true;
 
-        gameObject.GetComponent<Player_Movement>().energySpeed = true;
+		gameObject.GetComponent<Player_Movement>().energySpeed = true;
 	}
 
 	private void S_SpicyChocolateAttack()
@@ -351,7 +357,7 @@ public class Simone_Attack : MonoBehaviour
 
 		Instantiate(m_spicyObj, m_transformOrigin.position, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
 
-        m_spicyObj.GetComponent<Channeling_script>().spicyActive = true;
+		m_spicyObj.GetComponent<Channeling_script>().spicyActive = true;
 	}
 
 	#endregion
