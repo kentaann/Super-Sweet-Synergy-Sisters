@@ -144,43 +144,6 @@ public class Phillippa_Attack : MonoBehaviour
 
     #endregion
 
-    #region Phillippa attacks
-
-    /// <summary>
-    /// Area Of Effect attack that does damage and stuns the enemy.
-    /// As of right now it damages but not always hit every enemy in the AOE.
-    /// SYNERGY: If a trap is present it is propelled away Phillippa.
-    /// </summary>
-    //public void Fluffpound()
-    //{
-    //   // m_timer.Start();
-    //    foreach (var target in m_targetList)
-    //    {
-    //        RaycastHit targetConnected;
-    //        Rigidbody targetBody = target.GetComponent<Rigidbody>();
-            
-    //        if (Physics.Raycast(transform.position, (target.position - transform.position), out targetConnected, 100))
-    //        {
-    //            if (targetConnected.transform == target && targetConnected.transform != null)
-    //            {
-    //                if (target.gameObject.tag == "Enemy")
-    //                {
-    //                    target.SendMessage("Hit", m_fluffDamage);
-    //                    target.SendMessage("SetMoveSpeed", 0f);
-    //                    target.SendMessage("Stun", true); 
-    //                }
-
-    //                if (target.gameObject.tag == "Trap")
-    //                {
-    //                    targetBody.AddExplosionForce(2000f, transform.position, 5f);
-    //                    target.SendMessage("FlyAway", true);
-    //                }
-    //            }
-    //        }
-    //    }
-    //}
-
-    #endregion
 
     #region Start
 
@@ -226,7 +189,7 @@ public class Phillippa_Attack : MonoBehaviour
         }
 
     
-        if (Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown(xbox_name_X360_A))
+        if (Input.GetKeyDown(KeyCode.I) || Input.GetButtonDown(xbox_name_X360_X))
         {
             //Fluffpound();
             if (m_fluffCooldownTiming == false)
