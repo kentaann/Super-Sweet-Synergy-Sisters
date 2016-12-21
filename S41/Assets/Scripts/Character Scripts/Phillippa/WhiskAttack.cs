@@ -16,6 +16,9 @@ public class WhiskAttack : MonoBehaviour
 	public Vector3 to;
 	public float speed;
 
+    public string xbox_name_X360_A;
+
+
     private float m_damage = 25f;
 	private Quaternion startingRotation;
 
@@ -59,7 +62,7 @@ public class WhiskAttack : MonoBehaviour
 
 		if (other.gameObject.tag == "Enemy")
 		{
-			if (Input.GetKeyDown(KeyCode.J))            //The normal melee attack
+            if (Input.GetKeyDown(KeyCode.J) || Input.GetButtonDown(xbox_name_X360_A))            //The normal melee attack
 			{
 				other.gameObject.GetComponent<EnemyHealth>().Hit(m_damage);       //Hit(10) has to be changed to Hit(dmg variable in simone script)
 				//Destroy(gameObject);
