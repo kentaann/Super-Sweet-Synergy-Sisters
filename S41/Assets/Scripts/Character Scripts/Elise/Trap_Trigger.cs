@@ -10,11 +10,13 @@ public class Trap_Trigger : MonoBehaviour
     public bool fireActivated = false;
     public bool fluffActivated = false;
     public bool trapDestroyed = false;
-
+    public ParticleSystem trapPs;
+    
 
 	// Use this for initialization
 	void Start () 
     {
+        trapPs = GetComponent<ParticleSystem>();
 	}
 
 
@@ -70,7 +72,13 @@ public class Trap_Trigger : MonoBehaviour
             }
         }
 	}
-
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Enemy" && trapTimer < 10)
+        {
+            GetComponentInChildren<ParticleSystem>().Play();
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         //Bug: Only the first enemy that entered the trap can move again after the trap is destroyed. The others stay stationary on the location of the trap
@@ -83,12 +91,15 @@ public class Trap_Trigger : MonoBehaviour
 
             trapTimer += Time.deltaTime;
 
+            
+
             if (fireActivated == true)
             {
                 other.gameObject.GetComponent<EnemyHealth>().Hit(fireDamage);
 
                 if (fireTimer >= 10)
                 {
+                   
                     other.gameObject.SendMessage("SetMoveSpeed", 2f);
                     Destroy(gameObject);
                 }
@@ -96,6 +107,7 @@ public class Trap_Trigger : MonoBehaviour
 
             if (trapTimer >= 10)
             {
+                
                 other.gameObject.SendMessage("SetMoveSpeed", 2f);
                 trapDestroyed = true;
                 Destroy(gameObject);
@@ -103,6 +115,7 @@ public class Trap_Trigger : MonoBehaviour
 
             if (trapDestroyed == true)
             {
+                
                 other.gameObject.SendMessage("SetMoveSpeed", 2f);
             }
         }

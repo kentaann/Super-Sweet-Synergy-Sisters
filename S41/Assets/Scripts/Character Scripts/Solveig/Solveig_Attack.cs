@@ -69,7 +69,7 @@ public class Solveig_Attack : MonoBehaviour
 	#region Start
 	void Start () 
 	{
-	
+        aoe_healing_stream.GetComponent<ParticleSystem>();
 	}
 	
 #endregion
@@ -185,18 +185,22 @@ public class Solveig_Attack : MonoBehaviour
 				 if (LoveEvent != null)
 				 {
 					 LoveEvent();
+                    aoe_healing_stream.Play();
                     SoundManager.instance.RandomizeSfx(songOfLoveSound1, songOfLoveSound2);
 
                 }
                 m_songCounter++;
 				 m_loveCooldownTiming = true;
-			 }
+                
+            }
 		}
+        
 
 		if (m_loveCooldownTiming == true)
 		{
 			m_loveCooldown += Time.deltaTime;
-		}
+            
+        }
 
 		if (m_loveCooldown >= 5.0f)
 		{

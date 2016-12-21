@@ -68,8 +68,8 @@ public class Song_Script : MonoBehaviour
 
 	public void Song()
 	{
-		m_songRenderer.enabled = true;
-		m_activeMesh = true;
+		//m_songRenderer.enabled = true;
+		//m_activeMesh = true;
 
 		foreach (var ally in m_allyList)
 		{
