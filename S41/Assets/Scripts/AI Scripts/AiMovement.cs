@@ -130,7 +130,7 @@ public class AiMovement : MonoBehaviour
                 {
                     MoveSpeed = 2f;
                     m_isStunned = false;
-                    m_stunSystem.Stop();
+                    //m_stunSystem.Stop();
                     m_stunTimer = 0;
                 }
             }
