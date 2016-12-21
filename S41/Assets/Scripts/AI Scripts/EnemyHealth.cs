@@ -8,17 +8,19 @@ public class EnemyHealth : MonoBehaviour
     public float currHealth, maxHealth;
     public GameObject enemyToDestroy;
 
-
-
     private float m_spicyChocolateDmg;
     private float m_spicyChocolateTimer = 0;
 
+    public bool m_attackable = true;
+    public bool m_creamAttackable = true;
     public bool m_isOnFire;
     private Image healthBar;
 
     public float wcDamageTimer;
     public bool wcAbleToDamage = false;
     public float nextShot = 0;
+    private float m_rushAttackTimer;
+    private float m_creamAttackTimer;
     public bool ableToDamage = false;
 
     private void OnEnable()
@@ -44,6 +46,25 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
+        if(m_attackable == false)
+        {
+            m_rushAttackTimer += Time.deltaTime;
+
+            if(m_rushAttackTimer > 1.0f)
+            {
+                m_attackable = true;
+                m_rushAttackTimer = 0.0f;
+            }
+        }
+        if(m_creamAttackable == false)
+        {
+            if(m_creamAttackTimer > 1.0f)
+            {
+                m_creamAttackable = true;
+                m_creamAttackTimer = 0.0f;
+            }
+        }
+
         DestroyWhenDead();
         ResizeHealthBar();
         WhippedCreamDmg();
