@@ -1,33 +1,35 @@
 Initialize engine version: 5.4.1f1 (649f48bbbf0f)
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 11.0 [level 10.1]
-    Renderer: Intel(R) HD Graphics 3000 (ID=0x126)
-    Vendor:   Intel
-    VRAM:     880 MB
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
+    Vendor:   NVIDIA
+    VRAM:     1965 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
-Loading C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.086 seconds
-Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Qyseth\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\System.dll (this message is harmless)
-desktop: 1600x900 60Hz; virtual: 3520x1080 at -1920,0
+Platform assembly: C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+Platform assembly: C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+Platform assembly: C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\GETween.dll (this message is harmless)
+Loading C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\GETween.dll into Unity Child Domain
+Platform assembly: C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\GUIAnimatorFREE.dll (this message is harmless)
+Loading C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\GUIAnimatorFREE.dll into Unity Child Domain
+- Completed reload, in  0.237 seconds
+Platform assembly: C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Spellabbet\Documents\GitHub\Super-Sweet-Synergy-Sisters\S41\other_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 0.861658 ms
+UnloadTime: 0.751530 ms
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 20f8 -> priority: 1 
-  Thread -> id: 23ec -> priority: 1 
-QuitPressed
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 42)
-
+  Thread -> id: 1530 -> priority: 1 
+  Thread -> id: 1a18 -> priority: 1 

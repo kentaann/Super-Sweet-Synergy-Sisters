@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class PauseMenu : MonoBehaviour
     public Text simoneControlsText;
     public Text solveigControlsText;
     public Text commonButtonsText;
-
 
     public GameObject controlsButton;
     
@@ -37,7 +37,6 @@ public class PauseMenu : MonoBehaviour
     {
         quitButton = GameObject.Find("QuitButton");
         controlsButton = GameObject.Find("ControlsButton");
-     
 
         enemySpawn = GameObject.Find("Spawn Manager");
         solveig = GameObject.Find("Solveig_Animated");
@@ -69,7 +68,6 @@ public class PauseMenu : MonoBehaviour
         phillippa.GetComponentInChildren<Fluff_Script>().enabled = true;
         phillippa.GetComponentInChildren<SpicyWhisk>().enabled = true;
         phillippa.GetComponentInChildren<EnergyWhisk>().enabled = true;
-
 
         pausePanel = pausePanel.GetComponent<Image>();
         controlPanel = controlPanel.GetComponent<Image>();
@@ -143,12 +141,11 @@ public class PauseMenu : MonoBehaviour
                 phillippa.GetComponentInChildren<EnergyWhisk>().enabled = false;
                
             }
-            else
+            else if (!controlsOpened)
             {
                 //menu is not opened
                 Time.timeScale = 1.0f;
                 enemySpawn.GetComponent<WaveSpawner>().enabled = true;
-                
 
                 solveig.GetComponent<Player_Movement>().enabled = true;
                 solveig.GetComponent<PlayerController>().enabled = true;
@@ -175,10 +172,6 @@ public class PauseMenu : MonoBehaviour
                 pauseTextinMenu.enabled = false;
                 quitButton.SetActive(false);
                 controlsButton.SetActive(false);
-
-              
-
-                
             }
         }
     }
@@ -215,9 +208,9 @@ public class PauseMenu : MonoBehaviour
     // Leave the game (Closes the whole game)   -> maybe it should go back to the Main menu and do not save the game????
     public void QuitGameInGameMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown("joystick button 4"))
+        if (Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown("joystick button 4") && !controlsOpened)
         {
-            Application.Quit();
+            SceneManager.LoadScene("MainMenu");
         }
     }    
 }
