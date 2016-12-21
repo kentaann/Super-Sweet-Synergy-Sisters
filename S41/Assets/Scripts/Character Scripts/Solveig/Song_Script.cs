@@ -9,6 +9,7 @@ public class Song_Script : MonoBehaviour
 
 	private bool m_activeMesh = false;
 	private float m_timer = 0;
+	private float m_songHeal = 45f;
 
 	void Start () 
 	{
@@ -82,7 +83,7 @@ public class Song_Script : MonoBehaviour
 				{
 					if (ally.gameObject.tag == "Player")
 					{
-						ally.SendMessage("GetHeal", 25);
+						ally.SendMessage("GetHeal", m_songHeal);
 					}
 				}
 			}
