@@ -87,7 +87,7 @@ public class EnemyProjectile : MonoBehaviour
     private void EnemyShooting()
     {
         Rigidbody projectileInstance = Instantiate(m_EnemyBullet, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
-        projectileInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
+        projectileInstance.velocity = 0.5f * m_transformOrigin.forward;
     }
 
     Transform GetClosestPlayers(List<Transform> listTransform)

@@ -112,6 +112,7 @@ public class AiMovement : MonoBehaviour
         if (fluffHit == true)
         {
             m_isStunned = true;
+            GetComponentInChildren<ParticleSystem>().Play();
         }
     }
 

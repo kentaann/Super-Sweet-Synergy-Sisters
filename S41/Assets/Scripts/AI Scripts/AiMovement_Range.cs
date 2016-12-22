@@ -21,6 +21,8 @@ public class AiMovement_Range : MonoBehaviour
     Vector3 lastPosition;
     private NavMeshAgent navComponent;
 
+    public ParticleSystem PS_stunned;
+
     enum GameState
     {
         Patrol,//inte användas nu
@@ -48,6 +50,7 @@ public class AiMovement_Range : MonoBehaviour
         lastPosition = transform.position;
 
         navComponent = this.gameObject.GetComponent<NavMeshAgent>();
+        PS_stunned = GetComponentInChildren<ParticleSystem>();
     }
 
     public void SetMoveSpeed(float moveSpeed)
@@ -112,6 +115,7 @@ public class AiMovement_Range : MonoBehaviour
         if (fluffHit == true)
         {
             m_isStunned = true;
+            GetComponentInChildren<ParticleSystem>().Play();
         }
     }
 
@@ -119,6 +123,7 @@ public class AiMovement_Range : MonoBehaviour
     {
         if (m_isStunned)
         {
+            
             if (m_stunTimer < 3)
             {
                 m_stunTimer += Time.deltaTime;
@@ -140,7 +145,7 @@ public class AiMovement_Range : MonoBehaviour
         if (SelectedTarget)
         {
 
-            if (dist >= 10)
+            if (dist >= 20)
             {
                 navComponent.Resume();
                 navComponent.SetDestination(SelectedTarget.position);
