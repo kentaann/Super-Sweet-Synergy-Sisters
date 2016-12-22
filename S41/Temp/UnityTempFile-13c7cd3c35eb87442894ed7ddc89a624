@@ -112,6 +112,7 @@
 "Assets/Scripts/AI Scripts/EnemyProjectile.cs"
 "Assets/Scripts/AI Scripts/Enemy_Projectile_Collide.cs"
 "Assets/Scripts/AI Scripts/Enemy_movement.cs"
+"Assets/Scripts/AI Scripts/NewWaveSpawner.cs"
 "Assets/Scripts/AI Scripts/WaveSpawner.cs"
 Assets/Scripts/Camera/CameraFacingBillboard.cs
 Assets/Scripts/Camera/Camera_Control.cs
