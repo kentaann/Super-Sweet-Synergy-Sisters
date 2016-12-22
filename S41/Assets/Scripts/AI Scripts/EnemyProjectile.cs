@@ -8,7 +8,7 @@ public class EnemyProjectile : MonoBehaviour
     public Transform m_transformOrigin;
     public Rigidbody m_EnemyBullet;
     private float m_bulletLaunchForce;
-    private float shootInterval = 1.0f;
+    private float shootInterval = 2.0f;
     private float nextShot = 0;
     public Transform[] m_Targets;
 
@@ -50,7 +50,6 @@ public class EnemyProjectile : MonoBehaviour
             {
                 EnemyShooting();
                 nextShot = Time.time + shootInterval;
-
             }
         }
 
