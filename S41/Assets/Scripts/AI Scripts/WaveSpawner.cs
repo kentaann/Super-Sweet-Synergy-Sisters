@@ -63,6 +63,8 @@ public class WaveSpawner : MonoBehaviour
 
     void Start()
     {
+        this.enabled = false;
+
         m_startColor = m_waveDescriptionText.color;
         m_imgStartColor = m_imageFade.color;
         m_fadeIn = false;
