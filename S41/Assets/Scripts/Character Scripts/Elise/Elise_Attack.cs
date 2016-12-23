@@ -28,6 +28,8 @@ public class Elise_Attack : MonoBehaviour
 	public string xbox_name_X360_X;
 	public string xbox_name_X360_Y;
 	public string xbox_name_Rtrigger;
+    public string xbox_name_RBumper;
+
 
 	public AudioClip aASound1;
 	public AudioClip aASound2;
@@ -49,6 +51,14 @@ public class Elise_Attack : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+        if (Input.GetButton(xbox_name_Rtrigger))
+            Debug.Log("RIGHT TRIGGER ELISE");
+
+        if (Input.GetButton(xbox_name_RBumper))
+            Debug.Log("RIGHT BUMPER ELISE");
+            
+
+
 		if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0)
 		{
 			if (m_eliNormalCooldownTiming == false)
@@ -76,7 +86,7 @@ public class Elise_Attack : MonoBehaviour
 			}
 		}
 		#region Elise Normal Attack
-		if (Input.GetKeyDown(KeyCode.H))         //for keyboard usage
+		if (Input.GetButton(xbox_name_RBumper))         //for keyboard usage
 		{
 			if (m_eliNormalCooldownTiming == false)
 			{

@@ -29,6 +29,7 @@ public class Simone_Attack : MonoBehaviour
 	public string xbox_name_X360_X;
 	public string xbox_name_X360_Y;
 	public string xbox_name_Rtrigger;
+    public string xbox_name_RBumper;
 
 	public AudioClip sound1;
 	public AudioClip sound2;
@@ -156,25 +157,12 @@ public class Simone_Attack : MonoBehaviour
 
 		#region Key Bindings
 
-		//if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0) //Input.GetKeyDown(KeyCode.Keypad0) ||
-		//{
-		//    if (m_isAxisInUse == false)
-		//    {
-		//        Sol_Attack();
-		//        m_isAxisInUse = true;
-		//    }
-
-		//}
-		//if (Input.GetAxisRaw(xbox_name_Rtrigger) == 0)
-		//{
-		//    m_isAxisInUse = false;
-		//}
 
 
 
 		if (m_attackRate >= m_coolDown)
 		{
-			if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0 || Input.GetKey(KeyCode.P))
+			if (Input.GetButton(xbox_name_RBumper))   
 			{
 				if (m_isAxisInUse == false)
 				{

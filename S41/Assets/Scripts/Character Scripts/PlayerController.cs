@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour
     public string xbox_name_RstickX;
     public string xbox_name_RstickY;
     public string xbox_name_Rtrigger;
-
+    public string xbox_name_RBumper;
+    public string m_controllerID;   // This is for assigning
 
     public Vector3 screenPos;
     public float sizeWidth;
@@ -39,8 +40,6 @@ public class PlayerController : MonoBehaviour
 
     void Start ()
     {
-
-
         rb = GetComponent<Rigidbody>();
 
         half_sz_X = GetComponentInChildren<Renderer>().bounds.size.x;
@@ -55,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
         screenPos.x = Mathf.Clamp(screenPos.x, 0, Camera.main.pixelWidth);
 
         sizeWidth = Camera.main.pixelWidth;
@@ -169,5 +169,20 @@ public class PlayerController : MonoBehaviour
     {
         bool walking = moveHorizontal != 0f || moveVertical != 0f;
         anim.SetBool("IsWalking", walking);
+    }
+
+    void AssignController()
+    {
+        if (Input.GetButton("X360_Start1"))
+            m_controllerID = "1";
+
+        else if (Input.GetButton("X360_Start2"))
+            m_controllerID = "2";
+
+        else if (Input.GetButton("X360_Start3"))
+            m_controllerID = "3";
+
+        else if (Input.GetButton("X360_Start4"))
+            m_controllerID = "4";
     }
 }

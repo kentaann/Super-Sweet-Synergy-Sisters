@@ -65,7 +65,7 @@ public class AiMovement : MonoBehaviour
         numberOfPlayers = GameObject.FindGameObjectsWithTag("Player").Length;
 
         UpdatePlayerList();
-        KeepDistanceToOtherEnemies();
+        //KeepDistanceToOtherEnemies();
         TargetedPlayer();
         MoveToPlayer();
         Stunned();
@@ -147,27 +147,27 @@ public class AiMovement : MonoBehaviour
         }
     }
 
-    private void KeepDistanceToOtherEnemies()
-    {
-        foreach (GameObject go in otherObject)
-        {
-            if (go != gameObject)
-            {
-                if (Vector3.Distance(transform.position, go.transform.position) <= 4f)
-                {
-                    //Koden från början, dock funkar inte den riktigt med navmesh
-                    //transform.position = (transform.position - go.transform.position).normalized + go.transform.position;
-                    //go.transform.position += (transform.position - lastPosition);
+    //private void KeepDistanceToOtherEnemies()
+    //{
+    //    foreach (GameObject go in otherObject)
+    //    {
+    //        if (go != gameObject)
+    //        {
+    //            if (Vector3.Distance(transform.position, go.transform.position) <= 4f)
+    //            {
+    //                //Koden från början, dock funkar inte den riktigt med navmesh
+    //                //transform.position = (transform.position - go.transform.position).normalized + go.transform.position;
+    //                //go.transform.position += (transform.position - lastPosition);
 
-                    //simpel kod, finns bättre, men använder den ändå
-                    //transform.position = lastPosition;
+    //                //simpel kod, finns bättre, men använder den ändå
+    //                //transform.position = lastPosition;
 
-                    //Funkar bäst hittills
-                    //go.transform.position += (transform.position - lastPosition);
-                }
-            }
-        }
-    }
+    //                //Funkar bäst hittills
+    //                //go.transform.position += (transform.position - lastPosition);
+    //            }
+    //        }
+    //    }
+    //}
 
     private void UpdatePlayerList()
     {

@@ -17,6 +17,9 @@ public class WhiskAttack : MonoBehaviour
 	public Vector3 to;
 	public float speed;
 
+	public string xbox_name_RBumper;
+
+
 	private Quaternion startingRotation;
 	public List<GameObject> m_enemyList = new List<GameObject>();
 
@@ -183,7 +186,7 @@ public class WhiskAttack : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.J))
+		if (Input.GetButton(xbox_name_RBumper))   
 		{
 			float t = Mathf.PingPong(Time.time * speed * 2.0f, 1.0f);
 			transform.localEulerAngles = Vector3.Lerp(from, to, t);
