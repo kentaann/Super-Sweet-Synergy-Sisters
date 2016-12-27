@@ -3,8 +3,10 @@ using System.Collections;
 
 public class FixedPlayerHealth : MonoBehaviour {
 
-    public int health;
+    public int currentHealth;
+    private int maxHealth;
     public int lookForDamage;
+
 
     private float m_timer;
     private const float m_GODTIMER = 5.0f;
@@ -12,15 +14,15 @@ public class FixedPlayerHealth : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        //health = 100;
+        maxHealth = currentHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-        lookForDamage = health;
+        lookForDamage = currentHealth;
 
-        if (health <= 0)
+        if (currentHealth <= 0)
         {
             Destroy(gameObject);
         }
@@ -28,27 +30,21 @@ public class FixedPlayerHealth : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        currentHealth -= damage;
     }
 
     public void GetHeal(float heal)
     {
-        health += (int)heal;
+        if(currentHealth < maxHealth)
+            currentHealth += (int)heal;
+
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
     }
 
     public int GetHealth()
     {
-        return health;
-    }
-
-    public void MakeInvulnerable()
-    {
-        m_timer += Time.deltaTime;
-
-        if(m_timer >= m_GODTIMER)
-        {
-            // NOT DONE
-        }
+        return currentHealth;
     }
 
     void OnCollisionEnter(Collision other)

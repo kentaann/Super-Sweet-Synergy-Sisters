@@ -63,7 +63,7 @@ public class Solveig_Attack : MonoBehaviour
 	{
 		m_playerMove = GetComponent<Player_Movement>();
 		m_launchForce = 30f;
-		m_coolDown = 0.5f;
+		m_coolDown = 0.25f;
 	}
 	#endregion
 
@@ -137,6 +137,7 @@ public class Solveig_Attack : MonoBehaviour
 				if (m_isAxisInUse == false)
 				{
 					Sol_Attack();
+					
 					SoundManager.instance.RandomizeSfx(autoAttackSound1, autoAttackSound2);
 					m_isAxisInUse = true;
 				}
@@ -146,7 +147,8 @@ public class Solveig_Attack : MonoBehaviour
 			{
 				m_isAxisInUse = false;
 			}
-			
+
+			m_attackRate = 0;
 		}
 
 		#region Flower Power

@@ -42,22 +42,23 @@ public class Elise_Attack : MonoBehaviour
 	private bool m_isAxisInUse = false;
 	private int m_trapCounter = 0;              // Times Cookie Jar was used
 	private int m_multiShotCounter = 0;         // Times Marble rain was used
+    private float m_attackRate;
+    private float m_coolDown;
 	// Use this for initialization
 	void Start () 
 	{
 	
 	}
 
+    void OnEnable()
+    {
+        m_coolDown = 0.25f;
+    }
+
 	// Update is called once per frame
 	void Update()
 	{
-        if (Input.GetButton(xbox_name_Rtrigger))
-            Debug.Log("RIGHT TRIGGER ELISE");
-
-        if (Input.GetButton(xbox_name_RBumper))
-            Debug.Log("RIGHT BUMPER ELISE");
-            
-
+        m_attackRate += Time.deltaTime;
 
 		if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0)
 		{
@@ -88,22 +89,12 @@ public class Elise_Attack : MonoBehaviour
 		#region Elise Normal Attack
 		if (Input.GetButton(xbox_name_RBumper))         //for keyboard usage
 		{
-			if (m_eliNormalCooldownTiming == false)
+			if (m_attackRate > m_coolDown)
 			{
 				E_Normal_Attack();
-				m_eliNormalCooldownTiming = true;
+				
 			}
-
-			if (m_eliNormalCooldownTiming == true)
-			{
-				m_eliNormalCooldown += Time.deltaTime;
-			}
-
-			if (m_eliNormalCooldown >= 0.025f)
-			{
-				m_eliNormalCooldownTiming = false;
-				m_eliNormalCooldown = 0f;
-			}
+            m_attackRate = 0;
 		}
 		#endregion
 
