@@ -89,7 +89,7 @@ public class EnemyProjectile : MonoBehaviour
         projectileInstance.velocity = m_bulletLaunchForce * m_transformOrigin.forward;
     }
 
-    Transform GetClosestPlayers(List<Transform> listTransform)
+    public Transform GetClosestPlayers(List<Transform> listTransform)
     {
         Transform bestTarget = null;
         float closestDistanceSqr = Mathf.Infinity;

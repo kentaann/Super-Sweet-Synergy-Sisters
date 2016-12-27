@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class NewWaveSpawner : MonoBehaviour
 {
@@ -385,7 +386,10 @@ public class NewWaveSpawner : MonoBehaviour
     {
         _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-        GameObject eObj = Instantiate(_enemy, _sp.position, _sp.rotation) as GameObject;
+        //GameObject eObj = Instantiate(_enemy, _sp.position, _sp.rotation) as GameObject;
+        Vector3 direction = GetClosestPlayers().position - _sp.position;
+
+        GameObject eObj = Instantiate(_enemy, _sp.position, Quaternion.LookRotation(direction)) as GameObject;
 
 
         if (eObj.GetComponent<EnemyHealth>())
@@ -408,6 +412,34 @@ public class NewWaveSpawner : MonoBehaviour
             EnemyProjectile eProjectile = eObj.GetComponent<EnemyProjectile>();
             eProjectile.InitializeBulletForce(setProjSpeed);
         }
+    }
+
+    Transform GetClosestPlayers()
+    {
+        GameObject[] ItemsInList = GameObject.FindGameObjectsWithTag("Player");
+        List<Transform> listTransform = new List<Transform>();
+
+        foreach (GameObject player in ItemsInList)
+        {
+            listTransform.Add(player.transform);
+        }
+
+
+        Transform bestTarget = null;
+        float closestDistanceSqr = Mathf.Infinity;
+        Vector3 currentPosition = transform.position;
+        foreach (Transform potentialTarget in listTransform)
+        {
+            Vector3 directionToTarget = potentialTarget.position - currentPosition;
+            float dSqrToTarget = directionToTarget.sqrMagnitude;
+            if (dSqrToTarget < closestDistanceSqr)
+            {
+                closestDistanceSqr = dSqrToTarget;
+                bestTarget = potentialTarget;
+            }
+        }
+
+        return bestTarget;
     }
 
     void DestroyAllEnemyObjects()
