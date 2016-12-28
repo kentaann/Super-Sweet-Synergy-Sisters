@@ -9,7 +9,7 @@ public class Phillippa_Attack : MonoBehaviour
 {
     #region Variables
 
-    public List<Transform> m_targetList = new List<Transform>();
+    public List<Transform> m_targetList;
 
     public delegate void EventHandler();
     public static event EventHandler FluffEvent;
@@ -124,7 +124,10 @@ public class Phillippa_Attack : MonoBehaviour
     /// <param name="other"></param>
     void OnTriggerExit(Collider other)
     {
-        m_targetList.Remove(other.gameObject.transform);
+        if (m_targetList != null)
+        {
+            m_targetList.Remove(other.gameObject.transform); 
+        }
     }
 
     #endregion
@@ -135,7 +138,7 @@ public class Phillippa_Attack : MonoBehaviour
     {
         foreach(var target in m_targetList)
         {
-            if(target == null)
+            if(target != null)
             {
                 m_targetList.Remove(target);
             }
@@ -149,6 +152,7 @@ public class Phillippa_Attack : MonoBehaviour
 
     void Start()
     {
+        m_targetList = new List<Transform>();
         //rushPS = GetComponent<ParticleSystem>();
         fluffPS = GetComponent<ParticleSystem>();
         //transform.position += transform.forward * Time.deltaTime * 1000;
@@ -185,7 +189,7 @@ public class Phillippa_Attack : MonoBehaviour
     {
         if(m_targetList.Count > 0)
         {
-            RemoveNullTarget();
+            //RemoveNullTarget();
         }
 
     

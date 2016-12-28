@@ -57,9 +57,11 @@ public class Camera_test : MonoBehaviour
 
     void LateUpdate()
     {
+        UpdatePlayerList();
+
         //Nytt
         //transform.position = new Vector3(FindAveragePosition().x + offset.x, FindAveragePosition().y + offset.y + changeYpos, FindAveragePosition().z + offset.z + changeZpos);
-        
+
         //Se kamerans postion utan offset
         //transform.position = new Vector3(FindAveragePosition().x, FindAveragePosition().y + offset.y + changeYpos, FindAveragePosition().z);
 
@@ -111,7 +113,7 @@ public class Camera_test : MonoBehaviour
     {
         cam.fieldOfView = Mathf.Clamp(cam.fieldOfView, min, max);
         Transform cameraTarget = GetFarthestPlayer();
-        whoIsTheObject = cameraTarget.gameObject;
+        //whoIsTheObject = cameraTarget.gameObject;
         if (cameraTarget)
         {
             newdistance = Vector3.Distance(FindAveragePosition(), cameraTarget.position);

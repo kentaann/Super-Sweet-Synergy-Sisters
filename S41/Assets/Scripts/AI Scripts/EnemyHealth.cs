@@ -6,7 +6,6 @@ public class EnemyHealth : MonoBehaviour
 {
 
     public float currHealth, maxHealth;
-    public GameObject enemyToDestroy;
 
     private float m_spicyChocolateDmg;
     private float m_spicyChocolateTimer = 0;
@@ -48,19 +47,24 @@ public class EnemyHealth : MonoBehaviour
 
     void Update()
     {
-        if(m_attackable == false)
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Destroy(gameObject);
+        }
+
+        if (m_attackable == false)
         {
             m_rushAttackTimer += Time.deltaTime;
 
-            if(m_rushAttackTimer > 1.0f)
+            if (m_rushAttackTimer > 1.0f)
             {
                 m_attackable = true;
                 m_rushAttackTimer = 0.0f;
             }
         }
-        if(m_creamAttackable == false)
+        if (m_creamAttackable == false)
         {
-            if(m_creamAttackTimer > 1.0f)
+            if (m_creamAttackTimer > 1.0f)
             {
                 m_creamAttackable = true;
                 m_creamAttackTimer = 0.0f;
@@ -82,7 +86,7 @@ public class EnemyHealth : MonoBehaviour
             {
                 GetComponentInChildren<ParticleSystem>().Play();
                 currHealth -= m_spicyChocolateDmg;
-                
+
                 if (m_spicyChocolateTimer >= 3)
                 {
                     m_isOnFire = false;
@@ -115,7 +119,7 @@ public class EnemyHealth : MonoBehaviour
         if (currHealth <= 10)
         {
             OnDestroyed();
-            Destroy(enemyToDestroy);
+            Destroy(gameObject);
         }
     }
 

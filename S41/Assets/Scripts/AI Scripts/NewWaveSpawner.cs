@@ -103,7 +103,6 @@ public class NewWaveSpawner : MonoBehaviour
         }
 
         waveCountDown = timeBetweenWaves;
-        Debug.Log("The class WaveSpawner started");
         spawn_Point_Cylinder1.transform.position = new Vector3(spawn_Point1.transform.position.x, spawn_Point1.transform.position.y - 3.5f, spawn_Point1.transform.position.z);
         spawn_Point_Cylinder2.transform.position = new Vector3(spawn_Point2.transform.position.x, spawn_Point2.transform.position.y - 0.8f, spawn_Point2.transform.position.z);
         spawn_Point_Cylinder3.transform.position = new Vector3(spawn_Point3.transform.position.x, spawn_Point3.transform.position.y - 2.5f, spawn_Point3.transform.position.z);
@@ -120,11 +119,11 @@ public class NewWaveSpawner : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Debug.Log("R key pressed");
-            DestroyAllEnemyObjects();
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    Debug.Log("R key pressed");
+        //    DestroyAllEnemyObjects();
+        //}
 
         if (state == SpawnState.WAITING)
         {
