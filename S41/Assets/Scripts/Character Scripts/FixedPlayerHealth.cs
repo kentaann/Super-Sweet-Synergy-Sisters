@@ -4,8 +4,9 @@ using System.Collections;
 public class FixedPlayerHealth : MonoBehaviour {
 
     public int currentHealth;
-    private int maxHealth;
+    public int maxHealth;
     public int lookForDamage;
+    public float dmgTime = 0.1f;
 
 
     private float m_timer;
@@ -26,6 +27,26 @@ public class FixedPlayerHealth : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+
+        foreach (var e in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            dmgTime += Time.deltaTime;
+
+            if (gameObject.GetComponent<Collider>().bounds.Intersects(e.GetComponent<Collider>().bounds))
+            {
+                if (dmgTime > 0.3f)
+                {
+                    TakeDamage(20);
+                    dmgTime = 0;
+                    Debug.Log("Hit enemy");
+                }
+            }
+        }
+    }
+
+    public float GetMaxHealth()
+    {
+        return maxHealth;
     }
 
     public void TakeDamage(int damage)
@@ -53,7 +74,7 @@ public class FixedPlayerHealth : MonoBehaviour {
 
         if (other.gameObject.tag == "Enemy")
         {
-            TakeDamage(20);         //here is where damage is taken
+            //TakeDamage(20);         //here is where damage is taken
             enemyBody.AddExplosionForce(1000f, transform.position, 5f);         //players are supposed to be pushed away when damaged
             Debug.Log("Hit enemy");
         }

@@ -64,18 +64,18 @@ public class PlayerHealth : MonoBehaviour
         timer += Time.deltaTime;
                 
         simoneHealth = fixedPlayerHealth_Simone.GetHealth();
-        simoneScrollBar.size = simoneHealth / 100f;
+        simoneScrollBar.size = simoneHealth / fixedPlayerHealth_Simone.GetMaxHealth();
 
         solveigHealth = fixedPlayerHealth_Solveig.GetHealth();
-        solveigScrollBar.size = solveigHealth / 100f;
+        solveigScrollBar.size = solveigHealth / fixedPlayerHealth_Solveig.GetMaxHealth();
 
         philippaHealth = fixedPlayerHealth_Philippa.GetHealth();
-        philippaScrollBar.size = philippaHealth / 100f;
+        philippaScrollBar.size = philippaHealth / fixedPlayerHealth_Philippa.GetMaxHealth();
 
         eliseHealth = fixedPlayerHealth_Elise.GetHealth();
-        eliseScrollBar.size = eliseHealth / 100f;
-        
-        
+        eliseScrollBar.size = eliseHealth / fixedPlayerHealth_Elise.GetMaxHealth();
+
+
 
         CheckHealthForGameOver();
         GameOverMenu();
