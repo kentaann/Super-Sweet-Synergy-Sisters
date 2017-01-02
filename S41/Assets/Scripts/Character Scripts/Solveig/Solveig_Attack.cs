@@ -75,8 +75,6 @@ public class Solveig_Attack : MonoBehaviour
 	
 #endregion
 
-	#region On Trigger Enter
-
 	void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.tag == "Enemy")
@@ -95,9 +93,8 @@ public class Solveig_Attack : MonoBehaviour
 		}
 	}
 
-	#endregion
 
-	#region On Trigger Exit
+
 
 	void OnTriggerExit(Collider other)
 	{
@@ -111,10 +108,6 @@ public class Solveig_Attack : MonoBehaviour
 			m_allyList.Remove(other.gameObject.transform);
 		}
 	}
-
-	#endregion
-
-	#region Update
 
 	void Update () 
 	{
@@ -151,7 +144,7 @@ public class Solveig_Attack : MonoBehaviour
 			m_attackRate = 0;
 		}
 
-		#region Flower Power
+
 		if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetButtonDown(xbox_name_X360_B))
 		{
 			 if (m_flowerCooldownTiming == false)
@@ -178,9 +171,7 @@ public class Solveig_Attack : MonoBehaviour
 			m_flowerCooldownTiming = false;
 			m_flowerCooldown = 0f;
 		}
-		#endregion
 
-		#region Song of Love
 		if(Input.GetKeyDown(KeyCode.Keypad9) || Input.GetButtonDown(xbox_name_X360_X))
 		{
 			 if (m_loveCooldownTiming == false)
@@ -210,13 +201,7 @@ public class Solveig_Attack : MonoBehaviour
 			m_loveCooldownTiming = false;
 			m_loveCooldown = 0f;
 		}
-		#endregion
-
 	}
-
-	#endregion
-
-	#region Attack
 
 	private void Sol_Attack()
 	{
@@ -228,11 +213,6 @@ public class Solveig_Attack : MonoBehaviour
 		Rigidbody projectileInstance = Instantiate(m_FlowerPower, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
 		projectileInstance.velocity = m_launchForce * m_transformOrigin.forward;
 	}
-
-
-	#endregion
-
-	#region List Handling
 
 	void RemoveNullTarget()
 	{
@@ -256,7 +236,6 @@ public class Solveig_Attack : MonoBehaviour
 		}
 	}
 
-	#endregion
 
 	public int GetFlowerCounter()
 	{

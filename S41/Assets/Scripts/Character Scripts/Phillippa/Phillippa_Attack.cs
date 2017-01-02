@@ -183,7 +183,6 @@ public class Phillippa_Attack : MonoBehaviour
         }
     }
 
-    #region Update
 
     void Update()
     {
@@ -269,7 +268,6 @@ public class Phillippa_Attack : MonoBehaviour
         } 
     }
 
-    #endregion
 
     public int GetRushCounter()
     {

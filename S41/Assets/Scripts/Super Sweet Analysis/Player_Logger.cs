@@ -27,57 +27,57 @@ public class Player_Logger : MonoBehaviour
 	private string m_path = "";                     // The path to where the data is saved	
 
 	private float m_currentTime = 0.0f;             // The current time, used for writing incrementally
-	private float m_timeToWrite = 1.0f;             // Interval for when the call to write is made
+	private float m_timeToWrite = 1.5f;             // Interval for when the call to write is made
 
 	#endregion
 
-	#region On Enable
+
 
 	private void OnEnable()
 	{
 		m_SimoneRef.GetComponent<Simone_Attack>();
-		m_PhillippaRef.GetComponent<Transform>();
 		m_SimoneRef.GetComponent<Transform>();
+		m_PhillippaRef.GetComponent<Transform>();
 		m_SolveigRef.GetComponent<Transform>();
 		m_EliseRef.GetComponent<Transform>();
 		m_path = (long)(DateTime.Today - new DateTime(1970, 1, 1)).TotalSeconds + DateTime.Now.TimeOfDay.TotalSeconds + ".txt";           // Creates a unique ID for each test case
 	}
-
-	#endregion
-
-	#region Start
 
 	void Start () 
 	{
 		m_streamWriter = new StreamWriter(m_path);
 	}
 
-	#endregion
-
-	#region Update
-
 	void Update () 
 	{
 		m_currentTime += Time.deltaTime;
 
+		GetPlayerPositions();
+
+
+		if (m_currentTime > m_timeToWrite)
+		{
+			AddPositionToList();
+			m_currentTime = 0.0f;
+		}
+	}    
+
+	void GetPlayerPositions()
+	{
 		// Gets position from each character
 		m_PhillippaPosition = m_PhillippaRef.GetComponent<Transform>().position;
 		m_SimonePosition = m_SimoneRef.GetComponent<Transform>().position;
 		m_SolveigPosition = m_SolveigRef.GetComponent<Transform>().position;
 		m_ElisePosition = m_EliseRef.GetComponent<Transform>().position;
+	}
 
-
-		if (m_currentTime > m_timeToWrite)
-		{
-			m_jsonObject.m_elPosList.Add(m_ElisePosition);
-			m_jsonObject.m_phPosList.Add(m_PhillippaPosition);
-			m_jsonObject.m_soPosList.Add(m_SolveigPosition);
-			m_jsonObject.m_siPosList.Add(m_SimonePosition);
-			m_currentTime = 0.0f;
-		}
-	}    
-
-	#endregion
+	void AddPositionToList()
+	{
+		m_jsonObject.m_elPosList.Add(m_ElisePosition);
+		m_jsonObject.m_phPosList.Add(m_PhillippaPosition);
+		m_jsonObject.m_soPosList.Add(m_SolveigPosition);
+		m_jsonObject.m_siPosList.Add(m_SimonePosition);
+	}
 
 	void SetCounters()
 	{
@@ -99,7 +99,7 @@ public class Player_Logger : MonoBehaviour
 		m_streamWriter.Close();
 	}
 	
-	#region On Application Quit
+
 
 	void OnApplicationQuit()
 	{
@@ -107,6 +107,4 @@ public class Player_Logger : MonoBehaviour
 		SetCounters();
 		WriteToJSON();
 	}
-
-	#endregion
 }
