@@ -28,7 +28,7 @@ public class Elise_Attack : MonoBehaviour
 	public string xbox_name_X360_X;
 	public string xbox_name_X360_Y;
 	public string xbox_name_Rtrigger;
-    public string xbox_name_RBumper;
+	public string xbox_name_RBumper;
 
 
 	public AudioClip aASound1;
@@ -42,23 +42,23 @@ public class Elise_Attack : MonoBehaviour
 	private bool m_isAxisInUse = false;
 	private int m_trapCounter = 0;              // Times Cookie Jar was used
 	private int m_multiShotCounter = 0;         // Times Marble rain was used
-    private float m_attackRate;
-    private float m_coolDown;
+	private float m_attackRate;
+	private float m_coolDown;
 	// Use this for initialization
 	void Start () 
 	{
 	
 	}
 
-    void OnEnable()
-    {
-        m_coolDown = 0.25f;
-    }
+	void OnEnable()
+	{
+		m_coolDown = 0.25f;
+	}
 
 	// Update is called once per frame
 	void Update()
 	{
-        m_attackRate += Time.deltaTime;
+		m_attackRate += Time.deltaTime;
 
 		if (Input.GetAxisRaw(xbox_name_Rtrigger) != 0)
 		{
@@ -77,7 +77,7 @@ public class Elise_Attack : MonoBehaviour
 				m_eliNormalCooldown += Time.deltaTime;
 			}
 		}
-		if (m_eliNormalCooldown >= 0.025f)
+		if (m_eliNormalCooldown >= 0.25f)
 		{
 			if (Input.GetAxisRaw(xbox_name_Rtrigger) == 0)
 			{
@@ -94,7 +94,7 @@ public class Elise_Attack : MonoBehaviour
 				E_Normal_Attack();
 				
 			}
-            m_attackRate = 0;
+			m_attackRate = 0;
 		}
 		#endregion
 

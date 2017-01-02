@@ -63,7 +63,7 @@ public class Solveig_Attack : MonoBehaviour
 	{
 		m_playerMove = GetComponent<Player_Movement>();
 		m_launchForce = 30f;
-		m_coolDown = 0.25f;
+		m_coolDown = 0.5f;
 	}
 	#endregion
 
