@@ -1,11 +1,7 @@
-﻿#region Using Statements
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.IO;
 using System;
 using Assets.Scripts.Super_Sweet_Analysis;
-
-#endregion
 
 public class Player_Logger : MonoBehaviour
 {
@@ -30,8 +26,7 @@ public class Player_Logger : MonoBehaviour
 	private float m_timeToWrite = 1.5f;             // Interval for when the call to write is made
 
 	#endregion
-
-
+	
 
 	private void OnEnable()
 	{
@@ -53,7 +48,6 @@ public class Player_Logger : MonoBehaviour
 		m_currentTime += Time.deltaTime;
 
 		GetPlayerPositions();
-
 
 		if (m_currentTime > m_timeToWrite)
 		{
@@ -98,13 +92,16 @@ public class Player_Logger : MonoBehaviour
 		m_streamWriter.Write(data);
 		m_streamWriter.Close();
 	}
-	
 
-
-	void OnApplicationQuit()
+	public void addDataToJson()
 	{
 		m_jsonObject.SetAllDeathPosition();
 		SetCounters();
 		WriteToJSON();
+	}
+
+	void OnApplicationQuit()
+	{
+		addDataToJson();
 	}
 }

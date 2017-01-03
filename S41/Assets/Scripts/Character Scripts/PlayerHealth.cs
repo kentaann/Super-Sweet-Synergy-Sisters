@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     public bool deadEl = false;
     public bool deadSi = false;
     public bool deadSol = false;
+    public bool m_writeThatJson = false;
 
     public GameObject simone;
     public GameObject solveig;
@@ -110,6 +111,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (deadSol == true && deadSi == true && deadPh == true && deadEl == true)
         {
+            m_writeThatJson = true;
             SceneManager.LoadScene("GamOver");
         }
     }   

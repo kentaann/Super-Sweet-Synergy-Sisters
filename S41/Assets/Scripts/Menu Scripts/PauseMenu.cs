@@ -16,6 +16,7 @@ public class PauseMenu : MonoBehaviour
     public Text solveigControlsText;
     public Text commonButtonsText;
 
+
     public GameObject controlsButton;
     
     public GameObject quitButton;

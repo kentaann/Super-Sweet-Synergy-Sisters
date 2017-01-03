@@ -1,9 +1,6 @@
-﻿#region Using Statements
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
-#endregion
 
 public class Solveig_Attack : MonoBehaviour
 {
@@ -57,23 +54,17 @@ public class Solveig_Attack : MonoBehaviour
 
 	#endregion
 
-	#region On Enable
-
 	private void OnEnable()
 	{
 		m_playerMove = GetComponent<Player_Movement>();
 		m_launchForce = 30f;
 		m_coolDown = 0.5f;
 	}
-	#endregion
 
-	#region Start
 	void Start () 
 	{
 		aoe_healing_stream.GetComponent<ParticleSystem>();
 	}
-	
-#endregion
 
 	void OnTriggerEnter(Collider other)
 	{
@@ -92,9 +83,6 @@ public class Solveig_Attack : MonoBehaviour
 			m_lovelyCreamActive = true;
 		}
 	}
-
-
-
 
 	void OnTriggerExit(Collider other)
 	{
@@ -149,14 +137,14 @@ public class Solveig_Attack : MonoBehaviour
 		{
 			 if (m_flowerCooldownTiming == false)
 			 {
+				 m_songCounter++;
 				 if (FlowerEvent != null)
 				 {
-					 FlowerEvent();
+					FlowerEvent();
 					SoundManager.instance.RandomizeSfx(flowerPowerSound1, flowerPowerSound2);
 				}
 
 				FlowerPower();
-				 m_fpCounter++;
 				 m_flowerCooldownTiming = true;
 			 }
 		}
@@ -178,22 +166,19 @@ public class Solveig_Attack : MonoBehaviour
 			 {
 				 if (LoveEvent != null)
 				 {
-					 LoveEvent();
+					LoveEvent();
 					aoe_healing_stream.Play();
 					SoundManager.instance.RandomizeSfx(songOfLoveSound1, songOfLoveSound2);
-
 				}
-				m_songCounter++;
-				 m_loveCooldownTiming = true;
-				
+
+				 m_loveCooldownTiming = true;				
 			}
 		}
 		
 
 		if (m_loveCooldownTiming == true)
 		{
-			m_loveCooldown += Time.deltaTime;
-			
+			m_loveCooldown += Time.deltaTime;			
 		}
 
 		if (m_loveCooldown >= 5.0f)
@@ -212,6 +197,7 @@ public class Solveig_Attack : MonoBehaviour
 	{
 		Rigidbody projectileInstance = Instantiate(m_FlowerPower, m_transformOrigin.position, m_transformOrigin.rotation) as Rigidbody;
 		projectileInstance.velocity = m_launchForce * m_transformOrigin.forward;
+		m_fpCounter++;
 	}
 
 	void RemoveNullTarget()

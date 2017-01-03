@@ -18,6 +18,7 @@ public class UserInterface : MonoBehaviour
     public Text simoneControlsText;
     public Text commonControlsText;
 
+
     bool optionMenuOpened = false;
 
 

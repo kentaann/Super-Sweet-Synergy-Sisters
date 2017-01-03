@@ -29,7 +29,7 @@ public class Simone_Attack : MonoBehaviour
 	public string xbox_name_X360_X;
 	public string xbox_name_X360_Y;
 	public string xbox_name_Rtrigger;
-    public string xbox_name_RBumper;
+	public string xbox_name_RBumper;
 
 	public AudioClip sound1;
 	public AudioClip sound2;
@@ -125,7 +125,6 @@ public class Simone_Attack : MonoBehaviour
 
 	#endregion
 
-	#region Update
 
 	void Update()
 	{
@@ -150,16 +149,6 @@ public class Simone_Attack : MonoBehaviour
 			}
 		}
 
-		/*
-		 * Key P is used for shooting. Depending on which element is active a different function is being called using the same button. 
-		 *  Because of this we are checking each flag in the conditional. 
-		 */
-
-		#region Key Bindings
-
-
-
-
 		if (m_attackRate >= m_coolDown)
 		{
 			if (Input.GetButton(xbox_name_RBumper))   
@@ -174,7 +163,6 @@ public class Simone_Attack : MonoBehaviour
 							S_WhippedCreamAttack();
 							SoundManager.instance.RandomizeSfx(sound1, sound2);
 							m_attackRate = 0;
-							m_whippedCounter++;
 							m_isAxisInUse = true;
 						}
 					}
@@ -185,8 +173,6 @@ public class Simone_Attack : MonoBehaviour
 					S_EnergyDrinkAttack();
 					SoundManager.instance.RandomizeSfx(sound1, sound2);
 					m_attackRate = 0;
-					m_energyCounter++;
-
 				}
 
 				if (m_spicyChocolateActive && !m_energyDrinkActive && !m_whippedCreamActive)
@@ -194,7 +180,6 @@ public class Simone_Attack : MonoBehaviour
 					S_SpicyChocolateAttack();
 					SoundManager.instance.RandomizeSfx(sound1, sound2);
 					m_attackRate = 0;
-					m_spicyCounter++;
 				}
 			}
 
@@ -204,17 +189,13 @@ public class Simone_Attack : MonoBehaviour
 			}
 		}
 
-
-		#region Activate Energy Drink
-
 		if (Input.GetKeyUp(KeyCode.L) || Input.GetButton(xbox_name_X360_B))
 		{
 			if (m_channelCooldownTiming == false)
 			{
 				if (ChannelEvent != null)
 				{
-					ChannelEvent();
-										
+					ChannelEvent();										
 				}
 				m_energyDrinkActive = true;
 				m_spicyChocolateActive = false;
@@ -223,12 +204,6 @@ public class Simone_Attack : MonoBehaviour
 				m_channelCooldownTiming = true;
 			}
 		}
-
-
-
-		#endregion
-
-		#region Activate Spicy Chocolate
 
 		if (Input.GetKeyUp(KeyCode.M) || Input.GetButton(xbox_name_X360_Y))
 		{
@@ -247,10 +222,6 @@ public class Simone_Attack : MonoBehaviour
 			}
 		}
 
-		#endregion
-
-		#region Activate Whipped Cream
-		//This returns the player from energy drink to auto attack. This will later be removed //Marcus
 		//I simply changed this to Whipped Cream and made it the default attack that Simone starts with //Bernhard
 		if (Input.GetKeyUp(KeyCode.K) || Input.GetButton(xbox_name_X360_X))
 		{
@@ -263,26 +234,10 @@ public class Simone_Attack : MonoBehaviour
 				m_energyDrinkActive = false;
 				m_whippedCreamActive = true;
 				m_spicyChocolateActive = false;
-				//m_playerMove.m_moveSpeed = 12;
 				m_coolDown = 0.5f;
 				m_channelCooldownTiming = true;
-
 			}
 		}
-
-		//if (Input.GetKeyUp(KeyCode.J) || Input.GetButton(xbox_name_X360_X))
-		//{
-		//    m_whippedCreamActive = true;
-		//    m_autoAttackActive = false;
-		//    m_spicyChocolateActive = false;
-		//    m_energyDrinkActive = false;
-		//    //m_damage = m_damage * 1.2;
-		//    m_playerMove.m_moveSpeed = m_playerMove.m_moveSpeed * m_whippedCreamMoveSpeedMod;
-		//    m_coolDown = 0.5f;
-		//    //Debug.Log(m_damage);
-		//}
-
-		#endregion
 
 		if (m_channelCooldownTiming == true)
 		{
@@ -294,13 +249,7 @@ public class Simone_Attack : MonoBehaviour
 			m_channelCooldownTiming = false;
 			m_channelCooldown = 0f;
 		}
-
-		#endregion
 	}
-
-	#endregion
-
-	#region Simone Attacks
 
 	/// <summary>
 	/// Simones auto attack.
@@ -311,9 +260,8 @@ public class Simone_Attack : MonoBehaviour
 		Vector3 playerPos = transform.position;
 		Vector3 playerDirection = transform.forward;
 		Quaternion playerRotation = transform.rotation;
-
 		Instantiate(m_whippedObj, m_transformOrigin.position, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
-
+		m_whippedCounter++;
 		m_whippedObj.GetComponent<Channeling_script>().whippedActive = true;
 	}
 
@@ -328,12 +276,9 @@ public class Simone_Attack : MonoBehaviour
 		Vector3 playerDirection = transform.forward;
 		Quaternion playerRotation = transform.rotation;
 		m_playerMoveRef.GetComponent<PlayerController>().m_energySpeed = true;
-
-
 		Instantiate(m_energyObj, m_transformOrigin.position, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
-
+		m_energyCounter++;
 		m_energyObj.GetComponent<Channeling_script>().energyActive = true;
-
 		gameObject.GetComponent<Player_Movement>().energySpeed = true;
 	}
 
@@ -342,20 +287,16 @@ public class Simone_Attack : MonoBehaviour
 		Vector3 playerPos = transform.position;
 		Vector3 playerDirection = transform.forward;
 		Quaternion playerRotation = transform.rotation;
-
 		Instantiate(m_spicyObj, m_transformOrigin.position, transform.rotation * Quaternion.Euler(90, 0, 0), transform);
-
+		m_spicyCounter++;
 		m_spicyObj.GetComponent<Channeling_script>().spicyActive = true;
 	}
 
-	#endregion
 
 	public void RushCollide()
 	{
 		m_rushStunned = true;
 	}
-
-	#region Counter handlers
 
 	public int GetWhippedCounter()
 	{
@@ -371,9 +312,6 @@ public class Simone_Attack : MonoBehaviour
 	{
 		return m_spicyCounter;
 	}
-	#endregion
-
-	#region List Handling
 
 	void AddEnemyToList()
 	{
@@ -393,7 +331,4 @@ public class Simone_Attack : MonoBehaviour
 			}
 		}
 	}
-
-	#endregion
-
 }
