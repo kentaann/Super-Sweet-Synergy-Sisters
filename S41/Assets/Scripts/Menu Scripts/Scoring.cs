@@ -16,6 +16,7 @@ public class Scoring : MonoBehaviour
     public int score = 0;
     private static Scoring m_Instance;
     public Text text;
+    public Text m_newHighScoreText;
     private int m_lowestHighscore;
     private int m_topHighScore;
 
@@ -48,6 +49,15 @@ public class Scoring : MonoBehaviour
     void FixedUpdate()
     {
         text.text = score.ToString();
+        if(score > m_lowestHighscore)
+        {
+            text.color = Color.red;
+        }
+
+        if(score > m_topHighScore)
+        {
+            text.color = Color.green;
+        }
     }
 
     void GetLowestHighScore()
