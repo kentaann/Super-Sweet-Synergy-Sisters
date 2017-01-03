@@ -8,9 +8,12 @@ public class Enemy_Projectile_Collide : MonoBehaviour
     public GameObject[] enemies;
     private const float m_RADIUS = 0f;
     public LayerMask m_PlayerMask;
+    private IEnumerator coroutine;
+    bool gotHit = false;
     // Use this for initialization
     void Start()
     {
+
         gameObject.GetComponent<Collider>().isTrigger = true;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -36,6 +39,8 @@ public class Enemy_Projectile_Collide : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<FixedPlayerHealth>().TakeDamage(20);
+            //coroutine = TakeDmgBlink(2.0f);
+            //StartCoroutine(coroutine);
             Destroy(gameObject);
         }
         
@@ -45,4 +50,18 @@ public class Enemy_Projectile_Collide : MonoBehaviour
         }
 
     }
+
+    //public IEnumerator TakeDmgBlink(float waitTime)
+    //{
+    //    while (true)
+    //    {
+    //        yield return new WaitForSeconds(waitTime);
+    //    }
+    //    //wait for x seconds
+    //    //yield return new WaitForSeconds(waitTime);
+    //    //after x seconds, the player can get hit again
+    //    //gotHit = false;
+    //}
+
+    
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class FixedPlayerHealth : MonoBehaviour {
 
@@ -7,15 +8,16 @@ public class FixedPlayerHealth : MonoBehaviour {
     public int maxHealth;
     public int lookForDamage;
     public float dmgTime = 0.1f;
-
+    
 
     private float m_timer;
     private const float m_GODTIMER = 5.0f;
-
+    Color color;
     // Use this for initialization
     void Start()
     {
         maxHealth = currentHealth;
+        
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class FixedPlayerHealth : MonoBehaviour {
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+       
     }
 
     public void GetHeal(float heal)
@@ -76,6 +79,7 @@ public class FixedPlayerHealth : MonoBehaviour {
         {
             //TakeDamage(20);         //here is where damage is taken
             enemyBody.AddExplosionForce(1000f, transform.position, 5f);         //players are supposed to be pushed away when damaged
+            
             Debug.Log("Hit enemy");
         }
     }
