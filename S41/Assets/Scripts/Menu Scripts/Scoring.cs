@@ -16,6 +16,8 @@ public class Scoring : MonoBehaviour
     public int score = 0;
     private static Scoring m_Instance;
     public Text text;
+    private int m_lowestHighscore;
+    private int m_topHighScore;
 
     public int Score
     {
@@ -38,13 +40,43 @@ public class Scoring : MonoBehaviour
             return;
         }
         m_Instance = this;
-
+        GetTopScore();
+        GetLowestHighScore();
 
     }   
 
     void FixedUpdate()
     {
         text.text = score.ToString();
+    }
+
+    void GetLowestHighScore()
+    {
+        List<int> scoreList = new List<int>();
+        scoreList = LoadHighScore();
+        if(scoreList.Count == 0)
+        {
+            m_lowestHighscore = score;
+        }
+        else
+        {
+            int tempCount = scoreList.Count;
+            m_lowestHighscore = scoreList[tempCount];
+        }
+    }
+
+    void GetTopScore()
+    {
+        List<int> scoreList = new List<int>();
+        scoreList = LoadHighScore();
+        if(scoreList.Count == 0)
+        {
+            m_topHighScore = score;
+        }
+        else
+        {
+            m_topHighScore = scoreList[0];
+        }
     }
 
     // high score saving
