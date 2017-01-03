@@ -21,6 +21,10 @@ public class Simone_Attack : MonoBehaviour
 	Player_Movement m_playerMove;                                   // Used to manipulate movement from this class
 	PlayerController m_playerMoveRef;
 
+    public ParticleSystem m_spicyEffect;                            // Particles activated when Simone changes channeling ability
+    public ParticleSystem m_whippedEffect;
+    public ParticleSystem m_energyEffect;
+
 	public delegate void EventHandler();
 	public static event EventHandler ChannelEvent;
 
@@ -200,8 +204,11 @@ public class Simone_Attack : MonoBehaviour
 				m_energyDrinkActive = true;
 				m_spicyChocolateActive = false;
 				m_whippedCreamActive = false;
-				m_coolDown = 0.15f;
+				m_coolDown = 3f;
 				m_channelCooldownTiming = true;
+
+                GetComponentInChildren<ParticleSystem>(m_energyEffect).Play();
+                //m_energyEffect.transform.GetComponentInChildren<ParticleSystem>().Play();
 			}
 		}
 
@@ -216,9 +223,11 @@ public class Simone_Attack : MonoBehaviour
 				m_spicyChocolateActive = true;
 				m_energyDrinkActive = false;
 				m_whippedCreamActive = false;
-				m_coolDown = 0.5f;
+				m_coolDown = 3f;
 				m_channelCooldownTiming = true;
 
+                GetComponentInChildren<ParticleSystem>(m_spicyEffect).Play();
+                //m_spicyEffect.transform.GetComponentInChildren<ParticleSystem>().Play();
 			}
 		}
 
@@ -234,8 +243,11 @@ public class Simone_Attack : MonoBehaviour
 				m_energyDrinkActive = false;
 				m_whippedCreamActive = true;
 				m_spicyChocolateActive = false;
-				m_coolDown = 0.5f;
+				m_coolDown = 3f;
 				m_channelCooldownTiming = true;
+
+                GetComponentInChildren<ParticleSystem>(m_whippedEffect).Play();
+                //m_whippedEffect.transform.GetComponentInChildren<ParticleSystem>().Play();
 			}
 		}
 
@@ -244,7 +256,7 @@ public class Simone_Attack : MonoBehaviour
 			m_channelCooldown += Time.deltaTime;
 		}
 
-		if (m_channelCooldown >= 2.0f)
+		if (m_channelCooldown >= 3.0f)
 		{
 			m_channelCooldownTiming = false;
 			m_channelCooldown = 0f;
