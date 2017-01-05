@@ -40,6 +40,7 @@ public class GameOver : MonoBehaviour {
         Scoring.Instance.SaveHighScore();
         ShowHighScore();
         isScoreListOpened = false;
+        SoundManager.instance.musicSource.Stop();
 	}
 	
 	// Update is called once per frame

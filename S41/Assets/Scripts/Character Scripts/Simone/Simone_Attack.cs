@@ -162,7 +162,7 @@ public class Simone_Attack : MonoBehaviour
 
 		if (m_attackRate >= m_coolDown)
 		{
-			if (Input.GetButton(xbox_name_RBumper))   
+			if (Input.GetButton(xbox_name_RBumper) || Input.GetKeyUp(KeyCode.P))   
 			{
 				if (m_isAxisInUse == false)
 				{

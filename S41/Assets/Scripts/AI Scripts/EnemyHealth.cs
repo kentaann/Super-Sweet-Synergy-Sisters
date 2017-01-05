@@ -22,7 +22,7 @@ public class EnemyHealth : MonoBehaviour
     private float m_creamAttackTimer;
     public bool ableToDamage = false;
     public ParticleSystem firePS;
-
+    //public GameObject fire_Ps;
     private void OnEnable()
     {
         //m_ScoreRef = GetComponent<Scoring>();
@@ -43,6 +43,8 @@ public class EnemyHealth : MonoBehaviour
 
         healthBar = transform.FindChild("EnemyCanvas").FindChild("HealthBackGround").FindChild("Health").GetComponent<Image>();
         firePS = GetComponent<ParticleSystem>();
+        //fire_Ps = GetComponent<GameObject>();
+        
     }
 
     void Update()
@@ -79,17 +81,22 @@ public class EnemyHealth : MonoBehaviour
 
     public void OnFire()
     {
+        
         if (m_isOnFire)
         {
+            
             m_spicyChocolateTimer += Time.deltaTime;
             if (m_spicyChocolateTimer < 3)
             {
-                GetComponentInChildren<ParticleSystem>().Play();
+                //fire_Ps.GetComponentInChildren<ParticleSystem>().Play();
+                gameObject.transform.FindChild("Fire_PS").GetChild(0).GetComponentInChildren<ParticleSystem>().Play();
                 currHealth -= m_spicyChocolateDmg;
 
                 if (m_spicyChocolateTimer >= 3)
                 {
                     m_isOnFire = false;
+                    gameObject.transform.FindChild("Fire_PS").GetChild(0).GetComponentInChildren<ParticleSystem>().Stop();
+                    
                 }
             }
         }

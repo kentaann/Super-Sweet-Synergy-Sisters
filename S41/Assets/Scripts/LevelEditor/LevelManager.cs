@@ -34,6 +34,7 @@ public class LevelManager : MonoBehaviour
     {
         
         currentLevel = new Level("Random Name", "LevelEditor");
+        
 
     }
 

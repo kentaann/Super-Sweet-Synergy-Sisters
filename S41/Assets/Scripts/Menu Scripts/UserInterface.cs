@@ -37,6 +37,7 @@ public class UserInterface : MonoBehaviour
         commonControlsText.enabled = false;
 
         optionMenuOpened = false;
+        
     }
 
     // Update is called once per frame
@@ -96,7 +97,8 @@ public class UserInterface : MonoBehaviour
         if (Input.GetKeyDown("joystick button 7") || Input.GetKeyDown(KeyCode.F1) && !optionMenuOpened)
         {
             SceneManager.LoadScene("Survival_Level");
-           
+            SoundManager.instance.musicSource.Play();
+
         }
     }
 }
