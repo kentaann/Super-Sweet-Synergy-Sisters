@@ -221,6 +221,8 @@ public class Simone_Attack : MonoBehaviour
 				m_whippedCreamActive = false;
 				m_coolDown = 0.15f;
 				m_channelCooldownTiming = true;
+
+                GetComponentInChildren<ParticleSystem>().Play();
 			}
 		}
 
@@ -244,6 +246,7 @@ public class Simone_Attack : MonoBehaviour
 				m_coolDown = 0.5f;
 				m_channelCooldownTiming = true;
 
+                GetComponentInChildren<ParticleSystem>().Play();
 			}
 		}
 
@@ -267,6 +270,7 @@ public class Simone_Attack : MonoBehaviour
 				m_coolDown = 0.5f;
 				m_channelCooldownTiming = true;
 
+                GetComponentInChildren<ParticleSystem>().Play();
 			}
 		}
 
@@ -289,7 +293,7 @@ public class Simone_Attack : MonoBehaviour
 			m_channelCooldown += Time.deltaTime;
 		}
 
-		if (m_channelCooldown >= 2.0f)
+		if (m_channelCooldown >= 3.0f)
 		{
 			m_channelCooldownTiming = false;
 			m_channelCooldown = 0f;
